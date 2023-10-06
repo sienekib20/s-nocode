@@ -7,12 +7,10 @@ use app\models\App;
 class AppController
 {
     public function index()
-    {   
-        $data = App::all();
-
-        var_dump($data);exit;
-
-        return view('app.index');
+    {  
+        $data = ['amor'];
+        
+        return view('app.index', compact('data'));
     }
 
     public function update($request)

@@ -1,1 +1,10 @@
-Options -Indexes
+#Options -Indexes
+
+RewriteEngine On
+
+RewriteBase /s-nocode/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ public/index.php [L]

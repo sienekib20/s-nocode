@@ -2,61 +2,55 @@
 
 namespace core\templates;
 
-use core\support\Check;
-
 class View
 {
-    private static function mainContainer($fileView)
+    private static function getBaseContent()
     {
-        $containerView = file_get_contents(view_path() . 'main.html');
+        ob_start();
 
-        $containerView = str_replace('{{content}}', $fileView, $containerView);
+        include view_path() . 'main.html';
 
-        echo $containerView;
+        return ob_get_clean();
+    }
+
+    private static function getViewContent($view, $params)
+    {
+        $path = view_path();
+
+        if (str_contains($view, '.')) {
+            $views = explode('.', $view);
+            foreach ($views as $view) {
+                if (is_dir($path . $view)) {
+                    $path = $path . $view . '/';
+                }
+            }
+            $view = $path . end($views) . '.html';
+        } else {
+            $view = $path . $view . '.html';
+        }
+
+        foreach ($params as $param => $value) {
+            $$param = $value;
+        }
+
+        if (file_exists($view)) {
+
+            ob_start();
+
+            include $view;
+
+            return ob_get_clean();
+        }
+
+        die('Tela não encontrada');
     }
 
     public static function render($view, $params = [])
     {
-        $path = view_path();
+        $base = self::getBaseContent();
 
-        $renderedView = '';
+        $viewContent = self::getViewContent($view, params: $params);
 
-        try {
-            if (Check::viewContainDot($view)) {
-
-                $views = explode('.', $view);
-
-                foreach ($views as $fileView) {
-
-                    $renderedView .= is_dir($path . $fileView) ?  $path . $fileView . '/' : $fileView . '.html';
-                }
-            } else {
-
-                $renderedView = $view . '.html';
-            }
-
-            foreach ($params as $key => $value) {
-                $$key = $value;
-            }
-
-            if (!file_exists($renderedView)) {
-
-                throw new \Exception("Screen `{$renderedView}` Not Found", 1);
-            }
-
-            include $renderedView;
-
-            /*ob_start();
-
-            self::mainContainer($renderedView);
-
-            return ob_get_clean();*/
-
-        } catch (\Exception $ex) {
-
-            response()->setHttpResponseCode(404);
-
-            die('Error: ' . $ex->getMessage());
-        }
+        echo str_replace('{{content}}', $viewContent, $base);
     }
 }
