@@ -22,4 +22,16 @@ class Check
     {
         return str_contains($view, '.');
     }
+
+    public static function fileExist($file)
+    {
+        if (!file_exists($file)) {
+
+            response()->setHttpResponseCode(404);
+
+            throw new \Exception("This File `{$file}` not exists", 1);
+        }
+
+        return $file;
+    }
 }

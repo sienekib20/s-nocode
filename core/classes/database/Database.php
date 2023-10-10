@@ -21,7 +21,7 @@ class Database
 
             if (is_null(self::$link)) {
                 self::$link = new PDO(
-                    'mysql:host=localhost;dbname=nocode',
+                    'mysql:host=localhost;dbname=framework',
                     'root',
                     '',
                     [

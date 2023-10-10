@@ -22,31 +22,41 @@ class Route
 
             $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-            foreach ($routes as $key => $route) {
+            $storage = explode('/', ltrim($uri, '/'))[0];
 
-                $pattern = Str::generatePatternOf($key);
+            if ($storage == 'nocode') {
 
-                if (preg_match($pattern, $uri, $matches)) {
+                $uri = explode('/',$uri);
 
-                    list($controller, $method) = $route;
+                include root() . '/public/storage/templates/' . end($uri) . '/index.php';
+            } else {
 
-                    $instatiatedController = Check::despatchClassIfExists($controller);
+                foreach ($routes as $key => $route) {
 
-                    if (!method_exists($instatiatedController, $method)) {
+                    $pattern = Str::generatePatternOf($key);
 
-                        $controllerName = explode('\\', $controller);
-                        $controllerName = end($controllerName);
+                    if (preg_match($pattern, $uri, $matches)) {
 
-                        throw new Exception("Method {$method} Not Found in Controller {$controllerName}", 1);
+                        list($controller, $method) = $route;
+
+                        $instatiatedController = Check::despatchClassIfExists($controller);
+
+                        if (!method_exists($instatiatedController, $method)) {
+
+                            $controllerName = explode('\\', $controller);
+                            $controllerName = end($controllerName);
+
+                            throw new Exception("Method {$method} Not Found in Controller {$controllerName}", 1);
+                        }
+
+                        $params =  Str::changeAllParamsIndex(array_values(array_slice($matches, 1)));
+
+                        return $instatiatedController->$method($params);
                     }
-
-                    $params =  Str::changeAllParamsIndex(array_values(array_slice($matches, 1)));
-
-                    return $instatiatedController->$method($params);
                 }
-            }
 
-            throw new Exception("Route {$uri} Not Found", 1);
+                throw new Exception("Route {$uri} Not Found", 1);
+            }
         } catch (Exception $ex) {
 
             response()->setHttpResponseCode(404);
