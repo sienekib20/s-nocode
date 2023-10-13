@@ -19,10 +19,8 @@ class Templates
 
     public function load_templates()
     {
-        $templates = Database::select('select t.template_id, t.titulo, t.autor, (select file from files where file_id = t.file_id) as file, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo_template, t.referencia from templates as t');
-
-        var_dump($templates);
-        exit;
+        $templates = [];
+        //$templates = Database::select('select t.template_id, t.titulo, t.autor, (select file from files where file_id = t.file_id) as file, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo_template, t.referencia from templates as t');
 
         return view('app.explorar', compact('templates'));
     }

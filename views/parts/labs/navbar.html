@@ -12,12 +12,12 @@
       </div>
     </div>
     <div class="ncode-nav-items">
-      <div class="nav-item active">
-        <a href="" class="nav-link">
+      <div class="nav-item <?= request()->path() == '' ? 'active' : '' ?>">
+        <a href="/" class="nav-link">
           <small>Inicio</small>
         </a>
       </div>
-      <div class="nav-item">
+      <div class="nav-item <?= request()->path() == 'templates' ? 'active' : '' ?>">
         <a href="/templates" class="nav-link">
           <small>Explorar</small>
         </a>

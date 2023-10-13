@@ -1,155 +1,60 @@
-<?= parts('nav.navbar') ?>
-<header class="labs-header-reduce">
+<?= parts('labs.navbar') ?>
+<header class="mh">
   <div class="wallpaper"></div>
-  <div class="contain-header">
-    <div class="labs-container">
-      <div class="text">
-        <small class="text-muted">Escreve alguma coisa</small>
-        <form action="" class="labs-header-form">
-          <input type="text" placeholder="Pesquise...">
-          <span class="bi-search"></span>
-        </form>
+  <div class="ncode-container">
+    <div class="nocode-header-caption">
+      <span class="bold">Nocode Templates
+      </span>
+      <small class="tw-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores dolor consequatur <br>
+        ipsum debitis, quis blanditiis ab sint odit quidem labore.</small>
+      <form action="">
+        <div class="ncode-form-item">
+          <input type="text" class="ncode-input" name="searchable" placeholder="Buscar template">
+          <small class="bi-search"></small>
+        </div>
+      </form>
+      <div class="ncode-filter">
+        <a href="" class="ncode-filter-item active">
+          <small class="item">Landing Pages</small>
+        </a>
+        <a href="" class="ncode-filter-item">
+          <small class="item">Dashboard</small>
+        </a>
+        <a href="" class="ncode-filter-item">
+          <small class="item">Tudo</small>
+        </a>
       </div>
     </div>
   </div>
 </header>
 
 <div class="card-section">
-  <div class="card-section-header">
-    <div class="labs-container">
-      <div class="title">
-        <small class="colored">SEJA INDEPENDENTE NA GESTÃO DO TEU NEGÓCIO</small>
-        <span>Landing Pages</span>
-        <small class="text-muted">Escolhe um da sua preferência</small>
-      </div>
-    </div>
-  </div>
   <div class="card-section-contain">
-    <div class="labs-container">
-      <div class="card-section-row">
-        <?php for($i = 0; $i < 3; $i++): ?>
-        <div class="template-item">
-          <div class="template-cover">
-            <img src="/assets/images/example-2.png" alt="">
-            <div class="template-actions">
-              <a href="" class="item">
-                <small class="bi-plus-square"></small>
-                <small class="tooltip">Obter página</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-eye"></small>
-                <small class="tooltip">Previsualizar</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-heart"></small>
-                <small class="tooltip">Gosto</small>
-              </a>
+    <div class="ncode-container">
+      <?php for($x = 0; $x < 2; $x++): ?>
+      <div class="card-templates-row">
+        <?php for($i = 0; $i < 4; $i++): ?>
+        <a href="" class="card-template-item">
+          <div class="cover">
+            <img src="/assets/images/ncode-1.jpg" alt="">
+          </div>
+          <div class="template-info">
+            <div>
+              <small class="name">TestIt template</small>
+              <small class="tw-muted">autor: Sílica</small>
             </div>
-          </div><!--/.template-cover-->
-          <small class="template-title">testeIt</small>
-        </div> <!--/.template-item-->
+            <small class="bi-heart-fill tw-muted"> <span class="qtd">2</span> </small>
+          </div>
+        </a>
         <?php endfor; ?>
-      </div> <!--card-section-row-->
-
-      <div class="card-section-row">
-        <?php for($i = 0; $i < 3; $i++): ?>
-        <div class="template-item">
-          <div class="template-cover">
-            <img src="/assets/images/example-2.png" alt="">
-            <div class="template-actions">
-              <a href="" class="item">
-                <small class="bi-plus-square"></small>
-                <small class="tooltip">Obter página</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-eye"></small>
-                <small class="tooltip">Previsualizar</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-heart"></small>
-                <small class="tooltip">Gosto</small>
-              </a>
-            </div>
-          </div><!--/.template-cover-->
-          <small class="template-title">testeIt</small>
-        </div> <!--/.template-item-->
-        <?php endfor; ?>
-      </div> <!--card-section-row-->
-
-      <div class="card-section-row">
-        <div class="labs-btn-action">
-          <a href="" class="btn">Ver mais</a>
-        </div>
       </div>
-
+      <?php endfor; ?>
     </div>
   </div>
-</div> <!--/.landing-pages-->
+</div>
 
-<div class="card-section">
-  <div class="card-section-header">
-    <div class="labs-container">
-      <div class="title">
-        <small class="colored">SEJA INDEPENDENTE NA GESTÃO DO TEU NEGÓCIO</small>
-        <span>Dashboard</span>
-        <small class="text-muted">Escolhe um da sua preferência</small>
-      </div>
-    </div>
-  </div>
-  <div class="card-section-contain">
-    <div class="labs-container">
-      <div class="card-section-row">
-        <?php for($i = 0; $i < 3; $i++): ?>
-        <div class="template-item">
-          <div class="template-cover">
-            <img src="/assets/images/example-2.png" alt="">
-            <div class="template-actions">
-              <a href="" class="item">
-                <small class="bi-plus-square"></small>
-                <small class="tooltip">Obter página</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-eye"></small>
-                <small class="tooltip">Previsualizar</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-heart"></small>
-                <small class="tooltip">Gosto</small>
-              </a>
-            </div>
-          </div><!--/.template-cover-->
-          <small class="template-title">testeIt</small>
-        </div> <!--/.template-item-->
-        <?php endfor; ?>
-      </div> <!--card-section-row-->
-
-      <div class="card-section-row">
-        <?php for($i = 0; $i < 3; $i++): ?>
-        <div class="template-item">
-          <div class="template-cover">
-            <img src="/assets/images/example-2.png" alt="">
-            <div class="template-actions">
-              <a href="" class="item">
-                <small class="bi-plus-square"></small>
-                <small class="tooltip">Obter página</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-eye"></small>
-                <small class="tooltip">Previsualizar</small>
-              </a>
-              <a href="" class="item">
-                <small class="bi-heart"></small>
-                <small class="tooltip">Gosto</small>
-              </a>
-            </div>
-          </div><!--/.template-cover-->
-          <small class="template-title">testeIt</small>
-        </div> <!--/.template-item-->
-        <?php endfor; ?>
-      </div> <!--card-section-row-->
-
-    </div>
-  </div>
-</div> <!--/.dashboard-->
 
 <?= parts('footer') ?>
+
+
+<script src="/assets/js/site/index.js"></script>
