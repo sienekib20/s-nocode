@@ -514,3 +514,98 @@ FAQS
 .faqs-item.active .faqs-contain span {
   display: block;
 }
+
+
+
+/*
+PRICING
+*/
+
+.card-pricing-header {
+  position: relative;
+  color: #fdfdfd;
+  text-align: center;
+}
+
+.card-pricing-header .title {
+  font-size: 30px;
+}
+
+.card-pricing-header .ncode-btn-action.active {
+  color: #fdfdfd;
+  border-color: transparent;
+  background-color: #06f;
+}
+
+.card-pricing-contain {
+  display: none;
+  align-items: start;
+  position: relative;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5rem;
+}
+
+.card-pricing-contain.active {
+  display: flex;
+}
+
+.card-pricing-item {
+  width: 280px;
+  min-width: 280px;
+  height: 420px;
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  background-color: #101021;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-pricing-item .name {
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.card-pricing-item .price {
+  display: block;
+  margin: 1rem 0;
+  color: #07f;
+  font-size: 18px;
+  font-family: 'Roboto-Medium';
+}
+
+.card-pricing-item .items {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0 0;
+}
+
+.card-pricing-item .items small {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Roboto-Light';
+}
+
+.card-pricing-item .items small + small {
+  margin-top: 1rem;
+}
+
+.card-pricing-item .items + a {
+  width: 80%;
+  left: 10%;
+  height: 35px;
+  bottom: 5%;
+  color: #fdfdfd;
+  font-size: 13px;
+  font-family: 'Roboto-Light';
+  background-color: #06f;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
