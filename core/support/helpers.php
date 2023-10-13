@@ -89,11 +89,9 @@ if (!function_exists('get_file')) :
     {
         $files = [
             'htaccess'      => config_dir() . '/.htaccess',
-            'core'          => config_dir() . '/core.php',
-            'controller'    => config_dir() . '/controller.php',
+            'Pagecontroller'    => config_dir() . '/Pagecontroller.php',
             'index'         => config_dir() . '/index.php',
-            'render'        => config_dir() . '/render.php',
-            'routes'        => config_dir() . '/routes.php',
+            'Pagemodel'        => config_dir() . '/PageModel.php',
         ];
 
         foreach ($files as $key => $value) {
@@ -112,7 +110,17 @@ if (!function_exists('view')) :
 
     function view($view, $params = [])
     {
-        return View::render($view, $params);
+        return View::make($view, $params);
+    }
+
+endif;
+
+if (!function_exists('encode')) :
+
+    function encode($value = [])
+    {
+        echo json_encode($value);
+        exit;
     }
 
 endif;

@@ -10,5 +10,7 @@ $routes->addRoute('/', [AppController::class, 'index']);
 $routes->addRoute('/user/[0-9]+', [AppController::class, 'update']);
 
 $routes->addRoute('/explorar', [Templates::class, 'load_templates']);
+$routes->addRoute('/api/template', [Templates::class, 'upload_template']);
+
 
 $routes->dispatch();

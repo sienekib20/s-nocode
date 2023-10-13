@@ -7,10 +7,8 @@ use app\models\App;
 class AppController
 {
     public function index()
-    {  
-        $data = ['amor'];
-        
-        return view('app.index', compact('data'));
+    {
+        return view('app.site.index');
     }
 
     public function update($request)

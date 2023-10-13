@@ -26,7 +26,7 @@ class Route
 
             if ($storage == 'nocode') {
 
-                $uri = explode('/',$uri);
+                $uri = explode('/', $uri);
 
                 include root() . '/public/storage/templates/' . end($uri) . '/index.php';
             } else {

@@ -14,9 +14,7 @@ class Struct
         'app/assets/js',
         'app/assets/img',
         'app/controllers',
-        'app/router',
-        'app/utils',
-        'core',
+        'app/models',
         'views/pages'
     ];
 
@@ -70,38 +68,10 @@ class Struct
                 }
             }
         }
-        /*
-
-        try {
-
-            if ($type == 'text/css') {
-
-                move_uploaded_file($file['tmp_name'][$index], $dir . $file['name'][$index]);
-                $countError = 0;
-            } else
-            if ($type == 'text/javascript') {
-
-                move_uploaded_file($file['tmp_name'][$index], $dir . $file['name'][$index]);
-                $countError = 0;
-            } else
-            if (explode('/', $type)[0] == 'image') {
-
-                move_uploaded_file($file['tmp_name'][$index], $dir . $file['name'][$index]);
-                $countError = 0;
-            } else {
-                throw new Exception("Erro ao fazer o upload do ficheiro {$file['name'][$index]}", 1);
-            }
-        } catch (Exception $ex) {
-            repport('Erro de upload', $ex, 500);
-        }
-
-        return $countError;*/
-
-        //move_uploaded_file($file['tmp_name'][$index], $structure['assets/js'] . $file['name'][$index]);
     }
 
 
-    public static function create_structure($template_name, $files = [])
+    public static function create_structure($template_name)
     {
 
         $created_dir = [];
@@ -111,6 +81,9 @@ class Struct
 
         $root = self::create_dir($template_directory);
         $full_path = $root;
+        $created_dir['root'] = $root;
+        $created_dir['reference'] = $template_directory;
+
 
         if ($root) {
             self::put_contain('index', $full_path . 'index.php');
@@ -123,24 +96,21 @@ class Struct
 
                 $created_dir[$folder] = self::create_dir($root . $folder);
 
-                self::put_file($created_dir[$folder], 0, $files, '');
+                //self::put_file($created_dir[$folder], 0, $files, '');
 
                 $toSend = explode('/', $folder);
                 $toSend = end($toSend);
 
-                if ($toSend == 'router') {
-                    $toSend = 'routes';
+                if ($folder == 'app/controllers' || $folder == 'app/models') {
+
+                    $toSend = ($folder == 'app/controllers') ? 'Pagecontroller' : 'Pagemodel';
+
+                    self::put_contain($toSend, $created_dir[$folder] . $toSend . '.php');
                 }
-                if ($toSend == 'utils') {
-                    $toSend = 'render';
-                }
-                if ($toSend == 'controllers') {
-                    $toSend = 'controller';
-                }
-                self::put_contain($toSend, $created_dir[$folder] . $toSend . '.php');
             }
 
-            return rtrim($root, '/');
+            //return rtrim($root, '/');
+            return $created_dir;
         }
         return null;
     }

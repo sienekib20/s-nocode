@@ -1,3 +1,0 @@
-<?php
-class Core
-{public function run($routes){define('root', __DIR__ . '/../');define('assets', __DIR__ . '/../app/assets/');$url = '/';isset($_GET['url']) ? $url .= $_GET['url'] : '';($url != '/') ? $url = rtrim($url, '/') : $url;foreach ($routes as $path => $controller) {$path = preg_replace('/({.*})/', '[0-9a-zA-Z]', $path);$pattern = '#^' . preg_replace('/{.*}/', '([0-9a-z]+)', $path) . '$#';if (preg_match_all($pattern, $url, $matches)) {array_shift($matches);[$currentController, $action] = explode('@', $controller);require_once __DIR__ . "/../app/controllers/$currentController.php";$newController = new $currentController();$newController->$action();}}}}
