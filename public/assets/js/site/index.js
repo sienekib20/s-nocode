@@ -11,9 +11,6 @@ window.addEventListener('scroll', () => {
         if (elementTop < windowHeight) {
             element.style.transform = 'translateY(0)';
             element.style.opacity = 1;
-        } else {
-            element.style.transform = 'translateY(50px)';
-            element.style.opacity = 0;
         }
     })
 
@@ -24,9 +21,6 @@ window.addEventListener('scroll', () => {
         if (elementTop < windowHeight) {
             element.style.transform = 'translateX(0)';
             element.style.opacity = 1;
-        } else {
-            element.style.transform = 'translateX(400px)';
-            element.style.opacity = 0;
         }
     })
 
@@ -37,9 +31,6 @@ window.addEventListener('scroll', () => {
         if (elementTop < windowHeight) {
             element.style.transform = 'translateY(0)';
             element.style.opacity = 1;
-        } else {
-            element.style.transform = 'translateY(40px)';
-            element.style.opacity = 0;
         }
     })
 });

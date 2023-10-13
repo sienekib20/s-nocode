@@ -155,9 +155,111 @@
     </div>
   </div>
   <div class="card-section-contain">
-    <div class="ncode-container"></div>
+    <div class="ncode-container">
+      <div class="card-princing"></div>
+    </div>
   </div>
 </div>
+
+<div class="card-section">
+  <div class="card-section-header">
+    <div class="ncode-container">
+      <div class="title">
+        <small class="tw-muted">Perguntas Frequentes</small>
+        <span class="bold">FAQ's</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-section-contain">
+    <div class="ncode-container">
+      <div class="card-faqs-container">
+        <?php for($i = 0; $i < 5; $i++): ?>
+        <div class="faqs-item <?= ($i == 0) ? 'active' : '' ?>">
+          <div class="faqs-header">
+            <span class="name">Como Faço para começar</span>
+            <span class="bi-chevron-down"></span>
+          </div>
+          <div class="faqs-contain">
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores et, veritatis ducimus similique numquam
+              repudiandae ullam veniam expedita voluptatem iste.</span>
+          </div>
+        </div>
+        <?php endfor; ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-section">
+  <div class="card-section-header">
+    <div class="ncode-container">
+      <div class="title">
+        <small class="tw-muted"></small>
+        <span class="bold">Contacte-Nos</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-section-contain">
+    <div class="ncode-container">
+      <div class="card-section-row">
+        <div class="contacts">
+          <div class="contact-item">
+            <span class="text">TIre as tuas dúvidas</span>
+          </div>
+          <div class="contact-item">
+            <small class="bi-pin-map-fill"></small>
+            <div class="text">
+              <small>Av. Doutor António A. Neto, Bairro Azul| Ingombota Luanda, Angola
+                Referencia Viaduto do Zamba 2 <br> Estamos aberto de segunda à sexta|das 8h às 17h</small>
+
+            </div>
+          </div>
+          <div class="contact-item">
+            <small class="bi-telephone-fill"></small>
+            <div class="text">
+              <small> <a href="">+244 948 109 778</a></small>
+            </div>
+          </div>
+          <div class="contact-item">
+            <small class="bi-envelope-at-fill"></small>
+            <div class="text">
+              <small> <a href="">cc@silicaweb.ao</a> </small>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="text">Acompanhe-nos as redes sociais</span>
+          </div>
+          <div class="contact-social">
+            <a href="https://webmail.silicaweb.ao/" class="btn-link" target="_blank"><small
+                class=""><small>Wm</small></small></a>
+            <a href="" class="btn-link"><small class="bi-linkedin"></small></a>
+            <a href="" class="btn-link"><small class="bi-facebook"></small></a>
+            <a href="" class="btn-link"><small class="bi-youtube"></small></a>
+          </div>
+        </div>
+        <form action="" class="subject">
+          <div class="ncode-form-item">
+            <input type="text" class="ncode-input" name="contact_name" required>
+            <small class="placeholder">Nome</small>
+          </div>
+          <div class="ncode-form-item">
+            <input type="text" class="ncode-input" name="contact_email" required>
+            <small class="placeholder">Email</small>
+          </div>
+          <div class="ncode-form-item">
+            <textarea type="text" class="ncode-input" name="contact_msg" required></textarea>
+            <small class="placeholder">Mensagem</small>
+          </div>
+          <div class="ncode-form-item">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?= parts('footer') ?>
 
 
 <script src="/assets/js/site/index.js"></script>
