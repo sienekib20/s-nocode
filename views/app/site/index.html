@@ -164,6 +164,31 @@
   </div>
 </div>
 
+<?php
+  $faqs = [
+    [
+    'title' => 'Como começar?',
+    'answer' => 'Para começar adera primeiro a um plano'
+    ],
+    [
+    'title' => 'Quando o meu plano atingir o limite, o meu site pára de funcionar?',
+    'answer' => 'Para começar adera primeiro a um plano'
+    ],
+    [
+    'title' => 'Como começar?',
+    'answer' => 'Para começar adera primeiro a um plano'
+    ],
+    [
+    'title' => 'Como começar?',
+    'answer' => 'Para começar adera primeiro a um plano'
+    ],
+    [
+    'title' => 'Como começar?',
+    'answer' => 'Para começar adera primeiro a um plano'
+    ]
+  ];
+?>
+
 <div class="card-section">
   <div class="card-section-header">
     <div class="ncode-container">
@@ -175,16 +200,18 @@
   <div class="card-section-contain">
     <div class="ncode-container">
       <div class="card-faqs-container">
-        <?php for($i = 0; $i < 5; $i++): ?>
+        <?php for($i = 0; $i < count($faqs); $i++): ?>
         <div class="faqs-item <?= ($i == 0) ? 'active' : '' ?>">
           <div class="faqs-header">
-            <span class="name">Como Faço para começar</span>
+            <span class="name">
+              <?= $faqs[$i]['title'] ?>
+            </span>
             <span class="bi-chevron-down"></span>
           </div>
           <div class="faqs-contain">
-            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores et, veritatis ducimus similique
-              numquam
-              repudiandae ullam veniam expedita voluptatem iste.</span>
+            <span>
+              <?= $faqs[$i]['answer'] ?>
+            </span>
           </div>
         </div>
         <?php endfor; ?>

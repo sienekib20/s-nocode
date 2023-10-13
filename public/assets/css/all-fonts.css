@@ -1,6 +1,23 @@
+/*
+COUSINE
+*/
+
+@font-face {
+  font-family: 'Cousine';
+  src: url('fonts/Cousine/Cousine-Regular.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cousine';
+  src: url('fonts/Cousine/Cousine-Bold.ttf');
+  font-style: normal;
+}
+
+
 @font-face {
   font-family: 'Cascadia';
-  src: url('fonts/Cascadia.ttf') format('ttf');
+  src: url('fonts/Cascadia.ttf');
 }
 
 @font-face {

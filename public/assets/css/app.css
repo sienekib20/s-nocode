@@ -104,6 +104,10 @@ header {
   position: relative;
 }
 
+header .bold  {
+  font-family: 'Roboto-Bold';
+  font-size: 34px !important;
+}
 /*
 header::after {
   content: '';
@@ -140,7 +144,7 @@ header::after {
 .bold {
   font-size: 20px;
   line-height: 34px;
-  font-family: 'Roboto-Bold';
+  font-family: 'Cascadia';
   color: #fdfdfd;
   display: block;
   margin-bottom: 10px;
@@ -205,7 +209,7 @@ header::after {
 .titlebar-item .title {
   color: #fdfdfd;
   font-size: 18px;
-  font-family: 'Roboto-Bold';
+  font-family: 'Cascadia';
 }
 
 
@@ -258,7 +262,7 @@ cARDS
 
 .text-header {
   color: #fdfdfd;
-  font-family: 'Roboto-Bold';
+  font-family: 'Cousine';
   margin-bottom: 2rem;
   font-size: 20px;
 }
@@ -528,10 +532,7 @@ FAQS
   justify-content: space-between;
   position: relative;
   cursor: pointer;
-}
-
-.faqs-item.active .faqs-header {
-  font-family: 'Roboto-Medium';
+  font-family: 'Cousine';
 }
 
 .faqs-contain {
@@ -566,6 +567,7 @@ PRICING
 
 .card-pricing-header .title {
   font-size: 30px;
+  font-family: 'Cousine';
 }
 
 .card-pricing-header .ncode-btn-action.active {
