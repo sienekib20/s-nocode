@@ -35,3 +35,16 @@ window.addEventListener('scroll', () => {
     })
 });
 
+
+const ncodeBtnAction = document.querySelectorAll('.ncode-btn-action');
+const cardPricingContain = document.querySelectorAll('.card-pricing-contain');
+
+ncodeBtnAction.forEach((btn, key) => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        cardPricingContain.forEach(card => { card.classList.remove('active') });
+        ncodeBtnAction.forEach(card => { card.classList.remove('active') });
+        btn.classList.add('active');
+        cardPricingContain[(key == 2 || key == 3) ? key - 2 : 0].classList.add('active');
+    })
+});

@@ -1,4 +1,9 @@
 @font-face {
+  font-family: 'Cascadia';
+  src: url('fonts/Cascadia.ttf') format('ttf');
+}
+
+@font-face {
   font-family: 'Poppins-Regular';
   src: url('fonts/Poppins-Regular.otf') format('otf');
   font-style: normal;

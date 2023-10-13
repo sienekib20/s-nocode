@@ -138,7 +138,7 @@ header::after {
 
 
 .bold {
-  font-size: 34px;
+  font-size: 20px;
   line-height: 34px;
   font-family: 'Roboto-Bold';
   color: #fdfdfd;
@@ -171,7 +171,15 @@ header::after {
   color: rgba(255, 255, 255, 0.4);
   padding: 0.2rem 0.3rem;
   border-radius: 4px;
+  transition: 0.15s ease;
   border: solid 1px rgba(255, 255, 255, 0.4);
+}
+
+.ncode-btn-action.active,
+.ncode-btn-action:hover {
+  border-color: transparent;
+  background-color: #06f;
+  color: #fff;
 }
 
 .titlebar {
@@ -241,57 +249,56 @@ cARDS
   justify-content: space-between;
 }
 
-.contain-row {
-  width: 45%;
-  opacity: 0;
-  transition: 1s 0.2s ease-in-out;
-  transform: translateY(-40px);
-}
-
-.contain-row img {
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-}
-
-img.reaveled {
-  transition: 1s 0.1s ease-in-out;
-  opacity: 0;
-  transform: translateX(500px);
-}
-
-.list-vertical {
-  display: flex;
-  flex-direction: column;
+.contain-static-slider,
+.contain-text {
+  width: 48%;
   position: relative;
+  color: #fdfddf;
 }
 
-.list-item-lead {
-  padding: 0.5rem 1rem;
-  margin: 1rem 0 2rem;
-  font-family: 'Roboto-Light';
-  color: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.text-header {
+  color: #fdfdfd;
+  font-family: 'Roboto-Bold';
+  margin-bottom: 2rem;
+  font-size: 20px;
 }
 
-.list-item {
-  width: 100%;
-  position: relative;
-  font-size: 18px;
+.text-items small {
   display: flex;
   align-items: center;
-  gap: 20px;
-  color: rgba(255, 255, 255, 0.7);
+  gap: 10px;
+  margin-top: 1rem;
   font-family: 'Roboto-Light';
 }
 
-.list-item+.list-item {
-  margin-top: 2rem;
+.contain-static-slider {
+  display: flex;
+  position: relative;
+  gap: 2px;
 }
 
-.list-item a {
-  color: #fdfdfd;
-  text-decoration: underline;
+.static-slider-item {
+  width: 25%;
+  height: 240px;
+  position: relative;
+  transform: skewY(2deg);
+}
+
+.static-slider-item:nth-child(2) {
+  height: 280px;
+  margin-top: -1rem;
+}
+
+.static-slider-item:nth-child(3) {
+  height: 260px;
+  margin-top: -2rem;
+}
+
+.static-slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 
@@ -319,6 +326,14 @@ img.reaveled {
 /*
 CONTACTS
 */
+
+.card-section:has(.contacts) {
+  background-color: #22222E;
+  height: 80vh;
+  padding-top: 4rem;
+  margin-top: 2rem;
+  border-radius: 0 0 0 10%;
+}
 
 .card-section-row:has(.contacts) {
   justify-content: space-between;
@@ -385,7 +400,7 @@ FOOTER
 footer {
   height: 60px;
   position: relative;
-  background-color: #22222E;
+  /*background-color: #22222E;*/
 }
 
 footer .ncode-container {
@@ -412,7 +427,7 @@ CONTACT FORM
   border: solid 1px rgba(255, 255, 255, 0.1);
 }
 
-.ncode-form-item + .ncode-form-item {
+.ncode-form-item+.ncode-form-item {
   margin-top: 1rem;
 }
 
@@ -428,15 +443,35 @@ CONTACT FORM
   font-family: 'Roboto-Light';
 }
 
-.ncode-input:focus + .placeholder,
-.ncode-input:valid + .placeholder {
+.ncode-input:focus+.placeholder,
+.ncode-input:valid+.placeholder {
   top: 0;
-  background-color: #151521;
+  background-color: #22222E;
 }
 
 textarea {
   resize: none;
   padding-top: 6.5%;
+}
+
+.ncode-form-row {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ncode-form-row .ncode-form-item {
+  width: 48%;
+  margin: 0;
+}
+
+.ncode-form-row .placeholder {
+  left: 10% !important;
+}
+
+.ncode-form-row .ncode-input {
+  padding-left: 10% !important;
 }
 
 .ncode-form-item:has(textarea) {
@@ -476,11 +511,12 @@ FAQS
   width: 100%;
   position: relative;
   padding: 0 1rem;
-  background-color: #22222E;
+  background-color: #101021;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fdfdfd;
 }
 
-.faqs-item + .faqs-item {
+.faqs-item+.faqs-item {
   margin-top: 1rem;
 }
 
@@ -493,6 +529,7 @@ FAQS
   position: relative;
   cursor: pointer;
 }
+
 .faqs-item.active .faqs-header {
   font-family: 'Roboto-Medium';
 }
@@ -554,11 +591,21 @@ PRICING
   width: 280px;
   min-width: 280px;
   height: 420px;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 10px;
   position: relative;
+  transition: 0.2s ease;
   background-color: #101021;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-pricing-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.03);
+}
+
+.card-pricing-item:nth-child(2) {
+  height: 450px;
 }
 
 .card-pricing-item .name {
@@ -590,11 +637,11 @@ PRICING
   font-family: 'Roboto-Light';
 }
 
-.card-pricing-item .items small + small {
+.card-pricing-item .items small+small {
   margin-top: 1rem;
 }
 
-.card-pricing-item .items + a {
+.card-pricing-item .items+a {
   width: 80%;
   left: 10%;
   height: 35px;
