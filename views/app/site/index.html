@@ -67,6 +67,20 @@
   </div>
 </div>
 
+<div class="card-section">
+  <div class="card-section-contain">
+    <div class="ncode-container">
+      <div class="ncode-trailer">
+        <span class="bold">Não sabes como Funciona? <br> Ensinamos você </span>
+        <div class="ncode-video-play">
+          <small class="bi-play-fill"></small>
+          <small>Assistir</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="card-section">
   <div class="card-section-contain">
@@ -167,24 +181,24 @@
 <?php
   $faqs = [
     [
-    'title' => 'Como começar?',
-    'answer' => 'Para começar adera primeiro a um plano'
+    'title' => 'O que é preciso para começar?',
+    'answer' => 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano, só assim que podes começar'
     ],
     [
     'title' => 'Quando o meu plano atingir o limite, o meu site pára de funcionar?',
-    'answer' => 'Para começar adera primeiro a um plano'
+    'answer' => 'Antes que expire o teu plano receberas notificações antes do tempo'
     ],
     [
-    'title' => 'Como começar?',
-    'answer' => 'Para começar adera primeiro a um plano'
+    'title' => 'É preciso saber programar pra modificar o template?',
+    'answer' => 'Pensamos em si, podes não saber programar'
     ],
     [
-    'title' => 'Como começar?',
-    'answer' => 'Para começar adera primeiro a um plano'
+    'title' => 'Com quem posso partilhar o meu dóminio',
+    'answer' => 'Reposta a processar'
     ],
     [
-    'title' => 'Como começar?',
-    'answer' => 'Para começar adera primeiro a um plano'
+    'title' => 'Existem template para o meu tipo de negócio?',
+    'answer' => 'Os templates são de carater aberto para adequá-los ao teu tipo de negócio'
     ]
   ];
 ?>
@@ -203,15 +217,15 @@
         <?php for($i = 0; $i < count($faqs); $i++): ?>
         <div class="faqs-item <?= ($i == 0) ? 'active' : '' ?>">
           <div class="faqs-header">
-            <span class="name">
+            <small class="name">
               <?= $faqs[$i]['title'] ?>
-            </span>
-            <span class="bi-chevron-down"></span>
+            </small>
+            <small class="bi-chevron-down"></small>
           </div>
           <div class="faqs-contain">
-            <span>
+            <small class="tw-muted">
               <?= $faqs[$i]['answer'] ?>
-            </span>
+            </small>
           </div>
         </div>
         <?php endfor; ?>

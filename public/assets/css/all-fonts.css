@@ -3,13 +3,13 @@ COUSINE
 */
 
 @font-face {
-  font-family: 'Cousine';
+  font-family: 'Cousine-Regular';
   src: url('fonts/Cousine/Cousine-Regular.ttf');
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Cousine';
+  font-family: 'Cousine-Bold';
   src: url('fonts/Cousine/Cousine-Bold.ttf');
   font-style: normal;
 }
