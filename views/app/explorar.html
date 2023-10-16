@@ -31,22 +31,26 @@
 <div class="card-section">
   <div class="card-section-contain">
     <div class="ncode-container">
-      <?php for($x = 0; $x < 2; $x++): ?>
+      <?php for($x = 0; $x < 1; $x++): ?>
       <div class="card-templates-row">
-        <?php for($i = 0; $i < 4; $i++): ?>
-        <a href="" class="card-template-item">
+        <?php foreach($templates as $template): ?>
+        <a href="<?= '/nocode/'.$template->referencia ?>" target="_blank" class="card-template-item">
           <div class="cover">
-            <img src="/assets/images/ncode-1.jpg" alt="">
+            <img src="/storage/images/<?= $template->file ?>" alt="">
           </div>
           <div class="template-info">
             <div>
-              <small class="name">TestIt template</small>
-              <small class="tw-muted">autor: Sílica</small>
+              <small class="name">
+                <?= ucfirst($template->titulo) ?>
+              </small>
+              <small class="tw-muted">autor:
+                <?= $template->autor ?>
+              </small>
             </div>
-            <small class="bi-heart-fill tw-muted"> <span class="qtd">2</span> </small>
+            <small class="bi-heart-fill tw-muted"> <span class="qtd">0</span> </small>
           </div>
         </a>
-        <?php endfor; ?>
+        <?php endforeach; ?>
       </div>
       <?php endfor; ?>
     </div>

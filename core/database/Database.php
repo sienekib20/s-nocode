@@ -171,11 +171,13 @@ class Database
     {
         try {
 
+            if (is_null(self::$connection)) {
+                self::$connection = connection();
+            }
+
             $stmt = self::$connection->prepare($query);
 
             $stmt->execute($bind);
-
-
 
             return $stmt->fetchAll();
 
