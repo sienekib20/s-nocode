@@ -16,6 +16,22 @@ if (!function_exists('root')) :
 
 endif;
 
+if (!function_exists('url')) :
+
+    function url($host, $port = null)
+    {
+        return ($port) ? "http://$host:$port/" : "http://$host/";
+    }
+
+endif;
+
+if (!function_exists('fb_profile')) :
+    function fb_profile($id)
+    {
+        return "https://www.facebook.com/profile.php?id=$id";
+    }
+endif;
+
 if (!function_exists('storage')) :
 
     function storage($path)
