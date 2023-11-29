@@ -9,9 +9,9 @@ class View
         $base_container = self::get_base_container();
 
         $view_content = self::get_view_content($view, $params);
-
-        echo str_replace('{{content}}', $view_content, $base_container);
-        exit;
+        echo $view_content; exit;
+        //echo str_replace('{{content}}', $view_content, $base_container);
+        //exit;
     }
 
     private static function get_base_container()

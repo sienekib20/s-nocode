@@ -16,13 +16,28 @@ use Exception;
 
 class Templates
 {
+    public function open_editor($request)
+    {
+        $templates = Database::select('select referencia from templates where template_id = ?', [$request->id]);
+
+        $file = rtrim(storage("templates/".$templates[0]->referencia."/index.php"), '/');
+
+        //$file = file_get_contents($file);
+
+        //var_dump($file);exit;
+
+        return view('app.gjs-editor', compact('file'));
+    }
+
 
     public function load_templates()
     {
         //$templates = [];
         $templates = Database::select('select t.template_id, t.titulo, t.autor, (select file from files where file_id = t.file_id) as file, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo_template, t.referencia from templates as t');
 
-        return view('app.explorar', compact('templates'));
+        $file = storage("templates/".$templates[0]->referencia."/index.php");
+
+        return view('app.explorar', compact('templates', 'file'));
     }
     public function upload_template()
     {

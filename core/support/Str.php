@@ -9,7 +9,7 @@ class Str
     public static function generatePatternOf($key = '/')
     {
 
-        return '/^' . str_replace(['/', '[', ']'], ['\/', '([', '])'], $key) . '$/';
+        return '/^' . str_replace(['/', '[', ']+'], ['\/', '([', ']+)'], $key) . '$/';
     }
 
     public static function changeAllParamsIndex($array)

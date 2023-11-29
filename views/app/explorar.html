@@ -34,7 +34,8 @@
       <?php for($x = 0; $x < 1; $x++): ?>
       <div class="card-templates-row">
         <?php foreach($templates as $template): ?>
-        <a href="<?= '/nocode/'.$template->referencia ?>" target="_blank" class="card-template-item">
+        <!--<a href="<?= '/nocode/'.$template->referencia ?>" target="_blank" class="card-template-item">-->
+        <a href="<?= 'editor/'.$template->template_id ?>" target="_blank" class="card-template-item">
           <div class="cover">
             <img src="/storage/images/<?= $template->file ?>" alt="">
           </div>
