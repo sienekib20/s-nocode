@@ -18,4 +18,9 @@ class Editor
         //header('Location: /nocode/' . $reference->referencia);
         return view('app.editor', compact('to'));
     }
+
+    public function web_builder()
+    {
+        return view('app.webb.index');
+    }
 }
