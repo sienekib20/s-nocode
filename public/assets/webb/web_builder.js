@@ -1,48 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Open close toolbars
 const openclose = document.querySelector('.openclose');
 const web_builder = document.querySelector('.web_builder');
@@ -63,4 +18,18 @@ openclose.addEventListener('click', (e) => {
 		web_builder_tools.style.width = '20%';
 		e.target.style.right='18.5%';
 	}
+});
+
+// Tabs change
+const tabs_items = document.querySelectorAll('.tools_header_item');
+const webb_contents = document.querySelectorAll('.builder_tools_contain > div');
+
+tabs_items.forEach((item, key) => {
+	item.addEventListener('click', (e) => {
+		e.preventDefault();
+		tabs_items.forEach((item) => item.classList.remove('active'));
+		webb_contents.forEach((item) => item.classList.remove('active'));
+		item.classList.add('active');
+		webb_contents[key].classList.add('active');
+	});
 });
