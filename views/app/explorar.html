@@ -36,16 +36,17 @@
         <?php foreach($templates as $template): ?>
         <!--<a href="<?= '/nocode/'.$template->referencia ?>" target="_blank" class="card-template-item">-->
         <a href="<?= 'editor/'.$template->template_id ?>" target="_blank" class="card-template-item">
+
           <div class="cover">
             <img src="/storage/images/<?= $template->file ?>" alt="">
           </div>
           <div class="template-info">
             <div>
               <small class="name">
-                <?= ucfirst($template->titulo) ?>
+                <?= ucfirst($template->title) ?>
               </small>
               <small class="tw-muted">autor:
-                <?= $template->autor ?>
+                <?= $template->author ?>
               </small>
             </div>
             <small class="bi-heart-fill tw-muted"> <span class="qtd">0</span> </small>
