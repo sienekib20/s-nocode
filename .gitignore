@@ -1,6 +1,8 @@
 .env
 .env.backup
-/.idea
-/.vscode
-/public/storage
-/node_modules
+.idea
+.vscode
+/node_modules/
+/storage/
+
+#/public/storage

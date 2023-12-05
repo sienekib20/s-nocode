@@ -26,6 +26,8 @@ class Templates
 
         //var_dump($file);exit;
 
+        return app()->$view->setTitle('')->render('');
+
         return view('app.gjs-editor', compact('file'));
     }
 
@@ -33,7 +35,7 @@ class Templates
     public function load_templates()
     {
         //$templates = [];
-        $templates = Database::select('select t.template_id, t.title, t.author, (select file from files where file_id = t.file_id) as file, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo_template, t.referencia from templates as t');
+        $templates = Database::select('select t.template_id, t.titulo, t.autor, (select file from files where file_id = t.file_id) as file, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo_template, t.referencia from templates as t');
 
         //var_dump($templates);exit;
 

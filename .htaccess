@@ -6,10 +6,6 @@ Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
 Header set Access-Control-Allow-Headers "Content-Type"
 
 RewriteEngine On
-
 RewriteBase /s-nocode/
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteRule ^(.*)$ public/index.php [L]
+RewriteRule ^$ public/$1 [L]
+RewriteRule (.+) public/ [L]

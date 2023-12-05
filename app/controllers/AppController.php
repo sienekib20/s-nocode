@@ -8,7 +8,7 @@ class AppController
 {
     public function index()
     {
-        return view('app.site.index');
+        //return view('app.site.index');
     }
 
     public function update($request)
