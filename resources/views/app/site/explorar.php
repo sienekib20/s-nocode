@@ -50,11 +50,10 @@
         <?php for ($x = 0; $x < 1; $x++) : ?>
           <div class="card-templates-row">
             <?php foreach ($templates as $template) : ?>
-              <!--<a href="<?= '/nocode/' . $template->referencia ?>" target="_blank" class="card-template-item">-->
-              <a href="<?= 'editor/' . $template->template_id ?>" target="_blank" class="card-template-item">
+              <a href="<?= 'editor/' . $template->uuid ?>" target="_blank" class="card-template-item">
 
                 <div class="cover">
-                  <img src="/storage/images/<?= $template->file ?>" alt="">
+                  <img src="<?= storage() . "templates/defaults/{$templates[4]->referencia}/cover/{$template->capa}" ?>" alt="">
                 </div>
                 <div class="template-info">
                   <div>
@@ -62,7 +61,7 @@
                       <?= ucfirst($template->titulo) ?>
                     </small>
                     <small class="tw-muted">autor:
-                      <?= $template->autor ?>
+                      <?= 'Sílica' ?>
                     </small>
                   </div>
                   <small class="bi-heart-fill tw-muted"> <span class="qtd">0</span> </small>

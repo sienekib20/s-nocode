@@ -18,15 +18,20 @@ class editor extends Controller
 		return view('Web Creator:app.webb.index', compact('data'));
 	}
 
-	public function open_template($template)
+	public function open_template(Request $request)
     {
-        $reference = DB::select('select referencia from templates where template_id = ?', [$template->id])[0];
-        $to = [
-            //'url' => url('localhost', 7000) . 'nocode/' . $reference->referencia
-        ];
-        //var_dump($reference->referencia);exit;
-        //header('Location: /nocode/' . $reference->referencia);
-        return view('app.editor', compact('to'));
+        $template = DB::table('templates')->select('referencia')->where('uuid', '=', $request->uuid)->get()[0];
+
+
+        $file = rtrim(storage_path() . "templates/defaults/".$template->referencia."/index.php", '/');
+        
+        if (file_exists($file)) {
+
+        	return view('web editor:app.gjs-editor', compact('file'));
+        }
+
+        return view('Not found:app.errors.not-found');
+
     }
 
 	

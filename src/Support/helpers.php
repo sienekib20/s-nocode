@@ -50,6 +50,17 @@ if (!function_exists('storage_path')) :
 	}
 endif;
 
+
+if (!function_exists('storage')) :
+
+    function storage()
+    {
+
+        return  '/storage/';
+    }
+
+endif;
+
 if (!function_exists('view')) :
 	function view(string $view, array $params = [])
 	{
@@ -70,6 +81,7 @@ if (!function_exists('response')) :
 		return (new Response());
 	}
 endif;
+
 
 if (!function_exists('parts')) :
 
@@ -93,6 +105,10 @@ if (!function_exists('asset_path')) :
 
     function asset_path()
     {
+    	$asset_path = (parse_url($_SERVER['REQUEST_URI']) == '/') 
+    		? '/assets/' 
+    		: env('APP_URL') . '/' . basename(abs_path()) . '/public/assets/';
+
         return  '/assets/';
     }
 

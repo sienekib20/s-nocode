@@ -113,7 +113,6 @@ class Route extends AbstractRoute
 			$uri = $buildedPath->uri;
 			$parameters = $buildedPath->params;
 
-
 			if (preg_match("/^$uri$/", static::$request->uri(), $matches)) {
 				$matches = array_slice($matches, 1);
 				$parameters = $this->routeParameters($parameters, $matches);
@@ -129,8 +128,8 @@ class Route extends AbstractRoute
 			}
 		}
 
-		echo 'Rota `'. static::$request->uri() .'` não encontrada';
 		static::$response->setStatusCode(404);
+		throw new \Exception('Rota `'. static::$request->uri() .'` não encontrada');
 		exit;
 	}
 }

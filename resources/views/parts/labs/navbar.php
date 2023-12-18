@@ -18,7 +18,7 @@
         </a>
       </div>
       <div class="nav-item <?= request()->path() == '/templates' ? 'active' : '' ?>">
-        <a href="/templates" class="nav-link">b
+        <a href="/templates" class="nav-link">
           <small>Explorar</small>
         </a>
       </div>
@@ -40,3 +40,19 @@
     </div>
   </div>
 </nav>
+
+
+<script>
+  function is_empty(field)
+  {
+    var data = (isArray(field)) ? field : [field];
+
+    return data;
+
+    if (field.value.length == 0) {
+      return true;
+    }
+    return field.value;
+  }
+
+</script>

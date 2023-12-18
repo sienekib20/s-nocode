@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Ramsey\Uuid\Uuid;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
 
@@ -11,7 +12,9 @@ class templates extends Controller
 
 	public function index()
 	{
-		$templates = [];
+		$templates = DB::raw('select t.template_id, t.uuid, t.titulo, t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo, (select file from files where file_id = t.file_id) as capa from templates as t');
+
+		//dd(preg_match("/^editor\/([a-zA-Z0-9\-]+)$/", 'editor/e1bb6fb4-0bf4-4a2e-a986-3561121f7aee'));
 
 		// TODO: coloque o seu código
 
@@ -22,9 +25,50 @@ class templates extends Controller
 
 	public function store(Request $request)
 	{
-		// TODO: coloqe o seu código
+		$build = "<style>{$request->code_css}</style>";
+		$build .= $request->code_html;
+		$build .= "<script>{$request->code_js}</script>";
 
-		return redirect()->route('rota.de.redirecionamento');
+		$extension = $request->base64FileExtension('cover_name');
+		$template_cover = $request->base64File('cover_file');
+		$template_name = sha1(date('YmdHi').$request->cover_name).".$extension";
+		
+		$template_path_default = $this->system->build_path('storage', 'templates.defaults.'.$request->referencia);
+
+		$template_path_cover = $this->system->build_path('storage', 'templates.defaults.'.$request->referencia.'.cover');
+
+		if (file_put_contents($template_path_cover.$template_name, $template_cover)) {
+			
+			$fileId = DB::table('files')->insertId(['file' => $template_name]);
+
+			$result = DB::table('templates')->insert([
+			    'uuid' => Uuid::uuid4()->toString(),
+			    'titulo' => $request->titulo,
+			    'autor' => 'Sílica',
+			    'referencia' => $request->referencia,
+			    'editar' => $request->editar,
+			    'status' => $request->status,
+			    'preco' => $request->preco,
+			    'descricao' => $request->descricao,
+			    'template' => $build,
+			    'tipo_template_id' => $request->tipo,
+			    'file_id' => $fileId
+			]);
+
+			if ($result == true) {
+				if (file_put_contents($template_path_default.'index.php', $build)) {
+					$response = 'Salvo com sucesso';
+				} else {
+					$response = 'Erro no upload de template';
+				}
+			} else {
+				$response = 'Erro ao salvar';
+			}
+
+		} else {
+			$response = 'Algo deu errado';
+		}
+		return response()->json($response);
 	}
 
 	// Pega um registo(s) na DB
