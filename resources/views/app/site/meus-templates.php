@@ -16,93 +16,82 @@
 
     <div class="wrapper">
 
-        <?= parts('labs.navbar') ?>
+        <?= parts('labs.navbar-end') ?>
 
-        <div class="card-section">
-            <div class="card-section-header">
-                <div class="ncode-container">
-                    <div class="title">
-                        <span class="dark-bold">Templates</span>
-                        <small class="tw-muted">Todos os templates</small>
-                    </div>
-                    <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta expedita deserunt dicta ducimus, harum corporis accusamus accusantium adipisci voluptas maiores explicabo odio fugit in quidem.</small>
+        <div class="template-universe">
+            <div class="toolbar">
+                <div class="toolbar-items">
+                    <?php foreach ($tipo_templates as $tipo) : ?>
+                        <small class="toolbar-item"><?= $tipo->tipo_template ?></small>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
 
-        <div class="contain-has-filter">
+        <div class="__card-section-header">
             <div class="ncode-container">
-                <div class="has-filter">
-                    <small class="title">Especificar a busca</small>
-                    <div class="contain-filters">
-                        <div class="fitler-item">
-                            <div class="search">
-                                <input type="text" name="" placeholder="Pesquisar">
-                                <small class="bi bi-search"></small>
-                            </div>
-                        </div>
-                        <div class="fitler-item">
-                            <small class="fil-title">Categoria</small>
-                            <div class="fil-items">
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>E-commerce</small></label>
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>Políticas</small></label>
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>Outro</small></label>
-                            </div>
-                        </div>
-                        <div class="fitler-item">
-                            <small class="fil-title">Preco</small>
-                            <div class="fil-items">
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>Entre 1K a 5K</small></label>
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>Entre 6K a 15K</small></label>
-                            </div>
-                        </div>
-                        <div class="fitler-item">
-                            <small class="fil-title">Qtd. Páginas</small>
-                            <div class="fil-items">
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>3 Páginas</small></label>
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>Single Page</small></label>
-                                <label for="item-1"><input type="checkbox" name="" id="item-1"><small>+3 Páginas</small></label>
-                            </div>
-                        </div>
-                    </div>
+                <div class="__title">
+                    <small class="tw-muted">Categoria</small>
+                    <span class="bold">Landing Pages</span>
                 </div>
-
-                <div class="contain-templates">
-                    <div class="toolbar">
-                        <span class="bi bi-chevron-left"></span>
-                        <div class="toolbar-items">
-                            <?php foreach ($tipo_templates as $tipo) : ?>
-                                <small class="toolbar-item"><?= $tipo->tipo_template ?></small>
-                            <?php endforeach; ?>
-                        </div>
-                        <span class="bi bi-chevron-right"></span>
-                    </div>
-
-                    <div class="templates-items">
-                        <?php for ($i = 0; $i < 2; $i++) : ?>
-                            <a href="" class="template-item">
-                                <div class="cover">
-                                    <img src="<?= asset('images/ncode-1.jpg') ?>" alt="">
-                                </div>
-                                <div class="info">
-                                    <span class="title">Nome do template</span>
-                                    <small class="tw-muted">Desenvolvido por: <span class="author">Sílica</span> </small>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, explicabo! Lorem ipsum dolor sit amet.</p>
-                                    <small class="type">Template editável</small>
-                                    <div class="price">
-                                        <span class="tilte">1.000,00 AO</span>
-                                        <small class="tw-muted line-through">2.500,00 AO</small>
-                                    </div>
-                                </div>
-                                <small class="absolute-status">Pago</small>
-                            </a>
-                        <?php endfor; ?>
-                    </div>
+                <div class="filters">
+                    <button> <span class="bi-filter"></span> filtros </button>
+                    <div class="__filtros"></div>
                 </div>
-
+                <select name="" id="" class="initial">
+                    <option value="">Mais Recentes</option>
+                    <option value="">Mais usados</option>
+                    <option value="">Alto classificados</option>
+                </select>
             </div>
         </div>
 
+
+        <div class="universe-templates">
+            <div class="ncode-container">
+                <?php for($a = 0; $a < 1; $a++): ?>
+                    <div class="linetemplate">
+                        <?php foreach ($templates as $template) : ?>
+                            <div class="file-template">
+                                <div class="cover">
+                                    <a href="<?= route('editor.' . $template->uuid) ?>">
+                                        <img src="<?= storage() . "templates/defaults/{$template->referencia}/cover/{$template->capa}" ?>" alt="">
+                                    </a>
+                                    <a href="<?= route('preview.'.$template->referencia) ?>" target="_blank" class="abs_prev">Prever</a>
+                                </div>
+                                <a href="" class="tempname"><span class="name"><?= ucfirst($template->titulo) ?></span><small class="status">Grátis</small></a>
+                                <div class="tempinfo">
+                                    <small class="classificated">Mais usado</small>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+
+        <div class="card-section"></div>
+        <div class="card-section"></div>
+        <div class="card-section"></div>
+
+        <div class="page-manager" style="display: none">
+            <div class="ncode-container">
+                <div class="positions">
+                    <span class="pos active">1</span>
+                    <?php for($i = 2; $i < 4; $i++): ?>
+                        <span class="pos"><?= $i ?></span>
+                    <?php endfor; ?>
+                    <span class="pos">..</span>
+                    <span class="pos">8</span>
+                    <span class="pos bi bi-arrow-right"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-section"></div>
+        <div class="card-section"></div>
+        <div class="card-section"></div>
+        <div class="card-section"></div>
 
 
         <?= parts('footer') ?>

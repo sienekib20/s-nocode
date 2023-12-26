@@ -4,7 +4,7 @@
       <small class="bi-code-slash"></small>
       <small>nocode</small>
     </div>
-    <div class="ncode-nav-items">
+    <div class="ncode-nav-items auto">
       <div class="nav-item <?= request()->path() == '/' ? 'active' : '' ?> <?= request()->path() == '/nocode' ? 'active' : '' ?>">
         <a href="/" class="nav-link">
           <small>Inicio</small>
@@ -12,30 +12,14 @@
       </div>
       <div class="nav-item <?= request()->path() == '/templates' ? 'active' : '' ?>">
         <a href="<?= route('templates') ?>" class="nav-link">
-          <small>Explorar</small>
+          <small>Browse</small>
         </a>
       </div>
       <div class="nav-item">
         <a href="<?= route('templates') ?>" class="nav-link">
-          <small>Planos</small>
+          <small>Encomendar</small>
         </a>
       </div>
-      <div class="nav-item">
-        <a href="<?= route('templates') ?>" class="nav-link">
-          <small>Sobre nós</small>
-        </a>
-      </div>
-      <div class="nav-item login">
-        <a href="<?= route('login') ?>" class="nav-link">
-          <small>Entrar</small>
-        </a>
-      </div>
-      <div class="nav-item">
-        <a href="<?= route('login') ?>" class="nav-link">
-          <small>Criar conta</small>
-        </a>
-      </div>
-
       <div class="nav-item">
         <a href="<?= route('login') ?>" class="nav-link">
           <small>Meus templates</small>
@@ -44,6 +28,16 @@
       <div class="nav-item">
         <a href="<?= route('login') ?>" class="nav-link">
           <small class="bi bi-cart"></small>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="<?= route('login') ?>" class="nav-link">
+          <small>Entrar</small>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="<?= route('login') ?>" class="nav-link">
+          <small>Criar conta</small>
         </a>
       </div>
     </div>

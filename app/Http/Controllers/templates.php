@@ -86,12 +86,26 @@ class templates extends Controller
 	{
 		$data = [];
 		$tipo_templates = $this->getTipoTemplate();
+		$templates = DB::raw('select t.template_id, t.uuid, t.titulo, t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo, (select file from files where file_id = t.file_id) as capa from templates as t');
 
-		return view('Meus templates:app.site.meus-templates', compact('data', 'tipo_templates'));
+		return view('Meus templates:app.site.meus-templates', compact('data', 'tipo_templates', 'templates'));
 	}
 
 	public function getTipoTemplate()
 	{
 		return DB::table('tipo_templates')->select('tipo_template_id, tipo_template')->get();
+	}
+
+	public function preview(Request $request)
+	{
+		$file = rtrim(storage_path() . "templates/defaults/".$request->template."/index.php", '/');
+		
+		if (file_exists($file)) {
+			return view('Prever template:app.site.preview', compact('file'));
+			//return view('web editor:app.gjs-editor', compact('file'));
+		}
+
+		return view('Not found:app.errors.not-found');
+
 	}
 }

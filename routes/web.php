@@ -18,9 +18,12 @@ Route::add('GET', '/api/template', [Templates::class, 'upload_template']);
 
 
 Route::add('GET', '/editor/(any:uuid)', [editor::class, 'open_template']);
-
 Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
 
+// Authorized routes
+
 Route::group('auth:authorize', function() {
-    Route::add('GET', '/meus-templates', [templates::class, 'temp_usuario']);
 });
+
+Route::add('GET', '/meus-templates', [templates::class, 'temp_usuario']);
+Route::add('GET', '/preview/(any:template)', [templates::class, 'preview']);
