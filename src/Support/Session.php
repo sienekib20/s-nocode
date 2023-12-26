@@ -4,6 +4,20 @@ namespace Sienekib\Mehael\Support;
 
 class Session
 {
+    public static function start()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            
+            ini_set('session.gc_maxlifetime', 7200); 
+            ini_set('session.cookie_lifetime', 0);  
+            
+            session_cache_limiter(false);
+            session_start();
+        }
+
+        // 7200 -> 120 min || 1800 -> 30 minutos
+    }
+
     public static function has(string $key)
     {
         return isset($_SESSION[$key]);

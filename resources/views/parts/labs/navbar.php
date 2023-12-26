@@ -18,23 +18,39 @@
         </a>
       </div>
       <div class="nav-item <?= request()->path() == '/templates' ? 'active' : '' ?>">
-        <a href="/templates" class="nav-link">
+        <a href="<?= route('templates') ?>" class="nav-link">
           <small>Explorar</small>
         </a>
       </div>
       <div class="nav-item">
-        <a href="" class="nav-link">
+        <a href="<?= route('templates') ?>" class="nav-link">
           <small>Planos</small>
         </a>
       </div>
       <div class="nav-item">
-        <a href="" class="nav-link">
+        <a href="<?= route('templates') ?>" class="nav-link">
           <small>Sobre nós</small>
         </a>
       </div>
       <div class="nav-item login">
-        <a href="" class="nav-link">
+        <a href="<?= route('login') ?>" class="nav-link">
           <small>Entrar</small>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="<?= route('login') ?>" class="nav-link">
+          <small>Criar conta</small>
+        </a>
+      </div>
+
+      <div class="nav-item">
+        <a href="<?= route('login') ?>" class="nav-link">
+          <small>Meus templates</small>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="<?= route('login') ?>" class="nav-link">
+          <small class="bi bi-cart"></small>
         </a>
       </div>
     </div>
@@ -43,8 +59,7 @@
 
 
 <script>
-  function is_empty(field)
-  {
+  function is_empty(field) {
     var data = (isArray(field)) ? field : [field];
 
     return data;
@@ -54,5 +69,4 @@
     }
     return field.value;
   }
-
 </script>

@@ -53,7 +53,7 @@
               <a href="<?= 'editor/' . $template->uuid ?>" target="_blank" class="card-template-item">
 
                 <div class="cover">
-                  <img src="<?= storage() . "templates/defaults/{$templates[4]->referencia}/cover/{$template->capa}" ?>" alt="">
+                  <img src="<?= storage() . "templates/defaults/{$template->referencia}/cover/{$template->capa}" ?>" alt="">
                 </div>
                 <div class="template-info">
                   <div>

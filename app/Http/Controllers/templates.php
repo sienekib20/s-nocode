@@ -82,23 +82,16 @@ class templates extends Controller
 		return response()->json($data);
 	}
 
-	// Atualizações de um ou + registos na DB
-
-	public function update(Request $request)
+	public function temp_usuario(Request $request)
 	{
-		// TODO: coloqe o seu código
+		$data = [];
+		$tipo_templates = $this->getTipoTemplate();
 
-		return redirect()->backWith('success', 'mensagem de sucesso');
+		return view('Meus templates:app.site.meus-templates', compact('data', 'tipo_templates'));
 	}
 
-	// Apaga um registo na DB
-
-	public function delete(Request $request)
+	public function getTipoTemplate()
 	{
-		DB::table('tabela')->where('id', '=', $request->id)->delete();
-
-		// TODO: coloqe o seu código
-
-		return redirect()->back();
+		return DB::table('tipo_templates')->select('tipo_template_id, tipo_template')->get();
 	}
 }
