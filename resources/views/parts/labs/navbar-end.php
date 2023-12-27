@@ -46,6 +46,7 @@
 
 
 <script>
+  alert(1);
   function is_empty(field) {
     var data = (isArray(field)) ? field : [field];
 

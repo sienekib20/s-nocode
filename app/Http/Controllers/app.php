@@ -15,7 +15,8 @@ class app extends Controller
 
 		// TODO: coloque o seu código
 
-		return view('Home:app.site.index', compact('data'));
+		//return view('Home:app.site.index', compact('data'));
+		return view('Home:site.index', compact('data'));
 	}
 
 	// Cria um registo na DB

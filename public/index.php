@@ -6,6 +6,12 @@ header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
+ini_set('session.gc_maxlifetime', 0); 
+ini_set('session.cookie_lifetime', 0); 
+session_start();
+
+//echo phpinfo();
+
 /*
 |--------------------------------------------
 | Auto carregamento das classes

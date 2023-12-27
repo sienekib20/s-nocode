@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\app;
 use App\Http\Controllers\auth\authenticacao;
+use App\Http\Controllers\browse;
 use App\Http\Controllers\editor;
 use App\Http\Controllers\templates;
 use Sienekib\Mehael\Router\Anotation\Route;
@@ -22,8 +23,10 @@ Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
 
 // Authorized routes
 
-Route::group('auth:authorize', function() {
+Route::group('auth:authorize', function () {
 });
 
 Route::add('GET', '/meus-templates', [templates::class, 'temp_usuario']);
 Route::add('GET', '/preview/(any:template)', [templates::class, 'preview']);
+Route::add('GET', '/browse', [browse::class, 'load']);
+Route::add('GET', '/browse/(id:numeric)', [browse::class, 'load_specfic']);
