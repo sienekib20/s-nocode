@@ -62,7 +62,11 @@
 
 </html>
 
-<input type="hidden" id="rota-salvar-alteracoes" value="<?= route('salvar') ?>">
+<div class="rotas" style="display: none">
+  <input type="hidden" id="rota-salvar-alteracoes" value="<?= route('salvar') ?>">
+  <input type="hidden" id="id_template" value=<?= $template->template_id ?>>
+  <input type="hidden" id="__dominio" value=<?= $dominio ?>>
+</div>
 
 <script type="text/javascript">
   var images = [];

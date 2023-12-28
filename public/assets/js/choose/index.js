@@ -25,4 +25,20 @@ $(document).ready(() => {
             }
         });
     });
+
+
+    $('.choose-open-editor-btn').click((e) => {
+        e.preventDefault();
+        var dominio = $('#dominio').val();
+        if (dominio.length == 0) {
+            alert('Preencha os campos necessários');
+            $('#dominio').focus();
+            return;
+        }
+        var url = e.target.href;
+        var items = url.split('editor/');
+        
+        window.open(items[0] + 'editor/' + dominio + '/' + items[1], '_blank');
+    });
+
 })

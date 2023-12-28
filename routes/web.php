@@ -19,7 +19,8 @@ Route::add('GET', '/templates', [templates::class, 'index']);
 Route::add('GET', '/api/template', [Templates::class, 'upload_template']);
 
 
-Route::add('GET', '/editor/(uuid:any)', [editor::class, 'open_template']);
+//Route::add('GET', '/editor/(uuid:any)', [editor::class, 'open_template']);
+Route::add('GET', '/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
 Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
 
 Route::add('GET', '/browse', [browse::class, 'load']);

@@ -2,12 +2,20 @@
 $(document).ready(function () {
     $('.save_btn').click((e) => {
         e.preventDefault();
+        let template = '<html>';
+            template += '<style>' + editor.getCss() + '</style>';
+            template += editor.getHtml();
+            template += '</html>';
 
         $.ajax({
             url: $('#rota-salvar-alteracoes').val(),
             method: 'POST',
             dataType: 'JSON',
-            data: { html: editor.getHtml() },
+            data: { 
+                dominio: $('#__dominio').val(), 
+                id: $('#id_template').val(), 
+                template: template 
+            },
             success: function (res) {
                 $.each(res, (key, val) => {
                     console.log(val);

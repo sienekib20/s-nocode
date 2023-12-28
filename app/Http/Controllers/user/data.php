@@ -21,21 +21,47 @@ class data extends Controller
 	public function choose(Request $request)
 	{
 
-		$template = DB::raw('select t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
+		$template = DB::raw('select t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
 		// -> será adicionado no proximo migrate fresh seed : 
 		// (select classificacao from classificacaos where template_id = t.template_id) as classificacao
 
 		return view('Escolha:site.choose', compact('template'));
 	}
 
+	private function save_in_database($dominio, $template, $template_id)
+	{
+		if ($this->salvar_no_storage($dominio, $template)) {
+			return DB::table('temp_parceiros')->insert(['parceiro_id' => 1, 'template_id' => $template_id/*, 'dominio' => $request->dominio*/]);
+		}
+		return false;
+	}
+
 	public function save_template(Request $request)
 	{
-		$data = $request->html;
+		if (is_null($request->template)) {
+			return response()->json('Dados inválidos');
+		}
 
-		// verificar se template já existe
+		$count = DB::table('temp_parceiros')->select('count(temp_parceiro_id) as total')->where('template_id', '=', $request->id)->get()[0];
 
-		return response()->json($data);
+		if ($count->total == 0) {
+			$response = ($this->save_in_database(
+				$request->dominio,
+				$request->template,
+				$request->id
+			)) ? 'Salvo com sucesso' : 'Erro ao criar o registo';
+			return response()->json($response);
+		} else if ($count->total > 0) {
+			$dominio = DB::table('temp_parceiros')->select('dominio')->where('template_id', '=', $request->id)->get()[0];
+			$response = ($this->save_in_database(
+				$dominio,
+				$request->template,
+				$request->id
+			)) ? 'Salvo com sucesso' : 'Erro ao criar o registo';
+			return response()->json($response);
+		}
 
+		return response()->json('Algo deu errado');
 	}
 
 	public function validar_uso(Request $request)
@@ -48,10 +74,7 @@ class data extends Controller
 			return response()->json('Já tens esse template em sua posse');
 		}
 
-		$template_path_default = $this->system->build_path('storage', 'templates.usuarios.' . $request->dominio);
-
-
-		if (file_put_contents($template_path_default . 'index.php', $request->template)) {
+		if ($this->salvar_no_storage($request->dominio, $request->template)) {
 
 
 			$result = DB::table('temp_parceiros')->insert(['template_id' => $request->id, 'parceiro_id' => $request->usuario, /*'dominio' => $request->dominio*/]);
@@ -62,6 +85,12 @@ class data extends Controller
 		}
 
 		return response()->json($response);
+	}
+
+	private function salvar_no_storage($dominio, $template)
+	{
+		$template_path_default = $this->system->build_path('storage', 'templates.usuarios.' . $dominio);
+		return file_put_contents($template_path_default . 'index.php', $template);
 	}
 
 	private function usario_já_usa_este_template($usuario_id, $template_id)

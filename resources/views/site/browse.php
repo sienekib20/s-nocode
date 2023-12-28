@@ -57,8 +57,8 @@
                                         <small class="preco">0,00KZ</small>
                                     </div>
                                     <div class="actions d-flex">
-                                        <a href="<?= route('editor', $template->uuid) ?>" target="_blank" class="rating" title="editar">
-                                            <span class="bi bi-pencil-square"></span> Editar
+                                        <a href="#" class="rating" title="editar">
+                                            <span class="bi bi-pencil-square"></span> Editável
                                         </a>
                                         <a href="<?= route('usar', $template->uuid) ?>" class="rating" title="usar">
                                             <span class="bi bi-upload"></span> Usar

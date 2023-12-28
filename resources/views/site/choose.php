@@ -79,7 +79,9 @@
                         </div>
                         <div class="sx-card-section"></div>
                         <button type="submit" class="validar-uso">Publicar</button>
-                        <a href="#">Previsualizar</a>
+                        <a href="<?= route('editor', $template->uuid) ?>" target="_blank" class="choose-open-editor-btn">
+                            <span class="fas fa-pencil-square"></span> <span>Editar</span>
+                        </a>
                     </div>
                 </div>
             </form>

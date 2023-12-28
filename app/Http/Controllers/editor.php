@@ -20,14 +20,15 @@ class editor extends Controller
 
 	public function open_template(Request $request)
 	{
-		$template = DB::table('templates')->select('referencia')->where('uuid', '=', $request->uuid)->get()[0];
+		$template = DB::table('templates')->select('template_id, referencia')->where('uuid', '=', $request->uuid)->get()[0];
 
-
+		$dominio = $request->dominio;
+		
 		$file = rtrim(storage_path() . "templates/defaults/" . $template->referencia . "/index.php", '/');
 
 		if (file_exists($file)) {
 
-			return view('web editor:app.gjs-editor', compact('file'));
+			return view('web editor:app.gjs-editor', compact('file', 'template', 'dominio'));
 		}
 
 		return view('Not found:app.errors.not-found');

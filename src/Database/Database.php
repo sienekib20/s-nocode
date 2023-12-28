@@ -39,11 +39,18 @@ class Database
 			$stmt->execute($bind);
 			return $stmt->fetchAll();
 		} catch (PDOException $e) {
+			response()->setStatusCode(500);
 			echo $e->getMessage();
 			exit;
 		}
 	}
 
+	/**
+	 * Insere dados na BD
+	 *
+	 * @param array $data
+	 * @return bool
+	 */
 	public function insert(array $data)
 	{
 		return $this->buildInsert($data);
@@ -79,7 +86,6 @@ class Database
 			$this->connection->rollBack();
 			response()->setStatusCode(500);
 			return response()->json('Erro');
-			
 		}
 	}
 
@@ -136,6 +142,7 @@ class Database
 				return $this->connection->commit();
 			}, $data);
 		} catch (PDOException $e) {
+			response()->setStatusCode(500);
 			$this->connection->rollBack();
 			echo $e->getMessage();
 			exit;
@@ -166,6 +173,7 @@ class Database
 
 			return [];
 		} catch (PDOException $e) {
+			response()->setStatusCode(500);
 			echo $e->getMessage();
 			exit;
 		}
@@ -222,6 +230,7 @@ class Database
 			$stmt = $this->connection->prepare($query);
 			$stmt->execute($binds);
 		} catch (PDOException $e) {
+			response()->setStatusCode(500);
 			echo $e->getMessage();
 			exit;
 		}

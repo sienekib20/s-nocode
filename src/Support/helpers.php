@@ -163,15 +163,21 @@ endif;
 
 if (!function_exists('route')) :
 
-	function route(string $route, mixed $bind = null)
+	function route(string $route, ...$bind)
 	{
 		if (str_contains($route, '.')) {
 			$route = str_replace('.', '/', $route);
 		}
 		if ($route == '/') {
-			return ($bind != null) ? "$route/$bind" : "$route";
+			return (!empty($bind)) ? "$route/$bind[0]" : "$route";
 		}
-		return ($bind != null) ? "/$route/$bind" : "/$route";
+		$route = "/$route";
+		if (!empty($bind)) {
+			foreach ($bind as $param) {
+				$route .= "/$param";
+			}
+		}
+		return $route;
 	}
 
 endif;

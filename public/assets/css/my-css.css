@@ -768,6 +768,8 @@ footer .by a {
 }
 
 
+
+
 .sx-container.d-flex {
   justify-content: space-between;
 }
@@ -837,7 +839,8 @@ footer .by a {
 .browse-row {
   display: flex;
   align-items: start;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
+  gap: 3.333333333333333%;
 }
 
 .browse-row+.browse-row {
@@ -1203,4 +1206,14 @@ AUTH
 .template-in-use a:hover {
   opacity: 0.8;
   transform: translateY(1px);
+}
+
+.choose-open-editor-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choose-open-editor-btn span {
+  display: initial;
 }
