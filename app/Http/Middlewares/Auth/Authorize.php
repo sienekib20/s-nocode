@@ -12,8 +12,7 @@ class Authorize
 
         if (!$restricted) {
 
-            header('Location: /login');
-            exit;
+            return redirect()->route('entrar');
         }
     }
 }

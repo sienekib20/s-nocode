@@ -1,0 +1,129 @@
+.table,
+.thead .tbody {
+    width: 100%;
+}
+
+.thead {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    line-height: 50px;
+    background-color: #E8EBEE;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.tbody {
+    background: #fff;
+}
+
+.thead,
+.tbody {
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tbody {
+    height: 320px;
+    overflow-y: auto;
+}
+
+.tr {
+    display: flex;
+}
+
+.td {
+    font-size: 15px;
+    text-align: center;
+}
+
+.td a {
+    color: #07f;
+}
+
+.td a:hover {
+    color: #04f;
+    text-decoration: underline;
+}
+
+.thead .tr {
+    height: 100%;
+}
+
+.thead .td {
+    font-family: 'Roboto-Bold';
+}
+
+.tbody .tr {
+    height: 50px;
+    line-height: 50px;
+}
+
+.tbody .tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/*
+|---------------------------------------------------
+| grid system
+|---------------------------------------------------
+*/
+.col-1 {
+    width: 8.333333333333333%;
+    flex: 0 0 8.333333333333333%;
+}
+
+.col-2 {
+    width: 16.66666666666667%;
+    flex: 0 0 16.66666666666667%;
+}
+
+.col-3 {
+    width: 24.999999999999996%;
+    flex: 0 0 24.999999999999996%;
+}
+
+.col-4 {
+    width: 33.33333333333333%;
+    flex: 0 0 33.33333333333333%;
+}
+
+.col-5 {
+    width: 41.66666666666666%;
+    flex: 0 0 41.66666666666666%;
+}
+
+.col-6 {
+    width: 50%;
+    flex: 0 0 50%;
+}
+
+.col-7 {
+    width: 58.33333333333333%;
+    flex: 0 0 58.33333333333333%;
+}
+
+.col-8 {
+    width: 66.66666666666666%;
+    flex: 0 0 66.66666666666666%;
+}
+
+.col-9 {
+    width: 74.99999999999999%;
+    flex: 0 0 74.99999999999999%;
+}
+
+.col-10 {
+    width: 83.33333333333331%;
+    flex: 0 0 83.33333333333331%;
+}
+
+.col-11 {
+    width: 91.66666666666666%;
+    flex: 0 0 91.66666666666666%;
+}
+
+.col-12 {
+    width: 100%;
+    flex: 0 0 100%;
+}

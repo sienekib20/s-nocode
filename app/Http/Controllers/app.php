@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Auth;
 
 class app extends Controller
 {
@@ -12,6 +13,8 @@ class app extends Controller
 	public function index()
 	{
 		$data = [];
+
+		Auth::create(['user' => 'siene', 'user_id' => 1]);
 
 		// TODO: coloque o seu código
 

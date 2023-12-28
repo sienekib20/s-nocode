@@ -26,7 +26,7 @@
                     <small class="td-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem necessidade de mexer no código, apenas com um click e já está!</small>
                     <div class="actions d-flex">
                         <a href="">Experimente</a>
-                        <a href="">Explorar</a>
+                        <a href="<?= route('browse') ?>">Explorar</a>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,16 @@
                     </div>
                 </div>
             </div>
-            <?php $about = ['Acadêmica', 'RPL', 'Facturação', 'Água'] ?>
+            <?php $about = ['School', 'ERP', 'Univ', 'Aqua', 'Health', 'RH', 'Work'] ?>
+            <!--
+                https://silicaweb.ao/sfront/ServicesErp.php
+                https://silicaweb.ao/sfront/ServicesSchool.php
+                https://silicaweb.ao/sfront/ServicesUniv.php
+                https://silicaweb.ao/sfront/ServicesAqua.php
+                https://silicaweb.ao/sfront/ServicesHealth.php
+                https://silicaweb.ao/sfront/ServicesRH.php
+                https://silicaweb.ao/sfront/ServicesWork.php
+-->
             <div class="sx-card-section-contain">
                 <div class="sx-container">
                     <div class="box">
@@ -86,7 +95,7 @@
                                 <a href="https://silicaweb.ao//sfront" target="_blank"> <small>saber mais...</small> </a>
                             </div>
                         <?php endforeach; ?>
-                        <a href="https://silicaweb.ao//sfront" target="_blank" class="box-item">
+                        <a href="https://silicaweb.ao/sfront/services.php" target="_blank" class="box-item">
                             <span class="name">Saiba mais...</span>
                         </a>
                     </div>
@@ -239,9 +248,10 @@
 
         <?= parts('nav.footer') ?>
 
-    </div> <!-- sx-wrapper ->
+    </div> <!-- sx-wrapper -->
 
 
-    
+
 </body>
+
 </html>

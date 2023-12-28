@@ -43,25 +43,29 @@
         <div class="sx-card-section">
             <div class="sx-card-section-contain">
                 <div class="sx-container">
-                    <?php for ($a = 0; $a < 2; $a++) : ?>
+                    <?php for ($a = 0; $a < 1; $a++) : ?>
                         <div class="browse-row">
-                            <?php for ($i = 0; $i < 3; $i++) : ?>
+                            <?php foreach ($templates as $template) : ?>
                                 <div class="browse-item">
                                     <div class="cover">
-                                        <img src="<?= asset('img/ncode-2.jpg') ?>" alt="">
-                                        <a href="">Previsualizar</a>
+                                        <img src="<?= storage() . "templates/defaults/{$template->referencia}/cover/{$template->capa}" ?>" alt="">
+                                        <a href="<?= route('preview', $template->referencia) ?>" target="_blank" class="abs">Previsualizar</a>
                                     </div>
-                                    <div class="browse-name">
-                                        <span class="name">Template title</span>
-                                        <small class="tw-muted">Autor: name here</small>
+                                    <a href="" class="name"><?= ucfirst($template->titulo) ?></a>
+                                    <div href="" class="d-flex">
+                                        <small class="status">Template <?= $template->status ?></small>
+                                        <small class="preco">0,00KZ</small>
                                     </div>
-                                    <div class="d-flex">
-                                        <span class="status">Grátis</span>
-                                        <span class="preco">0,00KZ</span>
+                                    <div class="actions d-flex">
+                                        <a href="<?= route('editor', $template->uuid) ?>" target="_blank" class="rating" title="editar">
+                                            <span class="bi bi-pencil-square"></span> Editar
+                                        </a>
+                                        <a href="<?= route('usar', $template->uuid) ?>" class="rating" title="usar">
+                                            <span class="bi bi-upload"></span> Usar
+                                        </a>
                                     </div>
-                                    <span class="rating">Mais usado</span>
                                 </div>
-                            <?php endfor; ?>
+                            <?php endforeach; ?>
                         </div>
                     <?php endfor; ?>
                 </div>
@@ -87,9 +91,10 @@
 
         <?= parts('nav.footer') ?>
 
-    </div> <!-- sx-wrapper ->
+    </div> <!-- sx-wrapper -->
 
 
-    
+
 </body>
+
 </html>

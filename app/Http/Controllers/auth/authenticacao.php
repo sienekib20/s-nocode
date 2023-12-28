@@ -12,7 +12,7 @@ class authenticacao extends Controller
 
 	public function login()
 	{
-		return view('entrar:app.auth.login');
+		return view('entrar:site.auth.login');
 	}
 
 }

@@ -27,6 +27,7 @@
   <script src="/assets/lib/wp/grapesjs-tui-image-editor.js"></script>
   <script src="/assets/lib/wp/grapesjs-typed.js"></script>
   <script src="/assets/lib/wp/grapesjs-style-bg.js"></script>
+  <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
   <title>Editing</title>
 </head>
 
@@ -38,11 +39,17 @@
     .gjs-selected {
       overflow: hidden;
     }
+    .save_btn {
+      background-color: red;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+    }
   </style>
   <div style="display: none">
     <div class="gjs-logo-cont">
-      <a href="" style="color: #fff !important; text-decoration: none; font-size: 14px">Nocode Editor</a>
-      <div class="gjs-logo-version" style="display: none">1</div>
+      <a href="#" style="color: #fff !important; text-decoration: none; font-size: 14px">Nocode Editor</a>
+      <a href="" style="color: #fff !important; text-decoration: none; font-size: 14px" class="save_btn">Salvar</a>
+      <div class="gjs-logo-version" style="display: none"></div>
     </div>
   </div>
 
@@ -54,6 +61,8 @@
 </body>
 
 </html>
+
+<input type="hidden" id="rota-salvar-alteracoes" value="<?= route('salvar') ?>">
 
 <script type="text/javascript">
   var images = [];
@@ -598,3 +607,4 @@
   ga('create', 'UA-74284223-1', 'auto');
   ga('send', 'pageview');
 </script>
+<script src="<?= asset('js/editor/save.js') ?>"></script>

@@ -21,7 +21,7 @@ trait PathBuilder
                         throw new Exception('Wildcard mal formado.');
                     }
                     $wildcard = explode(':', $wildcard);
-                    list($pattern, $param) = $wildcard;
+                    list($param, $pattern) = $wildcard;
                     $pattern = $this->correspondant($pattern);
                     $parameters[] = $param;
                     $route .= "$pattern/";

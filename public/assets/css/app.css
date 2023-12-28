@@ -8,14 +8,14 @@
 }
 
 html {
-  font-family: 'GeneralSans-Regular';
+  font-family: 'Segoe UI';
 }
 
 body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  font-family: 'Roboto-Regular';
+  font-family: sans-serif;
   background-color: #151521;
   overflow-x: hidden;
 }
