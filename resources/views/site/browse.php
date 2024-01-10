@@ -8,10 +8,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="<?= asset('css/nav/nav.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/ui/navbar.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/ui/owl-carousel.min.css') ?>">
+    <link href="https://fonts.cdnfonts.com/css/icomoon" rel="stylesheet">
     <link rel="stylesheet" href="<?= asset('css/my-css.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/app.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/my-media.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
+    <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
 
 </head>
 
@@ -19,10 +25,12 @@
     <div class="sx">
         <?= parts('nav.navbar') ?>
         <div class="sx-card-section">
-            <div class="sx-card-section-header no-padding">
+            <div class="sx-card-section-header p-0">
                 <div class="box-chooser d-flex">
                     <?php foreach ($tipo as $t) : ?>
-                        <a href="<?= route('browse', $t->tipo_template_id) ?>" class="chooser-item"><?= $t->tipo_template ?></a>
+                        <a href="<?= route('browse', $t->tipo_template_id) ?>" class="chooser-item">
+                            <?= $t->tipo_template ?>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -31,7 +39,7 @@
         <div class="sx-card-section">
             <div class="sx-card-section-contain">
                 <div class="sx-container d-flex">
-                    <button type="button"> <span class="fal fa-sliders"></span> Filtrar </button>
+                    <button type="button"><span class="fal fa-sliders"></span> Filtrar</button>
                     <div class="input">
                         <input type="text" placeholder="Buscar template, autor, tipo...">
                         <span class="fas fa-search"></span>
@@ -42,9 +50,9 @@
 
         <div class="sx-card-section">
             <div class="sx-card-section-contain">
-                <div class="sx-container">
+                <div class="container">
                     <?php for ($a = 0; $a < 1; $a++) : ?>
-                        <div class="browse-row">
+                        <div class="row" style="gap: 1rem">
                             <?php foreach ($templates as $template) : ?>
                                 <div class="browse-item">
                                     <div class="cover">
@@ -88,11 +96,9 @@
         </div>
 
 
-
         <?= parts('nav.footer') ?>
 
     </div> <!-- sx-wrapper -->
-
 
 
 </body>

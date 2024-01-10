@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="<?= asset('css/my-css.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/my-media.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/auth.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
 
@@ -17,39 +17,42 @@
 
 <body>
     <?= parts('labs.loader') ?>
-    <div class="sx">
+    <div class="labs">
+        
         <div class="wallpaper no-top">
-            <div class="sx-container container-auth __login">
-                <div class="sx-col">
-                    <span class="bold title">Inicie a sessão <br> Para começar a caminhada</span>
-                    <small class="td-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem necessidade de mexer no código, apenas com um click e já está!</small>
-                    <div class="actions d-flex">
-                        <a href="" class="auth-change">Cadastra-se</a>
-                        <a href="<?= route('/') ?>">Voltar no site</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-xxs-12 col-md-12 text-left-md text-center-xxs">
+                        <span class="d-block text-white bold title">Inicie a sessão <br> Para começar a caminhada</span>
+                        <small class="td-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem necessidade de mexer no código, apenas com um click e já está!</small>
+                        <div class="actions d-flex">
+                            <a href="" class="auth-change">Cadastra-se</a>
+                            <a href="<?= route('/') ?>">Voltar no site</a>
+                        </div>
                     </div>
-                </div>
-                <div class="sx-col">
-                    <form action="<?= route('') ?>" method="POST">
-                        <div class="auth-group">
-                            <input type="text" class="auth-input" placeholder="Usuário">
-                            <small class="fas fa-user"></small>
-                        </div>
-                        <div class="auth-group">
-                            <input type="text" class="auth-input" placeholder="Senha">
-                            <small class="fas fa-lock"></small>
-                        </div>
-                        <div class="auth-group">
-                            <button type="submit">Entrar</button>
-                        </div>
-                        <div class="auth-group">
-                            <small class="tw-muted">Esqueceu a senha?</small>
-                            <a href="<?= route('/') ?>">Recupere aqui</a>
-                        </div>
-                    </form>
+                    <div class="col-lg-6 col-xxs-12 col-md-12">
+                        <form action="<?= route('') ?>" method="POST" class="">
+                            <div class="auth-group">
+                                <input type="text" class="auth-input" placeholder="Usuário">
+                                <small class="fas fa-user"></small>
+                            </div>
+                            <div class="auth-group">
+                                <input type="text" class="auth-input" placeholder="Senha">
+                                <small class="fas fa-lock"></small>
+                            </div>
+                            <div class="auth-group">
+                                <button type="submit">Entrar</button>
+                            </div>
+                            <div class="auth-group">
+                                <small class="tw-muted">Esqueceu a senha?</small>
+                                <a href="<?= route('/') ?>">Recupere aqui</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 
-            <div class="sx-container container-auth __register">
+            <!--<div class="container __register">
                 <div class="sx-col">
                     <span class="bold title">Cadastra-se na plataforma <br> E crie a sua lógica de negócios</span>
                     <small class="td-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem necessidade de mexer no código, apenas com um click e já está!</small>
@@ -108,7 +111,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div>-->
         </div> <!-- wallpaper -->
 
     </div> <!-- sx-wrapper -->

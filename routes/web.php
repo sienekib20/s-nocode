@@ -16,8 +16,7 @@ Route::add('GET', '/nocode', [app::class, 'index']);
 Route::add('GET', '/user/[0-9]+', [app::class, 'update']);
 
 Route::add('GET', '/templates', [templates::class, 'index']);
-Route::add('GET', '/api/template', [Templates::class, 'upload_template']);
-
+//Route::add('GET', '/api/template', [templates::class, 'upload_template']);
 
 //Route::add('GET', '/editor/(uuid:any)', [editor::class, 'open_template']);
 Route::add('GET', '/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
@@ -26,10 +25,9 @@ Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
 Route::add('GET', '/browse', [browse::class, 'load']);
 Route::add('GET', '/browse/(id:numeric)', [browse::class, 'load_specfic']);
 // Authorized routes
-
 Route::group('auth:authorize', function () {
+    Route::add('GET', '/dados/(user:alpha)', [data::class, 'carregar']);
 });
-Route::add('GET', '/dados/(user:alpha)', [data::class, 'carregar']);
 
 Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);
 Route::add('POST', '/usar', [data::class, 'validar_uso']);

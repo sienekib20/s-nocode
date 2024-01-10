@@ -21,13 +21,18 @@ class templates extends Controller
 		return view('Templates:app.site.explorar', compact('templates'));
 	}
 
+    private function saveImageFile()
+    {
+
+    }
+
 	// Cria um registo na DB
 
 	public function store(Request $request)
 	{
-		$build = "<style>{$request->code_css}</style>";
+		/*$build = "<style>{$request->code_css}</style>";
 		$build .= $request->code_html;
-		$build .= "<script>{$request->code_js}</script>";
+		$build .= "<script>{$request->code_js}</script>";*/
 
 		$extension = $request->base64FileExtension('cover_name');
 		$template_cover = $request->base64File('cover_file');
