@@ -20,7 +20,7 @@ h6, .h6 {
 .text-bold {
 	font-family: 'Roboto-Bold';
 	font-size: 2rem;
-	line-height: 2.5rem;
+	line-height: 2rem;
 }
 
 @media (max-width: 768px) {

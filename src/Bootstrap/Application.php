@@ -8,6 +8,7 @@ use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Http\Response;
 use Sienekib\Mehael\Router\Anotation\Route;
 use Sienekib\Mehael\Exceptions\Whoops;
+use Sienekib\Mehael\Support\Extensions;
 
 class Application
 {
@@ -24,6 +25,7 @@ class Application
 		$this->route = new Route($this->request, $this->response);
 		$this->connection = new Connection();
 		$this->whoops = Whoops::lookUp();
+		Extensions::load();
 	}
 
 	public function start()

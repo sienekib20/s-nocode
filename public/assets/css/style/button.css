@@ -1,9 +1,53 @@
 .btn {
-	outline: 0;
-	border: none;
-	vertical-align: middle;
-	white-space: nowrap;
-	text-align: center;
-	color: #000;
-	padding: 0.3rem 0.75rem;
+    outline: 0;
+    border: solid 1px transparent;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    color: #000;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.1rem;
+    -webkit-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn:hover {
+    opacity: 0.89;
+    -webkit-box-shadow: 0px 0 1px 2.5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0 1px 2.5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white {
+    color: #000;
+    background-color: #fff;
+}
+.btn-white:hover {
+    -webkit-box-shadow: 0px 0 1px 2.5px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0 1px 2.5px rgba(255, 255, 255, 0.5);
+}
+/*
+Outline btn
+ */
+
+.btn-outline {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.btn-outline-white, .btn-outline-warning {
+    background-color: transparent !important;
+}
+.btn-outline-white {
+    color: #fff;
+    border-color: #fff;
+}
+.btn-outline-warning {
+    color: #F9C700;
+    border-color: #F9C700;
 }

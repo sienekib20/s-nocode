@@ -8,14 +8,20 @@ class Response
 
     private int $status_code = 200;
 
-    public function __construct()
-    {
-        //$this->headers = getallheaders();
-        $this->setHeader('Access-Control-Allow-Origin','*');
-        $this->setHeader('Access-Control-Allow-Headers','*');
-        $this->setHeader('Access-Control-Allow-Credentials','true');
-        $this->setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');
-    }
+   public function __construct()
+   {    
+        // $this->headers = getallheaders();
+       $this->setHeader('Access-Control-Allow-Origin', '*');
+       $this->setHeader('Access-Control-Allow-Headers', '*');
+       $this->setHeader('Access-Control-Allow-Credentials', 'true');
+
+       if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+           $this->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+           $this->applyHeaders();
+           exit;
+       }
+   }
+
 
     public function setStatusCode(int $status)
     {
@@ -43,6 +49,7 @@ class Response
 
     public function applyHeaders()
     {
+
         if (!empty($this->headers)) {
             foreach ($this->headers as $type => $value) {
                 header("$type: $value");

@@ -1,0 +1,27 @@
+.form-input {
+  display: inline-block;
+  padding: 8px; /* Ajuste conforme necessário */
+  font-size: 16px; /* Ajuste conforme necessário */
+  border: 1px solid #eee;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 4px 0; /* Adicione margem conforme necessário */
+  outline: none;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+}
+
+.form-input:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.05);
+}
+
+.input-block {
+  display: block;
+  width: 100%;
+}
+
+/* Adicione estilos adicionais conforme necessário */

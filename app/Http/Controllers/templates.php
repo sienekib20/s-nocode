@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Ramsey\Uuid\Uuid;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+//use \ZipArchive;
 
 class templates extends Controller
 {
@@ -33,12 +34,87 @@ class templates extends Controller
 		/*$build = "<style>{$request->code_css}</style>";
 		$build .= $request->code_html;
 		$build .= "<script>{$request->code_js}</script>";*/
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		   $arquivo_zip = $_FILES["zip"]["tmp_name"];
+		   $destino = storage_path(); // Substitua pelo caminho real
+
+		   //dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
+		   //dd($_FILES["zip"]["name"]);
+		   
+		   // Verifica se o arquivo é um arquivo zip
+		   if (pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION) == 'zip') {
+		       // Descompacta o arquivo zip
+		       $zip = new \ZipArchive;
+		       if ($zip->open($arquivo_zip) === TRUE) {
+		           //dd($zip->filename);
+		           $zip->extractTo($destino);
+		           $zip->close();
+		           echo 'Arquivo zip descompactado com sucesso!'; return;
+		       } else {
+		           echo 'Falha ao descompactar o arquivo zip.'; return;
+		       }
+		   } else {
+		       echo 'Por favor, envie um arquivo zip válido.'; return;
+		   }
+		    
+		}
+		return redirect()->route('http://localhost:8001', true);
+
+		return response()->json($request->all());
 
 		$extension = $request->base64FileExtension('cover_name');
 		$template_cover = $request->base64File('cover_file');
 		$template_name = sha1(date('YmdHi').$request->cover_name).".$extension";
 		
 		$template_path_default = $this->system->build_path('storage', 'templates.defaults.'.$request->referencia);
+
+
+	    $arquivo_zip = $request->base64File('zipFile');//;$_FILES["zip"]["tmp_name"];
+	    $destino = $template_path_default; //storage_path(); // Substitua pelo caminho real
+	    $zip_extension = explode('.', $request->zipName)[1];
+
+	    //dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
+	    //dd($_FILES["zip"]["name"]);
+	    /*  REASON
+	    	serials:
+	    	RSN500-0000-634060-BAT3-PBNS-LV8H
+	    	RSN500-0000-694182-6LVR-S87M-UYZ8
+	    	RSN500-0000-026143-K73S-7TPT-4CTY
+	    	RSN500-0000-218295-AG9B-4HUQ-V5PJ
+	    	RSN500-0000-146147-F7C9-72QQ-47XH
+	    	RSN500-0000-179743-6JBS-XURQ-CURJ
+	    	RSN500-0000-200116-EKXK-J8T8-F5RS
+	    	RSN500-0000-325674-2QWL-98CJ-9K4F
+	    	RSN500-0000-240303-7P4V-ZNSG-4A4Y
+	     */
+	    
+	    // Verifica se o arquivo é um arquivo zip
+	    if ($zip_extension == 'zip') {
+	        // Descompacta o arquivo zip
+	        $zip = new \ZipArchive();	
+	        if (!class_exists('ZipArchive')) {
+	            return response()->json('Extensão ZipArchive não está disponível no seu servidor.');
+	        }
+	        if (!is_readable($arquivo_zip)) {
+	            $response = 'Não é possível ler o arquivo ZIP.';
+	        	return response()->json('ilegível');	
+	        }
+	        return response()->json($zip);
+	        if ($zip->open($arquivo_zip) === TRUE) {
+	            //dd($zip->filename);
+	        	$zip->extractTo($destino);
+	            $zip->close();
+	            $response = 'Arquivo zip descompactado com sucesso!';
+	        } else {
+	            $response = 'Falha ao descompactar o arquivo zip.';
+	        }
+	    } else {
+	        $response = 'Por favor, envie um arquivo zip válido.';
+	    }
+
+	    return response()->json($response);
+			
+		//return 0;
 
 		$template_path_cover = $this->system->build_path('storage', 'templates.defaults.'.$request->referencia.'.cover');
 

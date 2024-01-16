@@ -9,6 +9,7 @@ use App\Http\Controllers\user\data;
 use Sienekib\Mehael\Router\Anotation\Route;
 
 Route::add('POST', '/api/create', [templates::class, 'store']);
+Route::add('POST', '/salvando', [templates::class, 'store']);
 
 Route::add('GET', '/', [app::class, 'index']);
 Route::add('GET', '/entrar', [authenticacao::class, 'login']);

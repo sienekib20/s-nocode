@@ -21,45 +21,37 @@
             <div class="container-sm" style="z-index: 1080">
                 <div class="row align-items-center h-100">
                     <div class="text-center text-md-center col-12 col-md-12 col-xxs-12">
-                        <span class="h3 w-100 d-block text-bold text-white d-block">Torne-se independente <br> Crie a sua lógica de negócios</span>
+                        <span class="h3 w-100 d-block text-bold text-white d-block mb-md-0 mb-xxs-5">Torne-se independente <br> Crie a sua lógica de negócios</span>
                         <span class="d-xxs-none d-md-block my-3 mb-5 text-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem
                             necessidade de <br> mexer no código, apenas com um click e já está!</span>
                         <div class="d-flex align-items-center justify-content-center col-12 col-md-12 col-xxs-12">
                             <a href="" class="btn btn-outline-warning">Experimente</a>
-                            <a href="<?= route('browse') ?>" class="btn btn-warning ml-2">Explorar</a>
+                            <a href="<?= route('browse') ?>" class="btn btn-white ml-2">Explorar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div> <!-- wallpaper -->
 
-        <div class="overview-items">
-            <div class="sx-container">
-                <span></span>
-                <div class="overview-item">
-                    <span class="qtd">+4.5K</span>
-                    <small class="">Usuários aderiram</small>
+        <div class="container-sm w-80">
+            <div class="row">
+                <div class="col-xxs-12 col-lg-8">
+                    <div class="card-leading pt-4"> 
+                        <span class="card-leading-title">Uma plataforma satisfazendo muitas necessidades dos seus usuários. Já temos mais de 4.5K de clientes a beneficiarem da nossa plataforma.</span>
+                        <small class="card-leading-text text-muted mt-4">Estamos crescendo cada vez mais, faça parte da nossa comunidade</small>
+                    </div>
                 </div>
-                <span></span>
-                <div class="overview-item">
-                    <span class="qtd">+1.5K</span>
-                    <small class="">Landing pages</small>
-                </div>
-                <span></span>
-                <div class="overview-item">
-                    <span class="qtd">+1K</span>
-                    <small class="">Dashboard</small>
-                </div>
-                <span></span>
-                <div class="overview-item">
-                    <span class="qtd">5K</span>
-                    <small class="">Sites prontos</small>
+                <div class="col-xxs-12 col-lg-4 vh-40">
+                    <div class="card-leading bg-warning h-100">
+                        <span class="card-leading-title">Temos em massa 5M Site prontos para oferecer</span>
+                        <small class="card-leading-text text-muted">Para você que quer negócios rápidos, temos sites disponíveis para ti.</small>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="sx-card-section"></div>
-        <div class="sx-card-section"></div>
+        <div class="mt-5"></div>
+        <div class="mt-5"></div>
 
         <!-- About Sílica -->
         <div class="sx-card-section">
@@ -83,6 +75,28 @@
                 ['Work', 'https://silicaweb.ao/sfront/ServicesWork.php']
             ]
             ?>
+
+            <div class="container-sm">
+                <div class="row align-items-center justify-content-center">
+                        <div class="card card-shadow vh-60">
+                            <div class="card-image">
+                                <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
+                            </div>
+                        </div>
+                        <div class="card card-shadow vh-60">
+                            <div class="card-image">
+                                <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
+                            </div>
+                        </div>
+                    
+                        <div class="card card-shadow vh-60">
+                            <div class="card-image">
+                                <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
+                            </div>
+                        </div>
+                </div>
+            </div>
+
             <div class="sx-card-section-contain">
                 <div class="sx-container">
                     <div class="box">

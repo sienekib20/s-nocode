@@ -1,0 +1,7 @@
+.bg-warning {
+	background-color: #F9C700 !important;
+}
+
+.bg-warning * {
+	color: #fff !important;
+}
