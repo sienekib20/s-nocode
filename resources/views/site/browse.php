@@ -67,7 +67,7 @@
                                 <div class="contain-img">
                                     <img src="<?= asset('img/download.png') ?>" alt="template-cover">
                                     <div class="actions d-flex">
-                                        <a href="<?= route('usar', '') ?>" target="_blank"> <small class="bi bi-cart"></small> </a>
+                                        <a href="<?= route('usar', 'default') ?>" target="_blank"> <small class="bi bi-cart"></small> </a>
                                     </div>
                                     <div class="ratings">
                                         <small class="bi bi-star"></small>

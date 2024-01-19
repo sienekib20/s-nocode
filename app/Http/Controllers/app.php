@@ -14,7 +14,7 @@ class app extends Controller
 	{
 		$data = [];
 
-		Auth::create(['user' => 'siene', 'user_id' => 1]);
+		//Auth::create(['user' => 'siene', 'user_id' => 1]);
 
 		// TODO: coloque o seu código
 

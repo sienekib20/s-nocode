@@ -8,11 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="<?= asset('css/app.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/nav/nav.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/my-css.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/my-media.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/grid-system.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
@@ -22,106 +18,96 @@
 </head>
 
 <body>
-<div class="sx">
-    <?= parts('nav.navbar') ?>
+    <div class="wrapper">
+        <?= parts('nav.navbar') ?>
 
-    <div class="sx-card-section"></div>
+        <div class="sx-card-section"></div>
 
-    <div class="sx-card-section">
-        <div class="sx-card-section-header">
-            <div class="sx-container">
-                <div class="title-as-horizontal-qr d-flex">
-                    <div class="sx-col">
-                        <span class="tiny-bold title-q">Meus dados</span>
-                        <span class="mt-0">Está listados todos os dados que tem na nossa plataforma, isto é, <br> os teus pacotes bem como os templates que você adqueriu na plataforma</span>
-                    </div>
+        <div class="container-sm my-4">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xxs-12 col-md-8 text-center">
+                    <span class="d-block">Meus dados</span>
+                    <small class="mt-2 d-block text-muted">Está listados todos os dados que tem na nossa plataforma, isto é, <br> os teus pacotes bem como os templates que você adqueriu na plataforma</small>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="sx-card-section"></div>
 
-    <div class="sx-card-section-contain">
-        <div class="sx-container">
-            <div class="records d-flex">
-                <div class="record-item">
-                    <span class="qtd"><?= $templateUsuario->total ?></span>
+        <div class="container-sm mt-3 mb-5">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-2 text-center">
+                    <span class="qtd d-block"><?= $templateUsuario->total ?></span>
                     <small class="tw-muted">Template</small>
                 </div>
                 <span></span>
-                <div class="record-item">
-                    <span class="qtd">0</span>
+                <div class="col-md-2 text-center">
+                    <span class="qtd d-block">0</span>
                     <small class="tw-muted">Pacote aderido</small>
                 </div>
                 <span></span>
-                <div class="record-item">
-                    <span class="qtd">0</span>
+                <div class="col-md-2 text-center">
+                    <span class="qtd d-block">0</span>
                     <small class="tw-muted">Encomenda</small>
                 </div>
             </div>
         </div>
-    </div> <!-- overview -->
 
-    <div class="sx-card-section"></div>
-    <div class="sx-card-section"></div>
+        <small class="d-block my-3"></small>
 
-    <div class="sx-card-section">
-        <div class="sx-card-section-contain">
-            <div class="sx-container">
-                <div class="col-md-12 col-sm-12">
-                    <table class="table table-responsive-md table-responsive-sm">
-                        <thead class="thead-light">
-                        <tr class="text-center">
-                            <th class="col">Nº</th>
-                            <th class="col">Template</th>
-                            <th class="col">Categoria</th>
-                            <th class="col">Status</th>
-                            <th class="col">Dominio</th>
-                            <th class="col">Prazo</th>
-                            <th class="col">Criaçao</th>
-                            <th class="col">Acção</th>
-                        </tr>
-                        </thead>
-                        <tbody name="aulas_table">
-                        <?php if (empty($data)) : ?>
+        <div class="container-sm">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xxs-12 col-lg-10" style="overflow-x: auto;">
+                    <table style="width: 100%;">
+                        <thead>
                             <tr>
-                                <td colspan="8" class="text-center">Sem nenhum dado</td>
+                                <th>#</th>
+                                <th>Template</th>
+                                <th>Categoria</th>
+                                <th>Status</th>
+                                <th>Dominio</th>
+                                <th>Prazo</th>
+                                <th>Criação</th>
+                                <th>Ação</th>
                             </tr>
-                        <?php else : ?>
-                            <?php foreach ($data as $datum) : ?>
+                        </thead>
+                        <tbody>
+                            <?php if (empty($data)) : ?>
                                 <tr>
-                                    <td class="col"><?= $datum->temp_parceiro_id ?></td>
-                                    <td class="col"><?= $datum->titulo ?></td>
-                                    <td class="col"><?= '-' ?></td>
-                                    <td class="col"><?= $datum->status ?></td>
-                                    <td class="col"><?= '-' ?></td>
-                                    <td class="col"><?= $datum->prazo ?></td>
-                                    <td class="col"><?= explode(' ', $datum->created_at)[0] ?></td>
-                                    <td class="col"><div>
-                                        <a href="">editar</a>
-                                        <a href="">excluir</a>
-                                        </div>
-                                    </td>
+                                    <td colspan="8" class="text-center">Sem nenhum dado</td>
                                 </tr>
+                            <?php else : ?>
+                                <?php foreach ($data as $datum) : ?>
+                                    <tr>
+                                        <td class="col"><?= $datum->temp_parceiro_id ?></td>
+                                        <td class="col"><?= $datum->titulo ?></td>
+                                        <td class="col"><?= '-' ?></td>
+                                        <td class="col"><?= $datum->status ?></td>
+                                        <td class="col"><?= '-' ?></td>
+                                        <td class="col"><?= $datum->prazo ?></td>
+                                        <td class="col"><?= explode(' ', $datum->created_at)[0] ?></td>
+                                        <td class="col">
+                                            <div>
+                                                <a href="<?= route('editar', $datum->temp_parceiro_id) ?>">editar</a>
+                                                <a href="<?= route('excluir', $datum->temp_parceiro_id) ?>">excluir</a>
+                                            </div>
+                                        </td>
+                                    </tr>
                             <?php endforeach;
-                        endif; ?>
+                            endif; ?>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="sx-card-section"></div>
-    <div class="sx-card-section"></div>
-    <div class="sx-card-section"></div>
 
 
-    <?= parts('nav.footer') ?>
+        <small class="d-block my-5"></small>
+        <small class="d-block my-5"></small>
 
-</div> <!-- sx-wrapper -->
+
+        <?= parts('nav.footer') ?>
+
+    </div> <!--/.wrapper -->
 
 
 </body>

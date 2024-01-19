@@ -11,9 +11,9 @@ class data extends Controller
 
     public function carregar(Request $request)
     {
-        $data = DB::raw('select distinct tp.temp_parceiro_id, (select titulo from templates where template_id = tp.template_id) as titulo, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") as prazo from templates where template_id = tp.template_id) as prazo, tp.created_at from temp_parceiros as tp where parceiro_id = (select conta_id from contas where nome = ?)', [$request->user]);
+        $data = DB::raw('select distinct tp.temp_parceiro_id, (select titulo from templates where template_id = tp.template_id) as titulo, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") as prazo from templates where template_id = tp.template_id) as prazo, tp.created_at from temp_parceiros as tp where parceiro_id = (select conta_id from contas where conta_id = ?)', [$request->id]);
 
-        $templateUsuario = DB::table('temp_parceiros')->select('count(template_id) as total')->where('parceiro_id', '=', DB::table('contas')->select('conta_id')->where('nome', '=', $request->user)->get()[0]->conta_id)->get()[0];
+        $templateUsuario = DB::table('temp_parceiros')->select('count(template_id) as total')->where('parceiro_id', '=', $request->id)->get()[0];
         //return view('Home:app.site.index', compact('data'));
         return view('Meus dados:site.user-data', compact('data', 'templateUsuario'));
     }
@@ -21,7 +21,10 @@ class data extends Controller
 
     public function choose(Request $request)
     {
-
+        if ($request->uuid == 'default') {
+            $template = [];
+            return view('Escolha:site.choose', compact('template'));    
+        }
         $template = DB::raw('select t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
         // -> será adicionado no proximo migrate fresh seed :
         // (select classificacao from classificacaos where template_id = t.template_id) as classificacao

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Ramsey\Uuid\Uuid;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Auth;
 use Sienekib\Mehael\Support\Hash;
 
 class authenticacao extends Controller
@@ -18,22 +19,12 @@ class authenticacao extends Controller
 
 	public function autenticar(Request $request)
 	{
-		$data = DB::table('contas')->select('*')->where('nome', '=', $request->username)->orwhere('email', '=', $request->username)->get();
-
-		if (!empty($data)) {
-
-			if (password_verify($request->password, $data[0]->senha)) {
-				session()
-					->set('active_user', [$data[0]->nome, $data[0]->conta_id, $data[0]->email])
-					->regenerateId();
-				return redirect()->route('/');
-			}
-
-			session()->setFlashMessage('erro', 'Senha inválido');
-			return redirect()->route('entrar');
+		if (Auth::attempt($request->username, $request->password)) {
+			session()->setFlashMessage('Sucesso', 'Seja bem vindo');
+			return redirect()->route('/');
 		}
 
-		session()->setFlashMessage('erro', 'usuário desconhecido');
+		session()->setFlashMessage('erro', 'Dados inválidos');
 		return redirect()->route('entrar');
 	}
 
@@ -85,5 +76,14 @@ class authenticacao extends Controller
 				return true;
 			}
 		}
+	}
+
+	public function destroy()
+	{
+		if (Auth::check()) {
+			Auth::logout();
+			return redirect()->route('/');
+		}
+		return redirect()->back();
 	}
 }

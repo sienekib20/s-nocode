@@ -55,7 +55,7 @@ class Session
 
     public static function auth()
     {
-        return static::has('user_id');
+        return static::has('user');
     }
 
     public static function set(string $key, mixed $value)
@@ -65,7 +65,7 @@ class Session
         return new static;
     }
 
-    public function regenerateId()
+    public static function regenerateId()
     {
         session_regenerate_id();
     }

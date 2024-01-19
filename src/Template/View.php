@@ -48,6 +48,8 @@ class View
 
         $final = preg_replace("/<title>(.*)<\/title>/", "<title>$parts[0]</title>", $final);
 
+        $final = preg_replace('/@Auth/', '\Sienekib\Mehael\Support\Auth', $final);
+
         echo $final;
 
         return;

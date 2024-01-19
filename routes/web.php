@@ -15,6 +15,7 @@ Route::add('GET', '/', [app::class, 'index']);
 Route::add('GET', '/entrar', [authenticacao::class, 'login']);
 Route::add('GET', '/register', [authenticacao::class, 'register']);
 Route::add('POST', '/registe', [authenticacao::class, 'user_create']);
+Route::add('POST', '/logout', [authenticacao::class, 'destroy']);
 
 Route::add('POST', '/autenticar', [authenticacao::class, 'autenticar']);
 
@@ -32,11 +33,11 @@ Route::add('GET', '/browse', [browse::class, 'load']);
 Route::add('GET', '/browse/(id:numeric)', [browse::class, 'load_specfic']);
 // Authorized routes
 Route::group('auth:authorize', function () {
-    Route::add('GET', '/dados/(user:alpha)', [data::class, 'carregar']);
+    Route::add('GET', '/dados/(id:numeric)', [data::class, 'carregar']);
 });
 
 Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);
-Route::add('POST', '/usar', [data::class, 'validar_uso']);
+/*Route::add('POST', '/usar', [data::class, 'validar_uso']);*/
 Route::add('POST', '/salvar', [data::class, 'save_template']);
 Route::add('GET', '/meus-templates', [templates::class, 'temp_usuario']);
 Route::add('GET', '/preview/(template:any)', [templates::class, 'preview']);

@@ -24,7 +24,7 @@
 
 
                 <div class="__nav-item <?= $path == 'dados' ? 'active' : '' ?>">
-                    <a href="<?= route('dados', 'conta') ?>" class="__nav-link">
+                    <a href="<?= route('dados', \Sienekib\Mehael\Support\Auth::user()->id) ?>" class="__nav-link">
                         <span>Meus dados</span>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
                     </a>
                 </div>
 
-                <?php if (!session()->get('user_id')) : ?>
+                <?php if (!\Sienekib\Mehael\Support\Auth::check()) : ?>
                     <div class="__nav-item <?= request()->path() == '/cadastrar' ? 'active' : '' ?>">
                         <a href="<?= route('cadastrar') ?>" class="__nav-link">
                             <span class="fas fa-user-plus"></span>
@@ -56,7 +56,7 @@
                             <span class="fas fa-shopping-cart"></span>
                         </a>
                     </div>
-                    <div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
+                    <div class="__nav-item <?= request()->path() == '/logout' ? 'active' : '' ?>">
                         <a href="#" class="__nav-link">
                             <span>Sair</span>
                         </a>

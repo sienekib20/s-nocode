@@ -8,7 +8,7 @@ class Authorize
 {
     public function handle()
     {
-        $restricted = Session::has('user_id');
+        $restricted = Session::has('user');
 
         if (!$restricted) {
 
