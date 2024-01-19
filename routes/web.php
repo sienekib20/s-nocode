@@ -13,6 +13,11 @@ Route::add('POST', '/salvando', [templates::class, 'store']);
 
 Route::add('GET', '/', [app::class, 'index']);
 Route::add('GET', '/entrar', [authenticacao::class, 'login']);
+Route::add('GET', '/register', [authenticacao::class, 'register']);
+Route::add('POST', '/registe', [authenticacao::class, 'user_create']);
+
+Route::add('POST', '/autenticar', [authenticacao::class, 'autenticar']);
+
 Route::add('GET', '/nocode', [app::class, 'index']);
 Route::add('GET', '/user/[0-9]+', [app::class, 'update']);
 

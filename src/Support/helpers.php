@@ -181,3 +181,9 @@ if (!function_exists('route')) :
 	}
 
 endif;
+
+if (!function_exists('csrf_token')) {
+	function csrf_token()
+	{
+	}
+}

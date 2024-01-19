@@ -1,21 +1,23 @@
 @import url('../general-sans.css');
 @import url('../all-fonts.css');
-@import "reset.css";
-@import "classes.css";
-@import "wrapper.css";
-@import "colors.css";
-@import "images.css";
-@import "form.css";
-@import "components/cards.css";
-@import "typography.css";
-@import "displays.css";
-@import "button.css";
-@import "grid.css";
-@import "navbar.css";
-@import "table.css";
-@import "media.css";
+@import "reset.css?v=1";
+@import "classes.css?v=1";
+@import "wrapper.css?v=1";
+@import "colors.css?v=1";
+@import "images.css?v=1";
+@import "form.css?v=1";
+@import "components/cards.css?v=1";
+@import "typography.css?v=1";
+@import "displays.css?v=1";
+@import "button.css?v=1";
+@import "grid.css?v=1";
+@import "navbar.css?v=1";
+@import "table.css?v=1";
+@import "media.css?v=1";
+
 body {
     font-family: 'Roboto-Light';
+    background-color: #f1f1f1;
 }
 .wallpaper {
     top: 0px;
@@ -231,4 +233,64 @@ body {
     color: #fff;
     background-color: #343A40;
     border-radius: 0 0 4px 4px;
+}
+
+
+
+/*
+footer
+ */
+
+.footer {
+    background-color: #343A40;
+}
+
+footer .heading {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: 'Roboto-Regular';
+    /*text-transform: uppercase;*/
+}
+
+footer {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer .footer-heading,
+footer .subheading {
+    font-size: 1rem;
+    /*text-transform: uppercase;*/
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer .btn {
+    color: #fff;
+    background-color: #F9C700   ;
+}
+
+footer li,
+footer a {
+    color: #fff;
+}
+
+footer .logo {
+    font-size: 1.5rem;
+    color: #F9C700;
+    font-family: 'Roboto-Regular';
+}
+
+.auths .container-sm > [class*="col"],
+.auths .container-sm > [class*="row"]{
+    background: #fff;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
+}
+
+.op-0 {
+    opacity: 0;
 }

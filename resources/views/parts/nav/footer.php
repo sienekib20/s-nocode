@@ -1,64 +1,52 @@
-<footer class="footer-06">
-    <div class="container">
-        <div class="row align-items-center align-items-stretch mb-5">
-            <div class="col-md-4 py-4 py-md-5 aside-stretch d-flex align-items-center">
+<footer class="footer py-5">
+    <div class="container-sm">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-4 d-flex align-items-center">
                 <div class="w-100">
-                    <span class="subheading">Crie site personalizado</span>
-                    <h3 class="heading-section">Encomendar</h3>
+                    <span class="d-block heading">Faça a tua encomenda</span>
+                    <small class="subheading">Crie site personalizado</small>
                 </div>
             </div>
-            <div class="col-md-8 py-4 py-md-5 d-flex align-items-center pl-md-5 aside-stretch-right">
-                <form action="#" class="subscribe-form w-100">
-                    <div class="form-group d-flex">
-                        <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-                        <button type="submit" class="form-control submit"><span>Submit</span></button>
-                    </div>
+            <div class="col-md-8 d-flex align-items-center">
+                <form action="<?= route('encomendar') ?>" class="subscribe-form w-100 d-flex">
+                    <input type="text" class="form-input w-100 input-warning" placeholder="Insira o teu email">
+                    <button type="submit" class="btn form-input">Enviar</button>
                 </form>
             </div>
         </div>
         <div class="row pt-4">
-            <div class="col-md-3 col-lg-6 order-md-last">
+            <div class="col-md-4 col-lg-6 order-md-last">
                 <div class="row justify-content-end">
                     <div class="col-md-12 col-lg-9 text-md-right mb-md-0 mb-4">
-                        <h2 class="footer-heading"><a href="#" class="logo">Colorlib</a></h2>
-                        <p class="copyright">
-                            Copyright &copy;<script>
-                                document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="ion-ios-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                        <span class="footer-heading"><a href="#" class="logo">Nocode</a></span>
+                        <p class="copyright">Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                            Todos os direitos reservados | Design feito com <i class="bi bi-heart-fill" aria-hidden="true"></i> por <a href="https://facebook.com/profile" target="_blank">sienekib</a>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 col-lg-6">
+            <div class="col-md-8 col-lg-6">
                 <div class="row">
-                    <div class="col-md-4 mb-md-0 mb-4">
-                        <h2 class="footer-heading">Information</h2>
+                    <div class="col-md-6 mb-md-0 mb-4">
+                        <span class="footer-heading d-block mb-3">Information</span>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Our Company</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Data</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Pricing</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Contact Us</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Support</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Universo sílica</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Preçário</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Contactos</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Suporte</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 mb-md-0 mb-4">
-                        <h2 class="footer-heading">Application</h2>
+                    <div class="col-md-6 mb-md-0 mb-4">
+                        <span class="footer-heading d-block mb-3">Aplicativos</span>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Download</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Bike Provider</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>How to Used</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mb-md-0 mb-4">
-                        <h2 class="footer-heading">API</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Documentation</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Credential</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Developer info</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="fas fa-checkmark-circle-outline mr-2"></span>Quem me levou</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="fas fa-checkmark-circle-outline mr-2"></span>Bike Provider</a></li>
+                            <li><a href="#" class="py-1 d-block"><span class="fas fa-checkmark-circle-outline mr-2"></span>How to Used</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</footer> <!--/.footer-->
