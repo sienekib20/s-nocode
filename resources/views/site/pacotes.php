@@ -66,15 +66,15 @@
       <div class="card-body">
         <div class="container-sm">
           <div class="row">
-            <div class="col-lg-5">
+            <div class="card-title col-xxs-12 col-lg-5 mb-xxs-4 mb-lg-0">
               <span class="title">Respostas de Perguntas mais frequentes</span>
               <small class="text-muted d-block">Tire todas as tuas dúvidas</small>
             </div>
-            <div class="col-lg-7">
+            <div class="col-xxs-12 mt-xxs-3 mt-lg-0 col-lg-7">
               <div class="faqs">
                 <?php for ($i = 0; $i < 4; $i++) : ?>
                   <div class="faqItem">
-                    <div class="faqItem-top"> <span class="bi bi-chevron-down">FaqItem question</span></div>
+                    <div class="faqItem-top"> <span class="bi bi-dot">FaqItem question</span></div>
                     <div class="faqItem-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, reiciendis!</div>
                   </div>
                 <?php endfor; ?>
@@ -96,6 +96,6 @@
 <script>
   $('.faqItem-top').click((e) => {
     e.preventDefault();
-    $(this).addClass('active');
+    $(e.target).toggleClass('active');
   });
 </script>
