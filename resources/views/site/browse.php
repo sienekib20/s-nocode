@@ -18,14 +18,47 @@
 <body>
 
   <div class="wrapper">
-    @parts('nav.navbar')
-    <div class="tinybar">
-      <div class="container-sm d-flex align-items-center justify-content-lg-center justify-content-xxs-start">
-        <?php foreach ($tipo as $type) : ?>
-          <div class="tiny-item">
-            <a href="" class="tiny-link"> <small><?= $type->tipo_template ?></small> </a>
+    <?= parts('nav.navbar') ?>
+
+    <div class="card">
+      <div class="container-sm">
+        <div class="row">
+          <div class="col-12 card-top">
+            <div class="card-title">
+              <span class="title d-block">+100 Landing Pages prontas</span>
+              <small class="text-muted">Faça a tua escolha e defina a cor do teu negócio</small>
+            </div>
           </div>
-        <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="container-sm">
+        <div class="row">
+          <div class="col-12 card-body">
+            <div class="row">
+              <div class="col-md-2">
+                <select name="type" id="typeSearch" class="form-input">
+                  <option value="">Tipo template</option>
+                  <?php foreach ($tipo as $type) : ?>
+                    <option value="<?= $type->tipo_template_id ?>" class="form-input"><?= $type->tipo_template ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div> <!--/.col-md-2-->
+              <div class="col-md-2">
+                <select name="type" id="typeSearch" class="form-input">
+                  <option value="">Cor do template</option>
+                  <option value="">color</option>
+                </select>
+              </div> <!--/.col-md-2-->
+              <div class="col-md-2 pesquise_">
+                <input type="text" class="form-input input-block" placeholder="Pesquise">
+                <small class="bi bi-search"></small>
+              </div> <!--/.col-md-2-->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

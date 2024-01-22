@@ -317,9 +317,24 @@ faqs
     -o-transition: padding 0.1s ease, height 0.2s ease, border 0.15s ease;
 }
 
-.faqItem-top.active + .faqItem-body {
+.faqItem-top.active+.faqItem-body {
     height: 90px;
     border: solid 1px rgba(0, 0, 0, 0.1);
     border-left: 4px solid #f71;
     padding: 0.5rem 1rem;
+}
+
+.pesquise_ {
+    position: relative;
+}
+
+.pesquise_ small {
+    top: 50%;
+    right: 12%;
+    position: absolute;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
