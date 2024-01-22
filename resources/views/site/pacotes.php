@@ -92,3 +92,10 @@
 </body>
 
 </html>
+
+<script>
+  $('.faqItem-top').click((e) => {
+    e.preventDefault();
+    $(this).addClass('active');
+  });
+</script>

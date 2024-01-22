@@ -281,9 +281,44 @@ faqs
     position: relative;
 }
 
+.faqItem+.faqItem {
+    margin-top: 1rem;
+}
+
+.faqItem-top {
+    height: 45px;
+    background-color: #fff;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #f71;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+}
+
 .faqItem-top span {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
+    padding: 0 1rem;
+    pointer-events: none;
     justify-content: space-between;
     flex-direction: row-reverse;
+}
+
+.faqItem-body {
+    height: 0;
+    background-color: #fff;
+    overflow: hidden;
+    transition: padding 0.1s ease, height 0.2s ease, border 0.15s ease;
+    -webkit-transition: padding 0.1s ease, height 0.2s ease, border 0.15s ease;
+    -moz-transition: padding 0.1s ease, height 0.2s ease, border 0.15s ease;
+    -ms-transition: padding 0.1s ease, height 0.2s ease, border 0.15s ease;
+    -o-transition: padding 0.1s ease, height 0.2s ease, border 0.15s ease;
+}
+
+.faqItem-top.active + .faqItem-body {
+    height: 70px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #f71;
+    padding: 0.5rem 1rem;
 }
