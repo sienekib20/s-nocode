@@ -43,7 +43,7 @@
         <div class="col-md-3">
           <div class="card-plan mt-xxs-3">
             <div class="card-plan-top">
-              <div class="d-flex align-items-baseline"> <small>Total de <?= $templateUsuario->total ?></small></div>
+              <div class="d-flex align-items-baseline"> <small>Total de <?= '0' ?></small></div>
             </div>
             <div class="card-plan-body mt-2">
               <div class="d-flex flex-direction-column">
@@ -58,7 +58,7 @@
         <div class="col-md-3">
           <div class="card-plan mt-xxs-3">
             <div class="card-plan-top">
-              <div class="d-flex align-items-baseline"> <small>Total de <?= $templateUsuario->total ?></small></div>
+              <div class="d-flex align-items-baseline"> <small>Total de <?= '0' ?></small></div>
             </div>
             <div class="card-plan-body mt-2">
               <div class="d-flex flex-direction-column">
@@ -103,7 +103,11 @@
       <div class="card-body mt-5">
         <div class="container-sm">
           <div class="row align-items-start justify-content-center">
-            <?php for ($i = 0; $i < 3; $i++) : ?>
+            <div class="col-12 text-center">
+              <span class="d-block my-4">Não tens nenhum template ainda</span>
+              <a href="" class="btn btn-outline"><small class="text-muted">Adquirir agora</small></a>
+            </div>
+            <?php foreach ($data as $datum) : ?>
               <div class="col-md-3">
                 <div class="card-plan mt-xxs-3">
                   <div class="card-plan-top">
@@ -148,7 +152,7 @@
                   </div>
                 </div> <!--/.card-plan-->
               </div> <!--/.col-md-3-->
-            <?php endfor; ?>
+            <?php endforeach; ?>
 
           </div>
         </div>
@@ -159,7 +163,7 @@
 
 
     <small class="d-block my-5"></small>
-    <small class="d-block my-5"></small>
+    <small class="d-block my-4"></small>
 
 
     <?= parts('nav.footer') ?>
