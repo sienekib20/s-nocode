@@ -3,240 +3,221 @@
 
 <head>
 
-    <title>%title%</title>
+  <title>%title%</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
-    <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
-    <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
+  <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
+  <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
+  <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
 </head>
 
 <body>
-    <div class="sx">
-        <?= parts('nav.navbar') ?>
+  <div class="sx">
+    <?= parts('nav.navbar') ?>
 
-        <div class="wallpaper vh-80">
-            <div class="container-sm" style="z-index: 1080">
-                <div class="row align-items-center h-100">
-                    <div class="text-center text-md-center col-12 col-md-12 col-xxs-12">
-                        <span class="h3 w-100 d-block text-bold text-white d-block mb-md-0 mb-xxs-5">Torne-se independente <br> Crie a sua lógica de negócios</span>
-                        <span class="d-xxs-none d-md-block my-3 mb-5 text-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem
-                            necessidade de <br> mexer no código, apenas com um click e já está!</span>
-                        <div class="d-flex align-items-center justify-content-center col-12 col-md-12 col-xxs-12">
-                            <a href="" class="btn btn-outline-warning">Experimente</a>
-                            <a href="<?= route('browse') ?>" class="btn btn-white ml-2">Explorar</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="wallpaper vh-80">
+      <div class="container-sm" style="z-index: 1080">
+        <div class="row align-items-center h-100">
+          <div class="text-center text-md-center col-12 col-md-12 col-xxs-12">
+            <span class="h3 w-100 d-block text-bold text-white d-block mb-md-0 mb-xxs-5">Torne-se independente <br> Crie a sua lógica de negócios</span>
+            <span class="d-xxs-none d-md-block my-3 mb-5 text-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem
+              necessidade de <br> mexer no código, apenas com um click e já está!</span>
+            <div class="d-flex align-items-center justify-content-center col-12 col-md-12 col-xxs-12">
+              <a href="" class="btn btn-outline-warning">Experimente</a>
+              <a href="<?= route('browse') ?>" class="btn btn-white ml-2">Explorar</a>
             </div>
-        </div> <!-- wallpaper -->
-
-        <div class="container-sm w-80">
-            <div class="row">
-                <div class="col-xxs-12 col-lg-8">
-                    <div class="card-leading pt-4"> 
-                        <span class="card-leading-title">Uma plataforma satisfazendo muitas necessidades dos seus usuários. Já temos mais de 4.5K de clientes a beneficiarem da nossa plataforma.</span>
-                        <small class="card-leading-text text-muted mt-4">Estamos crescendo cada vez mais, faça parte da nossa comunidade</small>
-                    </div>
-                </div>
-                <div class="col-xxs-12 col-lg-4 vh-40">
-                    <div class="card-leading bg-warning h-100">
-                        <span class="card-leading-title">Temos em massa 5M Site prontos para oferecer</span>
-                        <small class="card-leading-text text-muted">Para você que quer negócios rápidos, temos sites disponíveis para ti.</small>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </div> <!-- wallpaper -->
 
-        <div class="mt-5"></div>
-        <div class="mt-5"></div>
+    <div class="container-sm w-80">
+      <div class="row">
+        <div class="col-xxs-12 col-lg-8">
+          <div class="card-leading pt-4">
+            <span class="card-leading-title">Uma plataforma satisfazendo muitas necessidades dos seus usuários. Já temos mais de 4.5K de clientes a beneficiarem da nossa plataforma.</span>
+            <small class="card-leading-text text-muted mt-4">Estamos crescendo cada vez mais, faça parte da nossa comunidade</small>
+          </div>
+        </div>
+        <div class="col-xxs-12 col-lg-4 vh-40">
+          <div class="card-leading bg-warning h-100">
+            <span class="card-leading-title">Temos em massa 5M Site prontos para oferecer</span>
+            <small class="card-leading-text text-muted">Para você que quer negócios rápidos, temos sites disponíveis para ti.</small>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <!-- About Sílica -->
-        <div class="sx-card-section">
-            <div class="sx-card-section-header">
-                <div class="sx-container">
-                    <div class="title-as-horizontal-qr d-flex">
-                        <div class="">
-                            <span class="tiny-bold title-q">Quem somos nós, e como lembrar de nós</span>
-                            <span class="mt-2">Somos o Universo Sílica Líder de facturação, e podemos fornecer muito mais do que você pode imaginar. Explora alguns dos nossos ítens </span>
+    <div class="mt-5"></div>
+    <div class="mt-5"></div>
+
+    <!-- About Sílica -->
+    <div class="sx-card-section">
+      <div class="sx-card-section-header">
+        <div class="sx-container">
+          <div class="title-as-horizontal-qr d-flex">
+            <div class="">
+              <span class="tiny-bold title-q">Quem somos nós, e como lembrar de nós</span>
+              <span class="mt-2">Somos o Universo Sílica Líder de facturação, e podemos fornecer muito mais do que você pode imaginar. Explora alguns dos nossos ítens </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php $about = [
+        ['School', 'https://silicaweb.ao/sfront/ServicesSchool.php'],
+        ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php'],
+        ['Univ', 'https://silicaweb.ao/sfront/ServicesUniv.php'],
+        ['Aqua', 'https://silicaweb.ao/sfront/ServicesAqua.php'],
+        ['Health', 'https://silicaweb.ao/sfront/ServicesHealth.php'],
+        ['RH', 'https://silicaweb.ao/sfront/ServicesRH.php'],
+        ['Work', 'https://silicaweb.ao/sfront/ServicesWork.php']
+      ]
+      ?>
+
+      <div class="container-sm">
+        <div class="row align-items-center justify-content-center">
+          <div class="card card-shadow vh-60">
+            <div class="card-image">
+              <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
+            </div>
+          </div>
+          <div class="card card-shadow vh-60">
+            <div class="card-image">
+              <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
+            </div>
+          </div>
+
+          <div class="card card-shadow vh-60">
+            <div class="card-image">
+              <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sx-card-section-contain">
+        <div class="sx-container">
+          <div class="box">
+            <?php foreach ($about as $item) : ?>
+              <div class="box-item">
+                <span class="name">Sílica <?= $item[0] ?></span>
+                <small class="tw-muted">Lorem ipsum dolor sit amet.</small>
+                <a href="<?= $item[1] ?>" target="_blank"> <small>saber mais...</small> </a>
+              </div>
+            <?php endforeach; ?>
+            <a href="<?= 'https://silicaweb.ao/sfront/services.php' ?>" target="_blank" class="box-item">
+              <span class="name">Saiba mais...</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> <!-- about -->
+
+    <div class="sx-card-section"></div>
+
+    <div class="sx-card-section">
+      <div class="sx-card-section-header">
+        <div class="sx-container">
+          <div class="title-as-horizontal-qr d-flex">
+            <div class="">
+              <span class="mb-2"> <span class="bi bi-arrow-right"></span> Conheça as respostas das perguntas e dúvidas muito mais frequentes para esse tipo de negócio.</span>
+              <span class="tiny-bold title-q">Perguntas frequentes</span>
+              <span class="mt-0">Não continue enganado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php
+      $asked = [
+        ['O que é preciso para começar?', 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano (opcional), só assim que podes começar. para mais informações entre em <a href="">contacto</a>', 'active'],
+        ['O meu site pára de funcionar, quando expirar o plano?', 'Antes que expire o teu plano receberas notificações antes do tempo, mas damos sempre um prazo considerável de 3 mêses aos nossos clientes, excepto quando estiveres a usar um plano grátis.', ''],
+        ['Devo ter conhecimentos tenicos para editar o template?', 'Pensamos em si, podes não ter conhecimentos tecnicos, vais construir o teu template mesmo que começar do zero.', ''],
+        ['Com quem posso partilhar o meu dóminio?', 'Podes divulgar o link do teu site com quem quizer, onde quizer, e qualquer um poderá acessar livremente', ''],
+        ['Existem template para o meu tipo de negócio?', 'Nós damos a base, o alicerce com que vais edificar a sua casa, isto é, os templates são de carater aberto para adequá-los ao teu tipo de negócio.', '']
+      ];
+      ?>
+
+    <div class="sx-card-section"></div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="container-sm">
+          <div class="row">
+            <div class="card-title text-center col-12">
+              <span class="d-block bold">Planos de uso</span>
+              <small class="text-muted d-block"> <span class="bi bi-arrow-right"></span> Escolha única trazendo uma poupança múltipla</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body mt-5">
+        <div class="container-sm">
+          <div class="row align-items-start justify-content-center">
+            <?php foreach ($enviar as $planos) :  ?>
+              <div class="col-md-3">
+                <div class="card-plan mt-xxs-3">
+                  <div class="card-plan-top">
+                    <span class="title d-block"><?= $planos['pacote'] ?></span>
+                    <div class="d-flex align-items-baseline"> <small>Preço oficial</small> <span class="d-block">0,00KZ</span></div>
+                  </div>
+                  <div class="card-plan-body">
+                    <div class="d-flex flex-direction-column">
+                      <?php foreach ($planos['desc'] as $plane) : ?>
+                        <div class="d-flex align-items-center card-plan-item">
+                          <small class="bi bi-check"></small>
+                          <small class="text-muted"><?= $plane ?></small>
                         </div>
+                      <?php endforeach; ?>
                     </div>
-                </div>
+                    <?php if ($planos['pacote'] == 'Básico') : ?>
+                      <a href="{{ route('aderir', 1) }}" class="btn btn-orange input-block my-3 d-block">Aderir</a>
+                    <?php else : ?>
+                      <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block my-3 d-block">Aderir</a>
+                    <?php endif; ?>
+                  </div>
+                </div> <!--/.card-plan-->
+              </div> <!--/.col-md-3-->
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+    </div> <!--/.card-->
+
+    <small class="d-block mt-5"></small>
+    <div class="card">
+      <div class="card-body">
+        <div class="container-sm">
+          <div class="row">
+            <div class="card-title col-xxs-12 col-lg-5 mb-xxs-4 mb-lg-0">
+              <span class="title">Respostas de Perguntas mais frequentes</span>
+              <small class="text-muted d-block">Tire todas as tuas dúvidas</small>
             </div>
-            <?php $about = [
-                ['School', 'https://silicaweb.ao/sfront/ServicesSchool.php'],
-                ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php'],
-                ['Univ', 'https://silicaweb.ao/sfront/ServicesUniv.php'],
-                ['Aqua', 'https://silicaweb.ao/sfront/ServicesAqua.php'],
-                ['Health', 'https://silicaweb.ao/sfront/ServicesHealth.php'],
-                ['RH', 'https://silicaweb.ao/sfront/ServicesRH.php'],
-                ['Work', 'https://silicaweb.ao/sfront/ServicesWork.php']
-            ]
-            ?>
-
-            <div class="container-sm">
-                <div class="row align-items-center justify-content-center">
-                        <div class="card card-shadow vh-60">
-                            <div class="card-image">
-                                <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
-                            </div>
-                        </div>
-                        <div class="card card-shadow vh-60">
-                            <div class="card-image">
-                                <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
-                            </div>
-                        </div>
-                    
-                        <div class="card card-shadow vh-60">
-                            <div class="card-image">
-                                <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
-                            </div>
-                        </div>
-                </div>
+            <div class="col-xxs-12 mt-xxs-3 mt-lg-0 col-lg-7">
+              <div class="faqs">
+                <?php foreach ($asked as $ask) : ?>
+                  <div class="faqItem">
+                    <div class="faqItem-top <?= $ask[2] ?>"> <span class="bi bi-dot"><?= $ask[0] ?></span></div>
+                    <div class="faqItem-body"><?= nl2br($ask[1]) ?></div>
+                  </div>
+                <?php endforeach; ?>
+              </div> <!-- faqs -->
             </div>
-
-            <div class="sx-card-section-contain">
-                <div class="sx-container">
-                    <div class="box">
-                        <?php foreach ($about as $item) : ?>
-                            <div class="box-item">
-                                <span class="name">Sílica <?= $item[0] ?></span>
-                                <small class="tw-muted">Lorem ipsum dolor sit amet.</small>
-                                <a href="<?= $item[1] ?>" target="_blank"> <small>saber mais...</small> </a>
-                            </div>
-                        <?php endforeach; ?>
-                        <a href="<?= 'https://silicaweb.ao/sfront/services.php' ?>" target="_blank" class="box-item">
-                            <span class="name">Saiba mais...</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- about -->
-
-        <div class="sx-card-section"></div>
-
-        <div class="sx-card-section">
-            <div class="sx-card-section-header">
-                <div class="sx-container">
-                    <div class="title-as-horizontal-qr d-flex">
-                        <div class="">
-                            <span class="mb-2"> <span class="bi bi-arrow-right"></span> Conheça as respostas das perguntas e dúvidas muito mais frequentes para esse tipo de negócio.</span>
-                            <span class="tiny-bold title-q">Perguntas frequentes</span>
-                            <span class="mt-0">Não continue enganado</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-            $asked = [
-                ['O que é preciso para começar?', 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano (opcional), só assim que podes começar. para mais informações entre em <a href="">contacto</a>', 'active'],
-                ['O meu site pára de funcionar, quando expirar o plano?', 'Antes que expire o teu plano receberas notificações antes do tempo, mas damos sempre um prazo considerável de 3 mêses aos nossos clientes, excepto quando estiveres a usar um plano grátis.', ''],
-                ['Devo ter conhecimentos tenicos para editar o template?', 'Pensamos em si, podes não ter conhecimentos tecnicos, vais construir o teu template mesmo que começar do zero.', ''],
-                ['Com quem posso partilhar o meu dóminio?', 'Podes divulgar o link do teu site com quem quizer, onde quizer, e qualquer um poderá acessar livremente', ''],
-                ['Existem template para o meu tipo de negócio?', 'Nós damos a base, o alicerce com que vais edificar a sua casa, isto é, os templates são de carater aberto para adequá-los ao teu tipo de negócio.', '']
-            ];
-            ?>
-            <div class="sx-card-section-contain">
-                <div class="sx-container">
-                    <div class="asked-frequently d-flex">
-                        <div class="contain">
-                            <?php foreach ($asked as $value) : ?>
-                                <div class="asked-item <?= $value[2] ?>">
-                                    <div class="asked-top">
-                                        <span><?= $value[0] ?></span>
-                                    </div>
-                                    <div class="asked-body"><?= nl2br($value[1]) ?></div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- faqs-->
-
-        <div class="sx-card-section"></div>
-
-        <div class="sx-card-section">
-            <div class="sx-card-section-header">
-                <div class="sx-container">
-                    <div class="title-as-horizontal-qr d-flex">
-                        <div class="" style="text-align: center; width: 100%">
-                            <span class="tiny-bold title-q">Adesão de pacote</span>
-                            <span class="mt-0">Esse é um jeito mais facil pra começar com o nosso serviço</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="sx-card-section-contain">
-                <div class="sx-container">
-                    <div class="packages">
-                        <div class="package-item">
-                            <div class="package-top">
-                                <span class="title">Free pack</span>
-                                <small class="tw-muted">Pacote padrão</small>
-                                <small class="tw-muted mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Fugiat, fuga.</small>
-                            </div>
-                            <div class="sx-card-section"></div>
-                            <div class="line-divider-horizontal"></div>
-                            <span class="bold">0,00KZ <small class="line-through">1.000,00KZ</small> </span>
-                            <div class="package-includes">
-                                <small class="bi bi-arrow-right">2 Templates no máximo</small>
-                                <small class="bi bi-arrow-right">Validade de domínio por 30 dias</small>
-                                <small class="bi bi-arrow-right">Sem suporte</small>
-                            </div>
-                            <a href="">Aderir <small class="bi bi-arrow-right"></small> </a>
-                        </div>
-                        <div class="package-item">
-                            <div class="package-top">
-                                <span class="title">Basic pack</span>
-                                <small class="tw-muted">Pacote Inicial</small>
-                                <small class="tw-muted mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Fugiat, fuga.</small>
-                            </div>
-                            <div class="sx-card-section"></div>
-                            <div class="line-divider-horizontal"></div>
-                            <span class="bold">1.000,00KZ <small class="line-through">1.900,00KZ</small> </span>
-                            <div class="package-includes">
-                                <small class="bi bi-arrow-right">3 Templates no máximo</small>
-                                <small class="bi bi-arrow-right">Validade de domínio por 50 dias</small>
-                                <small class="bi bi-arrow-right">Sem suporte</small>
-                            </div>
-                            <a href="">Aderir <small class="bi bi-arrow-right"></small> </a>
-                        </div>
-                        <div class="package-item">
-                            <div class="package-top">
-                                <span class="title">Big pack</span>
-                                <small class="tw-muted">Personalizado</small>
-                                <small class="tw-muted mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Fugiat</small>
-                            </div>
-                            <div class="sx-card-section"></div>
-                            <div class="line-divider-horizontal"></div>
-                            <span class="bold">5.000,00KZ <small class="line-through">7.500,00KZ</small> </span>
-                            <div class="package-includes">
-                                <small class="bi bi-arrow-right">5 Templates no máximo</small>
-                                <small class="bi bi-arrow-right">Validade de domínio por 90 dias</small>
-                                <small class="bi bi-arrow-right">Suporte online</small>
-                            </div>
-                            <a href="">Aderir <small class="bi bi-arrow-right"></small> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- planos -->
+          </div>
+        </div>
+      </div>
+    </div><!--/.card-->
 
 
-        <div class="sx-card-section"></div>
-        <div class="sx-card-section"></div>
-        <div class="sx-card-section"></div>
+    <div class="sx-card-section"></div>
+    <div class="sx-card-section"></div>
+    <div class="sx-card-section"></div>
 
 
-        <?= parts('nav.footer') ?>
+    <?= parts('nav.footer') ?>
 
-    </div> <!-- sx-wrapper -->
+  </div> <!-- sx-wrapper -->
 
 
 </body>
@@ -244,13 +225,17 @@
 </html>
 
 <script>
-    $(document).ready(function() {
-        const asked_top = document.querySelectorAll('.asked-top');
-        asked_top.forEach((item) => {
-            item.addEventListener('click', (e) => {
-                e.target.parentNode.classList.toggle('active');
-            })
-        });
+  $(document).ready(function() {
+    const asked_top = document.querySelectorAll('.asked-top');
+    asked_top.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.target.parentNode.classList.toggle('active');
+      })
     });
+  });
+  $('.faqItem-top').click((e) => {
+    e.preventDefault();
+    $(e.target).toggleClass('active');
+  });
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"842ce7672b5f304a","version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>

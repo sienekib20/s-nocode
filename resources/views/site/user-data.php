@@ -78,7 +78,7 @@
     <div class="card">
       <div class="card-top">
         <div class="container-sm text-center">
-          <div class="row">
+          <div class="row mb-5">
             <div class="card-title col-12">
               <span class="d-block bold">Os teus dados</span>
               <small class="text-muted d-block"> <span class="bi bi-arrow-right"></span> o que tens na tua conta</small>
@@ -163,7 +163,7 @@
 
 
     <small class="d-block my-5"></small>
-    <small class="d-block my-4"></small>
+    <small class="d-block my-5"></small>
 
 
     <?= parts('nav.footer') ?>

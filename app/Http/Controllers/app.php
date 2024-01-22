@@ -10,55 +10,63 @@ use Sienekib\Mehael\Support\Auth;
 class app extends Controller
 {
 
-	public function index()
-	{
-		$data = [];
+  public function index()
+  {
+    //Auth::create(['user' => 'siene', 'user_id' => 1]);
 
-		//Auth::create(['user' => 'siene', 'user_id' => 1]);
+    $data = DB::table('pacotes')->get();
+    $enviar = [];
+    $index = 0;
+    foreach ($data as $datum) {
+      $enviar[$index]['pacote'] = $datum->pacote;
+      $enviar[$index]['desc'] = explode(';', $datum->descricao);
+      $index++;
+    }
 
-		// TODO: coloque o seu código
 
-		//return view('Home:app.site.index', compact('data'));
-		return view('Home:site.index', compact('data'));
-	}
+    // TODO: coloque o seu código
 
-	// Cria um registo na DB
+    //return view('Home:app.site.index', compact('data'));
+    return view('Home:site.index', compact('enviar'));
+  }
 
-	public function store(Request $request)
-	{
-		// TODO: coloqe o seu código
+  // Cria um registo na DB
 
-		return redirect()->route('rota.de.redirecionamento');
-	}
+  public function store(Request $request)
+  {
+    // TODO: coloqe o seu código
 
-	// Pega um registo(s) na DB
+    return redirect()->route('rota.de.redirecionamento');
+  }
 
-	public function read(Request $request)
-	{
-		$data = [];
+  // Pega um registo(s) na DB
 
-		// TODO: coloqe o seu código
+  public function read(Request $request)
+  {
+    $data = [];
 
-		return response()->json($data);
-	}
+    // TODO: coloqe o seu código
 
-	// Atualizações de um ou + registos na DB
+    return response()->json($data);
+  }
 
-	public function update(Request $request)
-	{
-		// TODO: coloqe o seu código
+  // Atualizações de um ou + registos na DB
 
-		return redirect()->backWith('success', 'mensagem de sucesso');
-	}
+  public function update(Request $request)
+  {
+    // TODO: coloqe o seu código
 
-	// Apaga um registo na DB
+    return redirect()->backWith('success', 'mensagem de sucesso');
+  }
 
-	public function delete(Request $request)
-	{
-		DB::table('tabela')->where('id', '=', $request->id)->delete();
+  // Apaga um registo na DB
 
-		// TODO: coloqe o seu código
+  public function delete(Request $request)
+  {
+    DB::table('tabela')->where('id', '=', $request->id)->delete();
 
-		return redirect()->back();
-	}
+    // TODO: coloqe o seu código
+
+    return redirect()->back();
+  }
 }
