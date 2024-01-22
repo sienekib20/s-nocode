@@ -21,7 +21,7 @@
       <div class="card-top">
         <div class="container-sm">
           <div class="row">
-            <div class="col-12">
+            <div class="card-title text-center col-12">
               <span class="d-block bold">Planos de uso</span>
               <small class="text-muted d-block"> <span class="bi bi-arrow-right"></span> Escolha única trazendo uma poupança múltipla</small>
             </div>
@@ -66,9 +66,9 @@
       <div class="card-top">
         <div class="container-sm">
           <div class="row">
-            <div class="col-12">
+            <div class="card-title text-center col-12">
               <span class="d-block bold">Respostas de Perguntas Frequentes</span>
-              <small class="text-muted d-block"> <span class="bi bi-arrow-right"></span> Tire aqui a sua dúvida quanto a escolha e uso de planos.</small>
+              <small class="text-muted d-block mt-2"> <span class="bi bi-arrow-right"></span> Tire aqui a sua dúvida quanto a escolha e uso de planos.</small>
             </div>
           </div>
         </div>

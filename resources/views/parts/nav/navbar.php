@@ -114,7 +114,7 @@
 <small class="d-xxs-block d-lg-none my-3"></small>
 
 
-@parts('nav.back-to-top')
+<!-- @parts('nav.back-to-top')-->
 @parts('labs.loader')
 
 <script>
