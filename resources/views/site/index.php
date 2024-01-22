@@ -50,24 +50,9 @@
       </div>
     </div>
 
-    <div class="mt-5"></div>
-    <div class="mt-5"></div>
+    <small class="d-block mt-5"></small>
+    <small class="d-block mt-5"></small>
 
-    <!-- About Sílica -->
-    <div class="sx-card-section">
-      <div class="sx-card-section-header">
-        <div class="sx-container">
-          <div class="title-as-horizontal-qr d-flex">
-            <div class="">
-              <span class="tiny-bold title-q">Quem somos nós, e como lembrar de nós</span>
-              <span class="mt-2">Somos o Universo Sílica Líder de facturação, e podemos fornecer muito mais do que você pode imaginar. Explora alguns dos nossos ítens </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div> <!-- about -->
-    
     <?php $about = [
       ['School', 'https://silicaweb.ao/sfront/ServicesSchool.php'],
       ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php'],
