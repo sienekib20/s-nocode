@@ -90,3 +90,12 @@ Outline btn
     -webkit-box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
     box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
 }
+
+.btn-rounded {
+    aspect-ratio: 50%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

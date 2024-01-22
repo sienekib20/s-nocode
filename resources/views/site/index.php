@@ -65,79 +65,66 @@
           </div>
         </div>
       </div>
-      <?php $about = [
-        ['School', 'https://silicaweb.ao/sfront/ServicesSchool.php'],
-        ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php'],
-        ['Univ', 'https://silicaweb.ao/sfront/ServicesUniv.php'],
-        ['Aqua', 'https://silicaweb.ao/sfront/ServicesAqua.php'],
-        ['Health', 'https://silicaweb.ao/sfront/ServicesHealth.php'],
-        ['RH', 'https://silicaweb.ao/sfront/ServicesRH.php'],
-        ['Work', 'https://silicaweb.ao/sfront/ServicesWork.php']
-      ]
-      ?>
 
-      <div class="container-sm">
-        <div class="row align-items-center justify-content-center">
-          <div class="card card-shadow vh-60">
-            <div class="card-image">
-              <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
-            </div>
-          </div>
-          <div class="card card-shadow vh-60">
-            <div class="card-image">
-              <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
-            </div>
-          </div>
-
-          <div class="card card-shadow vh-60">
-            <div class="card-image">
-              <img src="<?= asset('img/undraw_woman_ffrd.svg') ?>" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sx-card-section-contain">
-        <div class="sx-container">
-          <div class="box">
-            <?php foreach ($about as $item) : ?>
-              <div class="box-item">
-                <span class="name">Sílica <?= $item[0] ?></span>
-                <small class="tw-muted">Lorem ipsum dolor sit amet.</small>
-                <a href="<?= $item[1] ?>" target="_blank"> <small>saber mais...</small> </a>
-              </div>
-            <?php endforeach; ?>
-            <a href="<?= 'https://silicaweb.ao/sfront/services.php' ?>" target="_blank" class="box-item">
-              <span class="name">Saiba mais...</span>
-            </a>
-          </div>
-        </div>
-      </div>
     </div> <!-- about -->
+    
+    <?php $about = [
+      ['School', 'https://silicaweb.ao/sfront/ServicesSchool.php'],
+      ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php'],
+      ['Univ', 'https://silicaweb.ao/sfront/ServicesUniv.php'],
+      ['Aqua', 'https://silicaweb.ao/sfront/ServicesAqua.php'],
+      ['Health', 'https://silicaweb.ao/sfront/ServicesHealth.php'],
+      ['RH', 'https://silicaweb.ao/sfront/ServicesRH.php'],
+      ['Work', 'https://silicaweb.ao/sfront/ServicesWork.php']
+    ]
+    ?>
 
-    <div class="sx-card-section"></div>
-
-    <div class="sx-card-section">
-      <div class="sx-card-section-header">
-        <div class="sx-container">
-          <div class="title-as-horizontal-qr d-flex">
-            <div class="">
-              <span class="mb-2"> <span class="bi bi-arrow-right"></span> Conheça as respostas das perguntas e dúvidas muito mais frequentes para esse tipo de negócio.</span>
-              <span class="tiny-bold title-q">Perguntas frequentes</span>
-              <span class="mt-0">Não continue enganado</span>
+    <div class="card">
+      <div class="card-top">
+        <div class="container-sm">
+          <div class="row">
+            <div class="card-title col-12 text-center">
+              <span class="title d-block"> Conheça os nosso serviços</span>
+              <small class="text-muted">Somos parte do <a href="<?= 'https://silicaweb.ao/sfront' ?>" style="color:#f71">Universo sílica</a></small>
             </div>
           </div>
         </div>
+      </div> <!--/.card-top-->
+      <div class="card-body">
+        <div class="container-sm">
+          <div class="row align-items-center justify-content-center">
+            <?php foreach ($about as $item) : ?>
+              <div class="col-md-3">
+                <div class="card-plan mt-xxs-3">
+                  <div class="card-plan-top">
+                    <div class="d-flex align-items-baseline"> <small>Sílica <?= $item[0] ?></small></div>
+                  </div>
+                  <div class="card-plan-body mt-2">
+                    <div class="d-flex flex-direction-column">
+                      <div class="d-flex align-items-center card-plan-item">
+                        <small class="bi"></small>
+                        <a href="<?= $item[1] ?>"><small class="text-muted">Saber mais</small></a>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!--/.card-plan-->
+              </div> <!--/.col-md-3-->
+            <?php endforeach; ?>
+          </div>
+        </div>
       </div>
-      <?php
-      $asked = [
-        ['O que é preciso para começar?', 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano (opcional), só assim que podes começar. para mais informações entre em <a href="">contacto</a>', 'active'],
-        ['O meu site pára de funcionar, quando expirar o plano?', 'Antes que expire o teu plano receberas notificações antes do tempo, mas damos sempre um prazo considerável de 3 mêses aos nossos clientes, excepto quando estiveres a usar um plano grátis.', ''],
-        ['Devo ter conhecimentos tenicos para editar o template?', 'Pensamos em si, podes não ter conhecimentos tecnicos, vais construir o teu template mesmo que começar do zero.', ''],
-        ['Com quem posso partilhar o meu dóminio?', 'Podes divulgar o link do teu site com quem quizer, onde quizer, e qualquer um poderá acessar livremente', ''],
-        ['Existem template para o meu tipo de negócio?', 'Nós damos a base, o alicerce com que vais edificar a sua casa, isto é, os templates são de carater aberto para adequá-los ao teu tipo de negócio.', '']
-      ];
-      ?>
+    </div>
+
+
+    <?php
+    $asked = [
+      ['O que é preciso para começar?', 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano (opcional), só assim que podes começar. para mais informações entre em <a href="">contacto</a>', 'active'],
+      ['O meu site pára de funcionar, quando expirar o plano?', 'Antes que expire o teu plano receberas notificações antes do tempo, mas damos sempre um prazo considerável de 3 mêses aos nossos clientes, excepto quando estiveres a usar um plano grátis.', ''],
+      ['Devo ter conhecimentos tenicos para editar o template?', 'Pensamos em si, podes não ter conhecimentos tecnicos, vais construir o teu template mesmo que começar do zero.', ''],
+      ['Com quem posso partilhar o meu dóminio?', 'Podes divulgar o link do teu site com quem quizer, onde quizer, e qualquer um poderá acessar livremente', ''],
+      ['Existem template para o meu tipo de negócio?', 'Nós damos a base, o alicerce com que vais edificar a sua casa, isto é, os templates são de carater aberto para adequá-los ao teu tipo de negócio.', '']
+    ];
+    ?>
 
     <div class="sx-card-section"></div>
 
@@ -155,7 +142,9 @@
       <div class="card-body mt-5">
         <div class="container-sm">
           <div class="row align-items-start justify-content-center">
-            <?php foreach ($enviar as $planos) :  ?>
+            <?php $type = ['Plano experimental', 'Plano de negócios', 'Plano empresarial'];
+            $xx = 0;
+            foreach ($enviar as $planos) :  ?>
               <div class="col-md-3">
                 <div class="card-plan mt-xxs-3">
                   <div class="card-plan-top">
@@ -164,28 +153,28 @@
                   </div>
                   <div class="card-plan-body">
                     <div class="d-flex flex-direction-column">
-                      <?php foreach ($planos['desc'] as $plane) : ?>
-                        <div class="d-flex align-items-center card-plan-item">
-                          <small class="bi bi-check"></small>
-                          <small class="text-muted"><?= $plane ?></small>
-                        </div>
-                      <?php endforeach; ?>
+                      <div class="d-flex align-items-center card-plan-item">
+                        <small class="bi bi-check"></small>
+                        <small class="text-muted"><?= $type[$xx]; ?></small>
+                      </div>
                     </div>
                     <?php if ($planos['pacote'] == 'Básico') : ?>
-                      <a href="{{ route('aderir', 1) }}" class="btn btn-orange input-block my-3 d-block">Aderir</a>
+                      <a href="{{ route('aderir', 1) }}" class="btn btn-orange w-20 input-block my-3 d-block btn-rounded"> <span class="bi bi-chevron-right"></span> </a>
                     <?php else : ?>
-                      <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block my-3 d-block">Aderir</a>
+                      <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange w-20 input-block my-3 d-block btn-rounded"> <span class="bi bi-chevron-right"></span> </a>
                     <?php endif; ?>
                   </div>
                 </div> <!--/.card-plan-->
               </div> <!--/.col-md-3-->
-            <?php endforeach; ?>
+            <?php $xx++;
+            endforeach; ?>
           </div>
         </div>
       </div>
     </div> <!--/.card-->
 
     <small class="d-block mt-5"></small>
+
     <div class="card">
       <div class="card-body">
         <div class="container-sm">
