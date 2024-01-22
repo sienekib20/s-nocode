@@ -99,7 +99,7 @@ if (!function_exists('parts')) :
 		try {
 			if (!file_exists($parts))
 				throw new \Exception("Arquivo {$part} não encontrado", 1);
-			include $parts;
+        include $parts;
 		} catch (\Exception $ex) {
 			echo $ex->getMessage();
 			response()->setStatusCode(404);

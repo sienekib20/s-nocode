@@ -22,10 +22,9 @@ class templates extends Controller
 		return view('Templates:app.site.explorar', compact('templates'));
 	}
 
-    private function saveImageFile()
-    {
-
-    }
+	private function saveImageFile()
+	{
+	}
 
 	// Cria um registo na DB
 
@@ -35,28 +34,34 @@ class templates extends Controller
 		$build .= $request->code_html;
 		$build .= "<script>{$request->code_js}</script>";*/
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		   $arquivo_zip = $_FILES["zip"]["tmp_name"];
-		   $destino = storage_path(); // Substitua pelo caminho real
+			$arquivo_zip = $_FILES["zip"]["tmp_name"];
+			$destino = storage_path(); // Substitua pelo caminho real
 
-		   //dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
-		   //dd($_FILES["zip"]["name"]);
-		   
-		   // Verifica se o arquivo é um arquivo zip
-		   if (pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION) == 'zip') {
-		       // Descompacta o arquivo zip
-		       $zip = new \ZipArchive;
-		       if ($zip->open($arquivo_zip) === TRUE) {
-		           //dd($zip->filename);
-		           $zip->extractTo($destino);
-		           $zip->close();
-		           echo 'Arquivo zip descompactado com sucesso!'; return;
-		       } else {
-		           echo 'Falha ao descompactar o arquivo zip.'; return;
-		       }
-		   } else {
-		       echo 'Por favor, envie um arquivo zip válido.'; return;
-		   }
-		    
+			//dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
+			//dd($_FILES["zip"]["name"]);
+
+			// Verifica se o arquivo é um arquivo zip
+			if (pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION) == 'zip') {
+				// Descompacta o arquivo zip
+				$zip = new \ZipArchive;
+				if ($zip->open($arquivo_zip) === TRUE) {
+					//dd($zip->filename);
+					$zip->extractTo($destino);
+					$zip->close();
+					echo 'Arquivo zip descompactado com sucesso!';
+					
+					dd($_FILES);
+
+
+					return;
+				} else {
+					echo 'Falha ao descompactar o arquivo zip.';
+					return;
+				}
+			} else {
+				echo 'Por favor, envie um arquivo zip válido.';
+				return;
+			}
 		}
 		return redirect()->route('http://localhost:8001', true);
 
@@ -64,18 +69,18 @@ class templates extends Controller
 
 		$extension = $request->base64FileExtension('cover_name');
 		$template_cover = $request->base64File('cover_file');
-		$template_name = sha1(date('YmdHi').$request->cover_name).".$extension";
-		
-		$template_path_default = $this->system->build_path('storage', 'templates.defaults.'.$request->referencia);
+		$template_name = sha1(date('YmdHi') . $request->cover_name) . ".$extension";
+
+		$template_path_default = $this->system->build_path('storage', 'templates.defaults.' . $request->referencia);
 
 
-	    $arquivo_zip = $request->base64File('zipFile');//;$_FILES["zip"]["tmp_name"];
-	    $destino = $template_path_default; //storage_path(); // Substitua pelo caminho real
-	    $zip_extension = explode('.', $request->zipName)[1];
+		$arquivo_zip = $request->base64File('zipFile'); //;$_FILES["zip"]["tmp_name"];
+		$destino = $template_path_default; //storage_path(); // Substitua pelo caminho real
+		$zip_extension = explode('.', $request->zipName)[1];
 
-	    //dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
-	    //dd($_FILES["zip"]["name"]);
-	    /*  REASON
+		//dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
+		//dd($_FILES["zip"]["name"]);
+		/*  REASON
 	    	serials:
 	    	RSN500-0000-634060-BAT3-PBNS-LV8H
 	    	RSN500-0000-694182-6LVR-S87M-UYZ8
@@ -87,57 +92,57 @@ class templates extends Controller
 	    	RSN500-0000-325674-2QWL-98CJ-9K4F
 	    	RSN500-0000-240303-7P4V-ZNSG-4A4Y
 	     */
-	    
-	    // Verifica se o arquivo é um arquivo zip
-	    if ($zip_extension == 'zip') {
-	        // Descompacta o arquivo zip
-	        $zip = new \ZipArchive();	
-	        if (!class_exists('ZipArchive')) {
-	            return response()->json('Extensão ZipArchive não está disponível no seu servidor.');
-	        }
-	        if (!is_readable($arquivo_zip)) {
-	            $response = 'Não é possível ler o arquivo ZIP.';
-	        	return response()->json('ilegível');	
-	        }
-	        return response()->json($zip);
-	        if ($zip->open($arquivo_zip) === TRUE) {
-	            //dd($zip->filename);
-	        	$zip->extractTo($destino);
-	            $zip->close();
-	            $response = 'Arquivo zip descompactado com sucesso!';
-	        } else {
-	            $response = 'Falha ao descompactar o arquivo zip.';
-	        }
-	    } else {
-	        $response = 'Por favor, envie um arquivo zip válido.';
-	    }
 
-	    return response()->json($response);
-			
+		// Verifica se o arquivo é um arquivo zip
+		if ($zip_extension == 'zip') {
+			// Descompacta o arquivo zip
+			$zip = new \ZipArchive();
+			if (!class_exists('ZipArchive')) {
+				return response()->json('Extensão ZipArchive não está disponível no seu servidor.');
+			}
+			if (!is_readable($arquivo_zip)) {
+				$response = 'Não é possível ler o arquivo ZIP.';
+				return response()->json('ilegível');
+			}
+			return response()->json($zip);
+			if ($zip->open($arquivo_zip) === TRUE) {
+				//dd($zip->filename);
+				$zip->extractTo($destino);
+				$zip->close();
+				$response = 'Arquivo zip descompactado com sucesso!';
+			} else {
+				$response = 'Falha ao descompactar o arquivo zip.';
+			}
+		} else {
+			$response = 'Por favor, envie um arquivo zip válido.';
+		}
+
+		return response()->json($response);
+
 		//return 0;
 
-		$template_path_cover = $this->system->build_path('storage', 'templates.defaults.'.$request->referencia.'.cover');
+		$template_path_cover = $this->system->build_path('storage', 'templates.defaults.' . $request->referencia . '.cover');
 
-		if (file_put_contents($template_path_cover.$template_name, $template_cover)) {
-			
+		if (file_put_contents($template_path_cover . $template_name, $template_cover)) {
+
 			$fileId = DB::table('files')->insertId(['file' => $template_name]);
 
 			$result = DB::table('templates')->insert([
-			    'uuid' => Uuid::uuid4()->toString(),
-			    'titulo' => $request->titulo,
-			    'autor' => 'Sílica',
-			    'referencia' => $request->referencia,
-			    'editar' => $request->editar,
-			    'status' => $request->status,
-			    'preco' => $request->preco,
-			    'descricao' => $request->descricao,
-			    'template' => $build,
-			    'tipo_template_id' => $request->tipo,
-			    'file_id' => $fileId
+				'uuid' => Uuid::uuid4()->toString(),
+				'titulo' => $request->titulo,
+				'autor' => 'Sílica',
+				'referencia' => $request->referencia,
+				'editar' => $request->editar,
+				'status' => $request->status,
+				'preco' => $request->preco,
+				'descricao' => $request->descricao,
+				'template' => '',
+				'tipo_template_id' => $request->tipo,
+				'file_id' => $fileId
 			]);
 
 			if ($result == true) {
-				if (file_put_contents($template_path_default.'index.php', $build)) {
+				if (file_put_contents($template_path_default . 'index.php', $build)) {
 					$response = 'Salvo com sucesso';
 				} else {
 					$response = 'Erro no upload de template';
@@ -145,7 +150,6 @@ class templates extends Controller
 			} else {
 				$response = 'Erro ao salvar';
 			}
-
 		} else {
 			$response = 'Algo deu errado';
 		}
@@ -179,14 +183,13 @@ class templates extends Controller
 
 	public function preview(Request $request)
 	{
-		$file = rtrim(storage_path() . "templates/defaults/".$request->template."/index.php", '/');
-		
+		$file = rtrim(storage_path() . "templates/defaults/" . $request->template . "/index.php", '/');
+
 		if (file_exists($file)) {
 			return view('Prever template:app.site.preview', compact('file'));
 			//return view('web editor:app.gjs-editor', compact('file'));
 		}
 
 		return view('Not found:app.errors.not-found');
-
 	}
 }

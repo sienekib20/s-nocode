@@ -23,7 +23,6 @@ class authenticacao extends Controller
 			session()->setFlashMessage('Sucesso', 'Seja bem vindo');
 			return redirect()->route('/');
 		}
-
 		session()->setFlashMessage('erro', 'Dados inválidos');
 		return redirect()->route('entrar');
 	}
@@ -47,7 +46,7 @@ class authenticacao extends Controller
 			return redirect()->route('register');
 		}
 
-		$pwd = Hash::make($request->password);
+		$pwd = Hash::encrypt($request->password);
 
 		$existing = DB::table('contas')->select('*')->where('nome', '=', $request->nome)->orwhere('email', '=', $request->email)->get();
 

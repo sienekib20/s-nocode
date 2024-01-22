@@ -8,27 +8,10 @@ use Sienekib\Mehael\Database\Factory\DB;
 
 class Auth
 {
-    protected static $users = [
-        // Exemplo de dados de usuário (substitua com seus próprios dados)
-        [
-            'id' => 1,
-            'username' => 'user1',
-            'email' => 'user1@example.com',
-            'password' => '$2y$10$YarQQX6RLmKlGxib0/QSsOpHZuWDzECVzYFmU7cakl9vH4jnHYtza', // senha: secret
-        ],
-        [
-            'id' => 2,
-            'username' => 'user2',
-            'email' => 'user2@example.com',
-            'password' => '$2y$10$YarQQX6RLmKlGxib0/QSsOpHZuWDzECVzYFmU7cakl9vH4jnHYtza', // senha: secret
-        ],
-        // Adicione mais usuários conforme necessário
-    ];
 
     public static function attempt($username, $password)
     {
         $data = DB::table('contas')->select('*')->where('nome', '=', $username)->orWhere('email', '=', $username)->get();
-
         if (!empty($data)) {
             if (password_verify($password, $data[0]->senha)) {
                 $user = (object) [
@@ -56,7 +39,7 @@ class Auth
 
     public static function user()
     {
-
+        //dd(Session::get('users'));
         return Session::get('user');
     }
 

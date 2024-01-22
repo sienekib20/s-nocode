@@ -38,6 +38,15 @@
     -webkit-box-shadow: 0px 0 1px 2.5px rgba(0, 123, 255, 0.5);
     box-shadow: 0px 0 1px 2.5px rgba(0, 123, 255, 0.5);
 }
+.btn-orange {
+    color: #fff;
+    background-color: #f71;
+}
+.btn-orange:hover {
+    color: #f1f1f1;
+    -webkit-box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
+    box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
+}
 /*
 Outline btn
  */

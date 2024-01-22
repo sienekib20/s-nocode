@@ -1,11 +1,11 @@
 <div class="loader">
-    <small class="spin"></small>
+  <small class="spin"></small>
 </div>
 
 <script>
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.querySelector('.loader').classList.add('end-animation');
-        }, 1500);
-    });
+  $(document).ready(function() {
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('end-animation');
+    }, 1500);
+  });
 </script>

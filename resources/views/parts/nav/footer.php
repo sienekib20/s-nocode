@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row pt-4">
-            <div class="col-md-4 col-lg-6 order-md-last">
+            <div class="col-md-4 col-lg-6 order-xxs-last">
                 <div class="row justify-content-end">
                     <div class="col-md-12 col-lg-9 text-md-right mb-md-0 mb-4">
                         <span class="footer-heading"><a href="#" class="logo">Nocode</a></span>
@@ -29,7 +29,7 @@
             <div class="col-md-8 col-lg-6">
                 <div class="row">
                     <div class="col-md-6 mb-md-0 mb-4">
-                        <span class="footer-heading d-block mb-3">Information</span>
+                        <span class="footer-heading d-block mb-3">Informação</span>
                         <ul class="list-unstyled">
                             <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Universo sílica</a></li>
                             <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Preçário</a></li>
