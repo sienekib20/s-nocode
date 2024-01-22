@@ -24,7 +24,7 @@
       <div class="container-sm">
         <div class="row">
           <div class="col-12 card-top">
-            <div class="card-title">
+            <div class="card-title text-center">
               <span class="title d-block">+100 Landing Pages prontas</span>
               <small class="text-muted">Faça a tua escolha e defina a cor do teu negócio</small>
             </div>
@@ -37,22 +37,23 @@
       <div class="container-sm">
         <div class="row">
           <div class="col-12 card-body">
-            <div class="row">
-              <div class="col-md-2">
-                <select name="type" id="typeSearch" class="form-input">
-                  <option value="">Tipo template</option>
-                  <?php foreach ($tipo as $type) : ?>
-                    <option value="<?= $type->tipo_template_id ?>" class="form-input"><?= $type->tipo_template ?></option>
-                  <?php endforeach; ?>
-                </select>
-              </div> <!--/.col-md-2-->
+            <div class="row has_mini">
+              <div class="col-md-2 d-xxs-none d-md-block"></div>
               <div class="col-md-2">
                 <select name="type" id="typeSearch" class="form-input">
                   <option value="">Cor do template</option>
                   <option value="">color</option>
                 </select>
               </div> <!--/.col-md-2-->
-              <div class="col-md-2 pesquise_">
+              <div class="col-md-3">
+                <select name="type" id="typeSearch" class="form-input input-block">
+                  <option value="">Tipo template</option>
+                  <?php foreach ($tipo as $type) : ?>
+                    <option value="<?= $type->tipo_template_id ?>" class="form-input"><?= $type->tipo_template ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div> <!--/.col-md-2-->
+              <div class="col-md-3 pesquise_">
                 <input type="text" class="form-input input-block" placeholder="Pesquise">
                 <small class="bi bi-search"></small>
               </div> <!--/.col-md-2-->
@@ -64,84 +65,38 @@
 
     <div class="my-2"></div>
 
-    <div class="filter-bar">
-      <div class="container-sm">
-        <div class="row">
-          <div class="col-lg-3">
-            <!--<button class="btn btn-block"> <small class="bi bi-sliders"></small> </button>-->
-          </div>
-          <div class="col-lg-9">
-            <div class="row">
-              <input type="text" class="form-input input-block" placeholder="Pesquise">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="browse-data">
-      <div class="container-sm">
-        <div class="row">
-          <div class="col-lg-3">
-            <span class="d-block"> <span class="bi bi-filter"></span> Filtrar resultados</span>
-            <div class="d-flex flex-direction-column">
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-1"> <label for="ch-1">Templates recentes</label></small></div>
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-2"> <label for="ch-2">Mais usados</label></small></div>
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-3"> <label for="ch-3">Sem estilos</label></small></div>
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-3"> <label for="ch-3">Apenas Grátis</label></small></div>
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-3"> <label for="ch-3">De menor custo</label></small></div>
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-3"> <label for="ch-3">Menos usados</label></small></div>
-              <div class="item mt-3 d-flex align-items-center"><small><input type="checkbox" id="ch-3"> <label for="ch-3">Todos</label></small></div>
-            </div>
-          </div>
-          <div class="col-lg-9">
-            <div class="row align-items-center browse-items justify-content-xxs-center justify-content-md-start">
+    <div class="card">
+      <div class="card-body">
+        <div class="container-sm">
+          <div class="row">
+            <?php for ($i = 0; $i < count($templates); $i++) :  ?>
               <div class="col-xxs-8 col-md-5 col-lg-4 browse-item mt-xxs-4 mt-md-5">
                 <div class="contain-img">
-                  <img src="<?= asset('img/download.png') ?>" alt="template-cover">
+                  <img src="<?= asset('img/ncode-3.jpg') ?>" alt="template-cover">
                   <div class="actions d-flex">
-                    <a href="<?= route('usar', 'default') ?>" target="_blank"> <small class="bi bi-cart"></small> </a>
+                    <a href="<?= route('preview', $templates[$i]->uuid) ?>" target="_blank"> <small class="bi bi-eye"></small> </a>
+                    <a href="<?= route('usar', $templates[$i]->uuid) ?>" target="_blank"> <small class="bi bi-cart"></small> </a>
                   </div>
                   <div class="ratings">
-                    <small class="bi bi-star"></small>
-                    <small class="bi bi-star"></small>
+                    <small class="bi bi-star-fill"></small>
+                    <small class="bi bi-star-fill"></small>
                     <small class="bi bi-star"></small>
                     <small class="bi bi-star"></small>
                     <small class="bi bi-star"></small>
                   </div>
                 </div>
                 <div class="info">
-                  <span class="title d-block"><?= 'Vazio' ?></span>
-                  <small class="text-muted">Criado por: <?= 'Nocode' ?></small>
+                  <span class="title d-block"><?= $templates[$i]->titulo ?></span>
+                  <small class="text-muted">Criado por: <?= $templates[$i]->autor ?></small>
                 </div>
               </div>
-              <?php for ($i = 0; $i < count($templates); $i++) :  ?>
-                <div class="col-xxs-8 col-md-5 col-lg-4 browse-item mt-xxs-4 mt-md-5">
-                  <div class="contain-img">
-                    <img src="<?= asset('img/ncode-3.jpg') ?>" alt="template-cover">
-                    <div class="actions d-flex">
-                      <a href="<?= route('preview', $templates[$i]->uuid) ?>" target="_blank"> <small class="bi bi-eye"></small> </a>
-                      <a href="<?= route('usar', $templates[$i]->uuid) ?>" target="_blank"> <small class="bi bi-cart"></small> </a>
-                    </div>
-                    <div class="ratings">
-                      <small class="bi bi-star-fill"></small>
-                      <small class="bi bi-star-fill"></small>
-                      <small class="bi bi-star"></small>
-                      <small class="bi bi-star"></small>
-                      <small class="bi bi-star"></small>
-                    </div>
-                  </div>
-                  <div class="info">
-                    <span class="title d-block"><?= $templates[$i]->titulo ?></span>
-                    <small class="text-muted">Criado por: <?= $templates[$i]->autor ?></small>
-                  </div>
-                </div>
-              <?php endfor; ?>
-            </div>
+            <?php endfor; ?>
           </div>
         </div>
       </div>
-    </div> <!-- /.browse-data -->
+    </div>
+
+
 
     <div class="my-5"></div>
     <div class="my-5"></div>
