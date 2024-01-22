@@ -63,12 +63,22 @@
 
     <small class="d-block mt-5"></small>
     <div class="card">
-      <div class="card-top">
+      <div class="card-body">
         <div class="container-sm">
           <div class="row">
-            <div class="card-title text-center col-12">
-              <span class="d-block bold">Respostas de Perguntas Frequentes</span>
-              <small class="text-muted d-block mt-2"> <span class="bi bi-arrow-right"></span> Tire aqui a sua dúvida quanto a escolha e uso de planos.</small>
+            <div class="col-lg-5">
+              <span class="title">Respostas de Perguntas mais frequentes</span>
+              <small class="text-muted d-block">Tire todas as tuas dúvidas</small>
+            </div>
+            <div class="col-lg-7">
+              <div class="faqs">
+                <?php for ($i = 0; $i < 4; $i++) : ?>
+                  <div class="faqItem">
+                    <div class="faqItem-top"> <span class="bi bi-chevron-down">FaqItem question</span></div>
+                    <div class="faqItem-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, reiciendis!</div>
+                  </div>
+                <?php endfor; ?>
+              </div> <!-- faqs -->
             </div>
           </div>
         </div>

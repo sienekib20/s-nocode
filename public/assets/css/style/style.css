@@ -187,7 +187,7 @@ mobileMenu
 
 .mobileMenu-contain {
     top: 0;
-    right: 0;
+    right: -100%;
     width: 285px;
     height: 100%;
     position: fixed;
@@ -197,6 +197,11 @@ mobileMenu
     z-index: 111111;
     display: flex;
     flex-direction: column;
+    transition: 0.2s ease;
+    -webkit-transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    -ms-transition: 0.2s ease;
+    -o-transition: 0.2s ease;
 }
 
 .mmItem {
@@ -261,4 +266,24 @@ mobileMenu
 
 .mmItem+.mmItem {
     margin-top: 0.3rem;
+}
+
+/*
+faqs
+*/
+.faqs {
+    width: 100%;
+}
+
+.faqItem {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.faqItem-top span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
