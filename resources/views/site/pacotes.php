@@ -30,28 +30,32 @@
       </div>
       <div class="card-body mt-5">
         <div class="container-sm">
-          <div class="row align-items-start">
-            <div class="col-md-3">
-              <div class="card-plan mt-xxs-3">
-                <div class="card-plan-top">
-                  <span class="title d-block">Grátis</span>
-                  <div class="d-flex align-items-baseline"> <small>Preço</small> <span class="d-block">0,00KZ</span></div>
-                </div>
-                <div class="card-plan-body">
-                  <div class="d-flex flex-direction-column">
-                    <div class="d-flex align-items-center">
-                      <small class="bi bi-check"></small>
-                      <small class="text-muted">1 Template no máximo</small>
-                    </div>
-
-                    <small class="d-flex  bi bi-check">Domínio válido por30 dias</small>
-                    <small class="d-flex align-items-center bi bi-check">Sem suporte</small>
-                    <small class="d-flex align-items-center bi bi-check">1 Template no máximo</small>
+          <div class="row align-items-start justify-content-center">
+            <?php foreach ($enviar as $planos) :  ?>
+              <div class="col-md-3">
+                <div class="card-plan mt-xxs-3">
+                  <div class="card-plan-top">
+                    <span class="title d-block"><?= $planos['pacote'] ?></span>
+                    <div class="d-flex align-items-baseline"> <small>Preço oficial</small> <span class="d-block">0,00KZ</span></div>
                   </div>
-                  <a href="{{ route('aderir', 1) }}" class="btn btn-orange input-block my-3 d-block">Aderir</a>
-                </div>
-              </div> <!--/.card-plan-->
-            </div> <!--/.col-md-3-->
+                  <div class="card-plan-body">
+                    <div class="d-flex flex-direction-column">
+                      <?php foreach ($planos['desc'] as $plane) : ?>
+                        <div class="d-flex align-items-center card-plan-item">
+                          <small class="bi bi-check"></small>
+                          <small class="text-muted"><?= $plane ?></small>
+                        </div>
+                      <?php endforeach; ?>
+                    </div>
+                    <?php if ($planos['pacote'] == 'Básico') : ?>
+                      <a href="{{ route('aderir', 1) }}" class="btn btn-orange input-block my-3 d-block">Aderir</a>
+                    <?php else : ?>
+                      <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block my-3 d-block">Aderir</a>
+                    <?php endif; ?>
+                  </div>
+                </div> <!--/.card-plan-->
+              </div> <!--/.col-md-3-->
+            <?php endforeach; ?>
           </div>
         </div>
       </div>

@@ -12,12 +12,16 @@ class pacotes extends Controller
 	public function index()
 	{
 		$data = DB::table('pacotes')->get();
-
-    dd($data);
+    $enviar = []; $index = 0;
+    foreach($data as $datum) {
+      $enviar[$index]['pacote'] = $datum->pacote;
+      $enviar[$index]['desc'] = explode(';',$datum->descricao);
+      $index++;
+    }
 
 		// TODO: coloque o seu código
 
-		return view('pacotes:site.pacotes', compact('data'));
+		return view('pacotes:site.pacotes', compact('enviar'));
 	}
 
 	// Cria um registo na DB

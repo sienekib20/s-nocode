@@ -13,40 +13,49 @@
     transition: opacity 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
     cursor: pointer;
 }
+
 .btn-block {
     display: block;
     width: 100%;
 }
+
 .btn:hover {
     opacity: 0.89;
     -webkit-box-shadow: 0px 0 1px 2.5px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0 1px 2.5px rgba(0, 0, 0, 0.1);
 }
+
 .btn-white {
     color: #000;
     background-color: #fff;
 }
+
 .btn-white:hover {
     -webkit-box-shadow: 0px 0 1px 2.5px rgba(255, 255, 255, 0.5);
     box-shadow: 0px 0 1px 2.5px rgba(255, 255, 255, 0.5);
 }
+
 .btn-primary {
     color: #fff;
     background-color: #07f;
 }
+
 .btn-primary:hover {
     -webkit-box-shadow: 0px 0 1px 2.5px rgba(0, 123, 255, 0.5);
     box-shadow: 0px 0 1px 2.5px rgba(0, 123, 255, 0.5);
 }
+
 .btn-orange {
     color: #fff;
     background-color: #f71;
 }
+
 .btn-orange:hover {
     color: #f1f1f1;
     -webkit-box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
     box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
 }
+
 /*
 Outline btn
  */
@@ -54,14 +63,30 @@ Outline btn
 .btn-outline {
     border-color: rgba(0, 0, 0, 0.1);
 }
-.btn-outline-white, .btn-outline-warning {
+
+.btn-outline-white,
+.btn-outline-warning {
     background-color: transparent !important;
 }
+
 .btn-outline-white {
     color: #fff;
     border-color: #fff;
 }
+
 .btn-outline-warning {
     color: #F9C700;
     border-color: #F9C700;
+}
+
+.btn-outline-orange {
+    color: #f71;
+    border-color: #f71;
+}
+
+.btn-outline-orange:hover {
+    color: #f71;
+    border-color: rgba(253, 126, 20, 0.5);
+    -webkit-box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
+    box-shadow: 0px 0 1px 2.5px rgba(253, 126, 20, 0.5);
 }
