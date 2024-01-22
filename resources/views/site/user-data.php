@@ -77,12 +77,26 @@
 
     <div class="card">
       <div class="card-top">
-        <div class="container-sm">
+        <div class="container-sm text-center">
           <div class="row">
             <div class="card-title col-12">
               <span class="d-block bold">Os teus dados</span>
               <small class="text-muted d-block"> <span class="bi bi-arrow-right"></span> o que tens na tua conta</small>
             </div>
+          </div>
+
+          <div class="row mt-3 justify-content-center">
+            <div class="col-md-2">
+              <select name="type" id="typeSearch" class="form-input">
+                <option value=""> Filtrar dados</option>
+                <option value="">Templates Recentes</option>
+                <option value="">Templates Vencidos</option>
+              </select>
+            </div> <!--/.col-md-2-->
+            <div class="col-md-3 pesquise_">
+              <input type="text" class="form-input input-block" placeholder="Pesquise">
+              <small class="bi bi-search"></small>
+            </div> <!--/.col-md-2-->
           </div>
         </div>
       </div>
