@@ -25,7 +25,7 @@
             <span class="d-xxs-none d-md-block my-3 mb-5 text-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem
               necessidade de <br> mexer no código, apenas com um click e já está!</span>
             <div class="d-flex align-items-center justify-content-center col-12 col-md-12 col-xxs-12">
-              <a href="" class="btn btn-outline-warning">Experimente</a>
+              <a href="" class="btn btn-outline-orange">Experimente</a>
               <a href="<?= route('browse') ?>" class="btn btn-white ml-2">Explorar</a>
             </div>
           </div>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="col-xxs-12 col-lg-4 vh-40">
-          <div class="card-leading bg-warning h-100">
+          <div class="card-leading bg-orange h-100">
             <span class="card-leading-title">Temos em massa 5M Site prontos para oferecer</span>
             <small class="card-leading-text text-muted">Para você que quer negócios rápidos, temos sites disponíveis para ti.</small>
           </div>
@@ -111,7 +111,9 @@
     ];
     ?>
 
-    <div class="sx-card-section"></div>
+    <small class="d-block my-4"></small>
+    <small class="d-block my-4"></small>
+    <small class="d-block my-4"></small>
 
     <div class="card">
       <div class="card-top">
