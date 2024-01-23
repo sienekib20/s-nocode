@@ -58,7 +58,7 @@
             </a>
           </div>
           <div class="__nav-item <?= request()->path() == '/logout' ? 'active' : '' ?>">
-            <a href="#" class="__nav-link">
+            <a href="{{ route('logout') }}" class="__nav-link">
               <span>Sair</span>
             </a>
           </div>
@@ -80,33 +80,37 @@
   </div>
   <div class="mobileMenu-contain">
     <div class="mmItem closeMenu"> <span class="bi bi-arrow-left">Voltar</span> </div>
-    <div class="mmItem {{request()->path()=='/'?'active':''}}">
+    <div class="mmItem {{ request()->path() == '/' ? 'active' : '' }}">
       <a href="{{ route('/') }}" class="mmLink">Inicio</a>
     </div>
-    <div class="mmItem {{request()->path()=='/browse'?'active':''}}">
-      <a href="{{ route('/browse') }}" class="mmLink">Browse</a>
+    <div class="mmItem {{ request()->path() == '/browse' ? 'active' : '' }}">
+      <a href="{{ route('browse') }}" class="mmLink">Browse</a>
     </div>
-    <div class="mmItem {{request()->path()=='/dados'?'active':''}}">
-      <a href="{{ route('/dados', '') }}" class="mmLink">Meus dados</a>
+    <div class="mmItem {{ request()->path() == '/planos' ? 'active' : '' }}">
+      <a href="{{ route('planos') }}" class="mmLink">Pacotes</a>
     </div>
-    <div class="mmItem {{request()->path()=='/planos'?'active':''}}">
-      <a href="{{ route('/planos') }}" class="mmLink">Pacotes</a>
+    <div class="mmItem {{ request()->path() == '/encomendas' ? 'active' : '' }}">
+      <a href="{{ route('demand') }}" class="mmLink">Encomendar <small class="count">0</small> </a>
     </div>
-    <div class="mmItem">
-      <a href="{{ route('/demand') }}" class="mmLink">Encomendar <small class="count">0</small> </a>
-    </div>
-    <div class="mmItem">
-      <a href="{{ route('/login') }}" class="mmLink">Entrar</a>
-    </div>
-    <div class="mmItem {{request()->path()=='/buy'?'active':''}}">
-      <a href="{{ route('/buy') }}" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
-    </div>
-    <div class="mmItem">
-      <a href="{{ route('/') }}" class="mmLink">Termos de uso</a>
-    </div>
-    <div class="mmItem">
-      <a href="{{ route('/logout') }}" class="mmLink">Sair</a>
-    </div>
+    <?php if (\Sienekib\Mehael\Support\Auth::check()) : ?>
+      <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0]; ?>
+      <div class="mmItem <?= $path == 'dados' ? 'active' : '' ?>">
+        <a href="{{ route('dados', \Sienekib\Mehael\Support\Auth::user()->id ) }}" class="mmLink">Meus dados</a>
+      </div>
+      <div class="mmItem {{ request()->path() == '/buy' ? 'active' : '' }}">
+        <a href="{{ route('buy') }}" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
+      </div>
+      <div class="mmItem">
+        <a href="{{ route('') }}" class="mmLink">Termos de uso</a>
+      </div>
+      <div class="mmItem">
+        <a href="{{ route('logout') }}" class="mmLink">Sair</a>
+      </div>
+    <?php else : ?>
+      <div class="mmItem">
+        <a href="{{ route('login') }}" class="mmLink">Entrar</a>
+      </div>
+    <?php endif; ?>
   </div>
 </div>
 
@@ -115,7 +119,7 @@
 
 
 <!-- @parts('nav.back-to-top')-->
-@parts('labs.loader')
+<?= parts('labs.loader') ?>
 
 <script>
   $('.__harmbuger').click((e) => {

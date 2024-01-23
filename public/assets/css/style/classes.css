@@ -1,4 +1,12 @@
 /*
+Visibility
+*/
+
+.op-0 {
+    opacity: 0;
+}
+
+/*
 Alignments
  */
 
@@ -26,6 +34,11 @@ Colors
 }
 .text-primary {
     color: #07f !important;
+}
+
+.text-bold {
+    font-size: initial !important;
+    font-family: 'GeneralSans-Bold' !important;
 }
 /*
  Height

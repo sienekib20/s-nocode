@@ -11,76 +11,101 @@ use Sienekib\Mehael\Database\Factory\DB;
 class templates extends Controller
 {
 
-	public function index()
-	{
-		$templates = DB::raw('select t.template_id, t.uuid, t.titulo, t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo, (select file from files where file_id = t.file_id) as capa from templates as t');
+  public function index()
+  {
+    $templates = DB::raw('select t.template_id, t.uuid, t.titulo, t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo, (select file from files where file_id = t.file_id) as capa from templates as t');
 
-		//dd(preg_match("/^editor\/([a-zA-Z0-9\-]+)$/", 'editor/e1bb6fb4-0bf4-4a2e-a986-3561121f7aee'));
+    //dd(preg_match("/^editor\/([a-zA-Z0-9\-]+)$/", 'editor/e1bb6fb4-0bf4-4a2e-a986-3561121f7aee'));
 
-		// TODO: coloque o seu código
+    // TODO: coloque o seu código
 
-		return view('Templates:app.site.explorar', compact('templates'));
-	}
+    return view('Templates:app.site.explorar', compact('templates'));
+  }
 
-	private function saveImageFile()
-	{
-	}
+  private function saveImageFile()
+  {
+  }
 
-	// Cria um registo na DB
+  // Cria um registo na DB
 
-	public function store(Request $request)
-	{
-		/*$build = "<style>{$request->code_css}</style>";
+  public function store(Request $request)
+  {
+    /*$build = "<style>{$request->code_css}</style>";
 		$build .= $request->code_html;
 		$build .= "<script>{$request->code_js}</script>";*/
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$arquivo_zip = $_FILES["zip"]["tmp_name"];
-			$destino = storage_path(); // Substitua pelo caminho real
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $arquivo_zip = $_FILES["zip"]["tmp_name"];
+      $destino = $this->system->build_path('storage', 'templates.defaults'); // Substitua pelo caminho real
 
-			//dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
-			//dd($_FILES["zip"]["name"]);
+      //dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
+      //dd($_FILES["zip"]["name"]);
 
-			// Verifica se o arquivo é um arquivo zip
-			if (pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION) == 'zip') {
-				// Descompacta o arquivo zip
-				$zip = new \ZipArchive;
-				if ($zip->open($arquivo_zip) === TRUE) {
-					//dd($zip->filename);
-					$zip->extractTo($destino);
-					$zip->close();
-					echo 'Arquivo zip descompactado com sucesso!';
-					
-					dd($_FILES);
+      // Verifica se o arquivo é um arquivo zip
+      if (pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION) == 'zip') {
+        // Descompacta o arquivo zip
+        $zip = new \ZipArchive;
+        if ($zip->open($arquivo_zip) === TRUE) {
+          //dd($zip->filename);
+          $zip->extractTo($destino);
+          $zip->close();
+          //$response = 'Arquivo zip descompactado com sucesso!';
+          $cover_dir = $this->system->build_path('storage', 'templates.defaults.cover');
+          $extension = explode('.', $_FILES['cover']['name'])[1];
+
+          $template_cover = $_FILES['cover']['tmp_name'];
+          $template_name = sha1(date('YmdHi') . $_FILES['cover']['name']) . ".$extension";
+          $fileId = DB::table('files')->insertId(['file' => $template_name]);
+
+          if (file_put_contents($cover_dir . $template_name, $template_cover)) {
+            $result = DB::table('templates')->insert([
+              'uuid' => Uuid::uuid4()->toString(),
+              'titulo' => $request->titulo,
+              'autor' => 'Sílica',
+              'referencia' => $request->referencia,
+              'editar' => $request->editar,
+              'status' => $request->status,
+              'preco' => $request->preco,
+              'descricao' => $request->descricao,
+              'template' => '',
+              'tipo_template_id' => $request->tipo,
+              'file_id' => $fileId
+            ]);
+            if ($result == true) {
+              $response = 'Salvo com sucesso';
+              /*if (file_put_contents($template_path_default . 'index.php', $build)) {
+                $response = 'Salvo com sucesso';
+              } else {
+                $response = 'Erro no upload de template';
+              }*/
+            } else {
+              $response = 'Erro ao salvar';
+            }
+            return redirect()->route('http://localhost:8001', true);
+          } else {
+            dd('erro ao salvar');
+          }
+        } else {
+          dd('erro ao descompactar');
+        }
+      } else {
+        dd('zip invalido');
+      }
+    }
+
+    //return response()->json($request->all());
+    /*
+    $extension = $request->base64FileExtension('cover_name');
+    $template_cover = $request->base64File('cover_file');
+    $template_name = sha1(date('YmdHi') . $request->cover_name) . ".$extension";
 
 
-					return;
-				} else {
-					echo 'Falha ao descompactar o arquivo zip.';
-					return;
-				}
-			} else {
-				echo 'Por favor, envie um arquivo zip válido.';
-				return;
-			}
-		}
-		return redirect()->route('http://localhost:8001', true);
+    $arquivo_zip = $request->base64File('zipFile'); //;$_FILES["zip"]["tmp_name"];
+    $destino = $template_path_default; //storage_path(); // Substitua pelo caminho real
+    $zip_extension = explode('.', $request->zipName)[1];*/
 
-		return response()->json($request->all());
-
-		$extension = $request->base64FileExtension('cover_name');
-		$template_cover = $request->base64File('cover_file');
-		$template_name = sha1(date('YmdHi') . $request->cover_name) . ".$extension";
-
-		$template_path_default = $this->system->build_path('storage', 'templates.defaults.' . $request->referencia);
-
-
-		$arquivo_zip = $request->base64File('zipFile'); //;$_FILES["zip"]["tmp_name"];
-		$destino = $template_path_default; //storage_path(); // Substitua pelo caminho real
-		$zip_extension = explode('.', $request->zipName)[1];
-
-		//dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
-		//dd($_FILES["zip"]["name"]);
-		/*  REASON
+    //dd(pathinfo($_FILES["zip"]["name"], PATHINFO_EXTENSION));
+    //dd($_FILES["zip"]["name"]);
+    /*  REASON
 	    	serials:
 	    	RSN500-0000-634060-BAT3-PBNS-LV8H
 	    	RSN500-0000-694182-6LVR-S87M-UYZ8
@@ -93,103 +118,76 @@ class templates extends Controller
 	    	RSN500-0000-240303-7P4V-ZNSG-4A4Y
 	     */
 
-		// Verifica se o arquivo é um arquivo zip
-		if ($zip_extension == 'zip') {
-			// Descompacta o arquivo zip
-			$zip = new \ZipArchive();
-			if (!class_exists('ZipArchive')) {
-				return response()->json('Extensão ZipArchive não está disponível no seu servidor.');
-			}
-			if (!is_readable($arquivo_zip)) {
-				$response = 'Não é possível ler o arquivo ZIP.';
-				return response()->json('ilegível');
-			}
-			return response()->json($zip);
-			if ($zip->open($arquivo_zip) === TRUE) {
-				//dd($zip->filename);
-				$zip->extractTo($destino);
-				$zip->close();
-				$response = 'Arquivo zip descompactado com sucesso!';
-			} else {
-				$response = 'Falha ao descompactar o arquivo zip.';
-			}
-		} else {
-			$response = 'Por favor, envie um arquivo zip válido.';
-		}
 
-		return response()->json($response);
+    /*$template_path_cover = $this->system->build_path('storage', 'templates.defaults.' . $request->referencia . '.cover');
 
-		//return 0;
+    if (file_put_contents($template_path_cover . $template_name, $template_cover)) {
 
-		$template_path_cover = $this->system->build_path('storage', 'templates.defaults.' . $request->referencia . '.cover');
+      $fileId = DB::table('files')->insertId(['file' => $template_name]);
 
-		if (file_put_contents($template_path_cover . $template_name, $template_cover)) {
+      $result = DB::table('templates')->insert([
+        'uuid' => Uuid::uuid4()->toString(),
+        'titulo' => $request->titulo,
+        'autor' => 'Sílica',
+        'referencia' => $request->referencia,
+        'editar' => $request->editar,
+        'status' => $request->status,
+        'preco' => $request->preco,
+        'descricao' => $request->descricao,
+        'template' => '',
+        'tipo_template_id' => $request->tipo,
+        'file_id' => $fileId
+      ]);
 
-			$fileId = DB::table('files')->insertId(['file' => $template_name]);
+      if ($result == true) {
+        if (file_put_contents($template_path_default . 'index.php', $build)) {
+          $response = 'Salvo com sucesso';
+        } else {
+          $response = 'Erro no upload de template';
+        }
+      } else {
+        $response = 'Erro ao salvar';
+      }
+    } else {
+      $response = 'Algo deu errado';
+    }
+    return response()->json($response);*/
+  }
 
-			$result = DB::table('templates')->insert([
-				'uuid' => Uuid::uuid4()->toString(),
-				'titulo' => $request->titulo,
-				'autor' => 'Sílica',
-				'referencia' => $request->referencia,
-				'editar' => $request->editar,
-				'status' => $request->status,
-				'preco' => $request->preco,
-				'descricao' => $request->descricao,
-				'template' => '',
-				'tipo_template_id' => $request->tipo,
-				'file_id' => $fileId
-			]);
+  // Pega um registo(s) na DB
 
-			if ($result == true) {
-				if (file_put_contents($template_path_default . 'index.php', $build)) {
-					$response = 'Salvo com sucesso';
-				} else {
-					$response = 'Erro no upload de template';
-				}
-			} else {
-				$response = 'Erro ao salvar';
-			}
-		} else {
-			$response = 'Algo deu errado';
-		}
-		return response()->json($response);
-	}
+  public function read(Request $request)
+  {
+    $data = [];
 
-	// Pega um registo(s) na DB
+    // TODO: coloqe o seu código
 
-	public function read(Request $request)
-	{
-		$data = [];
+    return response()->json($data);
+  }
 
-		// TODO: coloqe o seu código
+  public function temp_usuario(Request $request)
+  {
+    $data = [];
+    $tipo_templates = $this->getTipoTemplate();
+    $templates = DB::raw('select t.template_id, t.uuid, t.titulo, t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo, (select file from files where file_id = t.file_id) as capa from templates as t');
 
-		return response()->json($data);
-	}
+    return view('Meus templates:app.site.meus-templates', compact('data', 'tipo_templates', 'templates'));
+  }
 
-	public function temp_usuario(Request $request)
-	{
-		$data = [];
-		$tipo_templates = $this->getTipoTemplate();
-		$templates = DB::raw('select t.template_id, t.uuid, t.titulo, t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as tipo, (select file from files where file_id = t.file_id) as capa from templates as t');
+  public function getTipoTemplate()
+  {
+    return DB::table('tipo_templates')->select('tipo_template_id, tipo_template')->get();
+  }
 
-		return view('Meus templates:app.site.meus-templates', compact('data', 'tipo_templates', 'templates'));
-	}
+  public function preview(Request $request)
+  {
+    $file = rtrim(storage_path() . "templates/defaults/" . $request->template . "/index.php", '/');
 
-	public function getTipoTemplate()
-	{
-		return DB::table('tipo_templates')->select('tipo_template_id, tipo_template')->get();
-	}
+    if (file_exists($file)) {
+      return view('Prever template:app.site.preview', compact('file'));
+      //return view('web editor:app.gjs-editor', compact('file'));
+    }
 
-	public function preview(Request $request)
-	{
-		$file = rtrim(storage_path() . "templates/defaults/" . $request->template . "/index.php", '/');
-
-		if (file_exists($file)) {
-			return view('Prever template:app.site.preview', compact('file'));
-			//return view('web editor:app.gjs-editor', compact('file'));
-		}
-
-		return view('Not found:app.errors.not-found');
-	}
+    return view('Not found:app.errors.not-found');
+  }
 }

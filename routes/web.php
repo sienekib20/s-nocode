@@ -16,7 +16,7 @@ Route::add('GET', '/', [app::class, 'index']);
 Route::add('GET', '/entrar', [authenticacao::class, 'login']);
 Route::add('GET', '/register', [authenticacao::class, 'register']);
 Route::add('POST', '/registe', [authenticacao::class, 'user_create']);
-Route::add('POST', '/logout', [authenticacao::class, 'destroy']);
+Route::add('GET', '/logout', [authenticacao::class, 'destroy']);
 
 Route::add('POST', '/autenticar', [authenticacao::class, 'autenticar']);
 
@@ -36,6 +36,7 @@ Route::add('GET', '/browse/(id:numeric)', [browse::class, 'load_specfic']);
 Route::group('auth:authorize', function () {
     Route::add('GET', '/dados/(id:numeric)', [data::class, 'carregar']);
     Route::add('GET', '/planos', [pacotes::class, 'index']);
+    Route::add('GET', '/aderir/(id:numeric)', [pacotes::class, 'aderir']);
 });
 
 Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);

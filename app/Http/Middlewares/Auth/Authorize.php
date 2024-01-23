@@ -8,7 +8,7 @@ class Authorize
 {
     public function handle()
     {
-        if (! Session::has('user')) {
+        if (!Session::has('user')) {
             return redirect()->route('entrar');
         }
     }

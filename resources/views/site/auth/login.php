@@ -22,7 +22,7 @@
                 <div class="container-sm d-flex align-items-center justify-content-center">
                     <div class="col-xxs-12 col-sm-8 col-lg-4 py-4">
                         <div class="form-group">
-                            <span class="form-title">Nocode</span>
+                            <span class="form-title card-title">Nocode</span>
                             <small class="text-muted d-block mb-3">Faça o login para começar</small>
                         </div>
                         <div class="form-group">
@@ -34,11 +34,15 @@
                             <small class="invalid-feeback"></small>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary input-block">Entrar</button>
+                            <button class="btn btn-orange input-block">Entrar</button>
                         </div>
                         <div class="form-group">
-                            <span class="d-block mt-3">Podes criar uma conta. <a href="<?= route('register') ?>">clique aqui</a> </span>
-                            <small class="text-muted d-block">Esqueceu a sua senha? <a href="">recupere</a> </small>
+                            <span class="d-block mt-3">Podes criar uma conta.
+                                <a href="<?= route('register') ?>" style="color: #8a8a8a">clique aqui</a>
+                            </span>
+                            <small class="text-muted d-block">Esqueceu a sua senha?
+                                <a href="" style="color: #000">recupere</a>
+                            </small>
                         </div>
                     </div>
                 </div>

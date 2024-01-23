@@ -71,10 +71,12 @@
                             </div>
 
                             <div class="form-group mt-4">
-                                <button class="btn btn-primary input-block">Cadastrar</button>
+                                <button class="btn btn-orange input-block">Cadastrar</button>
                             </div>
                             <div class="form-group">
-                                <span class="d-block mt-3">Já tens conta. <a href="<?= route('entrar') ?>">Entrar</a> </span>
+                                <span class="d-block mt-3">Já tens conta.
+                                    <a href="<?= route('entrar') ?>" style="color: #f71">Entrar</a>
+                                </span>
                             </div>
                         </div>
                     </div>

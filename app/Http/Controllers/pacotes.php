@@ -9,58 +9,74 @@ use Sienekib\Mehael\Database\Factory\DB;
 class pacotes extends Controller
 {
 
-	public function index()
-	{
-		$data = DB::table('pacotes')->get();
-    $enviar = []; $index = 0;
-    foreach($data as $datum) {
-      $enviar[$index]['pacote'] = $datum->pacote;
-      $enviar[$index]['desc'] = explode(';',$datum->descricao);
-      $index++;
+    public function index()
+    {
+        $data = DB::table('pacotes')->get();
+        $enviar = [];
+        $index = 0;
+
+        foreach ($data as $datum) {
+            $enviar[$index]['id'] = $datum->pacote_id;
+            $enviar[$index]['pacote'] = $datum->pacote;
+            $enviar[$index]['desc'] = explode(';', $datum->descricao);
+            $index++;
+        }
+
+        // TODO: coloque o seu código
+
+        return view('pacotes:site.pacotes', compact('enviar'));
     }
 
-		// TODO: coloque o seu código
+    public function aderir(Request $request)
+    {
+        $package = $descricao = [];
+        $text = '';
 
-		return view('pacotes:site.pacotes', compact('enviar'));
-	}
+        if (!empty($data = DB::table('pacotes')->where('pacote_id', '=', $request->id)->get())) {
+            $package = $data[0];
+            $descricao = explode(';', $package->descricao);
+            $text = ($package->pacote_id == 1) ? 'Este é um plano inicial, poupe o teu esforço' : '';
+        }
+        return view('aderir pacote:site.aderir-pacote', compact('package', 'descricao', 'text'));
+    }
 
-	// Cria um registo na DB
+    // Cria um registo na DB
 
-	public function store(Request $request)
-	{
-		// TODO: coloqe o seu código
+    public function store(Request $request)
+    {
+        // TODO: coloqe o seu código
 
-		return redirect()->route('rota.de.redirecionamento');
-	}
+        return redirect()->route('rota.de.redirecionamento');
+    }
 
-	// Pega um registo(s) na DB
+    // Pega um registo(s) na DB
 
-	public function read(Request $request)
-	{
-		$data = [];
+    public function read(Request $request)
+    {
+        $data = [];
 
-		// TODO: coloqe o seu código
+        // TODO: coloqe o seu código
 
-		return response()->json($data);
-	}
+        return response()->json($data);
+    }
 
-	// Atualizações de um ou + registos na DB
+    // Atualizações de um ou + registos na DB
 
-	public function update(Request $request)
-	{
-		// TODO: coloqe o seu código
+    public function update(Request $request)
+    {
+        // TODO: coloqe o seu código
 
-		return redirect()->backWith('success', 'mensagem de sucesso');
-	}
+        return redirect()->backWith('success', 'mensagem de sucesso');
+    }
 
-	// Apaga um registo na DB
+    // Apaga um registo na DB
 
-	public function delete(Request $request)
-	{
-		DB::table('tabela')->where('id', '=', $request->id)->delete();
+    public function delete(Request $request)
+    {
+        DB::table('tabela')->where('id', '=', $request->id)->delete();
 
-		// TODO: coloqe o seu código
+        // TODO: coloqe o seu código
 
-		return redirect()->back();
-	}
+        return redirect()->back();
+    }
 }
