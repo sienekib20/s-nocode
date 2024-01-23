@@ -11,7 +11,17 @@ class pacotes extends Controller
 
     public function index()
     {
-        $data = DB::table('pacotes')->get();
+        $enviar = $this->get_planos();
+
+        // TODO: coloque o seu código
+
+        return view('pacotes:site.pacotes', compact('enviar'));
+    }
+
+    private function get_planos(...$condition)
+    {
+        $data = (!empty($condition)) ? DB::table('pacotes')->where($condition[0],$condition[1],$condition[2])->get() :
+            DB::table('pacotes')->get();
         $enviar = [];
         $index = 0;
 
@@ -21,10 +31,7 @@ class pacotes extends Controller
             $enviar[$index]['desc'] = explode(';', $datum->descricao);
             $index++;
         }
-
-        // TODO: coloque o seu código
-
-        return view('pacotes:site.pacotes', compact('enviar'));
+        return $enviar;
     }
 
     public function aderir(Request $request)
@@ -37,7 +44,10 @@ class pacotes extends Controller
             $descricao = explode(';', $package->descricao);
             $text = ($package->pacote_id == 1) ? 'Este é um plano inicial, poupe o teu esforço' : '';
         }
-        return view('aderir pacote:site.aderir-pacote', compact('package', 'descricao', 'text'));
+
+        $enviar = $this->get_planos('pacote_id', '<>', $request->id);
+
+        return view('aderir pacote:site.aderir-pacote', compact('package', 'descricao', 'text', 'enviar'));
     }
 
     // Cria um registo na DB
