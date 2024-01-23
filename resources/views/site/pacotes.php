@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!--/.card-top-->
             <div class="card-body mt-5">
                 <div class="container-sm">
                     <div class="row align-items-start justify-content-center">
@@ -48,9 +48,9 @@
                                             <?php endforeach; ?>
                                         </div>
                                         <?php if ($planos['pacote'] == 'Básico') : ?>
-                                            <a href="{{ route('aderir', 1) }}" class="btn btn-orange input-block my-3 d-block">Aderir</a>
+                                            <a href="<?= route('aderir', $planos['id']) ?>" class="btn btn-orange input-block my-3 d-block">Aderir</a>
                                         <?php else : ?>
-                                            <a href="{{ route('aderir', $planos['id']) }}" class="btn btn-outline-orange input-block my-3 d-block">Aderir</a>
+                                            <a href="<?= route('aderir', $planos['id']) ?>" class="btn btn-outline-orange input-block my-3 d-block">Aderir</a>
                                         <?php endif; ?>
                                     </div>
                                 </div> <!--/.card-plan-->

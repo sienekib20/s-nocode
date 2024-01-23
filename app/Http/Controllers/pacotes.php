@@ -20,7 +20,7 @@ class pacotes extends Controller
 
     private function get_planos(...$condition)
     {
-        $data = (!empty($condition)) ? DB::table('pacotes')->where($condition[0],$condition[1],$condition[2])->get() :
+        $data = (!empty($condition)) ? DB::table('pacotes')->where($condition[0], $condition[1], $condition[2])->get() :
             DB::table('pacotes')->get();
         $enviar = [];
         $index = 0;
@@ -46,6 +46,8 @@ class pacotes extends Controller
         }
 
         $enviar = $this->get_planos('pacote_id', '<>', $request->id);
+
+        //dd($enviar);
 
         return view('aderir pacote:site.aderir-pacote', compact('package', 'descricao', 'text', 'enviar'));
     }

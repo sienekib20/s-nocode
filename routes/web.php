@@ -4,6 +4,7 @@ use App\Http\Controllers\app;
 use App\Http\Controllers\auth\authenticacao;
 use App\Http\Controllers\browse;
 use App\Http\Controllers\editor;
+use App\Http\Controllers\encomendas;
 use App\Http\Controllers\pacotes;
 use App\Http\Controllers\templates;
 use App\Http\Controllers\user\data;
@@ -37,6 +38,7 @@ Route::group('auth:authorize', function () {
     Route::add('GET', '/dados/(id:numeric)', [data::class, 'carregar']);
     Route::add('GET', '/planos', [pacotes::class, 'index']);
     Route::add('GET', '/aderir/(id:numeric)', [pacotes::class, 'aderir']);
+    Route::add('GET', '/encomenda', [encomendas::class, 'index']);
 });
 
 Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);

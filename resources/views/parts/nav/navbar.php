@@ -29,13 +29,14 @@
             </a>
           </div>
         <?php endif; ?>
-        <div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?>">
+        <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
+        <div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
           <a href="<?= route('planos') ?>" class="__nav-link">
             <span>Pacotes</span>
           </a>
         </div>
-        <div class="__nav-item <?= request()->path() == '/encomendar' ? 'active' : '' ?>">
-          <a href="<?= route('/') ?>" class="__nav-link">
+        <div class="__nav-item <?= request()->path() == '/encomenda' ? 'active' : '' ?>">
+          <a href="<?= route('encomenda') ?>" class="__nav-link">
             <span>Encomendar</span>
           </a>
         </div>
@@ -86,11 +87,12 @@
     <div class="mmItem {{ request()->path() == '/browse' ? 'active' : '' }}">
       <a href="{{ route('browse') }}" class="mmLink">Browse</a>
     </div>
-    <div class="mmItem {{ request()->path() == '/planos' ? 'active' : '' }}">
+    <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
+    <div class="mmItem <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
       <a href="{{ route('planos') }}" class="mmLink">Pacotes</a>
     </div>
     <div class="mmItem {{ request()->path() == '/encomendas' ? 'active' : '' }}">
-      <a href="{{ route('demand') }}" class="mmLink">Encomendar <small class="count">0</small> </a>
+      <a href="{{ route('encomenda') }}" class="mmLink">Encomendar <small class="count">0</small> </a>
     </div>
     <?php if (\Sienekib\Mehael\Support\Auth::check()) : ?>
       <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0]; ?>

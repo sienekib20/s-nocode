@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-8 d-flex align-items-center">
                 <form action="<?= route('encomendar') ?>" class="subscribe-form w-100 d-flex">
-                    <input type="text" class="form-input w-100 input-warning" placeholder="Insira o teu email">
-                    <button type="submit" class="btn btn-orange form-input" style="border-color: transparent;">Enviar</button>
+                    <input type="text" class="form-input w-100 input-warning" placeholder="Insira o teu email" required>
+                    <button type="submit" class="btn btn-orange form-input ml-2" style="border-color: transparent;">Enviar</button>
                 </form>
             </div>
         </div>

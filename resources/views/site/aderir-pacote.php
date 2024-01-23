@@ -126,8 +126,7 @@
         </div> <!--/.card-->
 
         <small class="d-block my-5"></small>
-        <small class="d-block my-2"></small>
-        
+
         <div class="card">
             <div class="card-top">
                 <div class="container-sm">
@@ -158,11 +157,7 @@
                                                 <small class="text-muted"><?= $type[$xx]; ?></small>
                                             </div>
                                         </div>
-                                        <?php if ($planos['pacote'] == 'Básico') : ?>
-                                            <a href="{{ route('aderir', 1) }}" class="btn btn-orange w-20 input-block my-3 d-block btn-rounded"> <span class="bi bi-chevron-right"></span> </a>
-                                        <?php else : ?>
-                                            <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange w-20 input-block my-3 d-block btn-rounded"> <span class="bi bi-chevron-right"></span> </a>
-                                        <?php endif; ?>
+                                        <a href="<?= route('aderir', $planos['id']) ?>" class="btn btn-outline-orange w-20 input-block my-3 d-block btn-rounded"> <span class="bi bi-chevron-right"></span> </a>
                                     </div>
                                 </div> <!--/.card-plan-->
                             </div> <!--/.col-md-3-->

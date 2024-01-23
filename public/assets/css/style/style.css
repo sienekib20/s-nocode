@@ -32,7 +32,7 @@ a:hover {
 navbar
 */
 .navbar {
-    box-shadow: none;
+    /*box-shadow: none;*/
     border: solid 1px rgba(0, 0, 0, 0.03);
 }
 
