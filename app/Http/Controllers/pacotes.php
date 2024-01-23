@@ -13,9 +13,11 @@ class pacotes extends Controller
     {
         $enviar = $this->get_planos();
 
+        $tipo = DB::table('tipo_templates')->get();
+
         // TODO: coloque o seu código
 
-        return view('pacotes:site.pacotes', compact('enviar'));
+        return view('pacotes:site.pacotes', compact('enviar', 'tipo'));
     }
 
     private function get_planos(...$condition)
