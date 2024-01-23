@@ -26,8 +26,8 @@
                 <div class="container-sm">
                     <div class="row">
                         <div class="card-title col-12 text-center">
-                            <span class="title d-block"> Diferentes formas de pagamentos</span>
-                            <small class="text-muted">Faça o teu pagamento de um jeito mais fácil</small>
+                            <span class="title d-block">Há cada tipo um preço correspondente</span>
+                            <small class="text-muted">Escolha na medida do seu bolso</small>
                         </div>
                     </div>
                 </div>
@@ -35,15 +35,16 @@
             <div class="card-body">
                 <div class="container-sm">
                     <div class="row align-items-center justify-content-center">
-                        <?php foreach ($payments as $item) : ?>
+                        <?php foreach ($tipo as $t) : ?>
                             <div class="col-md-3">
                                 <div class="card-plan mt-xxs-3">
                                     <div class="card-plan-body mt-2">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5">
-                                                <img src="<?= asset('img/' . $item[1]) ?>" alt="">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-7 d-flex align-items-center card-plan-item">
+                                                <small class="bi"></small>
+                                                <small class="text-muted" style="font-size: 14px"><?= $t->tipo_template ?></small>
                                             </div>
-                                            <div class="col-7"><?= $item[0] ?></div>
+                                            <div class="col-md-5" style="font-family: 'Roboto-Bold';font-size: 20px"><?= '0.00KZ' ?></div>
                                         </div>
                                     </div>
                                 </div> <!--/.card-plan-->
@@ -51,8 +52,7 @@
                         <?php endforeach; ?>
                     </div> <!--/.row-->
                     <div class="row mt-5">
-                        <div class="col-md-6">
-                            <span>Para concluir o processo de transação entre logo em contacto para ter mais informações</span>
+                        <div class="col-md-12 d-flex align-items-center justify-content-center">
                             <span>Para mais sobre informações entre em <a href="" style="color: #f71">contacto</a></span>
                         </div>
                     </div>
@@ -65,8 +65,8 @@
         <div class="card">
             <div class="card-top">
                 <div class="container-sm">
-                    <div class="row">
-                        <div class="col-12">
+                    <div class="row mb-5">
+                        <div class="col-12 text-center">
                             <span class="card-title d-block bold">Faça a tua incomenda</span>
                             <span class="text-muted">Informa a tua necessidade e nós resolvemos</span>
                         </div>
