@@ -3,6 +3,7 @@
 use App\Http\Controllers\app;
 use App\Http\Controllers\auth\authenticacao;
 use App\Http\Controllers\browse;
+use App\Http\Controllers\contacts;
 use App\Http\Controllers\editor;
 use App\Http\Controllers\encomendas;
 use App\Http\Controllers\pacotes;
@@ -25,6 +26,7 @@ Route::add('GET', '/nocode', [app::class, 'index']);
 Route::add('GET', '/user/[0-9]+', [app::class, 'update']);
 
 Route::add('GET', '/templates', [templates::class, 'index']);
+Route::add('GET', '/contactos', [contacts::class, 'index']);
 //Route::add('GET', '/api/template', [templates::class, 'upload_template']);
 
 //Route::add('GET', '/editor/(uuid:any)', [editor::class, 'open_template']);

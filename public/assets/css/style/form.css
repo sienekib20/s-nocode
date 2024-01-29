@@ -17,6 +17,16 @@
   position: relative;
 }
 
+.form-icon {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
 .input-label {
   font-family: 'Roboto-Bold';
   display: block;
@@ -127,4 +137,16 @@
 
 .has-addon input {
   padding-left: 3.5rem;
+}
+
+.has-icon:has(.form-icon.icon-left) .form-input {
+    padding-left: 3rem;
+}
+
+.icon-left {
+    left: 2%;
+}
+
+.icon-right {
+    right: 2%;
 }

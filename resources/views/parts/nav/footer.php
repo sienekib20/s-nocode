@@ -18,7 +18,7 @@
             <div class="col-md-4 col-lg-6 order-xxs-last">
                 <div class="row justify-content-end">
                     <div class="col-md-12 col-lg-9 text-md-right mb-md-0 mb-4">
-                        <span class="footer-heading"><a href="#" class="logo" style="color: #f71">Sílica Nocode</a></span>
+                        <span class="footer-heading"><a href="#" class="logo" style="color: #f71">Sílica Partner</a></span>
                         <small class="text-muted d-block mb-4">Uma ferramenta nativa do <a href="<?= 'https://silicaweb.ao/sfront' ?>" target="_blank">Sílica</a></small>
                         <p class="copyright">Copyright &copy;
                             <script>

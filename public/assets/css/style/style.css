@@ -11,7 +11,7 @@
 @import "grid.css?v=1";
 @import "navbar.css";
 @import "table.css";
-@import "form.css";
+@import "form.css?v=1";
 @import "wrapper.css";
 @import "media.css";
 
@@ -33,6 +33,11 @@ navbar
 */
 .navbar {
     /*box-shadow: none;*/
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
     border: solid 1px rgba(0, 0, 0, 0.03);
 }
 
@@ -188,9 +193,10 @@ mobileMenu
 
 .mobileMenu-contain {
     top: 0;
-    right: -100%;
+    right: -1000%;
     width: 285px;
     height: 100%;
+    max-width: 100%;
     position: fixed;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
