@@ -32,7 +32,7 @@ class Response
 
     public function json(mixed $data)
     {
-        $data = (is_array($data)) ? $data : [$data];
+        //$data = (is_array($data)) ? $data : [$data];
 
         $this->setHeader("Content-Type", "application/json");
         $this->applyHeaders();

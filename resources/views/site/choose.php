@@ -24,19 +24,21 @@
             <form action="" method="POST" class="sx-card-section-contain">
                 <div class="container-sm in-use">
                     <div class="row">
-                        <div class="col-xxs-12 col-sm-7 col-md-7">
+                        <div class="col-12 col-sm-7 col-md-7">
                             <div class="col-12" style="text-align: left !important;">
                                 <span class="bold d-block mb-3"><?= ucfirst($template->titulo ?? 'Default') ?></span>
 
                                 <div class="contain-img">
-                                    <img src="<?= asset('img/ncode-2.jpg') ?>" alt="Imagem do template selecionado">
-                                    <a href="" class="preview"> <small class="bi bi-eye"></small> previsualizar </a>
+                                    <img src="<?= storage() . 'templates/defaults/' . $template->referencia . '/cover/' . $template->capa ?>" alt="Imagem do template selecionado">
+                                    <a href="<?= route('preview', $template->uuid ?? '') ?>" class="preview btn btn-outline my-4 d-block" target="_blank">
+                                        <small class="bi bi-eye"></small> previsualizar
+                                    </a>
                                 </div>
 
                                 <hr>
 
                                 <div class="text-muted mt-3 mb-4">
-                                    <small>Nota do desenvolvedor: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus perspiciatis quidem quibusdam quia deserunt facilis placeat labore modi sapiente consectetur! Molestias a quisquam ex accusantium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat voluptates doloremque officia possimus, corporis aut natus, rerum itaque suscipit architecto rem dolorem placeat! Fugit, nulla? </small>
+                                    <small><?= $template->descricao ?></small>
                                 </div>
 
                                 <small class="d-block my-4"></small>
@@ -68,12 +70,12 @@
 
                             </div>
                         </div> <!--/.col-md-7-->
-                        <div class="template-in-use col-xxs-12 col-md-4 col-sm-4">
+                        <div class="template-in-use col-12 col-md-4 col-sm-5">
 
                             <small class="my-3 d-block text-muted" style="font-size: 14.5px;"> <span class="bi bi-arrow-right"></span> Para tornar público o template a sua escolha, deves preencher os dados necessários abaixos</small>
                             <div class="row align-items-center">
                                 <div class="col-xxs-3 col-md-3">
-                                    <small class="btn btn-primary input-block w-100">sn.com</small>
+                                    <small class="btn btn-orange input-block w-100">sn.com</small>
                                 </div>
                                 <div class="col-9">
                                     <div class="form-group">
@@ -90,13 +92,13 @@
                             <span class="my-3 d-block"> <span class="bi bi-arrow-right"></span> O email que inseriste acima, será usado para receber as notificações do público que quiser contactar você</span>
 
 
-                            <button type="submit" class="btn btn-primary input-block validar-uso">Publicar</button>
-                            <a href="<?= route('editor', $template->uuid ?? 'default') ?>" target="_blank" class="choose-open-editor-btn btn btn-outline input-block d-block mt-1 mb-2">
+                            <button type="submit" class="btn btn-orange input-block validar-uso">Publicar</button>
+                            <a href="<?= route('editor', $template->uuid ?? 'default') ?>" target="_blank" class="choose-open-editor-btn btn btn-outline-orange input-block d-block mt-1 mb-2">
                                 <span class="fas fa-pencil-square"></span> <span>Editar</span>
                             </a>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
                                 <small class="title">Preço</small>
-                                <small class="value"><?= $template->preco ?? '0.00' . 'KZ' ?></small>
+                                <small class="value"><?= $template->preco . '.00 KZ' ?? '0.00' . 'KZ' ?></small>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
                                 <small class="title">Status</small>
@@ -112,7 +114,7 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
                                 <small class="title">Pessoas usando</small>
-                                <small class="value"><?= $template->quantidade ?? '0' ?></small>
+                                <small class="value"><?= $template->quantidade ?></small>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
                                 <small class="title">Classificação</small>

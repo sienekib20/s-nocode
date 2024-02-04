@@ -43,7 +43,7 @@
                 <div class="col-md-3">
                     <div class="card-plan mt-xxs-3">
                         <div class="card-plan-top">
-                            <div class="d-flex align-items-baseline"> <small>Total de <?= '0' ?></small></div>
+                            <div class="d-flex align-items-baseline"> <small>Total de <?= $subscricoes ?></small></div>
                         </div>
                         <div class="card-plan-body mt-2">
                             <div class="d-flex flex-direction-column">
@@ -58,7 +58,7 @@
                 <div class="col-md-3">
                     <div class="card-plan mt-xxs-3">
                         <div class="card-plan-top">
-                            <div class="d-flex align-items-baseline"> <small>Total de <?= '0' ?></small></div>
+                            <div class="d-flex align-items-baseline"> <small>Total de <?= $encomendas ?></small></div>
                         </div>
                         <div class="card-plan-body mt-2">
                             <div class="d-flex flex-direction-column">
@@ -91,6 +91,7 @@
                                 <option value=""> Filtrar dados</option>
                                 <option value="">Templates Recentes</option>
                                 <option value="">Templates Vencidos</option>
+                                <option value="">Pacotes aderidos</option>
                             </select>
                         </div> <!--/.col-md-2-->
                         <div class="col-md-3 pesquise_">
@@ -103,10 +104,12 @@
             <div class="card-body mt-5">
                 <div class="container-sm">
                     <div class="row align-items-start justify-content-center">
-                        <div class="col-12 text-center">
-                            <span class="d-block my-4">Não tens nenhum template ainda</span>
-                            <a href="<?= route('browse') ?>" class="btn btn-outline"><small class="text-muted">Adquirir agora</small></a>
-                        </div>
+                        <?php if (empty($data)) : ?>
+                            <div class="col-12 text-center">
+                                <span class="d-block my-4">Não tens nenhum template ainda</span>
+                                <a href="<?= route('browse') ?>" class="btn btn-outline"><small class="text-muted">Adquirir agora</small></a>
+                            </div>
+                        <?php endif; ?>
                         <?php foreach ($data as $datum) : ?>
                             <div class="col-md-3">
                                 <div class="card-plan mt-xxs-3">

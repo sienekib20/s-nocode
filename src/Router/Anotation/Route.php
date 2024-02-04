@@ -73,6 +73,17 @@ class Route extends AbstractRoute
 			'middleware' => static::$middleware
 		];
 	}
+
+    public static function get(string $uri, mixed $action)
+    {
+        static::add('GET', $uri, $action);
+    }
+
+    public static function post(string $uri, mixed $action)
+    {
+        static::add('POST', $uri, $action);
+    }
+
 	/**
 	 * Define um prefixo às rotas
 	 * @return Route

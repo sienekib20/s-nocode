@@ -2,13 +2,13 @@
 
 namespace Sienekib\Mehael\Http;
 
+use Sienekib\Mehael\Http\Files\File;
 use Sienekib\Mehael\Http\Src\Uri;
 use Sienekib\Mehael\Http\Json\Jsonable;
 
 class Request
 {
-    use Uri;
-    use Jsonable;
+    use Uri, Jsonable, File;
 
     private array $data = [];
 
@@ -23,7 +23,7 @@ class Request
         $data = $this->get_contents() ?? [];
 
         foreach ($data as $key => $value) {
-            $countable = (is_object($value)) ? $value : [$key => $value]; 
+            $countable = (is_object($value)) ? $value : [$key => $value];
             foreach ($countable as $index => $val) {
                 $this->data[$index] = $val;
             }
@@ -53,14 +53,14 @@ class Request
 
     public function base64FileExtension(string $filename, $type = 'img')
     {
-        if (! str_contains($this->$filename, '.')) {
+        if (!str_contains($this->$filename, '.')) {
             return 'Invalid filename';
         }
 
         $extension = explode('.', $this->$filename)[1];
 
         if ($type == 'zip') {
-            
+
             return $extension;
         }
 

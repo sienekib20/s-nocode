@@ -4,57 +4,72 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Sienekib\Mehael\Http\Request;
+
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Auth;
 
 class contacts extends Controller
 {
 
-	public function index()
-	{
-		$data = [];
+    public function index()
+    {
+        if (Auth::check()) {
+            $data = Auth::user();
+            return view('contactos:site.contacts', compact('data'));
+        }
 
-		// TODO: coloque o seu código
+        return view('contactos:site.contacts');
+    }
 
-		return view('contactos:site.contacts', compact('data'));
-	}
+    // Cria um registo na DB
 
-	// Cria um registo na DB
+    public function store(Request $request)
+    {
+        if (!filter_var($request->email, FILTER_SANITIZE_EMAIL)) {
+            session()->setFlashMessage('erro', 'Email inválido');
+            return redirect()->route('contactos');
+        }
+        // Checar o numero de telefone
 
-	public function store(Request $request)
-	{
-		// TODO: coloqe o seu código
+        $result = DB::table('mensagens')->insert(['expediente' => $request->username, 'mail' => $request->email, 'telefone' => $request->telefone, 'mensagem' => $request->mensagem]);
 
-		return redirect()->route('rota.de.redirecionamento');
-	}
+        if ($result) {
+            session()->setFlashMessage('success', 'Receberá uma resposta em breve');
+            return redirect()->route('contactos');
+        }
 
-	// Pega um registo(s) na DB
+        session()->setFlashMessage('erro', 'Algo deu errado, tente mais tarde');
+        return redirect()->route('contactos');
+    }
 
-	public function read(Request $request)
-	{
-		$data = [];
+    // Pega um registo(s) na DB
 
-		// TODO: coloqe o seu código
+    public function read(Request $request)
+    {
+        $data = [];
 
-		return response()->json($data);
-	}
+        // TODO: coloqe o seu código
 
-	// Atualizações de um ou + registos na DB
+        return response()->json($data);
+    }
 
-	public function update(Request $request)
-	{
-		// TODO: coloqe o seu código
+    // Atualizações de um ou + registos na DB
 
-		return redirect()->backWith('success', 'mensagem de sucesso');
-	}
+    public function update(Request $request)
+    {
+        // TODO: coloqe o seu código
 
-	// Apaga um registo na DB
+        return redirect()->backWith('success', 'mensagem de sucesso');
+    }
 
-	public function delete(Request $request)
-	{
-		DB::table('tabela')->where('id', '=', $request->id)->delete();
+    // Apaga um registo na DB
 
-		// TODO: coloqe o seu código
+    public function delete(Request $request)
+    {
+        DB::table('tabela')->where('id', '=', $request->id)->delete();
 
-		return redirect()->back();
-	}
+        // TODO: coloqe o seu código
+
+        return redirect()->back();
+    }
 }

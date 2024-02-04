@@ -14,8 +14,12 @@ class data extends Controller
         $data = DB::raw('select distinct tp.temp_parceiro_id, (select titulo from templates where template_id = tp.template_id) as titulo, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") as prazo from templates where template_id = tp.template_id) as prazo, tp.created_at from temp_parceiros as tp where parceiro_id = (select conta_id from contas where conta_id = ?)', [$request->id]);
 
         $templateUsuario = DB::table('temp_parceiros')->select('count(template_id) as total')->where('parceiro_id', '=', $request->id)->get()[0];
+
+        $subscricoes = 0;
+        $encomendas = 0;
+
         //return view('Home:app.site.index', compact('data'));
-        return view('Meus dados:site.user-data', compact('data', 'templateUsuario'));
+        return view('Meus dados:site.user-data', compact('data', 'templateUsuario', 'subscricoes', 'encomendas'));
     }
 
 
@@ -25,7 +29,7 @@ class data extends Controller
             $template = [];
             return view('Escolha:site.choose', compact('template'));    
         }
-        $template = DB::raw('select t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
+        $template = DB::raw('select t.referencia, t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
         // -> será adicionado no proximo migrate fresh seed :
         // (select classificacao from classificacaos where template_id = t.template_id) as classificacao
 
@@ -42,6 +46,9 @@ class data extends Controller
 
     public function save_template(Request $request)
     {
+        // caminho pra registar novo template: storage/templates/usuarios/NOME_DO_USUARIO/ARQUIVO_UNICO_AQUI.html
+
+
         if (is_null($request->template)) {
             return response()->json('Dados inválidos');
         }

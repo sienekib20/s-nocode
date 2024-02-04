@@ -17,53 +17,60 @@
     <?= parts('ui.cool-alert') ?>
     <div class="wrapper">
 
-        <div class="auths d-flex w-100 vh-100 align-items-center justify-content-center">
+        <div class="auths d-flex w-100 vh-100 align-items-sm-start align-items-lg-center justify-content-center">
             <form action="<?= route('registe') ?>" class="w-100" method="POST">
                 <div class="container-sm d-flex align-items-center justify-content-center">
                     <div class="row w-xxs-100 w-xxs-100 w-sm-80 w-md-70">
-                        <div class="col-xxs-12 col-sm-8 col-lg-6 py-4">
+                        <div class="col-12 col-lg-6 py-4">
                             <div class="form-title">
                                 <span class="title">Nocode</span>
                                 <small class="text-muted d-block mb-3">Cria a sua conta</small>
                             </div>
                             <small class="form-line-divider"></small>
                             <div class="form-group">
-                                <small class="input-label">Seu nome *</small>
+                                <small class="input-label">Primeiro nome</small>
                                 <div class="content-input">
-                                    <input type="text" name="nome" class="form-input input-block" placeholder="Nome e apelido">
+                                    <input type="text" name="nome" class="form-input input-block" placeholder="Nome">
                                     <small class="invalid-feedback"></small>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <small class="input-label">Telefone *</small>
+                                <small class="input-label">Ultimo nome</small>
+                                <div class="content-input">
+                                    <input type="text" name="apelido" class="form-input input-block" placeholder="Apelido">
+                                    <small class="invalid-feedback"></small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <small class="input-label">Telefone</small>
                                 <div class="content-input">
                                     <input type="text" name="telefone" class="form-input input-block" id="input-phone" placeholder="Telefone">
                                     <small class="invalid-feedback"></small>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <small class="input-label">Seu endereço e-mail *</small>
-                                <div class="content-input">
-                                    <input type="text" name="email" class="form-input input-block" placeholder="Email">
-                                    <small class="invalid-feedback"></small>
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-xxs-12 col-sm-8 col-lg-6 py-4">
+                        <div class="col-12 col-lg-6 py-4">
                             <div class="form-title op-0 d-xxs-none d-md-block">
                                 <span class="title">Nocode</span>
                                 <small class="text-muted d-block mb-3">Cria a sua conta</small>
                             </div>
                             <small class="form-line-divider"></small>
                             <div class="form-group">
-                                <small class="input-label">Senha *</small>
+                                <small class="input-label">Seu endereço e-mail</small>
+                                <div class="content-input">
+                                    <input type="text" name="email" class="form-input input-block" placeholder="Email">
+                                    <small class="invalid-feedback"></small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <small class="input-label">Senha</small>
                                 <div class="content-input">
                                     <input type="password" name="password" class="form-input input-block" placeholder="Palavra-passe">
                                     <small class="invalid-feedback"></small>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <small class="input-label">Confirmar senha *</small>
+                                <small class="input-label">Confirmar senha</small>
                                 <div class="content-input">
                                     <input type="password" name="re_password" class="form-input input-block" placeholder="Reescrever Palavra-passe">
                                     <small class="invalid-feedback"></small>

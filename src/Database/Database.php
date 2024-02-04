@@ -80,12 +80,16 @@ class Database
 				$stmt->execute();
 				$this->connection->commit();
 
-				return ($last == 1) ? $this->lastId() : true;
+				$result = ($last == 1) ? $this->lastId() : true;
+
 			}
+
+			return $result;
+
 		} catch (PDOException $e) {
 			$this->connection->rollBack();
 			response()->setStatusCode(500);
-			return response()->json('Erro');
+			return response()->json($e);
 		}
 	}
 

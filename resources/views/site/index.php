@@ -25,7 +25,7 @@
                         <span class="d-xxs-none d-md-block my-3 mb-5 text-muted">Conheça a nova ferramenta dos Sílica, um criador de landing pages sem
                             necessidade de <br> mexer no código, apenas com um click e já está!</span>
                         <div class="d-flex align-items-center justify-content-center col-12 col-md-12 col-xxs-12">
-                            <a href="" class="btn btn-outline-orange">Experimente</a>
+                            <a href="#" class="btn btn-outline-orange">Experimente</a>
                             <a href="<?= route('browse') ?>" class="btn btn-white ml-2">Explorar</a>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
 
         <?php
         $asked = [
-            ['O que é preciso para começar?', 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano (opcional), só assim que podes começar. para mais informações entre em <a href="">contacto</a>', 'active'],
+            ['O que é preciso para começar?', 'Primeiro tens que ter uma conta no Sílica, depois escolha um plano (opcional), só assim que podes começar. para mais informações entre em <a href="<?= route(\'contactos\') ?>">contacto</a>', 'active'],
             ['O meu site pára de funcionar, quando expirar o plano?', 'Antes que expire o teu plano receberas notificações antes do tempo, mas damos sempre um prazo considerável de 3 mêses aos nossos clientes, excepto quando estiveres a usar um plano grátis.', ''],
             ['Devo ter conhecimentos tenicos para editar o template?', 'Pensamos em si, podes não ter conhecimentos tecnicos, vais construir o teu template mesmo que começar do zero.', ''],
             ['Com quem posso partilhar o meu dóminio?', 'Podes divulgar o link do teu site com quem quizer, onde quizer, e qualquer um poderá acessar livremente', ''],
@@ -162,14 +162,20 @@
         <small class="d-block mt-5"></small>
 
         <div class="card">
-            <div class="card-body">
+            <div class="card-top">
                 <div class="container-sm">
                     <div class="row">
-                        <div class="card-title col-xxs-12 col-lg-5 mb-xxs-4 mb-lg-0">
-                            <span class="title">Respostas de Perguntas mais frequentes</span>
-                            <small class="text-muted d-block">Tire todas as tuas dúvidas</small>
+                        <div class="card-title col-12 text-center">
+                            <span class="title d-block">Respostas de Perguntas mais frequentes</span>
+                            <small class="text-muted">Tire todas as tuas dúvidas</small>
                         </div>
-                        <div class="col-xxs-12 mt-xxs-3 mt-lg-0 col-lg-7">
+                    </div>
+                </div>
+            </div> <!--/.card-top-->
+            <div class="card-body mt-2">
+                <div class="container-sm">
+                    <div class="row">
+                        <div class="col-12 mt-5 offset-xs-0 offset-md-1 col-md-10">
                             <div class="faqs">
                                 <?php foreach ($asked as $ask) : ?>
                                     <div class="faqItem">

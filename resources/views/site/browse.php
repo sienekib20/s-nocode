@@ -70,24 +70,26 @@
                 <div class="container-sm">
                     <div class="row">
                         <?php for ($i = 0; $i < count($templates); $i++) :  ?>
-                            <div class="col-xxs-8 col-md-5 col-lg-4 browse-item mt-xxs-4 mt-md-5">
-                                <div class="contain-img">
-                                    <img src="<?= asset('img/ncode-3.jpg') ?>" alt="template-cover">
-                                    <div class="actions d-flex">
-                                        <a href="<?= route('preview', $templates[$i]->uuid) ?>" target="_blank"> <small class="bi bi-eye"></small> </a>
-                                        <a href="<?= route('usar', $templates[$i]->uuid) ?>" target="_blank"> <small class="bi bi-cart"></small> </a>
+                            <div class="col-8 col-md-5 col-lg-4 browse-item mt-xxs-4 mt-md-5">
+                                <div class="__item">
+                                    <div class="contain-img">
+                                        <img src="<?= storage() . 'templates/defaults/' . $templates[$i]->referencia . '/cover/' . $templates[$i]->capa ?>" alt="template-cover">
+                                        <div class="actions d-flex">
+                                            <a href="<?= route('preview', $templates[$i]->uuid ?? '') ?>" target="_blank"> <span class="bi bi-eye"></span> </a>
+                                            <a href="<?= route('usar', $templates[$i]->uuid ?? '') ?>" target="_blank"> <span class="bi bi-cart"></span> </a>
+                                        </div>
+                                        <div class="d-flex align-items-center ratings">
+                                            <small class="bi bi-star-fill"></small>
+                                            <small class="bi bi-star-fill"></small>
+                                            <small class="bi bi-star"></small>
+                                            <small class="bi bi-star"></small>
+                                            <small class="bi bi-star"></small>
+                                        </div>
                                     </div>
-                                    <div class="ratings">
-                                        <small class="bi bi-star-fill"></small>
-                                        <small class="bi bi-star-fill"></small>
-                                        <small class="bi bi-star"></small>
-                                        <small class="bi bi-star"></small>
-                                        <small class="bi bi-star"></small>
+                                    <div class="info">
+                                        <span class="title d-block"><?= ucfirst($templates[$i]->titulo ?? '') ?> Landing Page </span>
+                                        <small class="text-muted">Criado por: <?= $templates[$i]->autor ?? '' ?></small>
                                     </div>
-                                </div>
-                                <div class="info">
-                                    <span class="title d-block"><?= $templates[$i]->titulo ?></span>
-                                    <small class="text-muted">Criado por: <?= $templates[$i]->autor ?></small>
                                 </div>
                             </div>
                         <?php endfor; ?>

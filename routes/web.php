@@ -30,21 +30,24 @@ Route::add('GET', '/contactos', [contacts::class, 'index']);
 //Route::add('GET', '/api/template', [templates::class, 'upload_template']);
 
 //Route::add('GET', '/editor/(uuid:any)', [editor::class, 'open_template']);
-Route::add('GET', '/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
-Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
 
 Route::add('GET', '/browse', [browse::class, 'load']);
+//Route::add('POST', '/browse', [browse::class, 'generate']);
 Route::add('GET', '/browse/(id:numeric)', [browse::class, 'load_specfic']);
 // Authorized routes
 Route::group('auth:authorize', function () {
     Route::add('GET', '/dados/(id:numeric)', [data::class, 'carregar']);
     Route::add('GET', '/planos', [pacotes::class, 'index']);
     Route::add('GET', '/aderir/(id:numeric)', [pacotes::class, 'aderir']);
+    Route::add('POST', '/adesao', [pacotes::class, 'adesao_planos']);
     Route::add('GET', '/encomenda', [encomendas::class, 'index']);
+    Route::add('GET', '/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
+    Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
+    Route::add('GET', '/preview/(template:any)', [templates::class, 'preview']);
+    Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);
+    Route::add('POST', '/contactar', [contacts::class, 'store']);
 });
 
-Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);
 /*Route::add('POST', '/usar', [data::class, 'validar_uso']);*/
 Route::add('POST', '/salvar', [data::class, 'save_template']);
 Route::add('GET', '/meus-templates', [templates::class, 'temp_usuario']);
-Route::add('GET', '/preview/(template:any)', [templates::class, 'preview']);

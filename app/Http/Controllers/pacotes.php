@@ -46,12 +46,52 @@ class pacotes extends Controller
             $descricao = explode(';', $package->descricao);
             $text = ($package->pacote_id == 1) ? 'Este é um plano inicial, poupe o teu esforço' : '';
         }
-
+        
         $enviar = $this->get_planos('pacote_id', '<>', $request->id);
+        $current_plane_id = $this->get_planos('pacote_id', '=', $request->id);
 
         //dd($enviar);
 
-        return view('aderir pacote:site.aderir-pacote', compact('package', 'descricao', 'text', 'enviar'));
+        return view('aderir pacote:site.aderir-pacote', compact('package', 'descricao', 'text', 'enviar', 'current_plane_id'));
+    }
+
+    public function adesao_planos(Request $request)
+    {
+        // → Se o usuario já aderiu a esse plano e ainda n exiprou
+        // ele nao pode aderir outra vez, a menos que expire
+
+        // → Se já aderiu e está em análise n pode tambem aderir outra vez 
+        // a menos que tenha sido rejeitado
+        $data = DB::table('adesao_pacotes')->where('cliente_id', '=', $request->current_user_id)->where('cliente_id', '=', $request->plano_id)->get();
+
+        if (!empty($data)) {
+
+            if ($data[0]->estado_pacote == 1) {
+                session()->setFlashMessage('pacote', 'o teu pedido está em análise, não pode aderir até receber uma resposta');
+                return redirect()->route('/aderir/'. $request->plano_id);
+            }
+
+            if ($data[0]->estado_pacote == 2) {
+                // Calcula o prazo de uso, se n expirou ↓ 
+                session()->setFlashMessage('pacote', 'já aderiste este pacote, espera até expirar pra renovar');
+                return redirect()->route('/aderir', $request->plano_id);
+            }
+
+            $this->save_adesao_pacotes($request->current_user_id, $request->plano_id);
+        }
+        
+        $this->save_adesao_pacotes($request->current_user_id, $request->plano_id);
+
+        return redirect()->route('/aderir', $request->plano_id);
+    }
+
+    private function save_adesao_pacotes($id_cliente, $id)
+    {
+        return DB::table('adesao_pacotes')->insert([
+            'cliente_id' => (int) $id_cliente,
+            'pacote_id' => (int) $id,
+            'estado_pacote' => 1
+        ]);
     }
 
     // Cria um registo na DB

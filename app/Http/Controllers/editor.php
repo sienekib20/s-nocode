@@ -9,28 +9,29 @@ use Sienekib\Mehael\Database\Factory\DB;
 class editor extends Controller
 {
 
-	public function web_builder()
-	{
-		$data = [];
+    public function web_builder()
+    {
+        $data = [];
 
-		// TODO: coloque o seu código
+        // TODO: coloque o seu código
 
-		return view('Web Creator:app.webb.index', compact('data'));
-	}
+        return view('Web Creator:app.webb.index', compact('data'));
+    }
 
-	public function open_template(Request $request)
-	{
-		$template = DB::table('templates')->select('template_id, referencia')->where('uuid', '=', $request->uuid)->get()[0];
+    public function open_template(Request $request)
+    {
+        $template = DB::table('templates')->select('template_id, referencia')->where('uuid', '=', $request->uuid)->get()[0];
 
-		$dominio = $request->dominio;
-		
-		$file = rtrim(storage_path() . "templates/defaults/" . $template->referencia . "/index.php", '/');
+        $dominio = $request->dominio;
 
-		if (file_exists($file)) {
+        $file = storage_path() . "templates/defaults/" . $template->referencia . "/index.html";
+        $file = rtrim($file, '/');
 
-			return view('web editor:app.gjs-editor', compact('file', 'template', 'dominio'));
-		}
+        if (file_exists($file)) {
 
-		return view('Not found:app.errors.not-found');
-	}
+            return view('web editor:site.gjs-editor', compact('file', 'template', 'dominio'));
+        }
+
+        return view('Not found:app.errors.not-found');
+    }
 }

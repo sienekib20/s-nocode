@@ -60,6 +60,11 @@
                     </div>
                 <?php else : ?>
                     <div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
+                        <a href="" class="__nav-link open-notifications">
+                            <span class="fas fa-bell"></span>
+                        </a>
+                    </div>
+                    <div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
                         <a href="<?= route('/') ?>" class="__nav-link">
                             <span class="fas fa-shopping-cart"></span>
                         </a>
@@ -106,6 +111,9 @@
                 <a href="{{ route('dados', \Sienekib\Mehael\Support\Auth::user()->id ) }}" class="mmLink">Meus dados</a>
             </div>
             <div class="mmItem {{ request()->path() == '/buy' ? 'active' : '' }}">
+                <a href="{{ route('buy') }}" class="mmLink"> <span class="bi bi-bell">Carrinho</span> </a>
+            </div>
+            <div class="mmItem {{ request()->path() == '/buy' ? 'active' : '' }}">
                 <a href="{{ route('buy') }}" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
             </div>
             <div class="mmItem">
@@ -128,8 +136,22 @@
 
 <!-- @parts('nav.back-to-top')-->
 <?= parts('labs.loader') ?>
+<?= parts('overlay') ?>
+<?= parts('notificacao') ?>
 
 <script>
+    $('.open-notifications').click((e) => {
+        e.preventDefault();
+        $('body').css('overflow', 'hidden');
+        $('.overlay').addClass('active');
+        $('.notification').addClass('active');
+    });
+    $('.overlay').click(() => {
+        $('body').css('overflow', 'auto');
+        $('.overlay').removeClass('active');
+        $('.notification').removeClass('active');
+    })
+
     $('.__harmbuger').click((e) => {
         $('.__nav-items').toggleClass('active');
     });

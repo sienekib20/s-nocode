@@ -14,8 +14,14 @@
 
 <body>
 
-  <div class="sk-wrapper-not-found">
-    <span class="sk-not-found-text">404 | Not Found</span>
+  <div class="wrapper">
+    <div class="container-sm">
+      <div class="row">
+        <div class="col-12 vh-100 d-flex align-items-center justify-content-center">
+          <span class="text-muted">404 | Not Found</span>
+        </div>
+      </div>
+    </div>
   </div>
 
 

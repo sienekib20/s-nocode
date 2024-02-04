@@ -120,7 +120,7 @@
                                     <small class="input-label">Quem vai usar</small>
                                     <div class="content-input">
                                         <select name="" id="" class="form-input input-block h-100">
-                                            <option value="">-- Seleciona --</option>
+                                            <option value="" disabled>Seleciona</option>
                                             <option value="">Apenas eu</option>
                                             <option value="">A minha empresa</option>
                                             <option value="">O team de trabalho</option>

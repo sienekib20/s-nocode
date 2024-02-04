@@ -88,7 +88,10 @@
                                 <small class="">Preço oficial</small>
                                 <span class="title text-bold d-block">Por apenas 0.00KZ</span>
                             </div>
-                            <form action="" method="POST">
+
+                            <form action="<?= route('adesao') ?>" method="POST">
+                                <input type="hidden" name="current_user_id" value="<?= \Sienekib\Mehael\Support\Auth::user()->id ?>">
+                                <input type="hidden" name="plano_id" value="<?= $current_plane_id[0]['id'] ?>">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">

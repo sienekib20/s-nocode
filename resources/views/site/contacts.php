@@ -16,6 +16,7 @@
 <body>
     <div class="sx">
         <?= parts('nav.navbar') ?>
+        <?= parts('ui.cool-alert') ?>
 
         <div class="wallpaper vh-45">
             <div class="container-sm" style="z-index: 1080">
@@ -69,17 +70,19 @@
         <div class="card-body">
             <div class="container-sm">
                 <div class="w-xxs-100 w-lg-75 mx-auto mt-5">
-                    <form action="" method="POST" class="w-100">
+                    <form action="<?= route('contactar') ?>" method="POST" class="w-100">
                         <div class="row">
                             <div class="col-xxs-12 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="username" class="form-input input-block input-warning" placeholder="Introduz o seu nome">
+                                    <small class="input-label">Seu nome</small>
+                                    <input type="text" value="<?= $data->username ?>" name="username" class="form-input input-block input-warning" placeholder="Introduz o seu nome" required>
                                     <small class="text-orange form-icon icon-right fas fa-user"></small>
                                 </div>
                             </div>
                             <div class="col-xxs-12 col-lg-6 mt-xxs-3 mt-lg-0">
                                 <div class="form-group has-icon">
-                                    <input type="text" name="username" class="form-input input-block input-warning" placeholder="O seu endereço email">
+                                    <small class="input-label">O email informativo</small>
+                                    <input type="text" value="<?= $data->email ?>" name="email" class="form-input input-block input-warning" placeholder="O seu endereço email" required>
                                     <small class="text-orange form-icon icon-right fas fa-envelope"></small>
                                 </div>
                             </div>
@@ -89,7 +92,8 @@
                             </div>
                             <div class="col-xxs-12 col-lg-6">
                                 <div class="form-group has-icon">
-                                    <input type="text" name="username" class="form-input input-block input-warning" placeholder="Nº de telefone">
+                                    <small class="input-label">Telefone</small>
+                                    <input type="text" name="telefone" class="form-input input-block input-warning" placeholder="Nº de telefone" required>
                                     <small class="text-orange form-icon icon-right fas fa-phone"></small>
                                 </div>
                             </div>
@@ -98,7 +102,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group has-icon">
-                                    <textarea name="" rows="5" class="input-block form-input input-warning" placeholder="O que pretende ?"></textarea>
+                                    <textarea name="mensagem" rows="5" class="input-block form-input input-warning" placeholder="O que pretende ?" required></textarea>
                                     <small class="text-orange form-icon icon-right fas fa-pencil" style="top: 12%"></small>
                                 </div>
                             </div>
@@ -145,6 +149,8 @@
 </body>
 
 </html>
+<input type="hidden" class="sms" value="<?= session()->getFlashMessage('success') ?? '__aor' ?>">
+<input type="hidden" class="sm" value="<?= session()->getFlashMessage('erro') ?? '' ?>">
 
 <script>
     $(document).ready(function() {
@@ -154,10 +160,18 @@
                 e.target.parentNode.classList.toggle('active');
             })
         });
+        if ($('.sm').val() != '') {
+            $('.cool-alert').addClass('active');
+            $('.cool-alert-title').text('Erro');
+            $('.cool-alert-text').text($('.sm').val());
+        } else if ($('.sms').val() != '') {
+            $('.cool-alert').addClass('active');
+            $('.cool-alert-title').text('success');
+            $('.cool-alert-text').text($('.sms').val());
+        }
     });
     $('.faqItem-top').click((e) => {
         e.preventDefault();
         $(e.target).toggleClass('active');
     });
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"842ce7672b5f304a","version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>

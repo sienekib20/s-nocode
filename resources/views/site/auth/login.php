@@ -66,8 +66,8 @@
         }
         if ($('.session_message_s').val() != '') {
             $('.cool-alert').addClass('active');
-            $('.cool-alert-title').text('Sucesso');
-            $('.cool-alert-text').text($('.session_message').val());
+            $('.cool-alert-title').text('success');
+            $('.cool-alert-text').text($('.session_message_s').val());
         }
         $('.bg-secondary').css('backgroundColor', '#f1f1f1');
     });
