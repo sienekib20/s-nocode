@@ -40,7 +40,7 @@ class Database
 			return $stmt->fetchAll();
 		} catch (PDOException $e) {
 			response()->setStatusCode(500);
-			echo $e->getMessage();
+			throw new \Exception($e->getMessage());
 			exit;
 		}
 	}

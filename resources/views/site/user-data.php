@@ -114,41 +114,51 @@
                             <div class="col-md-3">
                                 <div class="card-plan mt-xxs-3">
                                     <div class="card-plan-top">
-                                        <span class="title d-block">Template</span>
+                                        <span class="title d-block"><?= $datum->titulo ?></span>
                                         <div class="d-flex align-items-baseline"> <small>Landing page</small></div>
                                     </div>
                                     <div class="card-plan-body">
                                         <div class="d-flex flex-direction-column">
                                             <div class="d-flex align-items-center card-plan-item">
                                                 <small class="bi bi-check"></small>
-                                                <small class="text-muted">Item</small>
+                                                <small class="text-muted">http://localhost:8001/sn/<?= $datum->dominio ?></small>
                                             </div>
                                             <div class="d-flex align-items-center card-plan-item">
                                                 <small class="bi bi-check"></small>
-                                                <small class="text-muted">Status</small>
+                                                <small class="text-muted">Template <?= $datum->status ?></small>
                                             </div>
                                             <div class="d-flex align-items-center card-plan-item">
                                                 <small class="bi bi-check"></small>
-                                                <small class="text-muted">Obtido a 0.00KZ</small>
+                                                <small class="text-muted">Obtido a <?= $datum->preco . '.00 KZ' ?></small>
                                             </div>
                                             <div class="d-flex align-items-center card-plan-item">
                                                 <small class="bi bi-check"></small>
-                                                <small class="text-muted">Valido por <?= '' ?> dias</small>
+                                                <small class="text-muted">Valido por <?= $datum->prazo ?></small>
                                             </div>
                                             <div class="d-flex align-items-center card-plan-item">
                                                 <small class="bi bi-check"></small>
-                                                <small class="text-muted">Criado em <?= '2023-10-05' ?></small>
+                                                <small class="text-muted">Criado em <?= $datum->created_at ?></small>
                                             </div>
                                         </div>
                                         <div class="row d-flex my-3 ">
-                                            <div class="col-6">
-                                                <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block">
-                                                    <span class="bi bi-pencil-square d-flex align-items-center" style="gap: 5px; font-size: 14px">Editar</span>
+                                            <div class="col-3">
+                                                <a href="{{ route('sn', $datum->dominio) }}" class="btn btn-outline-orange input-block" target="_blank">
+                                                    <span class="bi bi-eye d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
                                                 </a>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-3">
+                                                <a href="{{ route('edit', $datum->dominio, $datum->template_uuid) }}" class="btn btn-outline-orange d-flex w-100 h-100" target="_blank">
+                                                    <span class="bi bi-pencil-square w-100 h-100 d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
                                                 <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block">
-                                                    <span class="bi bi-trash d-flex align-items-center" style="gap: 5px; font-size: 14px">Excluir</span>
+                                                    <span class="bi bi-arrow-up d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
+                                                </a>
+                                            </div> <!-- para publicar -->
+                                            <div class="col-3">
+                                                <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block">
+                                                    <span class="bi bi-trash d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
                                                 </a>
                                             </div>
                                         </div>

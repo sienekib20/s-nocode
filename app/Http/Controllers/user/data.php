@@ -5,13 +5,14 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Auth;
 
 class data extends Controller
 {
 
     public function carregar(Request $request)
     {
-        $data = DB::raw('select distinct tp.temp_parceiro_id, (select titulo from templates where template_id = tp.template_id) as titulo, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") as prazo from templates where template_id = tp.template_id) as prazo, tp.created_at from temp_parceiros as tp where parceiro_id = (select conta_id from contas where conta_id = ?)', [$request->id]);
+        $data = DB::raw('select tp.dominio, tp.created_at, (select titulo from templates where template_id = tp.template_id) as titulo, (select uuid from templates where template_id = tp.template_id) as template_uuid, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") from templates where template_id = tp.template_id) as prazo, (select conta_id from contas where conta_id = ?) from temp_parceiros as tp where parceiro_id = ?', [$request->id, $request->id]);
 
         $templateUsuario = DB::table('temp_parceiros')->select('count(template_id) as total')->where('parceiro_id', '=', $request->id)->get()[0];
 
@@ -27,7 +28,7 @@ class data extends Controller
     {
         if ($request->uuid == 'default') {
             $template = [];
-            return view('Escolha:site.choose', compact('template'));    
+            return view('Escolha:site.choose', compact('template'));
         }
         $template = DB::raw('select t.referencia, t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
         // -> será adicionado no proximo migrate fresh seed :
@@ -39,36 +40,71 @@ class data extends Controller
     private function save_in_database($dominio, $template, $template_id)
     {
         if ($this->salvar_no_storage($dominio, $template)) {
-            return DB::table('temp_parceiros')->insert(['parceiro_id' => 1, 'template_id' => $template_id/*, 'dominio' => $request->dominio*/]);
+            if (Auth::check()) {
+                return DB::table('temp_parceiros')->insert(['parceiro_id' => Auth::user()->id, 'template_id' => $template_id, 'dominio' => $dominio]);
+            }
+            return 'Usuário não autenticado';
         }
         return false;
+    }
+
+    public function save_template_edit(Request $request)
+    {
+        // caminho pra registar novo template: storage/templates/usuarios/NOME_DO_USUARIO/ARQUIVO_UNICO_AQUI.html
+        if (is_null($request->template)) {
+            return response()->json('Dados inválidos');
+        }
+
+        // Verifica se o usuario tem template do mesmo nome em uso
+        $count = DB::table('temp_parceiros')->select('count(temp_parceiro_id) as total')->where('template_id', '=', $request->id)->get()[0];
+
+        if ($count->total > 0) {
+            $dominio = DB::table('temp_parceiros')->select('dominio')->where('template_id', '=', $request->id)->get();
+            foreach ($dominio as $d) {
+                if ($d->dominio == $request->dominio) {
+                    $response = ($this->salvar_no_storage($request->dominio, $request->template)) ?
+                        'Salvo com sucesso' : 'Erro ao criar o registo';
+                    return response()->json($response);
+                }
+            }
+        }
+
+        return response()->json('Algo deu errado');
     }
 
     public function save_template(Request $request)
     {
         // caminho pra registar novo template: storage/templates/usuarios/NOME_DO_USUARIO/ARQUIVO_UNICO_AQUI.html
-
-
         if (is_null($request->template)) {
             return response()->json('Dados inválidos');
         }
 
+        // Verifica se o usuario tem template do mesmo nome em uso
         $count = DB::table('temp_parceiros')->select('count(temp_parceiro_id) as total')->where('template_id', '=', $request->id)->get()[0];
 
         if ($count->total == 0) {
+
             $response = ($this->save_in_database(
                 $request->dominio,
                 $request->template,
                 $request->id
             )) ? 'Salvo com sucesso' : 'Erro ao criar o registo';
+
             return response()->json($response);
         } else if ($count->total > 0) {
-            $dominio = DB::table('temp_parceiros')->select('dominio')->where('template_id', '=', $request->id)->get()[0];
+            $dominio = DB::table('temp_parceiros')->select('dominio')->where('template_id', '=', $request->id)->get();
+            foreach ($dominio as $d) {
+                if ($d->dominio == $request->dominio) {
+                    return response()->json('Este dominio: `' . $request->dominio . '` já foi usado. Tente outro');
+                }
+            }
+
             $response = ($this->save_in_database(
-                $dominio,
+                $request->dominio,
                 $request->template,
                 $request->id
             )) ? 'Salvo com sucesso' : 'Erro ao criar o registo';
+
             return response()->json($response);
         }
 
@@ -99,7 +135,10 @@ class data extends Controller
 
     private function salvar_no_storage($dominio, $template)
     {
+
+        
         $template_path_default = $this->system->build_path('storage', 'templates.usuarios.' . $dominio);
+
         return file_put_contents($template_path_default . 'index.php', $template);
     }
 

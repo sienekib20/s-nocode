@@ -47,16 +47,16 @@ class Controller
     {
         $base_dir = abs_path() . "/$base/";
 
-        if (! file_exists($base_dir)) {
+        if (!file_exists($base_dir)) {
             return "Invalid base directory";
         }
 
         if (str_contains($path, '.')) {
             $paths = str_replace('.', '/', $path);
-            if (file_exists($base_dir.$paths)) {
-                return $base_dir.$paths.'/';
+            if (file_exists($base_dir . $paths)) {
+                return $base_dir . $paths . '/';
             }
-            $base_dir .= $paths;    
+            $base_dir .= $paths;
         } else {
             $base_dir .= $path;
         }

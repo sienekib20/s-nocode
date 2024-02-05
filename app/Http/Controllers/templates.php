@@ -46,13 +46,13 @@ class templates extends Controller
                     $cover_extension = $request->fileExtension('cover');
 
                     $cover_tmp = $request->fileTempName('cover');
-                    $template_name = date('YmdHi') . md5( $request->fileOriginalName('cover'));
+                    $template_name = date('YmdHi') . md5($request->fileOriginalName('cover'));
                     $template_name .= '.';
                     $template_name .= $cover_extension;
 
                     $cover_file_id = DB::table('files')->insertId(['file' => $template_name]);
 
-                    if (move_uploaded_file($cover_tmp, $cover_destination . $template_name )) {
+                    if (move_uploaded_file($cover_tmp, $cover_destination . $template_name)) {
                         $result = DB::table('templates')->insert(['uuid' => Uuid::uuid4()->toString(), 'titulo' => $request->titulo, 'autor' => $request->autor, 'referencia' => $zip_folder_name, 'editar' => $request->editar, 'status' => $request->status, 'preco' => $request->preco ?? '0.00', 'descricao' => $request->descricao, 'template' => '', 'tipo_template_id' => $request->tipo_template, 'file_id' => $cover_file_id]);
                         $response = $result ? 'Salvo com sucesso' : 'Erro ao salvar';
 
@@ -109,15 +109,34 @@ class templates extends Controller
 
     public function preview(Request $request)
     {
-        $referencia = DB::table('templates')->where('uuid', '=', $request->template)->select('referencia')->get();
+        $referencia = DB::table('templates')
+            ->where('uuid', '=', $request->template)
+            ->select('referencia')
+            ->get()[0];
 
-        if (!empty($referencia)) {
-            $file = storage_path() . "templates/defaults/" . $referencia[0]->referencia . "/index.html";
-            $file = rtrim($file, '/');
+        if ($referencia) {
+            $filePath = storage_path() . "templates/defaults/{$referencia->referencia}/index.html";
 
-            if (file_exists($file)) {
-                return view('Preview:app.site.preview', compact('file'));
-                //return view('web editor:app.gjs-editor', compact('file'));
+            if (file_exists($filePath)) {
+                $indexContent = file_get_contents($filePath);
+
+                // Caminho base para os recursos
+                $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
+
+                // Processa os caminhos relativos dos recursos
+                $indexContent = preg_replace_callback(
+                    '/(src|href)\s*=\s*["\']([^"\']+)["\']/i',
+                    function ($matches) use ($resourceBasePath) {
+                        // Se for um arquivo CSS, adicione um parâmetro de consulta com o timestamp atual
+                        if (pathinfo($matches[2], PATHINFO_EXTENSION) === 'css') {
+                            return $matches[1] . '="' . $matches[2] . '?v=' . time() . '"';
+                        }
+                        return $matches[1] . '="' . $resourceBasePath . $matches[2] . '"';
+                    },
+                    $indexContent
+                );
+                //dd($indexContent);
+                return view('Preview:app.site.preview', compact('indexContent'));
             }
         }
 

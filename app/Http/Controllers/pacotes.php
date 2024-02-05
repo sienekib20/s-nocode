@@ -29,6 +29,7 @@ class pacotes extends Controller
 
         foreach ($data as $datum) {
             $enviar[$index]['id'] = $datum->pacote_id;
+            $enviar[$index]['preco'] = $datum->preco . '.00 KZ';
             $enviar[$index]['pacote'] = $datum->pacote;
             $enviar[$index]['desc'] = explode(';', $datum->descricao);
             $index++;

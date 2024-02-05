@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/ui/ui-alert.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
@@ -16,7 +17,7 @@
 <body>
     <div class="sx">
         <?= parts('nav.navbar') ?>
-        <?= parts('ui.cool-alert') ?>
+        <?= parts('ui.ui-alert') ?>
 
         <div class="wallpaper vh-45">
             <div class="container-sm" style="z-index: 1080">
@@ -149,7 +150,7 @@
 </body>
 
 </html>
-<input type="hidden" class="sms" value="<?= session()->getFlashMessage('success') ?? '__aor' ?>">
+<input type="hidden" class="sms" value="<?= session()->getFlashMessage('success') ?? '' ?>">
 <input type="hidden" class="sm" value="<?= session()->getFlashMessage('erro') ?? '' ?>">
 
 <script>
@@ -165,9 +166,21 @@
             $('.cool-alert-title').text('Erro');
             $('.cool-alert-text').text($('.sm').val());
         } else if ($('.sms').val() != '') {
-            $('.cool-alert').addClass('active');
-            $('.cool-alert-title').text('success');
-            $('.cool-alert-text').text($('.sms').val());
+            console.log($('.session_message_s').val())
+            $('.ui-alert-title').text('Sucesso');
+            $('.ui-alert-icon').addClass('bi bi-check').css('background-color', 'green');
+            $('.ui-alert-text').text($('.sms').val());
+            var elementContainer = document.querySelector('.ui-alert');
+            var element = document.getElementById('uialert');
+            element.classList.add('pulse');
+            elementContainer.classList.add('active');
+
+            // Remova a classe de bounce após a animação terminar
+            setTimeout(function() {
+                element.classList.remove('pulse');
+                //elementContainer.classList.remove('active');
+            }, 700); // A duração da animação é de 0.5s (500ms)
+
         }
     });
     $('.faqItem-top').click((e) => {

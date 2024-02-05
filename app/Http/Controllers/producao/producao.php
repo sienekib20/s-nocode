@@ -1,38 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\producao;
 
 use App\Http\Controllers\Controller;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
-use Sienekib\Mehael\Support\Auth;
 
-class app extends Controller
+class producao extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        //Auth::create(['user' => 'siene', 'user_id' => 1]);
+        $data = [];
 
-        $data = DB::table('pacotes')->get();
-        $enviar = [];
-        $index = 0;
-        foreach ($data as $datum) {
-            $enviar[$index]['pacote'] = $datum->pacote;
-            $enviar[$index]['desc'] = explode(';', $datum->descricao);
-            $index++;
+        $file = storage_path() . 'templates/usuarios/' . $request->dominio . '/index.php';
+
+        $file = rtrim($file, '/');
+
+        if (file_exists($file)) {
+            return view($request->dominio . ':site.producao.producao', compact('file'));
         }
 
+        // TODO: coloque o seu código   
 
-        // TODO: coloque o seu código
-
-        //return view('Home:app.site.index', compact('data'));
-        return view('Home:site.index', compact('enviar'));
-    }
-
-    public function sms()
-    {
-        return view('Mensagem:site.mensagem');
+        return view($request->dominio . ':site.producao', compact('data'));
     }
 
     // Cria um registo na DB

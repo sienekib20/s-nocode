@@ -36,7 +36,7 @@
                                 <div class="card-plan mt-xxs-3">
                                     <div class="card-plan-top">
                                         <span class="title d-block"><?= $planos['pacote'] ?></span>
-                                        <div class="d-flex align-items-baseline"> <small>Preço oficial</small> <span class="d-block">0,00KZ</span></div>
+                                        <div class="d-flex align-items-baseline"> <small>Preço oficial</small> <span class="d-block"><?= $planos['preco'] ?? '0.00 KZ'?></span></div>
                                     </div>
                                     <div class="card-plan-body">
                                         <div class="d-flex flex-direction-column">

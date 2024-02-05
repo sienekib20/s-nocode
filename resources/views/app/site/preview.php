@@ -1,2 +1,2 @@
 <?php
-include $file;
+echo $indexContent;

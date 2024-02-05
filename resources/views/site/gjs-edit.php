@@ -43,8 +43,9 @@
             overflow: hidden;
         }
 
-        .save_btn {
-            background-color: red;
+        .save_btn,
+        .save_btn_edit {
+            background-color: #f71;
             padding: 0.2rem 0.5rem;
             border-radius: 2px;
         }
@@ -52,13 +53,13 @@
     <div style="display: none">
         <div class="gjs-logo-cont">
             <a href="#" style="color: #fff !important; text-decoration: none; font-size: 14px">Nocode Editor</a>
-            <a href="" style="color: #fff !important; text-decoration: none; font-size: 14px" class="save_btn">Salvar</a>
+            <a href="" style="color: #fff !important; text-decoration: none; font-size: 14px" class="save_btn_edit">Salvar</a>
             <div class="gjs-logo-version" style="display: none"></div>
         </div>
     </div>
 
     <div id="editor" style="height:0px; overflow:hidden">
-        <?php echo  $indexContent; ?>
+        <?php require  $indexContent; ?>
     </div>
 
 
@@ -67,7 +68,7 @@
 </html>
 
 <div class="rotas" style="display: none">
-    <input type="hidden" id="rota-salvar-alteracoes" value="<?= route('salvar') ?>">
+    <input type="hidden" id="rota-salvar-edicoes" value="<?= route('salvar_edit') ?>">
     <input type="hidden" id="id_template" value=<?= $template->template_id ?>>
     <input type="hidden" id="__dominio" value=<?= $dominio ?>>
 </div>

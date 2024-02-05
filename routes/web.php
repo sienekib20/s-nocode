@@ -7,47 +7,58 @@ use App\Http\Controllers\contacts;
 use App\Http\Controllers\editor;
 use App\Http\Controllers\encomendas;
 use App\Http\Controllers\pacotes;
+use App\Http\Controllers\producao\producao;
 use App\Http\Controllers\templates;
 use App\Http\Controllers\user\data;
 use Sienekib\Mehael\Router\Anotation\Route;
 
-Route::add('POST', '/api/create', [templates::class, 'store']);
-Route::add('POST', '/salvando', [templates::class, 'store']);
+Route::post('/api/create', [templates::class, 'store']);
+Route::post('/salvando', [templates::class, 'store']);
 
-Route::add('GET', '/', [app::class, 'index']);
-Route::add('GET', '/entrar', [authenticacao::class, 'login']);
-Route::add('GET', '/register', [authenticacao::class, 'register']);
-Route::add('POST', '/registe', [authenticacao::class, 'user_create']);
-Route::add('GET', '/logout', [authenticacao::class, 'destroy']);
+Route::get('/', [app::class, 'index']);
 
-Route::add('POST', '/autenticar', [authenticacao::class, 'autenticar']);
+Route::get('/entrar', [authenticacao::class, 'login']);
+Route::post('/entrar', [authenticacao::class, 'autenticar']);
 
-Route::add('GET', '/nocode', [app::class, 'index']);
-Route::add('GET', '/user/[0-9]+', [app::class, 'update']);
+//Route::post('/autenticar', [authenticacao::class, 'autenticar']);
+//Route::get('/entrar', [authenticacao::class, 'login']);
 
-Route::add('GET', '/templates', [templates::class, 'index']);
-Route::add('GET', '/contactos', [contacts::class, 'index']);
-//Route::add('GET', '/api/template', [templates::class, 'upload_template']);
+Route::get('/register', [authenticacao::class, 'register']);
+Route::post('/registe', [authenticacao::class, 'user_create']);
+Route::get('/logout', [authenticacao::class, 'destroy']);
 
-//Route::add('GET', '/editor/(uuid:any)', [editor::class, 'open_template']);
 
-Route::add('GET', '/browse', [browse::class, 'load']);
-//Route::add('POST', '/browse', [browse::class, 'generate']);
-Route::add('GET', '/browse/(id:numeric)', [browse::class, 'load_specfic']);
+Route::get('/nocode', [app::class, 'index']);
+Route::get('/user/[0-9]+', [app::class, 'update']);
+
+Route::get('/sn/(dominio:any)', [producao::class, 'index']);
+
+Route::get('/templates', [templates::class, 'index']);
+Route::get('/contactos', [contacts::class, 'index']);
+//Route::get('/api/template', [templates::class, 'upload_template']);
+
+//Route::get('/editor/(uuid:any)', [editor::class, 'open_template']);
+
+Route::get('/browse', [browse::class, 'load']);
+//Route::post('/browse', [browse::class, 'generate']);
+Route::get('/browse/(id:numeric)', [browse::class, 'load_specfic']);
 // Authorized routes
 Route::group('auth:authorize', function () {
-    Route::add('GET', '/dados/(id:numeric)', [data::class, 'carregar']);
-    Route::add('GET', '/planos', [pacotes::class, 'index']);
-    Route::add('GET', '/aderir/(id:numeric)', [pacotes::class, 'aderir']);
-    Route::add('POST', '/adesao', [pacotes::class, 'adesao_planos']);
-    Route::add('GET', '/encomenda', [encomendas::class, 'index']);
-    Route::add('GET', '/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
-    Route::add('GET', '/web_builder', [editor::class, 'web_builder']);
-    Route::add('GET', '/preview/(template:any)', [templates::class, 'preview']);
-    Route::add('GET', '/usar/(uuid:any)', [data::class, 'choose']);
-    Route::add('POST', '/contactar', [contacts::class, 'store']);
+    Route::get('/dados/(id:numeric)', [data::class, 'carregar']);
+    Route::get('/planos', [pacotes::class, 'index']);
+    Route::get('/aderir/(id:numeric)', [pacotes::class, 'aderir']);
+    Route::post('/adesao', [pacotes::class, 'adesao_planos']);
+    Route::get('/encomenda', [encomendas::class, 'index']);
+    Route::get('/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
+    Route::get('/edit/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template_edit']);
+    
+    Route::get('/web_builder', [editor::class, 'web_builder']);
+    Route::get('/preview/(template:any)', [templates::class, 'preview']);
+    Route::get('/usar/(uuid:any)', [data::class, 'choose']);
+    Route::post('/contactar', [contacts::class, 'store']);
+    Route::post('/salvar', [data::class, 'save_template']);
+    Route::post('/salvar_edit', [data::class, 'save_template_edit']);
 });
 
-/*Route::add('POST', '/usar', [data::class, 'validar_uso']);*/
-Route::add('POST', '/salvar', [data::class, 'save_template']);
-Route::add('GET', '/meus-templates', [templates::class, 'temp_usuario']);
+/*Route::post('/usar', [data::class, 'validar_uso']);*/
+Route::get('/meus-templates', [templates::class, 'temp_usuario']);

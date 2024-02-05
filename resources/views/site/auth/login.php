@@ -7,6 +7,7 @@
     <title>%title%</title>
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/ui/cool-alert.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/ui/ui-alert.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
@@ -14,11 +15,11 @@
 
 <body class="bg-secondary">
 
-    <?= parts('ui.cool-alert') ?>
+    <?= parts('ui.ui-alert') ?>
     <div class="wrapper">
 
         <div class="auths d-flex w-100 vh-100 align-items-center justify-content-center">
-            <form action="<?= route('autenticar') ?>" class="w-100" method="POST">
+            <form action="<?= route('entrar') ?>" class="w-100" method="post">
                 <div class="container-sm d-flex align-items-center justify-content-center">
                     <div class="col-xxs-12 col-sm-8 col-lg-4 py-4">
                         <div class="form-group">
@@ -59,15 +60,39 @@
 
 <script>
     $(document).ready(() => {
+        $('.ui-alert-icon').removeClass('bi bi-x');
+        $('.ui-alert-icon').removeClass('bi bi-check');
+
         if ($('.session_message').val() != '') {
-            $('.cool-alert').addClass('active');
-            $('.cool-alert-title').text('Erro');
-            $('.cool-alert-text').text($('.session_message').val());
+            $('.ui-alert-title').text('Erro');
+            $('.ui-alert-icon').addClass('bi bi-x').css('background-color', '#c00');
+            $('.ui-alert-text').text($('.session_message').val());
+            var elementContainer = document.querySelector('.ui-alert');
+            var element = document.getElementById('uialert');
+            element.classList.add('pulse');
+            elementContainer.classList.add('active');
+
+            // Remova a classe de bounce após a animação terminar
+            setTimeout(function() {
+                element.classList.remove('pulse');
+                //elementContainer.classList.remove('active');
+            }, 700); // A duração da animação é de 0.5s (500ms)
         }
         if ($('.session_message_s').val() != '') {
-            $('.cool-alert').addClass('active');
-            $('.cool-alert-title').text('success');
-            $('.cool-alert-text').text($('.session_message_s').val());
+            console.log($('.session_message_s').val())
+            $('.ui-alert-title').text('Sucesso');
+            $('.ui-alert-icon').addClass('bi bi-check').css('background-color', 'green');
+            $('.ui-alert-text').text($('.session_message').val());
+            var elementContainer = document.querySelector('.ui-alert');
+            var element = document.getElementById('uialert');
+            element.classList.add('pulse');
+            elementContainer.classList.add('active');
+
+            // Remova a classe de bounce após a animação terminar
+            setTimeout(function() {
+                element.classList.remove('pulse');
+                //elementContainer.classList.remove('active');
+            }, 700); // A duração da animação é de 0.5s (500ms)
         }
         $('.bg-secondary').css('backgroundColor', '#f1f1f1');
     });
