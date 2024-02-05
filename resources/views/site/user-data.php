@@ -141,24 +141,24 @@
                                             </div>
                                         </div>
                                         <div class="row d-flex my-3 ">
-                                            <div class="col-3">
-                                                <a href="{{ route('sn', $datum->dominio) }}" class="btn btn-outline-orange input-block" target="_blank">
-                                                    <span class="bi bi-eye d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
+                                            <div class="col-3 px-2">
+                                                <a href="{{ route('sn', $datum->dominio) }}" class="btn btn-outline-orange d-flex h-100 align-items-center justify-content-center w-100" target="_blank">
+                                                    <span class="bi bi-eye"></span>
                                                 </a>
                                             </div>
-                                            <div class="col-3">
-                                                <a href="{{ route('edit', $datum->dominio, $datum->template_uuid) }}" class="btn btn-outline-orange d-flex w-100 h-100" target="_blank">
-                                                    <span class="bi bi-pencil-square w-100 h-100 d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
+                                            <div class="col-3 px-2">
+                                                <a href="{{ route('edit', $datum->dominio, $datum->template_uuid) }}" class="btn btn-outline-orange d-flex h-100 align-items-center justify-content-center w-100" target="_blank">
+                                                    <span class="bi bi-pencil-square"></span>
                                                 </a>
                                             </div>
-                                            <div class="col-3">
-                                                <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block">
-                                                    <span class="bi bi-arrow-up d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
+                                            <div class="col-3 px-2">
+                                                <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange d-flex h-100 align-items-center justify-content-center w-100">
+                                                    <span class="bi bi-arrow-up"></span>
                                                 </a>
                                             </div> <!-- para publicar -->
-                                            <div class="col-3">
-                                                <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange input-block">
-                                                    <span class="bi bi-trash d-flex align-items-center justify-content-center" style="gap: 5px; font-size: 14px"></span>
+                                            <div class="col-3 px-2">
+                                                <a href="{{ route('aderir', 1) }}" class="btn btn-outline-orange d-flex h-100 align-items-center justify-content-center w-100">
+                                                    <span class="bi bi-trash d-flex align-items-center justify-content-center"></span>
                                                 </a>
                                             </div>
                                         </div>
