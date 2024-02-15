@@ -14,8 +14,8 @@ class authenticacao extends Controller
 
     public function login()
     {
-        //return view('entrar:site.auth.login');
-        return view('entrar:site.silica.user-login');
+        return view('entrar:site.auth.login');
+        //return view('entrar:site.silica.user-login');
     }
 
     public function autenticar(Request $request)

@@ -18,4 +18,9 @@ class silica extends Controller
 	{
 		return view('Websites:site.silica.websites');
 	}
+
+	public function campanhas()
+	{
+		return view('Campanhas:site.silica.campanhas');
+	}
 }

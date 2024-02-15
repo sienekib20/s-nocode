@@ -67,11 +67,12 @@ Route::group('auth:authorize', function () {
     Route::post('/salvar_edit', [data::class, 'save_template_edit']);
 
     // Sílica
+    Route::get('/home', [silica::class, 'index']);
+    Route::get('/websites', [silica::class, 'websites']);
+    Route::get('/campanhas', [silica::class, 'campanhas']);
 
 });
 
-Route::get('/home', [silica::class, 'index']);
-Route::get('/websites', [silica::class, 'websites']);
 
 /*Route::post('/usar', [data::class, 'validar_uso']);*/
 Route::get('/meus-templates', [templates::class, 'temp_usuario']);

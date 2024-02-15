@@ -29,14 +29,14 @@
 			</a>
 		</div>
 		<div class="aside-item">
-			<a href="" class="aside-link">
+			<a href="<?= route('campanhas') ?>" class="aside-link <?= request()->path() == '/campanhas' ? 'active' : '' ?>">
 				<i class="bi bi-megaphone-fill"></i>
 				<p>Minhas campanhas</p>
 				<span class="aside-brand">0</span>
 			</a>
 		</div>
 		<div class="aside-item mt-auto">
-			<a href="" class="aside-link">
+			<a href="<?= route('logout') ?>" class="aside-link">
 				<span class="letter">S</span>
 				<p class="d-flex flex-direction-column">
 					<span>Fulano de tal</span>

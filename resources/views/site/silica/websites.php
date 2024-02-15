@@ -94,8 +94,14 @@
                     </div>
                 </div>
             </div>
+        <span class="d-flex my-4"></span>
+        <span class="d-flex my-4"></span>
+        <span class="d-flex my-4"></span>
+        <span class="d-flex my-4"></span>
+        <span class="d-flex my-4"></span>
         </div><!--/.contain-board-->
     </div>
+
 
 
 </body>
@@ -105,10 +111,21 @@
 <script>
     const btns_open_actions = document.querySelectorAll('.open-actions');
     const all_them = document.querySelectorAll('.has-dt-item');
-        btns_open_actions.forEach((item) => {
-            item.addEventListener('click', (e) => {
-                all_them.forEach((all) => all.classList.remove('active'));
-                item.parentNode.parentNode.parentNode.classList.toggle('active');
+
+    btns_open_actions.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            all_them.forEach((all) => {
+                if (all !== item.parentNode.parentNode.parentNode) {
+                    all.classList.remove('active');
+                }
             });
+
+            if (item.parentNode.parentNode.parentNode.classList.contains('active')) {
+                item.parentNode.parentNode.parentNode.classList.remove('active');
+            } else {
+                item.parentNode.parentNode.parentNode.classList.add('active');
+            }
         });
+    });
+
 </script>
