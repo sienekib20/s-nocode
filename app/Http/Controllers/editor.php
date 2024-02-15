@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Auth;
 
 class editor extends Controller
 {
@@ -38,7 +39,7 @@ class editor extends Controller
         return view('Not found:app.errors.not-found');
     }
 
-    public function open_template(Request $request)
+    public function abrir_editor_template($request)
     {
         $referencia = DB::table('templates')
             ->where('uuid', '=', $request->uuid)
@@ -71,10 +72,32 @@ class editor extends Controller
                 );
                 //dd($indexContent);
                 return view('web editor:site.gjs-editor', compact('indexContent', 'template', 'dominio'));
-                //return view('web editor:site.editor', compact('indexContent', 'template', 'dominio'));
+                // return view('web editor:site.editor', compact('indexContent', 'template', 'dominio'));
             }
         }
-
         return view('Not found:app.errors.not-found');
+    }
+
+    public function open_template(Request $request)
+    {
+
+        $check = DB::table('temp_parceiros')
+            ->select('count(*) as count')
+            ->where('parceiro_id', '=', Auth::user()->id)
+            ->get();
+
+        // Lógica PHP para verificar a condição
+        if (!empty($check)) {
+            if ($check[0]->count == 2) {
+                session()->setFlashMessage('limit', 'Já atingiste o limite de adesão de templates');
+                // Gere o script JavaScript para redirecionamento de volta
+                echo '<script>window.history.back();</script>';
+                exit();
+            }
+            // Se a condição for atendida, continue com a lógica PHP
+            return $this->abrir_editor_template($request);
+        }
+        // Se a condição for atendida, continue com a lógica PHP
+        return $this->abrir_editor_template($request);
     }
 }

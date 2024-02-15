@@ -1,0 +1,40 @@
+
+:root{
+    --dictonaryCustomer: " Cliente";
+    --dictonaryCustomerAssignToService: "Vincular cliente à serviço";
+    --dictonaryCustomerQueryByService: "Consultar cliente pelo serviço";
+    --dictonaryCustomerAddtionalReference: "Referência adicional:";
+    --dictonaryCustomerClassification1: "Classificação 1";
+    --dictonaryCustomerClassification2: "Classificação 2";
+    
+    --dictonaryCompany: "a Instituição";
+}
+
+.dictonaryCustomer:after{
+    content: var(--dictonaryCustomer);
+}
+
+.dictonaryCustomerAssignToService:after{
+    content: var(--dictonaryCustomerAssignToService);
+}
+
+.dictonaryCustomerQueryByService:after{
+    content: var(--dictonaryCustomerQueryByService);
+}
+
+.dictonaryCustomerAddtionalReference:after{
+    content: var(--dictonaryCustomerAddtionalReference);
+}
+
+.dictonaryCustomerClassification1:after{
+    content: var(--dictonaryCustomerClassification1);
+}
+
+.dictonaryCustomerClassification2:after{
+    content: var(--dictonaryCustomerClassification2);
+}
+
+
+.dictonaryCompany:after{
+    content: var(--dictonaryCompany);
+}

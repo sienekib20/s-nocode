@@ -18,7 +18,7 @@
     <div id="navbar" class="sidenav d-flex flex-column overflow-scroll">
         <nav class="navbar navbar-light px-2">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h3 logo">Nocode</span>
+                <span class="navbar-brand mb-0 h3 logo">Sílica Page Editor</span>
             </div>
         </nav>
         <div class="my-2 d-flex flex-column px-2">

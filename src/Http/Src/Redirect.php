@@ -4,7 +4,7 @@ namespace Sienekib\Mehael\Http\Src;
 
 class Redirect
 {
-    public function route(string $uri, $trim_left = false) 
+    public function route(string $uri, $trim_left = false)
     {
         $uri = '/' . str_replace('.', '/', ltrim($uri, '/'));
 
@@ -18,11 +18,17 @@ class Redirect
 
     public function back()
     {
-        dd($_SERVER['HTTP_REFERER']);        
+        $uri = '/';
+
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $uri = $_SERVER['HTTP_REFERER'];
+        }
+        $Uri = ltrim($uri, '/');
+        header('Location: ' . $uri);
+        exit;
     }
 
     public function backWith(string $type, string $content)
     {
-        
     }
 }

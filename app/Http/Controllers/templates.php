@@ -117,9 +117,11 @@ class templates extends Controller
         if ($referencia) {
             $filePath = storage_path() . "templates/defaults/{$referencia->referencia}/index.html";
 
+
+            
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);
-
+                
                 // Caminho base para os recursos
                 $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
 
@@ -129,12 +131,14 @@ class templates extends Controller
                     function ($matches) use ($resourceBasePath) {
                         // Se for um arquivo CSS, adicione um parâmetro de consulta com o timestamp atual
                         if (pathinfo($matches[2], PATHINFO_EXTENSION) === 'css') {
-                            return $matches[1] . '="' . $matches[2] . '?v=' . time() . '"';
+                            return $matches[1] . '="' . $resourceBasePath . $matches[2] . '?v=' . time() . '"';
                         }
                         return $matches[1] . '="' . $resourceBasePath . $matches[2] . '"';
                     },
                     $indexContent
                 );
+
+                //dd($indexContent);
                 //dd($indexContent);
                 return view('Preview:app.site.preview', compact('indexContent'));
             }

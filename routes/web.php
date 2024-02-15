@@ -10,6 +10,8 @@ use App\Http\Controllers\pacotes;
 use App\Http\Controllers\producao\producao;
 use App\Http\Controllers\templates;
 use App\Http\Controllers\user\data;
+use App\Http\Controllers\silica\silica;
+use App\Http\Controllers\silica\slogin;
 use Sienekib\Mehael\Router\Anotation\Route;
 
 Route::post('/api/create', [templates::class, 'store']);
@@ -19,6 +21,11 @@ Route::get('/', [app::class, 'index']);
 
 Route::get('/entrar', [authenticacao::class, 'login']);
 Route::post('/entrar', [authenticacao::class, 'autenticar']);
+
+/*
+Silica auth
+ */
+Route::post('/authenticate', [slogin::class, 'index']);
 
 //Route::post('/autenticar', [authenticacao::class, 'autenticar']);
 //Route::get('/entrar', [authenticacao::class, 'login']);
@@ -58,7 +65,13 @@ Route::group('auth:authorize', function () {
     Route::post('/contactar', [contacts::class, 'store']);
     Route::post('/salvar', [data::class, 'save_template']);
     Route::post('/salvar_edit', [data::class, 'save_template_edit']);
+
+    // Sílica
+
 });
+
+Route::get('/home', [silica::class, 'index']);
+Route::get('/websites', [silica::class, 'websites']);
 
 /*Route::post('/usar', [data::class, 'validar_uso']);*/
 Route::get('/meus-templates', [templates::class, 'temp_usuario']);

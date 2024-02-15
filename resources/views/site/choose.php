@@ -24,103 +24,123 @@
             <form action="" method="POST" class="sx-card-section-contain">
                 <div class="container-sm in-use">
                     <div class="row">
-                        <div class="col-12 col-sm-7 col-md-7">
+                        <div class="col-12 col-md-6 col-lg-7">
                             <div class="col-12" style="text-align: left !important;">
-                                <span class="bold d-block mb-3"><?= ucfirst($template->titulo ?? 'Default') ?></span>
+                                <span class="bold d-block mb-3" style="font-size: 20px"><?= ucfirst($template->titulo ?? 'Default') ?> <?= $template->categoria ?> </span>
+                                <span class="d-block mb-3"><?= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, temporibus mollitia in tempore molestias rerum accusamus laudantium magnam ab natus!' ?></span>
 
-                                <div class="contain-img">
-                                    <img src="<?= storage() . 'templates/defaults/' . $template->referencia . '/cover/' . $template->capa ?>" alt="Imagem do template selecionado">
-                                    <a href="<?= route('preview', $template->uuid ?? '') ?>" class="preview btn btn-outline my-4 d-block" target="_blank">
-                                        <small class="bi bi-eye"></small> previsualizar
-                                    </a>
+                                <div class="d-flex">
+                                    <small>ID: <?= '58521' ?></small>
+                                    <small class="d-block mx-3">|</small>
+                                    <small>Categoria: <?= 'Farmácias' ?></small>
                                 </div>
-
-                                <hr>
-
-                                <div class="text-muted mt-3 mb-4">
-                                    <small><?= $template->descricao ?></small>
+                                <div href="#" class="w-100 vh-80 d-flex contain_choose">
+                                    <a href="<?= route('preview', $template->uuid ?? '') ?>" class="target_visible"></a>
+                                    <div class="contain d-block w-100 h-100" style=" overflow: hidden; pointer-events: none">
+                                        <img src="<?= storage() . "templates/defaults/{$template->referencia}/cover/$template->capa/" ?>" alt="">
+                                    </div>
                                 </div>
-
-                                <small class="d-block my-4"></small>
-
                             </div> <!--/.col-12-->
-
-
-                            <small class="d-block my-3"></small>
-
-                            <small class="d-block my-3"></small>
-
-                            <div class="col-12" style="text-align: left !important;">
-
-
-                                <span class="mt-2"></span></span>
-
-                                <hr>
-
-                                <span class="my-4 d-block text-muted">Tecnologias usadas</span>
-                                <div class="d-flex flex-direction-column">
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">HTML5</span>
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">CSS3</span>
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">Sass</span>
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">Bootstrap5</span>
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">Bootstrap icons</span>
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">Font-Awesome 6</span>
-                                    <span class="d-flex align-items-center mt-3 bi bi-dot">Etc.</span>
-                                </div>
-
-                            </div>
                         </div> <!--/.col-md-7-->
-                        <div class="template-in-use col-12 col-md-4 col-sm-5">
 
-                            <small class="my-3 d-block text-muted" style="font-size: 14.5px;"> <span class="bi bi-arrow-right"></span> Para tornar público o template a sua escolha, deves preencher os dados necessários abaixos</small>
+                        <div class="template-in-use col-12 col-md-6 col-lg-4">
+                            <span class="bold">Defina um nome para o teu site</span>
+                            <small class="my-3 d-block text-muted" style="font-size: 14.5px;"> <span class="bi bi-arrow-right"></span> Informa um dóminio para o seu site</small>
                             <div class="row align-items-center">
-                                <div class="col-xxs-3 col-md-3">
-                                    <small class="btn btn-orange input-block w-100">sn.com</small>
-                                </div>
-                                <div class="col-9">
+                                <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" id="dominio" placeholder="Teu endereço" required class="form-input input-block">
+                                        <input type="text" id="dominio" placeholder="seudominio.ao" required class="form-input input-block">
                                     </div>
                                 </div>
                             </div>
-                            <span class="my-4 d-block text-muted">Este é o endereço pelo qual será accessado o teu site quando publicado, nota que já tem um prefixo por padrão.</span>
-                            <small class="tw-muted d-block" style="font-size: 14.5px;"> <span class="bi bi-arrow-right"></span> Dica: de preferência escolher um nome fácil. <i>exemplo: nocode</i>
-                            </small>
                             <div class="form-group">
                                 <input type="text" id="mail" placeholder="Endereço email" class="form-input input-block">
                             </div>
-                            <span class="my-3 d-block"> <span class="bi bi-arrow-right"></span> O email que inseriste acima, será usado para receber as notificações do público que quiser contactar você</span>
 
+                            <small class="d-block my-4"></small>
+                            <div class="d-flex mt-2">
+                                <div class="col-5 px-0">
+                                    <a href="<?= route('editor', $template->uuid ?? 'default') ?>" target="_blank" class="choose-open-editor-btn btn btn-outline-orange input-block d-block mt-1 mb-2">
+                                        <span class="fas fa-pencil-square"></span> <span>Editar</span>
+                                    </a>
+                                </div>
+                                <div class="col-1"></div>
+                                <div class="col-5 ml-auto px-0">
+                                    <a href="#" target="_blank" class="choose-open-editor-btn btn btn-outline-orange input-block d-block mt-1 mb-2">
+                                        <span class="fas fa-arrow-up"></span> <span>Publicar</span>
+                                    </a>
+                                </div>
+                            </div>
 
-                            <button type="submit" class="btn btn-orange input-block validar-uso">Publicar</button>
-                            <a href="<?= route('editor', $template->uuid ?? 'default') ?>" target="_blank" class="choose-open-editor-btn btn btn-outline-orange input-block d-block mt-1 mb-2">
-                                <span class="fas fa-pencil-square"></span> <span>Editar</span>
-                            </a>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
-                                <small class="title">Preço</small>
-                                <small class="value"><?= $template->preco . '.00 KZ' ?? '0.00' . 'KZ' ?></small>
+                                <span class="title">Preço</span>
+                                <span class="value"><?= $template->preco . '.00 KZ' ?? '0.00' . 'KZ' ?></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
-                                <small class="title">Status</small>
-                                <small class="value"><?= $template->status ?? 'Grátis' ?></small>
+                                <span class="title">Status</span>
+                                <span class="value"><?= $template->status ?? 'Grátis' ?></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
-                                <small class="title">Categoria</small>
-                                <small class="value"><?= 'Landing Page' ?></small>
+                                <span class="title">Categoria</span>
+                                <span class="value"><?= 'Landing Page' ?></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
-                                <small class="title">Criado por</small>
-                                <small class="value"><?= $template->autor ?? \Sienekib\Mehael\Support\Auth::user()->username ?></small>
+                                <span class="title">Criado por</span>
+                                <span class="value"><?= $template->autor ?? \Sienekib\Mehael\Support\Auth::user()->username ?></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
-                                <small class="title">Pessoas usando</small>
-                                <small class="value"><?= $template->quantidade ?></small>
+                                <span class="title">Pessoas usando</span>
+                                <span class="value"><?= $template->quantidade ?></span>
                             </div>
                             <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
-                                <small class="title">Classificação</small>
-                                <small class="value"><?= 'Alta' ?></small> <!-- alta|normal|mais usado|etc. -->
+                                <span class="title">Classificação</span>
+                                <span class="value"><?= 'Alta' ?></span> <!-- alta|normal|mais usado|etc. -->
                             </div>
                             <div class="sx-card-section"></div>
+
+                            <div class="tools mt-4">
+                                <span class="bold">Ferramentas de desenvolvimento</span>
+                                <div class="d-flex mt-4">
+                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                        <div class="item-cover">
+                                            <img src="<?= asset('img/icons/wp.png') ?>" alt="">
+                                        </div>
+                                        <span class="d-flex ml-2">jQuery</span>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                        <div class="item-cover">
+                                            <img src="<?= asset('img/icons/html.png') ?>" alt="">
+                                        </div>
+                                        <span class="d-flex ml-2">HTML5</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex my-4">
+                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                        <div class="item-cover">
+                                            <img src="<?= asset('img/icons/css.png') ?>" alt="">
+                                        </div>
+                                        <span class="d-flex ml-2">CSS3</span>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                        <div class="item-cover">
+                                            <img src="<?= asset('img/icons/bs.png') ?>" alt="">
+                                        </div>
+                                        <span class="d-flex ml-2">Bootstrap</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                        <div class="item-cover">
+                                            <img src="<?= asset('img/icons/js.png') ?>" alt="">
+                                        </div>
+                                        <span class="d-flex ml-2">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div> <!--/tools-->
+
+                            <div class="tools">
+                                <span class="bold">Sílica Page Editor</span>
+                            </div>
 
                         </div>
                     </div> <!--/.row-->

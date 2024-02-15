@@ -2,7 +2,7 @@
     <div class="container-sm px-5">
         <div class="row h-100">
             <div class="navbar-brand col-lg-2 col-xs-12 d-flex align-items-center justify-content-space-between">
-                <a href="#" class="nav-app w-100 d-flex"> <span class="bi bi-code-slash"></span> nocode</a>
+                <a href="#" class="nav-app w-100 d-flex"> <span class="bi bi-code-slash"></span> Sílica Page</a>
                 <button type="button" class="navbar-toggler d-lg-none">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="__nav-item <?= request()->path() == '/browse' ? 'active' : '' ?>">
                     <a href="<?= route('browse') ?>" class="__nav-link">
-                        <span>Browse</span>
+                        <span>Modelos</span>
                     </a>
                 </div>
 

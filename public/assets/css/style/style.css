@@ -1,5 +1,5 @@
 @import url('../general-sans.css');
-@import url('../all-fonts.css');
+@import url('../fonts/all-fonts.css');
 
 @import "reset.css";
 @import "classes.css";
@@ -16,7 +16,9 @@
 @import "media.css";
 
 body {
-    font-family: 'Roboto-Light';
+    font-family: 'GeneralSans-Regular';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background-color: #f9f9f9ad;
 }
 
@@ -33,6 +35,7 @@ navbar
 */
 .navbar {
     /*box-shadow: none;*/
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
@@ -513,7 +516,8 @@ footer*/
     width: 100%;
     max-width: 100%;
     aspect-ratio: 1/1;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -600,7 +604,8 @@ footer*/
 .browse-item .contain-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .browse-item .info {
@@ -756,4 +761,61 @@ Overlay
 
 .overlay.active {
     display: block;
+}
+
+.choose_   {
+    width: 100%;
+    height: 320px;
+    position: relative;
+}
+
+.choose_ img {
+    -o-object-position: top;
+       object-position: top;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.contain_choose {
+    position: relative;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.contain_choose > div {
+    border-radius: 4px;
+    z-index: 1111;
+}
+
+.contain_choose .target_visible {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    opacity: 0.2;
+    z-index: 111111111;
+    transition: background-color 0.2s ease, cursor 0.2s ease;
+}
+
+.contain_choose:hover .target_visible {
+    background-color: #000;
+    cursor: zoom-in;
+}
+
+
+
+.tools .item-cover {
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.tools .item-cover img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
 }

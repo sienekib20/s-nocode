@@ -12,6 +12,7 @@ class data extends Controller
 
     public function carregar(Request $request)
     {
+        /*$data = DB::raw('select tp.dominio, tp.created_at, (select titulo from templates where template_id = tp.template_id) as titulo, (select uuid from templates where template_id = tp.template_id) as template_uuid, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") from templates where template_id = tp.template_id) as prazo, (select tipo_template from tipo_templates where tipo_template_id = (select tipo_template_id from templates where template_id = tp.template_id)) as categoria, (select conta_id from contas where conta_id = ?) from temp_parceiros as tp where parceiro_id = ?', [$request->id, $request->id]);*/
         $data = DB::raw('select tp.dominio, tp.created_at, (select titulo from templates where template_id = tp.template_id) as titulo, (select uuid from templates where template_id = tp.template_id) as template_uuid, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") from templates where template_id = tp.template_id) as prazo, (select conta_id from contas where conta_id = ?) from temp_parceiros as tp where parceiro_id = ?', [$request->id, $request->id]);
 
         $templateUsuario = DB::table('temp_parceiros')->select('count(template_id) as total')->where('parceiro_id', '=', $request->id)->get()[0];
@@ -30,11 +31,44 @@ class data extends Controller
             $template = [];
             return view('Escolha:site.choose', compact('template'));
         }
-        $template = DB::raw('select t.referencia, t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
+        $template = DB::raw('select t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as categoria, t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
         // -> será adicionado no proximo migrate fresh seed :
         // (select classificacao from classificacaos where template_id = t.template_id) as classificacao
 
-        return view('Escolha:site.choose', compact('template'));
+        $referencia = DB::table('templates')
+            ->where('uuid', '=', $request->uuid)
+            ->select('template_id, referencia')
+            ->get()[0];
+
+        $dominio = $request->dominio;
+
+        if ($referencia) {
+            $filePath = storage_path() . "templates/defaults/{$referencia->referencia}/index.html";
+
+            if (file_exists($filePath)) {
+                $indexContent = file_get_contents($filePath);
+
+                // Caminho base para os recursos
+                $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
+
+                // Processa os caminhos relativos dos recursos
+                $indexContent = preg_replace_callback(
+                    '/(src|href)\s*=\s*["\']([^"\']+)["\']/i',
+                    function ($matches) use ($resourceBasePath) {
+                        // Se for um arquivo CSS, adicione um parâmetro de consulta com o timestamp atual
+                        if (pathinfo($matches[2], PATHINFO_EXTENSION) === 'css') {
+                            return $matches[1] . '="' . $matches[2] . '?v=' . time() . '"';
+                        }
+                        return $matches[1] . '="' . $resourceBasePath . $matches[2] . '"';
+                    },
+                    $indexContent
+                );
+                //dd($indexContent);
+                // return view('web editor:site.editor', compact('indexContent', 'template', 'dominio'));
+            }
+        }
+        
+        return view('Escolha:site.choose', compact('template', 'indexContent'));
     }
 
     private function save_in_database($dominio, $template, $template_id)

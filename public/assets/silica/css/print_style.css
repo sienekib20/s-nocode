@@ -1,0 +1,370 @@
+
+.div-print-layout-3{
+    overflow: hidden; 
+    height: 38mm; 
+    width: auto;
+}
+
+.div-print-layout-2{
+    display: flex; 
+    height: 39mm;
+}
+
+.div-print-layout-2-logo{
+    overflow: hidden; 
+    height: 39mm; 
+    width: 30mm;
+}
+
+.div-print-layout-2-name-contacts{
+    padding-left: 10px;
+}
+
+.div-print-layout-1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.div-print-layout-1-logo{
+    overflow: hidden; 
+    height: 28mm; 
+    width: 30mm;
+}
+
+.div-print-layout-1 img, .div-print-layout-2 img, .div-print-layout-3 img{
+    height: 100%;
+}
+
+.div-print-layout-companyname-companaytax{
+    display: flex; 
+    margin-bottom: 5px; 
+    margin-top: 5px; 
+    background-color: lightgray; 
+    border-top: 1px solid gray; 
+    border-bottom: 2px solid gray; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.div-print-layout-companyname{
+    flex: 2; 
+    font-weight: bold; 
+    text-align: left;
+}
+
+.print-layout-img-info-style{
+    width: 3mm; 
+    height: 3mm; 
+    width: 3mm; 
+    margin-top: auto; 
+    margin-bottom: auto;
+}
+
+.print-layout-label-info-style{
+    padding-left: 5px;
+}
+
+.print-layout-div-info-style{
+    display:flex; min-height: 4.2mm;
+}
+
+:root{
+    --footerPrintHeight: 1.2cm;
+}
+
+.footer-print, .footer-print-space{
+    height: var(--footerPrintHeight);
+}
+.footer-print{
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-print .div-print-layout-4-contacts{
+    border-top: 1px solid gray;
+}
+
+.visa-box{
+    display: none;
+    position: absolute; 
+    top: 5mm; right: 5mm; 
+    width: 5cm; 
+    background-color: white; 
+    text-align: center;
+    padding: 2mm;
+    border-radius: 10px;
+}
+.content-signature-box{
+    display: flex; 
+    margin-top: 20px; 
+    text-align: center;
+    width: 100%;
+}
+.signature-box{
+    display: none;
+    min-width: 6cm; 
+    background-color: white; 
+    text-align: center;
+    padding: 3mm;
+    flex: 2;
+}
+.signature-line{
+    margin-right: auto; 
+    margin-left: auto;
+    width: 80%;
+    max-width: 6cm; 
+    height: 8mm;
+    border-bottom: 1px solid black; 
+}
+
+
+
+@media print{
+    /*** original */
+    @page { 
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+    } 
+    @page :first {
+        margin-top: 0px;
+        margin-bottom: 1cm;
+
+    }
+
+    body { 
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+        margin-left: 1cm;
+        width: fit-content !important;
+    }
+
+
+    body{
+        background-image: url(../_attachs/_companyLogos/00_sa_water_banch.png);
+        background-size: 100%;
+    }
+
+    .divForFormsInside{
+        padding: 0px;
+        background-color: transparent;
+    }
+
+    .divBodyContent{
+        max-width: none;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+
+    #divShowHideMainMenu{
+        display: none;
+    }
+
+    .divMainHeader{
+        display: none;
+    }
+
+
+    .colAction{
+        display: none;
+    }
+
+    .noPrint{
+        display: none !important;
+    }
+
+    .onlyOnPrint{
+        display: block;
+    }
+
+
+    .required:after, .autoFill:after{
+        display: none;
+    }
+
+
+    input[type=submit], input[type=reset], input[type=button], button {
+        display: none;
+    }
+
+    [class*="colDiv"]{
+        float: left;
+        width: 49%;
+    }
+
+    #divButtonsBar, .div-page-menu{
+        display: none;
+    }
+
+
+    /*** New */
+    #divButtonsBar{
+        display: none;
+    }
+    .divContentBigTable{
+        overflow: visible;
+    }
+    .tbl1, .table-not-responsive,.borderGray, .tblHead1 {
+        border-collapse: collapse;
+        font-size: 8pt;
+    }
+    .table-not-responsive{
+        border-spacing: 0 0px;;
+    }
+    .borderGray td{
+        padding: 0px;
+    }
+
+    .borderGray td:first-child, .tblHead1 th:first-child{
+        border-left-style: none;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .borderGray td:last-child, .tblHead1 th:last-child{
+        border-right-style: none;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .borderGray,.borderGray:hover{
+        background-color: transparent !important;
+    }
+
+    .colRowNumber{
+        background-color: transparent;
+    }
+
+    .row{
+        justify-content: space-between;
+    }
+
+    .div-fieldset{
+        border: none;
+        background-color: transparent;
+        padding: 0px;
+        overflow: hidden;
+    }
+
+
+    .div-fieldset-collapse{
+        display: none;
+    }
+
+
+    .div-fieldset .sub-arrow{
+        display: none;
+    }
+
+    .div-list-result{
+        display: none;
+    }
+
+    .colDivFormSS{
+        display: flex;
+        align-items: center;
+    }
+
+    .colLabel{
+        width: 4cm;
+        white-space: normal;
+        margin-top: 0px;
+        margin-right: 1mm;
+        color: black;
+    }
+
+
+    input, select, textArea, .legend-data{
+        font-size: 10pt;
+        padding-top: 0em;
+        padding-bottom: 0em;
+        white-space: normal;
+        flex: 2;
+        max-width: none;
+    }
+
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
+
+    select[title="-1"], select[title=""]{
+        color: transparent;
+    }
+
+
+    .overlay{
+        position: static;
+        background-color: transparent;
+    }
+
+    .popup{
+        margin: 0px;
+        background-color: transparent;
+        border-radius: 0px;
+        width: 100%;
+        max-height: none;
+        position: static;
+    }
+
+    .popup-header{
+        display: none;
+    }
+
+    .popup-content{
+        background-color: transparent;
+        padding: 0px;
+        overflow: visible;
+    }
+
+    ::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: transparent;
+    }
+    :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+    }
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: transparent;
+    }
+    :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: transparent;
+    }
+    input::placeholder {
+        color: transparent;
+    }
+    textarea::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: transparent;
+    }
+    textarea:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+    }
+    textarea::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: transparent;
+    }
+    textarea:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: transparent;
+    }
+    textarea::placeholder {
+        color: transparent;
+    }
+}

@@ -36,19 +36,29 @@ class View
       exit;
     }
 
-    foreach ($params as $key => $value) {
+    /*foreach ($params as $key => $value) {
       $$key = $value;
-    }
+    }*/
 
     ob_start();
 
+    extract($params);
+
     require $view;
 
-    $final = ob_get_clean();
+    //$final = ob_get_clean();
+    $final = ob_get_contents();
 
     $final = preg_replace("/<title>(.*)<\/title>/", "<title>$parts[0]</title>", $final);
 
-    $final = preg_replace('/@Auth/', '\Sienekib\Mehael\Support\Auth', $final);
+    //$final = preg_replace('/@Auth::()/', '\Sienekib\Mehael\Support\Auth', $final);
+
+   
+
+   $final = preg_replace_callback("/@Auth::\s*(.*?)\s*/", function ($matches) {
+       return "<?php \Sienekib\Mehael\Support\Auth::{$matches[1]}(); ?>";
+   }, $final);
+
 
     $final = preg_replace_callback("/@if\((.*?)\)\s*{/", function ($matches) {
       return "<?php if ({$matches[1]}): ?>";
@@ -58,8 +68,10 @@ class View
     $final = self::statements($final, "parts", "/@parts\((.*?)\)/");
     $final = self::statements($final, "echo", "/{{(.*?)}}/");
 
-    //echo $final;
-    eval('?>' . $final);
+    ob_end_clean();
+
+    echo $final;
+    /*eval('?>' . $final);*/
 
     return;
   }

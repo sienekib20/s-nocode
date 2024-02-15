@@ -64,12 +64,13 @@
         ]
         ?>
 
+        
         <div class="card">
             <div class="card-top">
                 <div class="container-sm">
                     <div class="row">
                         <div class="card-title col-12 text-center">
-                            <span class="title d-block"> Conheça os nosso serviços</span>
+                            <span class="title d-block"> Conheça os nossos softwares</span>
                             <small class="text-muted">Somos parte do <a href="<?= 'https://silicaweb.ao/sfront' ?>" style="color:#f71">Universo sílica</a></small>
                         </div>
                     </div>
