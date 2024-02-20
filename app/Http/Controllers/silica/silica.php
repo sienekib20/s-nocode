@@ -41,4 +41,11 @@ class silica extends Controller
 	{
 		return view('Campanhas:site.silica.campanhas');
 	}
+
+	public function demandas()
+	{
+		$categorias = DB::table('tipo_templates')->get();
+
+		return view('Demandas:site.silica.demandas', compact('categorias'));
+	}
 }

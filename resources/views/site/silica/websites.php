@@ -1,176 +1,113 @@
-@font-face {
-    font-family: 'MinhaFonte';
-    src: url('minha-fonte.woff2') format('woff2');
-    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
 <!DOCTYPE html>
-
-<html lang="en" class="light-style layout-compact layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default">
+<html lang="en">
 
 <head>
-    <?= parts('user.header') ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%title%</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/ui/cool-alert.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/ui/ui-alert.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/style-bs.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
+    <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
+    <style>
+        @font-face {
+            font-family: 'MinhaFonte';
+            src: url('minha-fonte.woff2') format('woff2');
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+    </style>
 </head>
-
-<style>
-    .toggle-play-pause small {
-        pointer-events: none;
-    }
-
-    .toggle-play-pause .fas.fa-play {
-        color: green;
-    }
-
-    .toggle-play-pause .fas.fa-pause {
-        /*color: brown;*/
-        color: #cc0;
-    }
-</style>
 
 <body>
 
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0" style="display: none; visibility: hidden"></iframe>
-    </noscript>
+    <div class="wrapper">
+        
+        <?= parts('user.topnav') ?>
 
+        <small class="d-block mt-3"></small>
 
-
-    <!-- Layout Content -->
-    <div class="layout-wrapper layout-content-navbar">
-        <div class="layout-container">
-
-            <?= parts('user.aside') ?>
-
-
-            <!-- Layout page -->
-            <div class="layout-page">
-                <?= parts('user.topnav') ?>
-
-                <div class="content-wrapper">
-
-                    <!-- Content -->
-                    <div class="container-xxl flex-grow-1 container-p-y">
-
-
-                        <div class="row g-4 mb-4">
-                            <div class="col-sm-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-start justify-content-between">
-                                            <div class="content-left">
-                                                <span>Websites ativos</span>
-                                                <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">01</h4>
-                                                </div>
-                                            </div>
-                                            <div class="avatar">
-                                                <span class="avatar-initial rounded bg-label-primary">
-                                                    <i class="bx bx-layout bx-sm"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-start justify-content-between">
-                                            <div class="content-left">
-                                                <span>Clientes visitando</span>
-                                                <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">00</h4>
-                                                    <small class="text-success">(+0%)</small>
-                                                </div>
-                                            </div>
-                                            <div class="avatar">
-                                                <span class="avatar-initial rounded bg-label-danger">
-                                                    <i class="bx bx-user-check bx-sm"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Users List Table -->
-                        <div class="card">
-                            <div class="py-2"></div>
-                            <div class="card-datatable table-responsive px-2">
-                                <table class="datatables-users table-striped table border">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Template</th>
-                                            <th>Domínio</th>
-                                            <th>Validade</th>
-                                            <th>Em execução</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($data as $key => $d) : ?>
-                                            <tr>
-                                                <td><?= $key + 1 ?></td>
-                                                <td><?= $d->titulo ?></td>
-                                                <td><?= $d->dominio ?></td>
-                                                <td><?= $d->prazo ?></td>
-                                                <td><span class="d-flex align-items-baseline gap-4">
-                                                        <div>Sim</div>
-                                                        <a href="" class="toggle-play-pause"><small class="fas fa-play"></small></a>
-                                                    </span></td>
-                                                <td>Template pago</td>
-                                                <td><span class="d-flex align-items-center gap-2">
-                                                        <a href=""><small class="fas fa-edit"></small></a>
-                                                        <a href=""><small class="fas fa-trash"></small></a>
-                                                        <a href="<?= route('silica', $d->dominio) ?>" target="_blank"><small class="fas fa-eye"></small></a>
-                                                    </span></td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- / Content -->
-
-                    <!-- / Footer -->
-                    <div class="content-backdrop fade"></div>
+        <div class="container-sm w-100 w-md-80 mt-3 ">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="bold">Meus websites</span> </h3>
+                    <span class="text-muted">Os templates que você já aderiu até aqui, podes analisar o progresso, e fazer possíveis alterações</span>
                 </div>
-                <!--/ Content wrapper -->
-
-
-                <div class="drag-target"></div>
             </div>
-            <!-- / Layout page -->
         </div>
 
-        <!-- Overlay -->
-        <div class="layout-overlay layout-menu-toggle"></div>
-        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-        <div class="drag-target"></div>
-    </div>
-    <!-- / Layout wrapper -->
-    <!--/ Layout Content -->
+        <div class="container-sm w-100 w-md-80 mt-3 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="card-plan mt-xxs-3">
+                        <div class="card-plan-top">
+                            <div class="d-flex align-items-baseline"> <small>Total de 0</small></div>
+                        </div>
+                        <div class="card-plan-body mt-2">
+                            <div class="d-flex flex-direction-column">
+                                <div class="d-flex align-items-center card-plan-item">
+                                    <small class="bi bi-check"></small>
+                                    <small class="text-muted">Websites ativos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--/.card-plan-->
+                </div> <!--/.col-md-3-->
+                <div class="col-md-3">
+                    <div class="card-plan mt-xxs-3">
+                        <div class="card-plan-top">
+                            <div class="d-flex align-items-baseline"> <small>Total de 0</small></div>
+                        </div>
+                        <div class="card-plan-body mt-2">
+                            <div class="d-flex flex-direction-column">
+                                <div class="d-flex align-items-center card-plan-item">
+                                    <small class="bi bi-check"></small>
+                                    <small class="text-muted">Websites expirados</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--/.card-plan-->
+                </div> <!--/.col-md-3-->
+            </div>
+        </div>
 
-    <?= parts('user.bottom') ?>
+        <div class="container-sm w-100 w-md-80 mt-2 mb-5">
+            <div class="row">
+                <div class="col-12 has-websites">
+                    <?php foreach($data as $key => $d): ?>
+                        <div class="card-website">
+                            <div class="row card-website-contain px-2">
+                                <small class="col-12 col-md-1"><?= $key+1 ?></small>
+                                <small class="col-12 col-md-2"> 
+                                    <a href=""><?= $d->dominio ?></a>
+                                </small>
+                                <small class="col-12 col-md-2">
+                                    <a href="#">Template <?= $d->titulo ?></a>
+                                </small>
+                                <small class="col-12 col-md-2 d-flex align-items-center"> 
+                                    <span class="d-block mr-2">Ativo</span> 
+                                    <a href=""><bi class="fas fa-pause"></bi></a>  
+                                </small>
+                                <small class="col-12 col-md-2">Exp em <?= $d->prazo ?></small>
+                                <span class="col-12 col-md-3 d-flex align-items-center has-items">
+                                    <a href=""><small class="bi bi-eye-fill"></small></a>
+                                    <a href=""><small class="fas fa-edit"></small></a>
+                                    <a href=""><small class="fas fa-trash"></small></a>
+                                </span>
+                            </div>
+                            <div class="card-website-opt"></div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        try {
-            const tpp = document.querySelectorAll('.toggle-play-pause');
-            tpp.forEach((btn) => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    var child = e.target.querySelector('small');
-                    child.className = child.className == 'fas fa-play' ? 'fas fa-pause' : 'fas fa-play'
-                });
-            })
-
-        } catch (err) {}
-    </script>
+    </div><!--/.wrapper-->
 
 </body>
 

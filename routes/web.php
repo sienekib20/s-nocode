@@ -71,6 +71,7 @@ Route::group('auth:authorize', function () {
 Route::prefix('user')->group('auth:authorize', function () {
     Route::get('/(id:any)/home', [silica::class, 'index']);
     Route::get('/(id:any)/websites', [silica::class, 'websites']);
+    Route::get('/(id:any)/encomendas', [silica::class, 'demandas']);
     Route::get('/(id:any)/campanhas', [silica::class, 'campanhas']);
 });
 
