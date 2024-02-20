@@ -45,7 +45,7 @@
         <small class="link-text">Encomendar website</small>
     </a>
 
-    <a href="<?= route('user', $user_id . '/campanhas') ?>" class="link <?= end($path) == 'campanhas' ? 'active' : '' ?>">
+    <a href="<?= route('user', $user_id . '/campanhas') ?>" class="link <?= end($path) == 'campanhas' ? 'active' : '' ?> <?= end($path) == 'mail' ? 'active' : '' ?>">
         <small class="bi bi-megaphone-fill"></small>
         <small class="link-text">Campanhas</small>
         <small class="link-brand ml-auto">0</small>

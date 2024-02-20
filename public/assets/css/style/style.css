@@ -1323,3 +1323,20 @@ button:focus {
 .inbox span.col-3 {
     color: #FF9375;
 }
+
+.contain-text-sms {
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    overflow-y: auto;
+    font-family: 'Roboto-Light';
+    line-height: 2;
+}
+
+.contain-text-sms::-webkit-scrollbar {
+    width: 8px;
+}
+
+.contain-text-sms::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}

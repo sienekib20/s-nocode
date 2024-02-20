@@ -1,3 +1,4 @@
+<?php $user_id = \Sienekib\Mehael\Support\Auth::user()->id; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,16 +48,18 @@
                         </div>
                         <div class="inbox-body">
                             <?php for($i = 0; $i < 3; $i++): ?>
-                                <a href="#" id="open-msm-<?=$i?>" class="row mx-0 align-items-center inbox">
+                                <div id="open-msm-<?=$i?>" class="row mx-0 align-items-center inbox">
                                     <span class="col-1"> <small class="box"></small> </span>
-                                    <span class="col-3">Nome do cliente</span>
+                                    <span class="col-3">
+                                        <a href="<?= route('user', $user_id . '/campanhas/mail') ?>">nome do cliente</a>
+                                    </span>
                                     <div class="col-4">
                                         <span class="bold">Titulo mensagem</span>
                                         <span class="omit">Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Culpa officia dolores quaerat et</span>
                                     </div>
                                     <div class="col-2"></div>
                                     <span class="col-2">Há 5 mins</span>
-                                </a>
+                                </div>
                             <?php endfor; ?>
                         </div>
                     </div>
