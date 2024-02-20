@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-compact layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default">
-<!--
- data-assets-path="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo/assets/" data-base-url="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo-1" data-framework="laravel" data-template="vertical-menu-theme-default-light"
--->
 
 <head>
     <?= parts('user.header') ?>
@@ -51,7 +48,9 @@
                                             </span>
                                             <div class="content-right">
                                                 <p class="mb-0">Total de websites</p>
-                                                <h4 class="text-primary mb-0">0</h4>
+                                                <h4 class="text-primary mb-0">
+                                                    <?= ($t = $templateUsuario->total) < 10 ? "0{$t}" : $t ?>
+                                                </h4>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center gap-3">

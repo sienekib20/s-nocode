@@ -1,3 +1,7 @@
+<?php
+
+use Sienekib\Mehael\Support\Auth;
+?>
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
     <!-- ! Hide app brand if navbar-full -->
@@ -15,7 +19,7 @@
 
     <ul class="menu-inner py-1">
         <li class="menu-item <?= request()->path() == '/home' ? 'active' : '' ?>">
-            <a href="<?= route('home') ?>" class="menu-link">
+            <a href="<?= route('user', Auth::user()->uuid . '/home') ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div class="text-truncate">Dashboards</div>
             </a>

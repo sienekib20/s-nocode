@@ -9,9 +9,11 @@ trait PathBuilder
 {
     public function buildPathUri(string $route)
     {
+        //echo '<pre>';
         $path = explode('/', ltrim($route, '/'));
         $parameters = [];
-        
+        $sequences = [];
+
         if (Wildcards::foundWildcards($route)) {
             $route = "/$path[0]/";
             foreach ($path as $wildcard) {
@@ -25,12 +27,13 @@ trait PathBuilder
                     $pattern = $this->correspondant($pattern);
                     $parameters[] = $param;
                     $route .= "$pattern/";
-
+                    
                 }
             }
-        }
+        }  
+        $end = count($path) > 1 ? end($path) : '';
+        $route =  $this->build($route . $end);
 
-        $route =  $this->build($route);
         return (object) ['uri' => ($route == '') ? '\/' : $route, 'params' => $parameters];
     }
 

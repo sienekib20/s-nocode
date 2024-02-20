@@ -38,7 +38,7 @@ Route::get('/logout', [authenticacao::class, 'destroy']);
 Route::get('/nocode', [app::class, 'index']);
 Route::get('/user/[0-9]+', [app::class, 'update']);
 
-Route::get('/sn/(dominio:any)', [producao::class, 'index']);
+Route::get('/silica/(dominio:any)', [producao::class, 'index']);
 
 Route::get('/templates', [templates::class, 'index']);
 Route::get('/contactos', [contacts::class, 'index']);
@@ -58,21 +58,21 @@ Route::group('auth:authorize', function () {
     Route::get('/encomenda', [encomendas::class, 'index']);
     Route::get('/editor/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template']);
     Route::get('/edit/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template_edit']);
-    
+
     Route::get('/web_builder', [editor::class, 'web_builder']);
     Route::get('/preview/(template:any)', [templates::class, 'preview']);
     Route::get('/usar/(uuid:any)', [data::class, 'choose']);
     Route::post('/contactar', [contacts::class, 'store']);
     Route::post('/salvar', [data::class, 'save_template']);
     Route::post('/salvar_edit', [data::class, 'save_template_edit']);
-
-    // Sílica
-    Route::get('/home', [silica::class, 'index']);
-    Route::get('/websites', [silica::class, 'websites']);
-    Route::get('/campanhas', [silica::class, 'campanhas']);
-
 });
 
+// Sílica
+Route::prefix('user')->group('auth:authorize', function () {
+    Route::get('/(id:any)/home', [silica::class, 'index']);
+    Route::get('/(id:any)/websites', [silica::class, 'websites']);
+    Route::get('/(id:any)/campanhas', [silica::class, 'campanhas']);
+});
 
 /*Route::post('/usar', [data::class, 'validar_uso']);*/
 Route::get('/meus-templates', [templates::class, 'temp_usuario']);

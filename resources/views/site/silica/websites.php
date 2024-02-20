@@ -1,9 +1,31 @@
+@font-face {
+    font-family: 'MinhaFonte';
+    src: url('minha-fonte.woff2') format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-compact layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default">
+
 <head>
     <?= parts('user.header') ?>
 </head>
+
+<style>
+    .toggle-play-pause small {
+        pointer-events: none;
+    }
+
+    .toggle-play-pause .fas.fa-play {
+        color: green;
+    }
+
+    .toggle-play-pause .fas.fa-pause {
+        /*color: brown;*/
+        color: #cc0;
+    }
+</style>
 
 <body>
 
@@ -57,8 +79,8 @@
                                             <div class="content-left">
                                                 <span>Clientes visitando</span>
                                                 <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">04</h4>
-                                                    <small class="text-success">(+10%)</small>
+                                                    <h4 class="mb-0 me-2">00</h4>
+                                                    <small class="text-success">(+0%)</small>
                                                 </div>
                                             </div>
                                             <div class="avatar">
@@ -74,8 +96,8 @@
                         <!-- Users List Table -->
                         <div class="card">
                             <div class="py-2"></div>
-                            <div class="card-datatable table-responsive">
-                                <table class="datatables-users table border-top">
+                            <div class="card-datatable table-responsive px-2">
+                                <table class="datatables-users table-striped table border">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -88,20 +110,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Landing page</td>
-                                            <td>xsn.silica.ao</td>
-                                            <td>Restam 10 dias</td>
-                                            <td>Sim</td>
-                                            <td>Template pago</td>
-                                            <td><span>
-                                                <a href=""><small class="fas fa-edit"></small></a>
-                                                <a href=""><small class="fas fa-trash"></small></a>
-                                                <a href=""><small class="fas fa-eye"></small></a>
-                                                <a href=""><small class="fas fa-arrow-down"></small></a>
-                                            </span></td>
-                                        </tr>
+                                        <?php foreach ($data as $key => $d) : ?>
+                                            <tr>
+                                                <td><?= $key + 1 ?></td>
+                                                <td><?= $d->titulo ?></td>
+                                                <td><?= $d->dominio ?></td>
+                                                <td><?= $d->prazo ?></td>
+                                                <td><span class="d-flex align-items-baseline gap-4">
+                                                        <div>Sim</div>
+                                                        <a href="" class="toggle-play-pause"><small class="fas fa-play"></small></a>
+                                                    </span></td>
+                                                <td>Template pago</td>
+                                                <td><span class="d-flex align-items-center gap-2">
+                                                        <a href=""><small class="fas fa-edit"></small></a>
+                                                        <a href=""><small class="fas fa-trash"></small></a>
+                                                        <a href="<?= route('silica', $d->dominio) ?>" target="_blank"><small class="fas fa-eye"></small></a>
+                                                    </span></td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -132,6 +158,19 @@
 
     <?= parts('user.bottom') ?>
 
+    <script>
+        try {
+            const tpp = document.querySelectorAll('.toggle-play-pause');
+            tpp.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    var child = e.target.querySelector('small');
+                    child.className = child.className == 'fas fa-play' ? 'fas fa-pause' : 'fas fa-play'
+                });
+            })
+
+        } catch (err) {}
+    </script>
 
 </body>
 

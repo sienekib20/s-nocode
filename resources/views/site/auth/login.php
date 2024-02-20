@@ -8,15 +8,51 @@
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/ui/cool-alert.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/ui/ui-alert.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/style-bs.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
 </head>
 
-<body class="bg-secondary">
-
+<body class="secondary">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="login-wrap p-4 p-md-5">
+                        <div class="icon bg-orange d-flex align-items-center justify-content-center">
+                            <span class="fa fa-user"></span>
+                        </div>
+                        <h3 class="text-center mb-4">Silcia Page</h3>
+                        <form action="#" class="login-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control rounded-left" placeholder="Username" required>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input type="password" class="form-control rounded-left" placeholder="Password" required>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary text-muted">Lembrar de mim
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#" style="color: #000">Esqueceu a senha?</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-orange rounded submit p-3 px-5">Vamos começar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <?= parts('ui.ui-alert') ?>
-    <div class="wrapper">
+    <!-- <div class="wrapper">
 
         <div class="auths d-flex w-100 vh-100 align-items-center justify-content-center">
             <form action="<?= route('entrar') ?>" class="w-100" method="post">
@@ -48,9 +84,9 @@
                     </div>
                 </div>
             </form>
-        </div> <!--/.auths-->
+        </div> /.auths-
 
-    </div> <!--/.wrapper-->
+    </div> /.wrapper-->
 
     <input type="hidden" class="session_message_s" value="<?= session()->getFlashMessage('success') ?? '' ?>">
     <input type="hidden" class="session_message" value="<?= session()->getFlashMessage('erro') ?? '' ?>">
