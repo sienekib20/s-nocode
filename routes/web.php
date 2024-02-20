@@ -73,6 +73,7 @@ Route::prefix('user')->group('auth:authorize', function () {
     Route::get('/(id:any)/websites', [silica::class, 'websites']);
     Route::get('/(id:any)/encomendas', [silica::class, 'demandas']);
     Route::get('/(id:any)/campanhas', [silica::class, 'campanhas']);
+    Route::get('/(id:any)/campanhas/mail', [silica::class, 'campanhas_mail']);
 });
 
 /*Route::post('/usar', [data::class, 'validar_uso']);*/

@@ -42,6 +42,11 @@ class silica extends Controller
 		return view('Campanhas:site.silica.campanhas');
 	}
 
+	public function campanhas_mail()
+	{
+		return view('Mail:site.silica.campanhas_mail');
+	}
+
 	public function demandas()
 	{
 		$categorias = DB::table('tipo_templates')->get();

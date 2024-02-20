@@ -58,6 +58,10 @@
 
 </div> <!-- sidebar-nav -->
 
+<?= parts('labs.loader') ?>
+<?= parts('overlay') ?>
+<?= parts('notificacao') ?>
+
 <script>
     $('.navbar-menu').click((e) => { 
         $('body').css('overflow', 'hidden');

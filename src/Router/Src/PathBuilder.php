@@ -28,11 +28,17 @@ trait PathBuilder
                     $parameters[] = $param;
                     $route .= "$pattern/";
                     
-                }
+                } else
+                    $sequences[] = $wildcard;
             }
         }  
-        $end = count($path) > 1 ? end($path) : '';
-        $route =  $this->build($route . $end);
+        unset($sequences[0]);
+        if (!empty($sequences)) {
+            foreach($sequences as $sq) {
+                $route = rtrim($route, '/') . "/$sq";
+            }
+        }
+        $route =  $this->build($route);
 
         return (object) ['uri' => ($route == '') ? '\/' : $route, 'params' => $parameters];
     }
