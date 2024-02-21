@@ -1,51 +1,54 @@
-<?php
+<?php use Sienekib\Mehael\Support\Auth; ?>
+<?php 
+    $user_id = \Sienekib\Mehael\Support\Auth::user()->id;  
 
-use Sienekib\Mehael\Support\Auth;
+    $path = explode('/', ltrim(request()->path(), '/'));
+    $path = end($path);
 ?>
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-
-    <!-- ! Hide app brand if navbar-full -->
-    <div class="app-brand demo">
-        <a href="<?= route('home') ?>" class="app-brand-link">
-            <span class="app-brand-text demo menu-text fw-bold ms-2">Sílica Page</span>
+<aside class="ex-sidenav">
+    <div class="sidenav-header">
+        <span class="letter">Webcreator</span>
+    </div>
+    <div class="sidenav-contain">
+        <span class="sidenav-title">Menu items</span>
+        <a href="<?= route('user', $user_id . '/home') ?>" class="sidenav-link <?= $path == 'home' ? 'active' : '' ?>">
+            <i class="bi bi-collection"></i>
+            <p>Dashboard</p>
+        </a>
+        <a href="<?= route('user', $user_id . '/websites') ?>" class="sidenav-link <?= $path == 'websites' ? 'active' : '' ?>">
+            <i class="bi bi-grid-fill"></i>
+            <p>Meus websites</p>
+        </a>
+        <a href="<?= route('user', $user_id . '/encomendas') ?>" class="sidenav-link <?= $path == 'encomendas' ? 'active' : '' ?>">
+            <i class="bi bi-upload"></i>
+            <p>Encomendar websites</p>
         </a>
 
-        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        <a href="<?= route('user', $user_id . '/campanhas') ?>" class="sidenav-link <?= $path == 'campanhas' ? 'active' : '' ?> <?= $path == 'mail' ? 'active' : '' ?>">
+            <i class="bi bi-megaphone"></i>
+            <p>Minhas campanhas</p>
+            <small class="link-brand ml-auto">0</small>
+        </a>
+        <span class="sidenav-title">Acções</span>
+        <a href="#" class="sidenav-link call_config">
+            <i class="fas fa-cog"></i>
+            <p>Configurações</p>
+        </a>
+        <a href="<?= route('/') ?>" class="sidenav-link">
+            <i class="fas fa-question-circle"></i>
+            <p>Perguntas frequentes</p>
+        </a>
+        <a href="<?= route('/') ?>" class="sidenav-link">
+            <i class="fas fa-arrow-left"></i>
+            <p>Voltar para Inicio</p>
+        </a>
+        <a href="<?= route('logout') ?>" class="sidenav-link">
+            <i class="fas fa-power-off"></i>
+            <p>Terminar sessão</p>
         </a>
     </div>
-
-    <div class="menu-inner-shadow"></div>
-
-    <ul class="menu-inner py-1">
-        <li class="menu-item <?= request()->path() == '/home' ? 'active' : '' ?>">
-            <a href="<?= route('user', Auth::user()->uuid . '/home') ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div class="text-truncate">Dashboards</div>
-            </a>
-        </li>
-
-        <li class="menu-item <?= request()->path() == '/websites' ? 'active' : '' ?>">
-            <a href="<?= route('websites') ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div class="text-truncate">Meus websites</div>
-            </a>
-        </li>
-
-        <li class="menu-item <?= request()->path() == '/campanhas' ? 'active' : '' ?>">
-            <a href="<?= route('campanhas') ?>" class="menu-link">
-                <i class="menu-icon tf-icons fa fa-megaphone"></i>
-                <div class="text-truncate">Minhas campanhas</div>
-                <div class="badge bg-danger rounded-pill ms-auto">0</div>
-            </a>
-        </li>
-
-        <li class="menu-item <?= request()->path() == '/demand' ? 'active' : '' ?>">
-            <a href="<?= route('demand') ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-archive"></i>
-                <div class="text-truncate">Encomendar website</div>
-            </a>
-        </li>
-
-    </ul>
 </aside>
+
+<script>
+    $('.call_config').click((e) => { e.preventDefault(); alert('Não disponível de momento'); });
+</script>

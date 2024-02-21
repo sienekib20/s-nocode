@@ -51,5 +51,4 @@ Sienekib\Mehael\Support\Session::start();
 
 
 // Startando a aplicação
-
 app()->start();

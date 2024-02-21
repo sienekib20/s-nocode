@@ -20,20 +20,19 @@
                     </a>
                 </div>
 
-                <div class="__nav-item <?= request()->path() == '/home' ? 'active' : '' ?>">
-                    <a href="<?= route('home') ?>" class="__nav-link">
-                        <span>Minha pagina</span>
-                    </a>
-                </div>
-
                 <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0] ?>
 
                 <?php if (\Sienekib\Mehael\Support\Auth::check()) : $id = \Sienekib\Mehael\Support\Auth::user()->id ?>
-                    <div class="__nav-item <?= $path == 'dados' ? 'active' : '' ?>">
+                    <div class="__nav-item <?= request()->path() == '/home' ? 'active' : '' ?>">
+                        <a href="<?= route('user', $id . '/home') ?>" class="__nav-link">
+                            <span>Minha pagina</span>
+                        </a>
+                    </div>
+                    <!--<div class="__nav-item <?= $path == 'dados' ? 'active' : '' ?>">
                         <a href="<?= route('dados', $id) ?>" class="__nav-link">
                             <span>Meus dados</span>
                         </a>
-                    </div>
+                    </div>-->
                 <?php endif; ?>
                 <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
                 <div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
