@@ -25,7 +25,7 @@
                 <?php if (\Sienekib\Mehael\Support\Auth::check()) : $id = \Sienekib\Mehael\Support\Auth::user()->id ?>
                     <div class="__nav-item <?= request()->path() == '/home' ? 'active' : '' ?>">
                         <a href="<?= route('user', $id . '/home') ?>" class="__nav-link">
-                            <span>Minha pagina</span>
+                            <span>Meu dashboard</span>
                         </a>
                     </div>
                     <!--<div class="__nav-item <?= $path == 'dados' ? 'active' : '' ?>">
@@ -38,11 +38,6 @@
                 <div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
                     <a href="<?= route('planos') ?>" class="__nav-link">
                         <span>Pacotes</span>
-                    </a>
-                </div>
-                <div class="__nav-item <?= request()->path() == '/encomenda' ? 'active' : '' ?>">
-                    <a href="<?= route('encomenda') ?>" class="__nav-link">
-                        <span>Encomendar</span>
                     </a>
                 </div>
 
