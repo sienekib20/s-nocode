@@ -1510,7 +1510,7 @@ button:focus {
 
 .inbox {
     width: 100%;
-    height: 75px;
+    height: 100px;
     font-family: 'GeneralSans-Regular';
     color: #000 !important;
 }

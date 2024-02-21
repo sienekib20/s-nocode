@@ -32,7 +32,7 @@
                 <div class="container-sm mt-3 ">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3 class="bold">Seja bemvindo, <span id="name"><?= Sienekib\Mehael\Support\Auth::user()->username ?></span> </h3>
+                            <h5 class="bold">Seja bemvindo, <span id="name"><?= Sienekib\Mehael\Support\Auth::user()->username ?></span> </h5>
                             <span class="text-muted">Os teus sites estão progredindo muito bem, dê uma olhada e veja o que podes melhorar</span>
                         </div>
                     </div>

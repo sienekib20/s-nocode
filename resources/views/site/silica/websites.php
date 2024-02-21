@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?= asset('css/ui/ui-alert.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style-bs.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/dashboard.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
     <style>
@@ -26,88 +27,94 @@
 
 <body>
 
-    <div class="wrapper">
-        
-        <?= parts('user.topnav') ?>
+    <div class="extended">
+            <!-- sidenav -->
+            <?= parts('user.aside') ?>
+            <!-- navbar -->
+            <?= parts('user.topnav') ?>
 
-        <small class="d-block mt-3"></small>
+            <div class="contain-extends mt-1">
+                
+                <div class="ex-card">
+                    <div class="container-sm mt-3 ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="bold">Meus websites</span> </h5>
+                                <span class="text-muted">Os templates que você já aderiu até aqui, podes analisar o progresso, e fazer possíveis alterações</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="container-sm w-100 w-md-80 mt-3 ">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="bold">Meus websites</span> </h3>
-                    <span class="text-muted">Os templates que você já aderiu até aqui, podes analisar o progresso, e fazer possíveis alterações</span>
+                    <div class="container-sm mt-3 mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="card-plan mt-xxs-3">
+                                    <div class="card-plan-top">
+                                        <div class="d-flex align-items-baseline"> <small>Total de 0</small></div>
+                                    </div>
+                                    <div class="card-plan-body mt-2">
+                                        <div class="d-flex flex-direction-column">
+                                            <div class="d-flex align-items-center card-plan-item">
+                                                <small class="bi bi-check"></small>
+                                                <small class="text-muted">Websites ativos</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!--/.card-plan-->
+                            </div> <!--/.col-md-3-->
+                            <div class="col-md-3">
+                                <div class="card-plan mt-xxs-3">
+                                    <div class="card-plan-top">
+                                        <div class="d-flex align-items-baseline"> <small>Total de 0</small></div>
+                                    </div>
+                                    <div class="card-plan-body mt-2">
+                                        <div class="d-flex flex-direction-column">
+                                            <div class="d-flex align-items-center card-plan-item">
+                                                <small class="bi bi-check"></small>
+                                                <small class="text-muted">Websites expirados</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!--/.card-plan-->
+                            </div> <!--/.col-md-3-->
+                        </div>
+                    </div>
+
+                    <div class="container-sm mt-2 mb-5">
+                        <div class="row">
+                            <div class="col-12 has-websites">
+                                <?php foreach($data as $key => $d): ?>
+                                    <div class="card-website">
+                                        <div class="row card-website-contain px-2">
+                                            <small class="col-12 col-md-1"><?= $key+1 ?></small>
+                                            <small class="col-12 col-md-2"> 
+                                                <a href=""><?= $d->dominio ?></a>
+                                            </small>
+                                            <small class="col-12 col-md-2">
+                                                <a href="#">Template <?= $d->titulo ?></a>
+                                            </small>
+                                            <small class="col-12 col-md-2 d-flex align-items-center"> 
+                                                <span class="d-block mr-2">Ativo</span> 
+                                                <a href=""><bi class="fas fa-pause"></bi></a>  
+                                            </small>
+                                            <small class="col-12 col-md-2">Exp em <?= $d->prazo ?></small>
+                                            <span class="col-12 col-md-3 d-flex align-items-center has-items">
+                                                <a href=""><small class="bi bi-eye-fill"></small></a>
+                                                <a href=""><small class="fas fa-edit"></small></a>
+                                                <a href=""><small class="fas fa-trash"></small></a>
+                                            </span>
+                                        </div>
+                                        <div class="card-website-opt"></div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="container-sm w-100 w-md-80 mt-3 mb-4">
-            <div class="row align-items-center">
-                <div class="col-md-3">
-                    <div class="card-plan mt-xxs-3">
-                        <div class="card-plan-top">
-                            <div class="d-flex align-items-baseline"> <small>Total de 0</small></div>
-                        </div>
-                        <div class="card-plan-body mt-2">
-                            <div class="d-flex flex-direction-column">
-                                <div class="d-flex align-items-center card-plan-item">
-                                    <small class="bi bi-check"></small>
-                                    <small class="text-muted">Websites ativos</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!--/.card-plan-->
-                </div> <!--/.col-md-3-->
-                <div class="col-md-3">
-                    <div class="card-plan mt-xxs-3">
-                        <div class="card-plan-top">
-                            <div class="d-flex align-items-baseline"> <small>Total de 0</small></div>
-                        </div>
-                        <div class="card-plan-body mt-2">
-                            <div class="d-flex flex-direction-column">
-                                <div class="d-flex align-items-center card-plan-item">
-                                    <small class="bi bi-check"></small>
-                                    <small class="text-muted">Websites expirados</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!--/.card-plan-->
-                </div> <!--/.col-md-3-->
             </div>
-        </div>
 
-        <div class="container-sm w-100 w-md-80 mt-2 mb-5">
-            <div class="row">
-                <div class="col-12 has-websites">
-                    <?php foreach($data as $key => $d): ?>
-                        <div class="card-website">
-                            <div class="row card-website-contain px-2">
-                                <small class="col-12 col-md-1"><?= $key+1 ?></small>
-                                <small class="col-12 col-md-2"> 
-                                    <a href=""><?= $d->dominio ?></a>
-                                </small>
-                                <small class="col-12 col-md-2">
-                                    <a href="#">Template <?= $d->titulo ?></a>
-                                </small>
-                                <small class="col-12 col-md-2 d-flex align-items-center"> 
-                                    <span class="d-block mr-2">Ativo</span> 
-                                    <a href=""><bi class="fas fa-pause"></bi></a>  
-                                </small>
-                                <small class="col-12 col-md-2">Exp em <?= $d->prazo ?></small>
-                                <span class="col-12 col-md-3 d-flex align-items-center has-items">
-                                    <a href=""><small class="bi bi-eye-fill"></small></a>
-                                    <a href=""><small class="fas fa-edit"></small></a>
-                                    <a href=""><small class="fas fa-trash"></small></a>
-                                </span>
-                            </div>
-                            <div class="card-website-opt"></div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-
-    </div><!--/.wrapper-->
+    </div>
 
 </body>
 

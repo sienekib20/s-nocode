@@ -13,63 +13,69 @@
     <link rel="stylesheet" href="<?= asset('css/ui/ui-alert.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style-bs.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/dashboard.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
 </head>
 
 <body>
 
-    <div class="wrapper">
-        
+    <div class="extended">
+        <!-- sidenav -->
+        <?= parts('user.aside') ?>
+        <!-- navbar -->
         <?= parts('user.topnav') ?>
 
-        <small class="d-block mt-3"></small>
-
-        <div class="container-sm w-100 w-md-80 mt-3 mb-3">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="bold">As Minhas Campanhas</h3>
-                    <span class="text-muted">Lendo a mensagem do cliente #x </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-sm w-100 w-md-80 mt-3 mb-5">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="inbox-contain">
-                        <div class="inbox-top row align-items-center">
-                            <span class="col-12 col-md-2 text-muted">Ler Mensagem de <a href="">remitente@dominio.com</a> </span>
+        <div class="contain-extends mt-1">
+            
+            <div class="ex-card">
+                <div class="container-sm mt-3 mb-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="bold">As Minhas Campanhas</h5>
+                            <span class="text-muted">Lendo a mensagem do cliente #x </span>
                         </div>
-                        <div class="inbox-body">
-                            <span class="bold my-3 d-block">Sujeito da mensagem</span>
-                            <p class="my-3 contain-text-sms">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Deserunt necessitatibus iure, at cum sunt, nulla. Voluptatem, sint! Amet, qui aperiam. Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Dolore minima quibusdam quod aspernatur vitae sequi libero. Soluta voluptatibus ducimus fugiat. Ut totam, commodi reprehenderit praesentium voluptate quam dicta assumenda quaerat debitis, obcaecati, accusantium consectetur temporibus?Lorem, ipsum.lorem20 Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Debitis eligendi necessitatibus fuga, tempore veniam magnam nemo recusandae laboriosam ea harum unde nobis quidem quas distinctio repellendus temporibus deleniti quos doloribus odio perferendis sunt laudantium pariatur. Doloribus, cupiditate optio necessitatibus fugiat, obcaecati dolore impedit rerum consequatur mollitia eos dolor perferendis voluptate. Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Libero vero esse ducimus unde autem dolorum ut non voluptates itaque quia. Tempora, illum voluptas illo deleniti dignissimos reprehenderit a minima id rerum magni consequuntur obcaecati hic est error quo labore distinctio nesciunt aliquid sequi eum, facilis, non voluptatum atque iusto. Repellat. </p>
+                    </div>
+                </div>
 
-                            <form action="">
-                                <div class="form-group">
-                                    <textarea name="" cols="30" rows="4" class="form-input input-block" placeholder="Responder"></textarea>
+                <div class="container-sm mt-3 mb-5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="inbox-contain">
+                                <div class="inbox-top row align-items-center">
+                                    <span class="col-12 col-md-2 text-muted">Ler Mensagem de <a href="">remitente@dominio.com</a> </span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-1">
+                                <div class="inbox-body">
+                                    <span class="bold my-3 d-block">Sujeito da mensagem</span>
+                                    <p class="my-3 contain-text-sms">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Deserunt necessitatibus iure, at cum sunt, nulla. Voluptatem, sint! Amet, qui aperiam. Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Dolore minima quibusdam quod aspernatur vitae sequi libero. Soluta voluptatibus ducimus fugiat. Ut totam, commodi reprehenderit praesentium voluptate quam dicta assumenda quaerat debitis, obcaecati, accusantium consectetur temporibus?Lorem, ipsum.lorem20 Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Debitis eligendi necessitatibus fuga, tempore veniam magnam nemo recusandae laboriosam ea harum unde nobis quidem quas distinctio repellendus temporibus deleniti quos doloribus odio perferendis sunt laudantium pariatur. Doloribus, cupiditate optio necessitatibus fugiat, obcaecati dolore impedit rerum consequatur mollitia eos dolor perferendis voluptate. Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Libero vero esse ducimus unde autem dolorum ut non voluptates itaque quia. Tempora, illum voluptas illo deleniti dignissimos reprehenderit a minima id rerum magni consequuntur obcaecati hic est error quo labore distinctio nesciunt aliquid sequi eum, facilis, non voluptatum atque iusto. Repellat. </p>
+
+                                    <form action="">
                                         <div class="form-group">
-                                            <label for="__" class="btn btn-outline-orange"> <span class="bi bi-anex"></span> Anexar</label>
-                                            <input type="file" id="__" hidden>
+                                            <textarea name="" cols="30" rows="4" class="form-input input-block" placeholder="Responder"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-outline-orange">Enviar</button>
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label for="__" class="btn btn-outline-orange"> <span class="bi bi-anex"></span> Anexar</label>
+                                                    <input type="file" id="__" hidden>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-outline-orange">Enviar</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div><!--/.wrapper-->
+        </div>
+    </div>
 
 </body>
 
