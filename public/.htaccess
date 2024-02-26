@@ -1,4 +1,9 @@
-Header setifempty Access-Control-Allow-Origin "*"
-Header setifempty Access-Control-Allow-Headers "*"
-Header setifempty Access-Control-Allow-Credentials true
-Header setifempty Access-Control-Allow-Methods "GET, POST, OPTIONS"
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^(.+)/template/v1/
+RewriteRule ^(.*)$ /storage/templates/defaults/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ ./index.php [QSA,L]

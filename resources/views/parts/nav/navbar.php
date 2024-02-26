@@ -70,7 +70,7 @@
                         </a>
                     </div>
                     <div class="__nav-item <?= request()->path() == '/logout' ? 'active' : '' ?>">
-                        <a href="{{ route('logout') }}" class="__nav-link">
+                        <a href="<?= route('logout') ?>" class="__nav-link">
                             <span>Sair</span>
                         </a>
                     </div>
@@ -92,39 +92,37 @@
     </div>
     <div class="mobileMenu-contain">
         <div class="mmItem closeMenu"> <span class="bi bi-arrow-left">Voltar</span> </div>
-        <div class="mmItem {{ request()->path() == '/' ? 'active' : '' }}">
-            <a href="{{ route('/') }}" class="mmLink">Inicio</a>
+        <div class="mmItem <?= request()->path() == '/' ? 'active' : '' ?>">
+            <a href="<?= route('/') ?>" class="mmLink">Inicio</a>
         </div>
-        <div class="mmItem {{ request()->path() == '/browse' ? 'active' : '' }}">
-            <a href="{{ route('browse') }}" class="mmLink">Browse</a>
+        <div class="mmItem <?= request()->path() == '/browse' ? 'active' : '' ?>">
+            <a href="<?= route('browse') ?>" class="mmLink">Modelos</a>
         </div>
         <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
         <div class="mmItem <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
-            <a href="{{ route('planos') }}" class="mmLink">Pacotes</a>
+            <a href="<?= route('planos') ?>" class="mmLink">Pacotes</a>
         </div>
-        <div class="mmItem {{ request()->path() == '/encomendas' ? 'active' : '' }}">
-            <a href="{{ route('encomenda') }}" class="mmLink">Encomendar <small class="count">0</small> </a>
-        </div>
+        
         <?php if (\Sienekib\Mehael\Support\Auth::check()) : ?>
             <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0]; ?>
-            <div class="mmItem <?= $path == 'dados' ? 'active' : '' ?>">
-                <a href="{{ route('dados', \Sienekib\Mehael\Support\Auth::user()->id ) }}" class="mmLink">Meus dados</a>
+            <div class="mmItem">
+                <a href="<?= route('user', $id . '/home') ?>" class="mmLink">Meu dashboard</a>
             </div>
-            <div class="mmItem {{ request()->path() == '/buy' ? 'active' : '' }}">
-                <a href="{{ route('buy') }}" class="mmLink"> <span class="bi bi-bell">Carrinho</span> </a>
-            </div>
-            <div class="mmItem {{ request()->path() == '/buy' ? 'active' : '' }}">
-                <a href="{{ route('buy') }}" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
+            <!--<div class="mmItem <?= $path == 'dados' ? 'active' : '' ?>">
+                <a href="<?= route('dados', \Sienekib\Mehael\Support\Auth::user()->id) ?>" class="mmLink">Meus dados</a>
+            </div>-->
+            <div class="mmItem <?= request()->path() == '/buy' ? 'active' : '' ?>">
+                <a href="<?= route('buy') ?>" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
             </div>
             <div class="mmItem">
-                <a href="{{ route('') }}" class="mmLink">Termos de uso</a>
+                <a href="<?= route('') ?>" class="mmLink">Termos de uso</a>
             </div>
             <div class="mmItem">
-                <a href="{{ route('logout') }}" class="mmLink">Sair</a>
+                <a href="<?= route('logout') ?>" class="mmLink">Sair</a>
             </div>
         <?php else : ?>
             <div class="mmItem">
-                <a href="{{ route('login') }}" class="mmLink">Entrar</a>
+                <a href="<?= route('login') ?>" class="mmLink">Entrar</a>
             </div>
         <?php endif; ?>
     </div>

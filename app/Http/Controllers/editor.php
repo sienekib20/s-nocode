@@ -57,6 +57,7 @@ class editor extends Controller
 
                 // Caminho base para os recursos
                 $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
+                
 
                 // Processa os caminhos relativos dos recursos
                 $indexContent = preg_replace_callback(

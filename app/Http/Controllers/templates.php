@@ -124,6 +124,7 @@ class templates extends Controller
                 
                 // Caminho base para os recursos
                 $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
+                //$resourceBasePath = "/template/v1/{$referencia->referencia}/";
 
                 // Processa os caminhos relativos dos recursos
                 $indexContent = preg_replace_callback(
