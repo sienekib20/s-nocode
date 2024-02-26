@@ -460,6 +460,46 @@ a:hover {
 /*
 navbar
 */
+
+.navtop-info {
+    height: 35px;
+    background-color: #552705;
+}
+
+.navtop-info .container-sm {
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.navtop-info .basic-contact-items {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0;
+}
+.navtop-info .basic-contact-items a {
+    height: 50%;
+    display: flex;
+}
+
+.navtop-info .basic-contact-items a + a {
+    border-left: 3px solid #fff;
+    padding-left: 1rem;
+}
+
+.navtop-info a {
+    color: #fff;
+}
+
+.navtop-info a + a {
+    margin-left: 1rem;
+}
+
+.navtop-info span {
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .navbar {
     /*box-shadow: none;*/
     position: -webkit-sticky;
@@ -468,7 +508,8 @@ navbar
     left: 0;
     width: 100%;
     height: 70px;
-    border: solid 1px rgba(0, 0, 0, 0.03);
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 .navbar .nav-app {
@@ -581,6 +622,8 @@ card-plan
 .card-plan-item .bi {
     width: 15px;
     height: 15px;
+    aspect-ratio: 1/1;
+    display: none;
     color: #fff;
     display: flex;
     align-items: center;
@@ -882,6 +925,12 @@ footer*/
     z-index: 11111;
 }
 
+.wallpaper h1,
+.wallpaper span,.wallpaper h3 {
+    text-transform: uppercase;
+    font-family: 'Roboto-Bold';
+}
+
 .wall-data {
     width: 100%;
     margin: 0 auto;
@@ -994,6 +1043,17 @@ footer*/
     border: solid 1px rgba(0, 0, 0, 0.1);
 }
 
+.card-plan-body a {
+    width: 35px !important;
+    height: 35px !important;
+    padding-top: 0.25rem;
+    padding-bottom: 0;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
 @media (max-width: 0px) {
     .text-orange.text-bold.d-block.mt-3 {
         font-size: 15px !important;
@@ -1002,7 +1062,7 @@ footer*/
 
 
 .browse-item .__item{
-    width: 80%;
+    width: 100%;
     height: 380px;
     padding: 0;
     margin: 0 auto;
@@ -1711,8 +1771,8 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
 }
 
 .new_footer_top .f_social_icon a:hover {
-    background: #5e2ced;
-    border-color: #5e2ced;
+    background: #f71;
+    border-color: #f71;
   color:white;
 }
 .new_footer_top .f_social_icon a + a {
@@ -1795,4 +1855,112 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     left: 100%;
   }
+}
+
+.col-4:has(.model) {
+    height: 280px;
+}
+
+.model-category {
+    width: 100%;
+    display: block !important;
+    top: calc(70px + 2rem);
+    position: static;
+}
+
+.f_list a {
+    color: #000;
+}
+
+.f_list a:hover {
+    opacity: 0.7;
+}
+
+.model {
+    width: 90%;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.model .model-img {
+    width: 100%;
+    height: 90%;
+    position: relative;
+}
+
+.model img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.model .title {
+    display: block;
+}
+
+
+.software {
+    width: 90%;
+    height: 320px;
+    margin: 1rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    transition: 0.2s ease-in-out;
+    border-radius: 4px;
+}
+
+.software:hover {
+    background-color: #f71;
+}
+
+.software:hover > * {
+    color: #fff !important;
+}
+
+.software span, .software small {
+    display: block;
+}
+
+.software .bi:nth-child(1),
+.software .bi:nth-child(4) {
+    display: block;
+    font-size: 2rem;
+    height: 20%;
+    color: #f71;
+    margin-bottom: 1rem;
+}
+
+.software .bi:nth-child(4) {
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.software:hover .bi:nth-child(4) {
+    opacity: 1;
+    height: 25%;
+}
+
+.software span:nth-child(2) {
+    height: 20%;
+    color: #000;
+    font-size: 1.5rem;
+    font-family: 'Roboto-Bold';
+}
+
+.software small:nth-child(3) {
+    height: 40%;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.5s ease;
+}
+
+.software:hover small:nth-child(3) {
+    height: 25%;
 }

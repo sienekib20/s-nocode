@@ -32,6 +32,11 @@
     font-family: 'GeneralSans-Bold';
     display: block;
 }
+
+.card-title span, .card-title small {
+    font-family: 'GeneralSans-Regular';
+}
+
 .card-text, .card-leading-text {
     font-size: 1rem;
     line-height: 1rem;

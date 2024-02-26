@@ -1,5 +1,19 @@
+<div class="navtop-info d-none d-md-block">
+    <div class="container-sm d-flex">
+        <div class="col-md-6 basic-contact-items">
+            <a href="#"> <span class="bi bi-whatsapp d-flex"></span> </a>
+            <a href="#"> <span class="bi bi-facebook d-flex"></span> </a>
+            <a href="#" class="item"> <span class="bi bi-phone d-flex">+244 948 109 778</span> </a>
+            <a href="#" class="item"> <span class="bi bi-envelope d-flex">cc@silicaweb.ao</span> </a>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-end">
+            <a href=""> criar conta </a>
+        </div>
+    </div>
+</div>
+
 <nav class="navbar d-xxs-none d-lg-block">
-    <div class="container-sm px-5">
+    <div class="container-sm">
         <div class="row h-100">
             <div class="navbar-brand col-lg-2 col-xs-12 d-flex align-items-center justify-content-space-between">
                 <a href="#" class="nav-app w-100 d-flex">
@@ -37,11 +51,11 @@
                     </div>-->
                 <?php endif; ?>
                 <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
-                <div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
+                <!--<div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
                     <a href="<?= route('planos') ?>" class="__nav-link">
                         <span>Pacotes</span>
                     </a>
-                </div>
+                </div> -->
 
                 <div class="__nav-item <?= request()->path() == '/contactos' ? 'active' : '' ?>">
                     <a href="<?= route('contactos') ?>" class="__nav-link">
@@ -61,11 +75,11 @@
                             <span class="fas fa-bell"></span>
                         </a>
                     </div>
-                    <div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
+                    <!--<div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
                         <a href="<?= route('/') ?>" class="__nav-link">
                             <span class="fas fa-shopping-cart"></span>
                         </a>
-                    </div>
+                    </div> -->
                     <div class="__nav-item <?= request()->path() == '/logout' ? 'active' : '' ?>">
                         <a href="<?= route('logout') ?>" class="__nav-link">
                             <span>Sair</span>

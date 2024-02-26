@@ -6,6 +6,6 @@
   $(document).ready(function() {
     setTimeout(() => {
       document.querySelector('.loader').classList.add('end-animation');
-    }, 1500);
+    }, 1000);
   });
 </script>

@@ -1,29 +1,40 @@
-$(document).ready(function () {
-    $('#input-phone').on('keydown', function (e) {
-        var limite = $(this).val().length;
-        if (limite === 11) {
-            e.preventDefault();
-            return;
-        }
-        var inputValue = $(this).val().replace(/[a-zA-Z]+/g, ''); 
-        var formattedValue = formatPhoneNumber(inputValue);
-        $(this).val(formattedValue);
-
+// validate number
+const phoneNumber = document.getElementById('input-phone');
+    phoneNumber.addEventListener('input', function(e) {
+       const formattedInputValue = formatPhoneNumber(e.target.value) ;
+       e.target.value = formattedInputValue;
+        console.log(phoneNumber.value)
     });
 
-    function formatPhoneNumber(input) {
-        var formatted = '';
-        for (var i = 0; i < input.length; i++) {
-            if (i === 0) {
-                formatted += input[i];
-            } else if (i === 3 || i === 6) {
-                formatted += '-' + input[i];
-            } else {
-                if (i === 9)
-                    break;
-                formatted += input[i];
-            }
-        }
-        return formatted;
+function formatPhoneNumber(value) {
+    if (!value) return value;
+    const number = value.replace(/[^\d]/g,'');
+    const numberSize = number.length;
+
+    if (numberSize < 3) return number;
+    if (numberSize < 6) {
+        return `${number.slice(0, 3)}-${number.slice(3)}`;
+    }
+    return `${number.slice(0, 3)}-${number.slice(3, 6)}-${number.slice(6,9)}`;
+}
+
+// validate email
+const emailInput = document.getElementById('input-mail');
+const emailError = document.getElementsByClassName('invalid-feedback');
+
+emailInput.addEventListener('input', function () {
+    const email = emailInput.value.trim();
+    if (!isValidEmail(email)) {
+        //console.log('aqui');
+        emailError.textContent = 'Email inválido';
+    } else {
+        //console.log('ali');
+        emailError.textContent = '';
     }
 });
+
+function isValidEmail(email) {
+    // Expresión regular para validar el email
+    const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    return emailRegex.test(email);
+}

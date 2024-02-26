@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <small class="input-label">Seu endereço e-mail</small>
                             <div class="content-input">
-                                <input type="text" name="email" class="form-input input-block" placeholder="Email">
+                                <input type="text" name="email" class="form-input input-block" id="input-mail" placeholder="Email">
                                 <small class="invalid-feedback"></small>
                             </div>
                         </div>

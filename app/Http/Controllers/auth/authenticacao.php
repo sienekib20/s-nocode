@@ -61,8 +61,8 @@ class authenticacao extends Controller
             session()->setFlashMessage('erro', 'Este nome ou email já foi usado');
             return redirect()->route('register');
         }
-
-        $id = DB::table('contas')->insertId(['uuid' => Uuid::uuid4(), 'nome' => $request->nome, 'apelido' => $request->apelido, 'telefone' => $request->telefone, 'email' => $request->email, 'senha' => $pwd, 'tipo_conta_id' => 1]);
+        $nome_apelido = explode(' ', $request->nome);
+        $id = DB::table('contas')->insertId(['uuid' => Uuid::uuid4(), 'nome' => $nome_apelido[0], 'apelido' => $nome_apelido[1], 'telefone' => $request->telefone, 'email' => $request->email, 'senha' => $pwd, 'tipo_conta_id' => 1]);
 
         if ($id != 0) {
             DB::table('parceiros')->insert([

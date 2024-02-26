@@ -12,7 +12,8 @@ class browse extends Controller
       
 
         $tipo = DB::table('tipo_templates')->select('tipo_template, tipo_template_id')->get();
+        $categorias = DB::table('categorias')->get();
 
-        return view('Browse:site.browse', compact('templates', 'tipo'));
+        return view('Browse:site.browse', compact('templates', 'tipo', 'categorias'));
     }
 }
