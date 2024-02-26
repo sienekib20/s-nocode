@@ -1,56 +1,78 @@
-<footer class="footer py-5">
-    <div class="container-sm pt-5">
-        <div class="row align-items-center mb-5">
-            <div class="col-md-4 d-flex align-items-center">
-                <div class="w-100">
-                    <small class="text-muted">Obtenha uma marca própria e única</small>
-                    <span class="d-block heading">Encomenda site personalizado</span>
+<footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Fique conectado</h3>
+                        <p>Mantenha-se actualizado, receba sempre as novidades que temos pra você!</p>
+                        <form action="#" class="f_subscribe_two mailchimp align-items-center" method="post" novalidate="true" _lpchecked="1">
+                            <input type="text" name="email" class="form-input memail" placeholder="Email">
+                            <button class="btn btn-orange btn_get btn_get_two" type="submit">Subscreva-te</button>
+                            <p class="mchimp-errmessage" style="display: none;"></p>
+                            <p class="mchimp-sucmessage" style="display: none;"></p>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-8 d-flex align-items-center">
-                <form action="<?= route('encomendar') ?>" class="subscribe-form w-100 d-flex">
-                    <input type="text" class="form-input w-100 input-warning" placeholder="Insira o teu email" required>
-                    <button type="submit" class="btn btn-orange form-input ml-2" style="border-color: transparent;">Enviar</button>
-                </form>
+                <div class="col-lg-3 col-md-6 my-xxs-4 my-lg-0">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Sobre</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">Nossa empresa</a></li>
+                            <li><a href="#">App Android</a></li>
+                            <li><a href="#">App ios</a></li>
+                            <li><a href="#">Ferramentas</a></li>
+                            <li><a href="#">Serviços</a></li>
+                            <li><a href="#">Tarefas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-xxs-4 mb-lg-0">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Ajuda</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">Perguntas frequentes</a></li>
+                            <li><a href="#">Termos &amp; condições</a></li>
+                            <li><a href="#">Reportar</a></li>
+                            <li><a href="#">Documentação</a></li>
+                            <li><a href="#">Suporte</a></li>
+                            <li><a href="#">Privacidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Visite-nos</h3>
+                        <div class="f_social_icon">
+                            <a href="#" class="fab fa-facebook"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                            <a href="#" class="fab fa-pinterest"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row pt-4">
-            <div class="col-md-4 col-lg-6 order-xxs-last">
-                <div class="row justify-content-end">
-                    <div class="col-md-12 col-lg-9 text-md-right mb-md-0 mb-4">
-                        <span class="footer-heading"><a href="#" class="logo" style="color: #f71">Sílica Partner</a></span>
-                        <small class="text-muted d-block mb-4">Uma ferramenta nativa do <a href="<?= 'https://silicaweb.ao/sfront' ?>" target="_blank">Sílica</a></small>
-                        <p class="copyright">Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            Todos os direitos reservados | Design feito com <i class="bi bi-heart-fill" aria-hidden="true"></i> por <a href="https://www.facebook.com/profile.php?id=100091417419139" target="_blank" class="por">sienekib</a> 
-                            <!-- ao clicar no  -->
-                        </p>
-                    </div>
+        <div class="footer_bg">
+            <div class="footer_bg_one"></div>
+            <div class="footer_bg_two"></div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-7">
+                    <p class="mb-0 f_400">&copy; 
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> Sílica - 
+                      Todos os direitos reservados.
+                    </p>
                 </div>
-            </div>
-            <div class="col-md-8 col-lg-6">
-                <div class="row">
-                    <div class="col-md-6 mb-md-0 mb-4">
-                        <span class="footer-heading d-block mb-3">Informação</span>
-                        <ul class="list-unstyled">
-                            <li><a href="<?= 'https://silicaweb.ao/sfront' ?>" target="_blank" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Universo sílica</a></li>
-                            <li><a href="<?= route('planos') ?>" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Preçário</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Contactos</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Suporte</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 mb-md-0 mb-4">
-                        <span class="footer-heading d-block mb-3">Aplicativos</span>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="py-1 d-block"><span class="fas fa-checkmark-circle-outline mr-2"></span>Quem me levou</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="fas fa-checkmark-circle-outline mr-2"></span>Bike Provider</a></li>
-                            <li><a href="#" class="py-1 d-block"><span class="fas fa-checkmark-circle-outline mr-2"></span>How to Used</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-6 col-sm-5 text-right">
+                    <p>Design feito com <i class="icon_heart"></i> por <a href="https://www.facebook.com/profile.php?id=100091417419139" target="_blank">sienekib</a></p>
                 </div>
             </div>
         </div>
     </div>
-</footer> <!--/.footer-->
+</footer>
