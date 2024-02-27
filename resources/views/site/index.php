@@ -17,16 +17,13 @@
 <body>
     <div class="sx">
         <?= parts('nav.navbar') ?>
-
         <div class="wallpaper vh-85">
-            <div class="container-sm" style="z-index: 1080">
-                <div class="row align-items-center h-100">
-                    <div class="col-12">
-                        <h1 class="w-100 d-block text-white d-block mb-md-0 mb-xxs-5">SÍLICA PAGE | CRIADOR DE WEBSITES</h1>
-                        <span class="d-xxs-none d-md-block my-1 mb-3 text-white">Torne-se independente criando o seu espaço de trabalho</span>
-                        <div class="col-12 pl-0">
-                            <a href="<?= route('browse') ?>" class="btn btn-white w-20">Explorar</a>
-                        </div>
+            <div class="container-sm" style="z-index: 10800">
+                <div class="col-12">
+                    <h1 class="w-100 d-block text-white">SÍLICA PAGE | CRIADOR DE WEBSITES</h1>
+                    <span class="d-xxs-none d-md-block text-white">Crie o um espaço de trabalho personalizado</span>
+                    <div class="col-12 pl-0">
+                        <a href="<?= route('browse') ?>" class="btn btn-white w-80 w-lg-20 mt-2" style="font-size: 1.2rem; padding: 0.5rem 0.75rem;">Explorar</a>
                     </div>
                 </div>
             </div>
@@ -34,10 +31,10 @@
 
         <?php $about = [
             ['School', 'https://silicaweb.ao/sfront/ServicesSchool.php', 'pencil'],
-            ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php', 'collection'],/*
-            ['Univ', 'https://silicaweb.ao/sfront/ServicesUniv.php'],
-            ['Aqua', 'https://silicaweb.ao/sfront/ServicesAqua.php'],
-            ['Health', 'https://silicaweb.ao/sfront/ServicesHealth.php'],
+            ['ERP', 'https://silicaweb.ao/sfront/ServicesErp.php', 'collection'],
+            ['Univ', 'https://silicaweb.ao/sfront/ServicesUniv.php', 'globe'],
+            ['Aqua', 'https://silicaweb.ao/sfront/ServicesAqua.php', 'water'],
+            ['Health', 'https://silicaweb.ao/sfront/ServicesHealth.php', 'heart'],/*
             ['RH', 'https://silicaweb.ao/sfront/ServicesRH.php'],
             ['Work', 'https://silicaweb.ao/sfront/ServicesWork.php']*/
         ]
@@ -89,6 +86,9 @@
 
     
         <small class="d-block my-4"></small>
+
+        
+
         <small class="d-block my-4"></small>
         <small class="d-block my-4"></small>
 

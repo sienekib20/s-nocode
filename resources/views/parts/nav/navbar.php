@@ -1,19 +1,6 @@
-<div class="navtop-info d-none d-md-block">
-    <div class="container-sm d-flex">
-        <div class="col-md-6 basic-contact-items">
-            <a href="#"> <span class="bi bi-whatsapp d-flex"></span> </a>
-            <a href="#"> <span class="bi bi-facebook d-flex"></span> </a>
-            <a href="#" class="item"> <span class="bi bi-phone d-flex">+244 948 109 778</span> </a>
-            <a href="#" class="item"> <span class="bi bi-envelope d-flex">cc@silicaweb.ao</span> </a>
-        </div>
-        <div class="col-md-6 d-flex align-items-center justify-content-end">
-            <a href=""> criar conta </a>
-        </div>
-    </div>
-</div>
 
 <nav class="navbar d-xxs-none d-lg-block">
-    <div class="container-sm">
+    <div class="container-sm w-80">
         <div class="row h-100">
             <div class="navbar-brand col-lg-2 col-xs-12 d-flex align-items-center justify-content-space-between">
                 <a href="#" class="nav-app w-100 d-flex">
@@ -57,11 +44,11 @@
                     </a>
                 </div> -->
 
-                <div class="__nav-item <?= request()->path() == '/contactos' ? 'active' : '' ?>">
+                <!--<div class="__nav-item <?= request()->path() == '/contactos' ? 'active' : '' ?>">
                     <a href="<?= route('contactos') ?>" class="__nav-link">
                         <span>Contactos</span>
                     </a>
-                </div>
+                </div>-->
 
                 <?php if (!\Sienekib\Mehael\Support\Auth::check()) : ?>
                     <div class="__nav-item login">
@@ -94,11 +81,8 @@
 <div class="mobileMenu d-xxs-block d-lg-none">
     <div class="mobileMenu-top">
         <div class="container-sm">
-            <a href="#" class="nav-app w-100 d-flex"> <span class="bi bi-code-slash"></span> nocode</a>
-            <div class="openMenu">
-                <span class="lineMenu"></span>
-                <span class="lineMenu"></span>
-            </div>
+            <a href="#" class="nav-app w-100 d-flex"> SPAGE</a>
+            <div class="openMenu"><span class="lineMenu"></span><span class="lineMenu"></span><span class="lineMenu"></span></div>
         </div>
     </div>
     <div class="mobileMenu-contain">
@@ -110,9 +94,9 @@
             <a href="<?= route('browse') ?>" class="mmLink">Modelos</a>
         </div>
         <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
-        <div class="mmItem <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
+        <!--<div class="mmItem <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
             <a href="<?= route('planos') ?>" class="mmLink">Pacotes</a>
-        </div>
+        </div>-->
         
         <?php if (\Sienekib\Mehael\Support\Auth::check()) : ?>
             <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0]; ?>
@@ -122,9 +106,9 @@
             <!--<div class="mmItem <?= $path == 'dados' ? 'active' : '' ?>">
                 <a href="<?= route('dados', \Sienekib\Mehael\Support\Auth::user()->id) ?>" class="mmLink">Meus dados</a>
             </div>-->
-            <div class="mmItem <?= request()->path() == '/buy' ? 'active' : '' ?>">
+            <!--<div class="mmItem <?= request()->path() == '/buy' ? 'active' : '' ?>">
                 <a href="<?= route('buy') ?>" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
-            </div>
+            </div>-->
             <div class="mmItem">
                 <a href="<?= route('') ?>" class="mmLink">Termos de uso</a>
             </div>

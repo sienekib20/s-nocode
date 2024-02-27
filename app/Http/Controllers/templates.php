@@ -33,22 +33,24 @@ class templates extends Controller
         if ($request->method() == "POST") {
             $zip_archive = $request->fileTempName('zip');
             $zip_folder_name = $request->fileOriginalName('zip');;
-            $zip_destination = $this->system->build_path('storage', 'templates.defaults');
+            $zip_destination = abs_path() . '/public/templates/defaults';
 
             if ($request->fileExtension('zip') == 'zip') {
                 // Descompacta o arquivo zip
+                return response()->json('aqui');
                 $zip = new \ZipArchive;
                 if ($zip->open($zip_archive) === TRUE) {
                     $zip->extractTo($zip_destination);
                     $zip->close();
 
-                    $cover_destination = $this->system->build_path('storage', 'templates.defaults.' . $zip_folder_name . '.cover');
+                    $cover_destination = "{$zip_destination}/{$zip_folder_name}/cover";
                     $cover_extension = $request->fileExtension('cover');
 
                     $cover_tmp = $request->fileTempName('cover');
                     $template_name = date('YmdHi') . md5($request->fileOriginalName('cover'));
                     $template_name .= '.';
                     $template_name .= $cover_extension;
+
 
                     $cover_file_id = DB::table('files')->insertId(['file' => $template_name]);
 
