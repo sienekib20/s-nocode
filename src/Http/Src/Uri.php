@@ -27,6 +27,6 @@ trait Uri
 
     public function method()
     {
-        return $_SERVER['REQUEST_METHOD'] ?? 'GET';
+        return $_SERVER['REQUEST_METHOD'];
     }
 }

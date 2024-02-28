@@ -1,14 +1,18 @@
 <footer class="new_footer_area bg_color">
     <div class="new_footer_top">
-        <div class="container">
+        <div class="container-sm">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
                         <h3 class="f-title f_600 t_color f_size_18">Fique conectado</h3>
                         <p>Mantenha-se actualizado, receba sempre as novidades que temos pra você!</p>
-                        <form action="#" class="f_subscribe_two mailchimp align-items-center" method="post" novalidate="true" _lpchecked="1">
-                            <input type="text" name="email" class="form-input memail" placeholder="Email">
-                            <button class="btn btn-orange btn_get btn_get_two" type="submit">Subscreva-te</button>
+                        <form action="#" class="d-flex align-items-center f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                            <div class="col-10 px-0">
+                                <input type="text" name="email" class="form-input memail" placeholder="Email">
+                            </div>
+                            <div class="col-2 px-0">
+                                <button class="btn btn-orange mt-0 btn_get btn_get_two" type="submit"><span class="fas fa-send"></span></button>
+                            </div>
                             <p class="mchimp-errmessage" style="display: none;"></p>
                             <p class="mchimp-sucmessage" style="display: none;"></p>
                         </form>
@@ -62,11 +66,11 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-7">
-                    <p class="mb-0 f_400">&copy; 
+                    <p class="mb-0 f_400">&copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> Sílica - 
-                      Todos os direitos reservados.
+                        </script> Sílica -
+                        Todos os direitos reservados.
                     </p>
                 </div>
                 <div class="col-lg-6 col-sm-5 text-right">

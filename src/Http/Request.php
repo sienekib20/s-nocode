@@ -113,7 +113,7 @@ class Request
                 $this->data[$key] = ($this->isXmlHttpRequest()) ? $value : strip_tags($value);
             }
         }
-
+        
         return $this->data;
     }
 

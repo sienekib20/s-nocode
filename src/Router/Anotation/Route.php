@@ -116,18 +116,20 @@ class Route extends AbstractRoute
      */
     public function dispatch()
     {
-        $found = -1; $positionRoute = null; $key =0 ;
+        $found = -1;
+        $positionRoute = null;
+        $key = 0;
 
         foreach (static::$routes as $index => $route) {
             $route->uri = ($route->prefix) ? "/$route->prefix$route->uri" : $route->uri;
             $buildedPath = $this->buildPathUri($route->uri);
             $uri = $buildedPath->uri;
             $parameters = $buildedPath->params;
-            
 
             if (preg_match("/^$uri$/", static::$request->uri(), $matches)) {
                 $matches = array_slice($matches, 1);
                 $parameters = $this->routeParameters($parameters, $matches);
+
                 if (static::$request->method() == $route->method) {
                     unset($route->method, $route->uri, $route->prefix);
                     static::$request->bind($parameters);
@@ -135,11 +137,11 @@ class Route extends AbstractRoute
                     $positionRoute = $route;
                 }
             }
-            if ($key == count(static::$routes)-1) {
+            if ($key == count(static::$routes) - 1) {
                 if ($found > -1) {
                     return $this->dispatchRoute($positionRoute, static::$request, static::$response);
                 } else {
-        
+
                     echo 'Método de acesso não compatível';
                     static::$response->setStatusCode(405);
                     exit;

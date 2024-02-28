@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <div class="sx">
         <?= parts('nav.navbar') ?>
         <div class="wallpaper vh-85">
@@ -59,7 +60,7 @@
             <div class="card-body">
                 <div class="container-sm">
                     <div class="row">
-                        <?php foreach($about as $a): ?>
+                        <?php foreach ($about as $a) : ?>
                             <div class="col-md-4 px-0">
                                 <a href="<?= $a[1] ?>" target="_blank" class="software">
                                     <span class="bi bi-<?= $a[2] ?>"></span>
@@ -82,12 +83,12 @@
             </div>
         </div>
 
-        
 
-    
+
+
         <small class="d-block my-4"></small>
 
-        
+
 
         <small class="d-block my-4"></small>
         <small class="d-block my-4"></small>

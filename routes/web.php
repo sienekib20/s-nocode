@@ -6,6 +6,7 @@ use App\Http\Controllers\browse;
 use App\Http\Controllers\contacts;
 use App\Http\Controllers\editor;
 use App\Http\Controllers\encomendas;
+use App\Http\Controllers\faqs;
 use App\Http\Controllers\pacotes;
 use App\Http\Controllers\producao\producao;
 use App\Http\Controllers\templates;
@@ -47,6 +48,10 @@ Route::get('/contactos', [contacts::class, 'index']);
 //Route::get('/editor/(uuid:any)', [editor::class, 'open_template']);
 
 Route::get('/browse', [browse::class, 'load']);
+Route::get('/faqs', [faqs::class, 'index']);
+Route::get('/faqs-get', [faqs::class, 'auto_fill']);
+Route::post('/purpose', [faqs::class, 'duvida']);
+
 //Route::post('/browse', [browse::class, 'generate']);
 Route::get('/browse/(id:numeric)', [browse::class, 'load_specfic']);
 // Authorized routes

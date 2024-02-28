@@ -3,36 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Ramsey\Uuid\Uuid;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
-use Sienekib\Mehael\Support\Auth;
 
-class app extends Controller
+class faqs extends Controller
 {
 
     public function index()
     {
-        //Auth::create(['user' => 'siene', 'user_id' => 1]);
-
-        $data = DB::table('pacotes')->get();
-        $enviar = [];
-        $index = 0;
-        foreach ($data as $datum) {
-            $enviar[$index]['pacote'] = $datum->pacote;
-            $enviar[$index]['desc'] = explode(';', $datum->descricao);
-            $index++;
-        }
-
+        $asked = DB::table('faqs')->where('acesso', '=', 'liberado')->get();
 
         // TODO: coloque o seu código
 
-        //return view('Home:app.site.index', compact('data'));
-        return view('Home:site.intro.index', compact('enviar'));
+        return view('Perguntas frequentes:site.intro.faqs', compact('asked'));
     }
 
-    public function sms()
+    public function duvida(Request $request)
     {
-        return view('Mensagem:site.mensagem');
+        $last = DB::table('faqs')->insertId([
+            'uuid' => Uuid::uuid4()->toString(),
+            'pergunta' => $request->pergunta,
+            'descricao' => $request->descricao,
+            'acesso' => 'pedente'
+        ]);
+
+        if ($last) {
+            $message = 'Enviado com sucesso';
+        } else {
+            $message = 'Erro ao enviar, tente mais tarde';
+        }
+        session()->setFlashMessage('purpose', $message);
+        return redirect()->route('faqs');
+    }
+
+    public function auto_fill(Request $request)
+    {
+
+        return response()->json($_SERVER);
     }
 
     // Cria um registo na DB

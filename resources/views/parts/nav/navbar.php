@@ -1,4 +1,3 @@
-
 <nav class="navbar d-xxs-none d-lg-block">
     <div class="container-sm w-80">
         <div class="row h-100">
@@ -20,6 +19,12 @@
                 <div class="__nav-item <?= request()->path() == '/browse' ? 'active' : '' ?>">
                     <a href="<?= route('browse') ?>" class="__nav-link">
                         <span>Modelos</span>
+                    </a>
+                </div>
+
+                <div class="__nav-item <?= request()->path() == '/faqs' ? 'active' : '' ?>">
+                    <a href="<?= route('faqs') ?>" class="__nav-link">
+                        <span>Faqs</span>
                     </a>
                 </div>
 
@@ -93,11 +98,14 @@
         <div class="mmItem <?= request()->path() == '/browse' ? 'active' : '' ?>">
             <a href="<?= route('browse') ?>" class="mmLink">Modelos</a>
         </div>
+        <div class="mmItem <?= request()->path() == '/faqs' ? 'active' : '' ?>">
+            <a href="<?= route('faqs') ?>" class="mmLink">Faqs</a>
+        </div>
         <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
         <!--<div class="mmItem <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
             <a href="<?= route('planos') ?>" class="mmLink">Pacotes</a>
         </div>-->
-        
+
         <?php if (\Sienekib\Mehael\Support\Auth::check()) : ?>
             <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0]; ?>
             <div class="mmItem">
