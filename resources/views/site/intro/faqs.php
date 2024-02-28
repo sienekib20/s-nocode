@@ -121,22 +121,12 @@
     frequentQuestionContainer.css('min-height', frequentQuestionContainer.height());
     $('#frequentQuestionItems').css('height', '100%');
     // Adiciona um event listener ao elemento pai existente
-    $('#frequentQuestionItems').on('click', '.faq-item', (e) => {
-        // Captura o elemento clicado
-        var item = e.currentTarget;
-        // Adiciona ou remove a classe 'open' no elemento clicado
-        item.classList.toggle('open');
-    });
 
     $(document).ready(() => {
         $('#typeFrequenteQuestion').on('input', (e) => {
             const formData = new FormData(document.getElementById('formTrigger'));
             const xhr = new XMLHttpRequest();
             const url = 'http://localhost:8000' + $('#faq-get').val();
-
-            for (const a of formData.entries()) {
-                console.log(a);
-            }
 
             xhr.open('POST', url);
             xhr.onload = () => {
@@ -147,6 +137,12 @@
                     $.each(response, (key, value) => {
                         var item = faqQuestionModelItem(value.pergunta, value.resposta, +value.faq_id);
                         $('#frequentQuestionItems').append(item);
+                        $('#frequentQuestionItems').on('click', '.faq-item', (e) => {
+                            // Captura o elemento clicado
+                            var item = e.currentTarget;
+                            // Adiciona ou remove a classe 'open' no elemento clicado
+                            item.classList.toggle('open');
+                        });
                     });
                 } else {
                     var error = xhr.statusText;
