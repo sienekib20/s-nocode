@@ -56,6 +56,20 @@ ROBOTO
 */
 
 @font-face {
+    font-family: 'RobotoCondensed-Light';
+    src: url('RobotoCondensed-Light.ttf');
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'RobotoCondensed-Bold';
+    src: url('RobotoCondensed-Bold.ttf');
+    font-style: normal;
+}
+
+
+@font-face {
     font-family: 'Roboto-Regular';
     src: url('fonts/Roboto-Regular.ttf');
     font-style: normal;

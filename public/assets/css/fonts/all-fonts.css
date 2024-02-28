@@ -22,31 +22,31 @@ COUSINE
 
 @font-face {
   font-family: 'Poppins-Regular';
-  src: url('Poppins-Regular.otf') format('otf');
+  src: url('poppins/Poppins-Regular.woff') format('woff');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Poppins-Bold';
-  src: url('Poppins-Bold.otf') format('otf');
+  src: url('poppins/Poppins-Bold.woff') format('woff');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Poppins-Medium';
-  src: url('Poppins-Medium.otf') format('otf');
+  src: url('poppins/Poppins-Medium.woff') format('woff');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Poppins-Black';
-  src: url('Poppins-Black.otf') format('otf');
+  src: url('poppins/Poppins-Black.woff') format('woff');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Poppins-Light';
-  src: url('Poppins-Light.otf') format('otf');
+  src: url('poppins/Poppins-Light.woff') format('woff');
   font-style: normal;
 }
 
