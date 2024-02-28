@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="wr-navbar-item">
-                <a href="<?= route('/') ?>" class="wr-navbar-link">
+                <a href="<?= route('faqs') ?>" class="wr-navbar-link">
                     <p>Faqs</p>
                 </a>
             </div>
@@ -44,6 +44,7 @@
 
 </nav>
 
+<?= parts('nav.wr-loader') ?>
 
 <script>
     $(window).on('scroll', (e) => {

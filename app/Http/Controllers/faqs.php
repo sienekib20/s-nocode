@@ -39,8 +39,9 @@ class faqs extends Controller
 
     public function auto_fill(Request $request)
     {
+        $data = DB::table('faqs')->where('pergunta','like', "%{$request->itemFormTrigger}%")->where('acesso', '=', 'liberado')->get();
 
-        return response()->json($_SERVER);
+        return response()->json($data);
     }
 
     // Cria um registo na DB

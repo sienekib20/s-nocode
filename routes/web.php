@@ -49,7 +49,7 @@ Route::get('/contactos', [contacts::class, 'index']);
 
 Route::get('/browse', [browse::class, 'load']);
 Route::get('/faqs', [faqs::class, 'index']);
-Route::get('/faqs-get', [faqs::class, 'auto_fill']);
+Route::post('/faqs-get', [faqs::class, 'auto_fill']);
 Route::post('/purpose', [faqs::class, 'duvida']);
 
 //Route::post('/browse', [browse::class, 'generate']);
