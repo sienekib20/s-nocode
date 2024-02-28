@@ -72,6 +72,69 @@
 
         <?= parts('faqs.faq') ?>
 
+        <div class="card">
+            <div class="card-top">
+                <div class="container-sm">
+                    <div class="row">
+                        <div class="card-title col-12 col-md-6">
+                            <h4 class="title d-block mt-5">Fale connosco</h4>
+                            <span class="text-muted ff">Entre em contato conosco para mais informações sobre nossos serviços de criação de sites.</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--/.card-top-->
+            <small class="d-flex my-4"></small>
+            <div class="card-body">
+                <div class="container-sm">
+                    <div class="row my-5">
+                        <div class="col-12 col-md-4">
+                            <div class="cus-item">
+                                <span class="bi bi-chat-left-text"></span>
+                                <div class="contain">
+                                    <span class="title">Converse connosco</span>
+                                    <small class="text-muted">O nosso team está aqui pra te ajudar</small>
+                                    <small>cc@silicaweb.ao</small>
+                                </div>
+                            </div> <!--/.cus-item-->
+                            <div class="cus-item">
+                                <span class="bi bi-geo"></span>
+                                <div class="contain">
+                                    <span class="title">Visite-nos</span>
+                                    <small class="text-muted">Venha dizer olá no nosso escritório</small>
+                                    <small>Bº Azul - Zamba II. Ref. Memorial A.Neto Luanda-Angola</small>
+                                </div>
+                            </div> <!--/.cus-item-->
+                            <div class="cus-item">
+                                <span class="bi bi-telephone-outbound"></span>
+                                <div class="contain">
+                                    <span class="title">Ligue pra nós</span>
+                                    <small class="text-muted">Seg. à Sexta, das 8h às 17h</small>
+                                    <small>(+244) 948 109 778</small>
+                                </div>
+                            </div> <!--/.cus-item-->
+                        </div> <!--/.col-->
+                        <div class="col-12 col-md-1"></div>
+                        <form action="" class="col-12 col-md-7 mt-5 mt-md-0">
+                            <div class="input-group">
+                                <input type="text" class="form-input" placeholder="Seu nome">
+                            </div>
+                            <div class="input-group my-3">
+                                <input type="text" class="form-input" placeholder="Seu email">
+                            </div>
+                            <div class="input-group mb-3">
+                                <textarea name="" class="form-input" cols="30" rows="4" placeholder="Nos fale da tua preocupação"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-orange input-block">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <small class="d-flex my-4"></small>
+        <small class="d-flex my-4"></small>
+
 
         <?= parts('nav.footer') ?>
 

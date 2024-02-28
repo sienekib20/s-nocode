@@ -2059,3 +2059,48 @@ h6 {
 .software:hover small:nth-child(3) {
     height: 25%;
 }
+
+
+
+.cus-item {
+    width: 100%;
+    min-height: 80px;
+    gap: 1rem;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cus-item + .cus-item {
+    margin-top: 2rem;
+}
+
+.cus-item > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid #f71;
+    color:#f71;
+}
+
+.cus-item .title {
+    display: block;
+}
+
+.cus-item .title + small {
+    margin-top: -0.3rem;
+    margin-bottom: 0.7rem;
+    display: block;
+}
+
+.cus-item .title + small + small {
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.7rem;
+    font-family: 'Inter-Bold';
+    font-size: 90%;
+}
