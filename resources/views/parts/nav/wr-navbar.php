@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div class="wr-navbar-item">
-                <a href="<?= route('/') ?>" class="wr-navbar-link">
+                <a href="<?= route('browse') ?>" class="wr-navbar-link <?= request()->path() == '/browse' ? 'active' : '' ?>">
                     <p>Templates</p>
                 </a>
             </div>
@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="wr-navbar-item">
-                <a href="<?= route('faqs') ?>" class="wr-navbar-link">
+                <a href="<?= route('faqs') ?>" class="wr-navbar-link <?= request()->path() == '/faqs' ? 'active' : '' ?>">
                     <p>Faqs</p>
                 </a>
             </div>
@@ -48,7 +48,7 @@
 
 <script>
     $(window).on('scroll', (e) => {
-        if (window.scrollY > 300) {
+        if (window.scrollY > 100) {
             $('.wr-navbar').addClass('dark');
         } else {
             $('.wr-navbar').removeClass('dark');

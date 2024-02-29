@@ -28,7 +28,7 @@
                         <div class="col-0 col-lg-1"></div>
                         <div class="card-title col-12 col-lg-10">
                             <h4 class="title d-block mt-5">FAQ - Perguntas mais frequentes</h4>
-                            <span class="text-muted ff">Sabemos o que os nossos clientes querem sempre saber <br> Fazendo essa pesquisa, podes encontrar a solucão ao problema que te encomoda.</span>
+                            <small class="ff">Sabemos o que os nossos clientes querem sempre saber <br> Fazendo essa pesquisa, podes encontrar a solucão ao problema que te encomoda.</small>
 
                             <span class="d-block mt-5 form-label">Pesquise alguma pergunta de que tenha dúvida</span>
                             <form action="" id="formTrigger" class="w-100 w-lg-80">
@@ -72,7 +72,7 @@
                         <div class="col-0 col-lg-1"></div>
                         <div class="card-title col-12 col-lg-10">
                             <h4 class="title d-block mt-5">Não achou a tua solução?</h4>
-                            <span class="text-muted ff">Se não consegue achar a resposta da tua pergunta nos FAQs, <br> podes nos contactar sempre. Deixe aqui a sua pergunta, e vamos responder</span>
+                            <small class="ff">Se não consegue achar a resposta da tua pergunta nos FAQs, <br> podes nos contactar sempre. Deixe aqui a sua pergunta, e vamos responder</small>
 
                             <form action="<?= route('purpose') ?>" method="post" class="col-12 col-lg-10 px-0 mt-5">
                                 <div class="input-group">
@@ -137,9 +137,10 @@
                     $.each(response, (key, value) => {
                         var item = faqQuestionModelItem(value.pergunta, value.resposta, +value.faq_id);
                         $('#frequentQuestionItems').append(item);
-                        $('#frequentQuestionItems').on('click', '.faq-item', (e) => {
+                        $('#frequentQuestionItems .faq-item').click((e) => {
                             // Captura o elemento clicado
                             var item = e.currentTarget;
+                            console.log(item.id);
                             // Adiciona ou remove a classe 'open' no elemento clicado
                             item.classList.toggle('open');
                         });
@@ -168,10 +169,10 @@
     });
 
     function faqQuestionModelItem(pergunta, resposta, id) {
-        var id = (id < 10) ? '0' + id : id.toString();
+        var identify = (id < 10) ? '0' + id : id.toString();
         var model = '';
-        model += '<div class="faq-item">';
-        model += '<span class="count">' + id + '</span>';
+        model += '<div class="faq-item" id="fi-'+id+'">';
+        model += '<span class="count">' + identify + '</span>';
         model += '<div class="contain">';
         model += '<div class="question">';
         model += `<span>${pergunta}</span>`;

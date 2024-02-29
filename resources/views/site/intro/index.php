@@ -23,9 +23,14 @@
 
 
         <?= parts('services.sotfwares') ?>
-        
+
 
         <?= parts('faqs.faq') ?>
+
+        <small class="d-flex my-4"></small>
+
+
+        
 
         <div class="card">
             <div class="card-top">
@@ -33,7 +38,7 @@
                     <div class="row">
                         <div class="card-title col-12 col-md-6">
                             <h4 class="title d-block mt-5">Fale connosco</h4>
-                            <span class="text-muted ff">Entre em contato conosco para mais informações sobre nossos serviços de criação de sites.</span>
+                            <small class="ff">Entre em contato conosco para mais informações sobre nossos serviços de criação de sites.</small>
                         </div>
                     </div>
                 </div>
@@ -87,6 +92,7 @@
                 </div>
             </div>
         </div>
+
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
 

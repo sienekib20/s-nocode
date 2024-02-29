@@ -2369,6 +2369,18 @@ h6 {
     -webkit-justify-content: center;
             justify-content: center;
     gap: 0.5rem;
+    -webkit-transition: 0.15s linear;
+    transition: 0.15s linear;
+}
+.service:hover  {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    background-color: #f71;
+    color: #fff;            
+}
+
+.service:hover * {
+    color: #fff !important;
 }
 
 .service .bi {
@@ -2377,6 +2389,17 @@ h6 {
     display: block;
 }
 
-.service:hover .bi {
-    color: #f71;
+
+#searchTemplateInList .input-group {
+    width: 100%;
+    position: relative;
+}
+
+#searchTemplateInList .bi {
+    top: 50%;
+    right: 1rem;
+    position: absolute;
+    z-index: 111;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
