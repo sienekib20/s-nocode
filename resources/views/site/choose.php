@@ -7,8 +7,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="<?= asset('css/inter/inter.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/frequent.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/navbar.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
@@ -16,30 +18,37 @@
 
 <body>
     <div class="wrapper">
-        <?= parts('nav.navbar') ?>
+        <?= parts('nav.wr-navbar-alt') ?>
 
-        <small class="d-block my-4"></small>
+        <small class="d-flex my-4"></small>
+        <small class="d-flex my-4"></small>
 
         <div class="card">
             <form action="" method="POST" class="sx-card-section-contain">
                 <div class="container-sm in-use">
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-7">
-                            <div class="col-12" style="text-align: left !important;">
-                                <span class="bold d-block mb-3" style="font-size: 20px"><?= ucfirst($template->titulo ?? 'Default') ?> <?= $template->categoria ?> </span>
-                                <span class="d-block mb-3"><?= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, temporibus mollitia in tempore molestias rerum accusamus laudantium magnam ab natus!' ?></span>
+                            <div class="card-title col-12">
+                                <h4 class="title d-block mb-1"><?= ucfirst($template->titulo ?? 'Default') ?> <?= $template->categoria ?> </h4>
 
-                                <div class="d-flex">
-                                    <small>ID: <?= '58521' ?></small>
+                                <div class="d-flex mb-1" style="line-height: 1.5">
+                                    <small>ID: <?= explode('-', $template->uuid)[0] ?></small>
                                     <small class="d-block mx-3">|</small>
-                                    <small>Categoria: <?= 'Farmácias' ?></small>
+                                    <small>Categoria: <?= $template->branch ?></small>
                                 </div>
-                                <div href="#" class="w-100 vh-80 d-flex contain_choose">
-                                    <a href="<?= route('preview', $template->uuid ?? '') ?>" class="target_visible"></a>
-                                    <div class="contain d-block w-100 h-100" style=" overflow: hidden; pointer-events: none">
-                                        <img src="<?= storage() . "templates/defaults/{$template->referencia}/cover/$template->capa/" ?>" alt="">
-                                    </div>
+                            </div>
+                            <div class="col-12">
+                                <div href="#" class="w-100 d-flex contain_choose">
+                                    <a href="<?= route('live', $template->referencia ?? '') ?>" class="target_visible"></a>
+                                    <img src="<?= __template("defaults/{$template->referencia}/cover/$template->capa") ?>" alt="">
                                 </div>
+
+                                <div class="card-title">
+                                    <h4 class="title d-block mt-5 mb-3" style="font-size: 20px"><?= ucfirst($template->titulo ?? 'Default') ?> </h4>
+                                    <small class="d-block mb-3" style="font-family: 'Roboto-Light'; line-height: 1.5"><?= $template->descricao ?></small>
+                                </div>
+
+
                             </div> <!--/.col-12-->
                         </div> <!--/.col-md-7-->
 

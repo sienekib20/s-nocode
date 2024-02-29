@@ -31,19 +31,19 @@ class data extends Controller
             $template = [];
             return view('Escolha:site.choose', compact('template'));
         }
-        $template = DB::raw('select t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as categoria, t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid = ?', [$request->uuid])[0];
+        $template = DB::raw('select t.referencia, (select tipo_template from tipo_templates where tipo_template_id = t.tipo_template_id) as categoria, (select categoria from categorias where categoria_id = t.categoria_id) as branch, t.uuid, t.template_id, t.autor, t.titulo, t.descricao, t.template, t.status, t.preco,(select file from files where file_id = t.file_id) as capa, (select count(temp_parceiro_id) from temp_parceiros where template_id = t.template_id) as quantidade from templates as t where uuid like ?', [$request->uuid.'-%'])[0];
         // -> será adicionado no proximo migrate fresh seed :
         // (select classificacao from classificacaos where template_id = t.template_id) as classificacao
 
         $referencia = DB::table('templates')
-            ->where('uuid', '=', $request->uuid)
+            ->where('uuid', 'like', $request->uuid.'-%')
             ->select('template_id, referencia')
             ->get()[0];
 
         $dominio = $request->dominio;
 
         if ($referencia) {
-            $filePath = storage_path() . "templates/defaults/{$referencia->referencia}/index.html";
+            $filePath = __template_path("defaults/{$referencia->referencia}/index.html");
 
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);

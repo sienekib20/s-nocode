@@ -46,7 +46,7 @@
                                 </select>
                                 <select id="" class="mt-3 mt-md-0 col-md-6 form-input">
                                     <option value="">Tipo template</option>
-                                    <?php foreach($tipo as $t): ?>
+                                    <?php foreach ($tipo as $t) : ?>
                                         <option value="<?= $t->tipo_template_id ?>"><?= $t->tipo_template ?></option>
                                     <?php endforeach; ?>
                                 </select>«
@@ -81,7 +81,7 @@
                         <div class="row">
                             <?php foreach ($templates as $template) : ?>
                                 <div class="col-12 col-md-5 col-lg-3">
-                                    <a href="<?= route('live', $template->referencia) ?>" target="_blank" class="model">
+                                    <a href="<?= route('view', explode('-', $template->uuid)[0]) ?>" class="model">
                                         <div class="model-img">
                                             <img src="<?= __template("defaults/{$template->referencia}/cover/{$template->capa}") ?>" alt="">
                                         </div>
