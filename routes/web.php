@@ -65,7 +65,7 @@ Route::group('auth:authorize', function () {
     Route::get('/edit/(dominio:alpha)/(uuid:any)', [editor::class, 'open_template_edit']);
 
     Route::get('/web_builder', [editor::class, 'web_builder']);
-    Route::get('/preview/(template:any)', [templates::class, 'preview']);
+    Route::get('/live/(template:any)', [templates::class, 'preview']);
     Route::get('/usar/(uuid:any)', [data::class, 'choose']);
     Route::post('/contactar', [contacts::class, 'store']);
     Route::post('/salvar', [data::class, 'save_template']);

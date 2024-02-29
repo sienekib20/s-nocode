@@ -37,13 +37,16 @@ class templates extends Controller
 
             if ($request->fileExtension('zip') == 'zip') {
                 // Descompacta o arquivo zip
-                return response()->json('aqui');
+
                 $zip = new \ZipArchive;
                 if ($zip->open($zip_archive) === TRUE) {
                     $zip->extractTo($zip_destination);
                     $zip->close();
 
-                    $cover_destination = "{$zip_destination}/{$zip_folder_name}/cover";
+                    $cover_destination = "{$zip_destination}/{$zip_folder_name}/cover/";
+                    if (!is_dir($cover_destination)) {
+                        mkdir($cover_destination, 0777, true);
+                    }
                     $cover_extension = $request->fileExtension('cover');
 
                     $cover_tmp = $request->fileTempName('cover');
@@ -55,7 +58,7 @@ class templates extends Controller
                     $cover_file_id = DB::table('files')->insertId(['file' => $template_name]);
 
                     if (move_uploaded_file($cover_tmp, $cover_destination . $template_name)) {
-                        $result = DB::table('templates')->insert(['uuid' => Uuid::uuid4()->toString(), 'titulo' => $request->titulo, 'autor' => $request->autor, 'referencia' => $zip_folder_name, 'editar' => $request->editar, 'status' => $request->status, 'preco' => $request->preco ?? '0.00', 'descricao' => $request->descricao, 'template' => '', 'tipo_template_id' => $request->tipo_template, 'file_id' => $cover_file_id]);
+                        $result = DB::table('templates')->insert(['uuid' => Uuid::uuid4()->toString(), 'titulo' => $request->titulo, 'autor' => $request->autor, 'referencia' => $zip_folder_name, 'editar' => $request->editar, 'status' => $request->status, 'preco' => $request->preco ?? '0.00', 'descricao' => $request->descricao, 'template' => '', 'tipo_template_id' => $request->tipo_template, 'categoria_id' => $request->categoria_template, 'file_id' => $cover_file_id]);
                         $response = $result ? 'Salvo com sucesso' : 'Erro ao salvar';
 
                         return response()->json($response);
@@ -112,20 +115,20 @@ class templates extends Controller
     public function preview(Request $request)
     {
         $referencia = DB::table('templates')
-            ->where('uuid', '=', $request->template)
+            ->where('referencia', '=', $request->template)
             ->select('referencia')
             ->get()[0];
 
+
         if ($referencia) {
-            $filePath = storage_path() . "templates/defaults/{$referencia->referencia}/index.html";
-
-
+            $filePath = __template_path("defaults/{$referencia->referencia}/index.html");
+            
             
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);
-                
+
                 // Caminho base para os recursos
-                $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
+                $resourceBasePath = __template("defaults/{$referencia->referencia}/");
                 //$resourceBasePath = "/template/v1/{$referencia->referencia}/";
 
                 // Processa os caminhos relativos dos recursos

@@ -79,17 +79,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                            <?php $templates = [[], [], [], []];
-                            for ($i = 0; $i < count($templates); $i++) :  ?>
-                                <div class="col-4">
-                                    <a href="" class="model">
+                            <?php foreach ($templates as $template) : ?>
+                                <div class="col-12 col-md-5 col-lg-3">
+                                    <a href="<?= route('live', $template->referencia) ?>" target="_blank" class="model">
                                         <div class="model-img">
-                                            <img src="<?= storage() ?>" alt="">
+                                            <img src="<?= __template("defaults/{$template->referencia}/cover/{$template->capa}") ?>" alt="">
                                         </div>
-                                        <span class="title">Titulo</span>
+                                        <span class="title"><?= $template->titulo ?></span>
                                     </a>
                                 </div>
-                            <?php endfor; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

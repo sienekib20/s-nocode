@@ -9,11 +9,11 @@
                     <p>Início</p>
                 </a>
             </div>
-            <div class="wr-navbar-item">
+            <!--<div class="wr-navbar-item">
                 <a href="<?= route('/') ?>" class="wr-navbar-link">
                     <p>Softwares</p>
                 </a>
-            </div>
+            </div>-->
             <div class="wr-navbar-item">
                 <a href="<?= route('browse') ?>" class="wr-navbar-link <?= request()->path() == '/browse' ? 'active' : '' ?>">
                     <p>Templates</p>
