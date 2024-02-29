@@ -10,9 +10,9 @@
     <div class="card-top">
         <div class="container-sm">
             <div class="row">
-                <div class="card-title text-center col-12">
+                <div class="card-title col-12">
                     <h4 class="title d-block mt-5">FAQ - Perguntas mais frequentes</h4>
-                    <span class="text-muted ff">Sabemos o que os nossos clientes querem sempre saber. <br> Caso não tenha a tua dúvida <a href="<?= route('faqs') ?>">clique aqui</a> </span>
+                    <small class="text-muted ff">Sabemos o que os nossos clientes querem sempre saber. <br> Caso não tenha a tua dúvida <a href="<?= route('faqs') ?>">clique aqui</a> </small>
                 </div>
             </div>
         </div>
