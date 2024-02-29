@@ -46,6 +46,20 @@
                                 <div class="card-title">
                                     <h4 class="title d-block mt-5 mb-3" style="font-size: 20px"><?= ucfirst($template->titulo ?? 'Default') ?> </h4>
                                     <small class="d-block mb-3" style="font-family: 'Roboto-Light'; line-height: 1.5"><?= $template->descricao ?></small>
+
+                                    <div class="d-flex mb-1" style="line-height: 1.5">
+                                        <small>Data de criação: <?= date('d-m-Y', strtotime(explode(' ', $template->created_at)[0])) ?></small>
+                                        <small class="d-block mx-3">|</small>
+                                        <small>Visto por: <?= '0' ?></small>
+                                        <small class="d-block mx-3">|</small>
+                                        <small>Aderido por: <?= '0' ?></small>
+                                    </div>
+                                </div>
+
+                                <div class="row row-no-margin">
+                                    <a href="" class="btn btn-orange">Pre-visualizar</a>
+                                    <a href="" class="btn btn-outline-orange">Ver Screenshot</a>
+                                    <a href="" class="btn btn-outline-orange">Baixar</a>
                                 </div>
 
 
