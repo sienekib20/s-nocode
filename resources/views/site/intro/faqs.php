@@ -19,14 +19,16 @@
 <body>
 
     <div class="wrapper">
-        <?= parts('nav.header-sm') ?>
+        <?= parts('nav.wr-navbar') ?>
+
+        <small class="d-flex my-4"></small>
 
         <div class="card">
             <div class="card-top">
                 <div class="container-sm">
                     <div class="row">
                         <div class="col-0 col-lg-1"></div>
-                        <div class="card-title col-12 col-lg-10">
+                        <div class="card-title col-12">
                             <h4 class="title d-block mt-5">FAQ - Perguntas mais frequentes</h4>
                             <small class="ff">Sabemos o que os nossos clientes querem sempre saber <br> Fazendo essa pesquisa, podes encontrar a solucão ao problema que te encomoda.</small>
 
@@ -43,7 +45,7 @@
                 <div class="container-sm">
                     <div class="row">
                         <div class="col-0 col-lg-1"></div>
-                        <div class="col-12 col-lg-10" id="frequentQuestionContainer">
+                        <div class="col-12" id="frequentQuestionContainer">
                             <div class="faq" id="frequentQuestionItems">
                                 <?php foreach ($asked as $faq) : ?>
                                     <div class="faq-item">
@@ -70,7 +72,7 @@
                 <div class="container-sm">
                     <div class="row">
                         <div class="col-0 col-lg-1"></div>
-                        <div class="card-title col-12 col-lg-10">
+                        <div class="card-title col-12">
                             <h4 class="title d-block mt-5">Não achou a tua solução?</h4>
                             <small class="ff">Se não consegue achar a resposta da tua pergunta nos FAQs, <br> podes nos contactar sempre. Deixe aqui a sua pergunta, e vamos responder</small>
 
@@ -108,6 +110,7 @@
 
 <script src="<?= asset('js/ui/kib-ui.js') ?>"></script>
 <script>
+    applyDarkNavbar();
     $(document).ready(() => {
         if ($('.session_message').val() != '') {
             $('.cool-alert').addClass('active');

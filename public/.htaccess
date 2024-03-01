@@ -1,9 +1,15 @@
 RewriteEngine On
 
-RewriteCond %{HTTP_HOST} ^(.+)/template/v1/
+# Redireciona URLs de /templates/defaults/$referencia/cover/$capa para /live/shot/$capa
+RewriteRule ^templates/defaults/([^/]+)/cover/(.*)$ /live/shot/$2 [L,R=301]
+
+# Redireciona as solicitações para /template/v1/ para /storage/templates/defaults/
+RewriteCond %{HTTP_HOST} (.+)/template/v1/
 RewriteRule ^(.*)$ /storage/templates/defaults/$1 [L]
 
+# Assegura que arquivos ou diretórios existentes não sejam redirecionados
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteRule ^(.*)$ ./index.php [QSA,L]
+# Roteia todas as outras solicitações para index.php
+RewriteRule ^(.*)$ index.php [QSA,L]

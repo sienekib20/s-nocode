@@ -27,7 +27,10 @@ class authenticacao extends Controller
                 session()->remove('__redirect_url');
                 return redirect()->route($redirect_url);
             }
-            return redirect()->route('/');
+            $user = DB::table('contas')->select('uuid')->where('conta_id', '=', Auth::user()->id)->get()[0];
+            $uuid = explode('-', $user->uuid)[0];
+            
+            return redirect()->route('dash.'.$uuid . '.view');
         }
         session()->setFlashMessage('erro', 'Dados inválidos');
         return redirect()->route('entrar');

@@ -152,4 +152,15 @@ class templates extends Controller
 
         return view('404:app.errors.not-found');
     }
+
+    public function get_shot(Request $request)
+    {
+        
+        
+        $capa = DB::raw('select t.template_id, t.referencia, (select file from files where file_id = t.file_id) as capa from templates as t where  t.uuid like ?', [$request->id.'-%']);
+        
+        //$img = __template_path("defaults/{$capa->referencia}/cover/{$capa->capa}");;
+        return response()->json($capa);
+
+    }
 }

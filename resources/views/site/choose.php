@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-12">
                                 <div href="#" class="w-100 d-flex contain_choose">
-                                    <a href="<?= route('live', $template->referencia ?? '') ?>" class="target_visible"></a>
+                                    <a href="<?= route('live', $template->referencia) ?>" target="_blank" class="target_visible"></a>
                                     <img src="<?= __template("defaults/{$template->referencia}/cover/$template->capa") ?>" alt="">
                                 </div>
 
@@ -57,8 +57,8 @@
                                 </div>
 
                                 <div class="row row-no-margin">
-                                    <a href="" class="btn btn-orange">Pre-visualizar</a>
-                                    <a href="" class="btn btn-outline-orange">Ver Screenshot</a>
+                                    <a href="<?= route('live', $template->referencia) ?>" target="_blank" class="btn btn-orange">Pre-visualizar</a>
+                                    <a href="<?= route('shot', explode('-', $template->uuid)[0]) ?>" id="viewShot" name="<?= explode('-', $template->uuid)[0] ?>" target="_blank" class="btn btn-outline-orange">Ver Screenshot</a>
                                     <a href="" class="btn btn-outline-orange">Baixar</a>
                                 </div>
 
@@ -77,13 +77,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="mail" placeholder="Endereço email" class="form-input input-block">
+                                <input type="text" id="mail" placeholder="Endereço email" class="form-input input-block mt-2">
                             </div>
 
                             <small class="d-block my-4"></small>
                             <div class="d-flex mt-2">
                                 <div class="col-5 px-0">
-                                    <a href="<?= route('editor', $template->uuid ?? 'default') ?>" target="_blank" class="choose-open-editor-btn btn btn-outline-orange input-block d-block mt-1 mb-2">
+                                    <a href="<?= route('editor', explode('-', $template->uuid)[0]) ?>" target="_blank" class="choose-open-editor-btn btn btn-outline-orange input-block d-block mt-1 mb-2">
                                         <span class="fas fa-pencil-square"></span> <span>Editar</span>
                                     </a>
                                 </div>
@@ -194,3 +194,34 @@
 </html>
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
+<script>
+    /*document.getElementById('viewShot').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita que o comportamento padrão de redirecionamento da âncora seja acionado
+
+        // Cria um novo objeto XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        const formData = new FormData();
+        formData.append('id', event.target.name);
+
+        // Configura a função de tratamento de evento para a resposta
+        xhr.open('POST', 'http://localhost:8000/shot', true);
+        xhr.onload = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Abre uma nova janela e carrega a imagem
+                var newWindow = window.open('about:blank', '_blank');
+                if (newWindow) {
+                    let ar = JSON.parse(xhr.responseText);
+                    console.log(ar[0]);
+                    newWindow.document.write('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Imagem</title></head><body><img src="http://localhost:8000/templates/defaults/' + ar.referencia + '/cover/'+ ar.capa 
+                    + '" alt="Imagem"></body></html>');
+
+                    console.log(newWindow);
+                } else {
+                    alert('O bloqueio de pop-up pode estar impedindo a abertura da nova janela.');
+                }
+            }
+        };
+        xhr.send(formData);
+    });*/
+</script>

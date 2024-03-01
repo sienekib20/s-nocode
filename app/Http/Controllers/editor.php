@@ -42,7 +42,7 @@ class editor extends Controller
     public function abrir_editor_template($request)
     {
         $referencia = DB::table('templates')
-            ->where('uuid', '=', $request->uuid)
+            ->where('uuid', 'like', $request->uuid.'%')
             ->select('template_id, referencia')
             ->get()[0];
 
@@ -50,14 +50,13 @@ class editor extends Controller
         $dominio = $request->dominio;
 
         if ($referencia) {
-            $filePath = storage_path() . "templates/defaults/{$referencia->referencia}/index.html";
+            $filePath = __template_path("defaults/{$referencia->referencia}/index.html");
 
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);
 
                 // Caminho base para os recursos
-                $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
-                
+                $resourceBasePath = __template("defaults/{$referencia->referencia}/");        
 
                 // Processa os caminhos relativos dos recursos
                 $indexContent = preg_replace_callback(
@@ -65,7 +64,7 @@ class editor extends Controller
                     function ($matches) use ($resourceBasePath) {
                         // Se for um arquivo CSS, adicione um parâmetro de consulta com o timestamp atual
                         if (pathinfo($matches[2], PATHINFO_EXTENSION) === 'css') {
-                            return $matches[1] . '="' . $matches[2] . '?v=' . time() . '"';
+                            return $matches[1] . '="' . $resourceBasePath . $matches[2] . '?v=' . time() . '"';
                         }
                         return $matches[1] . '="' . $resourceBasePath . $matches[2] . '"';
                     },

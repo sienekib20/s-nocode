@@ -37,6 +37,8 @@ $(document).ready(() => {
         }
         var url = e.target.href;
         var items = url.split('editor/');
+
+        console.log(items);
         
         window.open(items[0] + 'editor/' + dominio + '/' + items[1], '_blank');
     });

@@ -19,8 +19,8 @@
 <body>
 
     <div class="wrapper">
-        <?= parts('nav.header-sm') ?>
-
+        <?= parts('nav.wr-navbar') ?>
+        <small class="d-flex my-4"></small>
         <div class="card">
             <div class="card-top">
                 <div class="container-sm">
@@ -145,3 +145,7 @@
 </body>
 
 </html>
+
+<script>
+    applyDarkNavbar();
+</script>

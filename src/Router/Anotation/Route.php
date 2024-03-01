@@ -125,7 +125,7 @@ class Route extends AbstractRoute
             $buildedPath = $this->buildPathUri($route->uri);
             $uri = $buildedPath->uri;
             $parameters = $buildedPath->params;
-
+            
             if (preg_match("/^$uri$/", static::$request->uri(), $matches)) {
                 $matches = array_slice($matches, 1);
                 $parameters = $this->routeParameters($parameters, $matches);

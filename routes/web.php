@@ -66,6 +66,8 @@ Route::group('auth:authorize', function () {
 
     Route::get('/web_builder', [editor::class, 'web_builder']);
     Route::get('/live/(template:any)', [templates::class, 'preview']);
+    Route::post('/shot', [templates::class, 'get_shot']);
+    Route::get('/live/shot', [templates::class, 'get_shot']);
     
     Route::get('/view/(uuid:any)', [data::class, 'choose']);
 
@@ -82,6 +84,16 @@ Route::prefix('user')->group('auth:authorize', function () {
     Route::get('/(id:any)/campanhas', [silica::class, 'campanhas']);
     Route::get('/(id:any)/campanhas/mail', [silica::class, 'campanhas_mail']);
 });
+
+
+Route::prefix('dash')->group('auth:authorize', function () {
+    Route::get('/(id:any)/view', [silica::class, 'index']);
+    Route::get('/(id:any)/websites', [silica::class, 'websites']);
+    Route::get('/(id:any)/encomendas', [silica::class, 'demandas']);
+    Route::get('/(id:any)/campanhas', [silica::class, 'campanhas']);
+    Route::get('/(id:any)/campanhas/mail', [silica::class, 'campanhas_mail']);
+});
+Route::post('/userId', [silica::class, 'get_user_uuid']);
 
 /*Route::post('/usar', [data::class, 'validar_uso']);*/
 Route::get('/meus-templates', [templates::class, 'temp_usuario']);

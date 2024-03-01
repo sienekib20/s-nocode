@@ -22,4 +22,6 @@
 
 </header>
 
-<script></script>
+<script>
+    changeWrNavbar();
+</script>

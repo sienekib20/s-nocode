@@ -45,6 +45,7 @@ class Auth
 
     public static function logout()
     {
+        session_destroy();
         Session::remove('user');
     }
 }

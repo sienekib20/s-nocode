@@ -11,6 +11,7 @@ class Redirect
         $uri = ($trim_left) ? ltrim($uri, '/') : $uri;
         //$this->setStatusCode(304);
 
+
         header('Location: ' . $uri);
 
         exit;
