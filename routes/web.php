@@ -54,6 +54,8 @@ Route::post('/purpose', [faqs::class, 'duvida']);
 
 //Route::post('/browse', [browse::class, 'generate']);
 Route::get('/browse/(id:numeric)', [browse::class, 'load_specfic']);
+Route::post('/browse-get', [browse::class, 'get_browse']);
+
 // Authorized routes
 Route::group('auth:authorize', function () {
     Route::get('/dados/(id:numeric)', [data::class, 'carregar']);
@@ -75,16 +77,6 @@ Route::group('auth:authorize', function () {
     Route::post('/salvar', [data::class, 'save_template']);
     Route::post('/salvar_edit', [data::class, 'save_template_edit']);
 });
-
-// Sílica
-Route::prefix('user')->group('auth:authorize', function () {
-    Route::get('/(id:any)/home', [silica::class, 'index']);
-    Route::get('/(id:any)/websites', [silica::class, 'websites']);
-    Route::get('/(id:any)/encomendas', [silica::class, 'demandas']);
-    Route::get('/(id:any)/campanhas', [silica::class, 'campanhas']);
-    Route::get('/(id:any)/campanhas/mail', [silica::class, 'campanhas_mail']);
-});
-
 
 Route::prefix('dash')->group('auth:authorize', function () {
     Route::get('/(id:any)/view', [silica::class, 'index']);
