@@ -43,28 +43,28 @@
                         <div class="card-body">
                             <div class="container-sm">
                                 <div class="row">
-                                    <div class="col-sm-4 col-md-4 col-lg-2">
+                                    <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-grid-fill"></span>
                                             <span class="text-muted">10</span>
                                             <small>Websites</small>
                                         </a>
                                     </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-2">
+                                    <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-megaphone"></span>
                                             <span class="text-muted">0</span>
                                             <small>Leads</small>
                                         </a>
                                     </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-2">
+                                    <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-layers-fill"></span>
                                             <span class="text-muted">0</span>
                                             <small>Encomendas</small>
                                         </a>
                                     </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-2">
+                                    <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-cloud-haze"></span>
                                             <span class="text-muted">0</span>

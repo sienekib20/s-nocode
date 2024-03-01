@@ -49,30 +49,32 @@
                                 </form>
                             </div>
                             <div class="row">
-                                <div class="smslead col-12">
-                                    <div class="sms-basic">
-                                        <div class="remeter">
-                                            <span class="client">C</span>
-                                            <div class="name">
-                                                <span>Fulano de tal</span>
-                                                <small class="d-block">c@dominio.com | 9xx xxx xxx</small>
-                                                <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                                <div class="col-12">
+                                    <div class="smslead">
+                                        <div class="sms-basic">
+                                            <div class="remeter">
+                                                <span class="client">C</span>
+                                                <div class="name">
+                                                    <span>Fulano de tal</span>
+                                                    <small class="d-block">c@dominio.com | 9xx xxx xxx</small>
+                                                    <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                                                </div>
+                                            </div>
+                                            <div class="contain">
+                                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, est fugit. Autem, praesentium quos pariatur numquam ipsum debitis distinctio officiis ratione dolorem nemo! Labore, iure.</p>
+                                                <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
+                                                <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
                                             </div>
                                         </div>
-                                        <div class="contain">
-                                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, est fugit. Autem, praesentium quos pariatur numquam ipsum debitis distinctio officiis ratione dolorem nemo! Labore, iure.</p>
-                                            <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
-                                            <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
+                                        <div class="sms-replications">
+                                            <form action="">
+                                                <div class="input-group">
+                                                    <textarea name="" class="form-input" placeholder="Escreva a tua resposta aqui..." cols="30"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-orange"><span class="bi bi-send"></span></button>
+                                            </form>
+    
                                         </div>
-                                    </div>
-                                    <div class="sms-replications">
-                                        <form action="">
-                                            <div class="input-group">
-                                                <textarea name="" class="form-input" placeholder="Escreva a tua resposta aqui..." cols="30"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-orange"><span class="bi bi-send"></span></button>
-                                        </form>
-
                                     </div>
                                 </div>
                             </div>

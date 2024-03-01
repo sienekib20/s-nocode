@@ -54,37 +54,22 @@
                                 </form>
                             </div>
                             <div class="row">
-                                <div class="smslead col-12 col-md-6">
-                                    <div class="sms-basic">
-                                        <div class="remeter">
-                                            <span class="client">S</span>
-                                            <div class="name">
-                                                <span>Aviso</span>
-                                                <small class="d-block">Sujeito: gestão de website</small>
-                                                <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                                <div class="col-12 col-md-6">
+                                    <div class="smslead">
+                                        <div class="sms-basic">
+                                            <div class="remeter">
+                                                <span class="client">S</span>
+                                                <div class="name">
+                                                    <span>Aviso</span>
+                                                    <small class="d-block">Sujeito: gestão de website</small>
+                                                    <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="contain">
-                                            <p>O teu website vai expirar em breve, Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint? Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam eos similique, dignissimos nostrum eveniet amet.</p>
-                                            <a href="" class="btn btn removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
-                                            <a href="" class="btn removeCurrent" title="marcar como lido"> <span class="bi bi-eye"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="smslead col-12 col-md-6">
-                                    <div class="sms-basic">
-                                        <div class="remeter">
-                                            <span class="client">S</span>
-                                            <div class="name">
-                                                <span>Aviso</span>
-                                                <small class="d-block">Sujeito: gestão de website</small>
-                                                <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                                            <div class="contain">
+                                                <p>O teu website vai expirar em breve, Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint? Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam eos similique, dignissimos nostrum eveniet amet.</p>
+                                                <a href="" class="btn btn removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
+                                                <a href="" class="btn removeCurrent" title="marcar como lido"> <span class="bi bi-eye"></span></a>
                                             </div>
-                                        </div>
-                                        <div class="contain">
-                                            <p>O teu website vai expirar em breve</p>
-                                            <a href="" class="btn btn removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
-                                            <a href="" class="btn removeCurrent" title="marcar como lido"> <span class="bi bi-eye"></span></a>
                                         </div>
                                     </div>
                                 </div>

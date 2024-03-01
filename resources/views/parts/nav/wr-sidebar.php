@@ -15,21 +15,21 @@ $path = '/' . end($path);
     </div>
 
     <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-2" class="wr-sidebar-link">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-2" class="wr-sidebar-link <?= $path == '/websites' ? 'active' : '' ?>">
             <span class="bi bi-collection"></span>
             <span class="text">Meus websites</span>
         </a>
     </div>
 
     <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-3" class="wr-sidebar-link">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-3" class="wr-sidebar-link <?= $path == '/encomendas' ? 'active' : '' ?>">
             <span class="bi bi-layers-fill"></span>
             <span class="text">Encomendar website</span>
         </a>
     </div>
 
     <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-4" class="wr-sidebar-link">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-4" class="wr-sidebar-link <?= $path == '/campanhas' ? 'active' : '' ?>">
             <span class="bi bi-megaphone"></span>
             <span class="text">Minhas campanhas</span>
         </a>
@@ -38,7 +38,7 @@ $path = '/' . end($path);
     <div class="wr-sidebar-separator"></div>
 
     <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-5" class="wr-sidebar-link">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-5" class="wr-sidebar-link <?= $path == '/notificao' ? 'active' : '' ?>">
             <span class="bi bi-bell"></span>
             <span class="text">Notificações</span>
         </a>
