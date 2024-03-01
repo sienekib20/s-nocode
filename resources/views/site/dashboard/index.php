@@ -47,28 +47,28 @@
                                         <a href="#" class="service">
                                             <span class="bi bi-grid-fill"></span>
                                             <span class="text-muted">10</span>
-                                            <small>Websites</small>
+                                            <small class="text-muted">Websites</small>
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-megaphone"></span>
                                             <span class="text-muted">0</span>
-                                            <small>Leads</small>
+                                            <small class="text-muted">Leads</small>
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-layers-fill"></span>
                                             <span class="text-muted">0</span>
-                                            <small>Encomendas</small>
+                                            <small class="text-muted">Encomendas</small>
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-cloud-haze"></span>
                                             <span class="text-muted">0</span>
-                                            <small>Websites ativos</small>
+                                            <small class="text-muted">Websites ativos</small>
                                         </a>
                                     </div>
                                 </div>
