@@ -39,6 +39,13 @@ $path = '/' . end($path);
 
     <div class="wr-sidebar-item">
         <a href="<?= route('dash') ?>" id="wr-sidebar-5" class="wr-sidebar-link">
+            <span class="bi bi-bell"></span>
+            <span class="text">Notificações</span>
+        </a>
+    </div>
+
+    <div class="wr-sidebar-item">
+        <a href="#" id="wr-sidebar-5" class="wr-sidebar-link">
             <span class="bi bi-gear"></span>
             <span class="text">Definições da conta</span>
         </a>
@@ -47,7 +54,7 @@ $path = '/' . end($path);
 <input type="hidden" id="user-ids" value="<?= Auth::user()->id ?>">
 <script>
     $(document).ready(() => {
-        var menu = ['view', 'websites', 'encomendas', 'campanhas', 'configurar'];
+        var menu = ['view', 'websites', 'encomendas', 'campanhas', 'notificao'];
         var iterator = 0;
         $.ajax({
             url: '/userId',
@@ -62,7 +69,9 @@ $path = '/' . end($path);
                     var a = document.querySelector('#myDash')
                     $('.wr-sidebar-link').each(function() {
                         var href = $(this).attr('href');
-                        $(this).attr('href', `${href}/${uuid}/${menu[iterator]}`);
+                        if (href != '#') {
+                            $(this).attr('href', `${href}/${uuid}/${menu[iterator]}`);
+                        }
                         iterator++;
                     });
                 });
@@ -72,4 +81,5 @@ $path = '/' . end($path);
             }
         });
     });
+
 </script>

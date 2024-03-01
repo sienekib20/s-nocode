@@ -37,7 +37,7 @@ class silica extends Controller
     {
         $id = Auth::user()->id;
 
-        $data = DB::raw('select tp.dominio, tp.created_at, (select titulo from templates where template_id = tp.template_id) as titulo, (select uuid from templates where template_id = tp.template_id) as template_uuid, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") from templates where template_id = tp.template_id) as prazo, (select conta_id from contas where conta_id = ?) from temp_parceiros as tp where parceiro_id = ?', [$id, $id]);
+        $data = DB::raw('select tp.temp_parceiro_id, tp.dominio, tp.created_at, (select titulo from templates where template_id = tp.template_id) as titulo, (select uuid from templates where template_id = tp.template_id) as template_uuid, (select status from templates where template_id = tp.template_id) as status, (select preco from templates where template_id = tp.template_id) as preco, (select if(status="Grátis","30 dias", "90 dias") from templates where template_id = tp.template_id) as prazo, (select conta_id from contas where conta_id = ?) as account_id from temp_parceiros as tp where parceiro_id = ?', [$id, $id]);
 
         $templateUsuario = DB::table('temp_parceiros')->select('count(template_id) as total')->where('parceiro_id', '=', $id)->get()[0];
 
@@ -51,7 +51,7 @@ class silica extends Controller
 
     public function campanhas()
     {
-        return view('Campanhas:site.silica.campanhas');
+        return view('Campanhas:site.dashboard.campanhas');
     }
 
     public function campanhas_mail()
@@ -61,8 +61,16 @@ class silica extends Controller
 
     public function demandas()
     {
-        $categorias = DB::table('tipo_templates')->get();
+        $tipo = DB::table('tipo_templates')->get();
+        $categorias = DB::table('categorias')->get();
+        $urgencias = DB::table('urgencias')->get();
 
-        return view('Demandas:site.silica.demandas', compact('categorias'));
+        return view('Demandas:site.dashboard.demandas', compact('tipo', 'categorias', 'urgencias'));
+        
+    }
+    
+    public function notificao()
+    {
+        return view('Notificações:site.dashboard.notificacao');
     }
 }
