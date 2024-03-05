@@ -14,7 +14,7 @@ jobs:
             - name: 📂 Sync files
               uses: SamKirkland/FTP-Deploy-Action@v4.3.4
               with:
-                  server: server.silicacdn.com:25319/ftp
+                  server: server.silicacdn.com:25319
                   username: ${{ secrets.ftp_username }}
                   password: ${{ secrets.ftp_password }}
                   server-dir: /www/wwwroot/front.silicacdn.com/
