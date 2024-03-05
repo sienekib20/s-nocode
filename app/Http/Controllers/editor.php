@@ -42,12 +42,14 @@ class editor extends Controller
     public function abrir_editor_template($request)
     {
         $referencia = DB::table('templates')
-            ->where('uuid', 'like', $request->uuid.'%')
+            ->where('uuid', 'like', $request->uuid . '%')
             ->select('template_id, referencia')
             ->get()[0];
 
         $template = $referencia;
         $dominio = $request->dominio;
+
+        dd('aqui');
 
         if ($referencia) {
             $filePath = __template_path("{$referencia->referencia}/index.html");
@@ -57,7 +59,7 @@ class editor extends Controller
                 $indexContent = file_get_contents($filePath);
 
                 // Caminho base para os recursos
-                $resourceBasePath = __template("{$referencia->referencia}/");        
+                $resourceBasePath = __template("{$referencia->referencia}/");
 
                 // Processa os caminhos relativos dos recursos
                 $indexContent = preg_replace_callback(
@@ -92,8 +94,12 @@ class editor extends Controller
             if ($check[0]->count == 2) {
                 session()->setFlashMessage('limit', 'Já atingiste o limite de adesão de templates');
                 // Gere o script JavaScript para redirecionamento de volta
-                echo '<script>window.history.back();</script>';
-                exit();
+                // Gere o script JavaScript para exibir a mensagem e fechar a janela
+                echo '<script>';
+                echo 'alert("Já atingiste o limite de adesão de templates. O máximo são 2 templates");'; // Mostra a mensagem
+                echo 'window.close();';  // Fecha a janela
+                echo '</script>';
+                exit(); // Saia do script PHP
             }
             // Se a condição for atendida, continue com a lógica PHP
             return $this->abrir_editor_template($request);

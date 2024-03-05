@@ -57,7 +57,7 @@
             <div class="gjs-logo-version" style="display: none"></div>
         </div>
     </div>
-
+    <?php dd('aqui') ?>
     <div id="editor" style="height:0px; overflow:hidden">
         <iframe src="<?= __template($red) ?>" frameborder="0"></iframe>
     </div>
