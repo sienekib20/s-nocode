@@ -18,3 +18,8 @@ jobs:
                   username: ${{ secrets.ftp_username }}
                   password: ${{ secrets.ftp_password }}
                   server-dir: /front.silicacdn.com/
+                  exclude: |
+                      **/.git*
+                      **/.git*/**
+                      **/node_modules/**
+                      fileToExclude.txt
