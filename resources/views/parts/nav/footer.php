@@ -11,7 +11,7 @@
                                 <input type="text" name="email" class="form-input memail" placeholder="Email">
                             </div>
                             <div class="col-2 px-0">
-                                <button class="btn btn-orange mt-0 btn_get btn_get_two" type="submit"><span class="fas fa-send"></span></button>
+                                <button class="btn btn-orange mt-0 btn_get btn_get_two" type="button"><span class="fas fa-send"></span></button>
                             </div>
                             <p class="mchimp-errmessage" style="display: none;"></p>
                             <p class="mchimp-sucmessage" style="display: none;"></p>

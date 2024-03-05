@@ -76,7 +76,7 @@
                             <h4 class="title d-block mt-5">Não achou a tua solução?</h4>
                             <small class="ff">Se não consegue achar a resposta da tua pergunta nos FAQs, <br> podes nos contactar sempre. Deixe aqui a sua pergunta, e vamos responder</small>
 
-                            <form action="<?= route('purpose') ?>" method="post" class="col-12 col-lg-10 px-0 mt-5">
+                            <form action="<?= route('purpose') ?>" id="faqsForm" method="post" class="col-12 col-lg-10 px-0 mt-5">
                                 <div class="input-group">
                                     <input type="text" name="pergunta" class="form-input" placeholder="Menciona aqui a tua pergunta">
                                 </div>
@@ -113,6 +113,7 @@
     applyDarkNavbar();
     $(document).ready(() => {
         if ($('.session_message').val() != '') {
+            alert($('.session_message').val());
             $('.cool-alert').addClass('active');
             $('.cool-alert-title').text('Aviso');
             $('.cool-alert-text').text($('.session_message').val());
@@ -129,7 +130,7 @@
         $('#typeFrequenteQuestion').on('input', (e) => {
             const formData = new FormData(document.getElementById('formTrigger'));
             const xhr = new XMLHttpRequest();
-            const url = 'http://localhost:8000' + $('#faq-get').val();
+            const url = $('#faq-get').val();
 
             xhr.open('POST', url);
             xhr.onload = () => {

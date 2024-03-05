@@ -22,6 +22,41 @@ class contacts extends Controller
     }
 
     // Cria um registo na DB
+    public function intro_mail(Request $request)
+    {
+        if (!filter_var($request->email, FILTER_SANITIZE_EMAIL)) {
+            return response()->json('email inválido');
+        }
+        $result = DB::table('mensagens')->insert(['conta_id' => $request->account, 'expediente' => $request->username, 'mail' => $request->email, 'telefone' => '', 'mensagem' => $request->mensagem, 'causas' => 'sem causas']);
+
+        if ($result) {
+            return response()->json('enviado com sucesso');
+        }
+
+        return response()->json('algo deu errado, tente mais tarde');
+    }
+
+    public function own_mail(Request $request)
+    {
+        $causas = '';
+        if (!is_null($request->c_create)) $causas .= $request->c_create.';';
+        if (!is_null($request->c_features)) $causas .= $request->c_features.';';
+        if (!is_null($request->c_adesao)) $causas .= $request->c_adesao.';';
+        if (!is_null($request->c_createc)) $causas .= $request->c_createc.';';
+        if (!is_null($request->c_feed)) $causas .= $request->c_feed.';';
+        if (!is_null($request->c_outro)) $causas .= $request->c_outro;
+
+        if (!filter_var($request->email, FILTER_SANITIZE_EMAIL)) {
+            return response()->json('email inválido');
+        }
+        $result = DB::table('mensagens')->insert(['conta_id' => $request->account, 'expediente' => $request->username, 'mail' => $request->email, 'telefone' => $request->telefone, 'mensagem' => $request->mensagem, 'causas' => $causas]);
+
+        if ($result) {
+            return response()->json('enviado com sucesso');
+        }
+
+        return response()->json('algo deu errado, tente mais tarde');
+    }
 
     public function store(Request $request)
     {

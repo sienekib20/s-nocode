@@ -19,7 +19,7 @@
 
 <body>
     <div class="wrapper">
-        <?= parts('nav.wr-navbar-alt') ?>
+        <?= parts('nav.wr-navbar') ?>
 
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
@@ -31,10 +31,13 @@
                     <div class="card">
                         <div class="card-top">
                             <div class="container-sm">
-                                <div class="row">
-                                    <div class="card-title col-12">
+                                <div class="row row-no-margin">
+                                    <div class="card-title col-10">
                                         <h4 class="title d-block">Visão geral</h4>
                                         <small class="ff">Controle geral dos teus dados.</small>
+                                    </div>
+                                    <div class="d-flex justify-content-flex-end px-0 col-2">
+                                        <?= parts('nav.wr-hamburguer') ?>
                                     </div>
                                 </div>
                             </div>
@@ -46,21 +49,21 @@
                                     <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-grid-fill"></span>
-                                            <span class="text-muted">10</span>
+                                            <span class="text-muted"><?= $templateUsuario->total ?></span>
                                             <small class="text-muted">Websites</small>
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-megaphone"></span>
-                                            <span class="text-muted">0</span>
+                                            <span class="text-muted"><?= $leads->total ?></span>
                                             <small class="text-muted">Leads</small>
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-md-4 col-lg-3">
                                         <a href="#" class="service">
                                             <span class="bi bi-layers-fill"></span>
-                                            <span class="text-muted">0</span>
+                                            <span class="text-muted"><?= $encomendas->total ?></span>
                                             <small class="text-muted">Encomendas</small>
                                         </a>
                                     </div>
@@ -94,4 +97,5 @@
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
 <script>
+    applyDarkNavbar();
 </script>

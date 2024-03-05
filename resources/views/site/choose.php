@@ -40,7 +40,7 @@
                             <div class="col-12">
                                 <div href="#" class="w-100 d-flex contain_choose">
                                     <a href="<?= route('live', $template->referencia) ?>" target="_blank" class="target_visible"></a>
-                                    <img src="<?= __template("defaults/{$template->referencia}/cover/$template->capa") ?>" alt="">
+                                    <img src="<?= "/html-templates/$template->capa" ?>" alt="">
                                 </div>
 
                                 <div class="card-title">
@@ -58,7 +58,7 @@
 
                                 <div class="row row-no-margin">
                                     <a href="<?= route('live', $template->referencia) ?>" target="_blank" class="btn btn-orange">Pre-visualizar</a>
-                                    <a href="<?= route('shot', explode('-', $template->uuid)[0]) ?>" id="viewShot" name="<?= explode('-', $template->uuid)[0] ?>" target="_blank" class="btn btn-outline-orange">Ver Screenshot</a>
+                                    <a href="<?= "/html-templates/$template->capa" ?>" target="_blank" id="viewShot" name="<?= explode('-', $template->uuid)[0] ?>" target="_blank" class="btn btn-outline-orange">Ver Screenshot</a>
                                     <a href="" class="btn btn-outline-orange">Baixar</a>
                                 </div>
 

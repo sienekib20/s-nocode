@@ -74,18 +74,18 @@
                             </div> <!--/.cus-item-->
                         </div> <!--/.col-->
                         <div class="col-12 col-md-1"></div>
-                        <form action="" class="col-12 col-md-7 mt-5 mt-md-0">
+                        <form action="" class="col-12 col-md-7 mt-5 mt-md-0" id="introMailForm">
                             <div class="input-group">
-                                <input type="text" class="form-input" placeholder="Seu nome">
+                                <input type="text" name="username" class="form-input" placeholder="Seu nome" required>
                             </div>
                             <div class="input-group my-3">
-                                <input type="text" class="form-input" placeholder="Seu email">
+                                <input type="text" name="email" class="form-input" placeholder="Seu email" required>
                             </div>
                             <div class="input-group mb-3">
-                                <textarea name="" class="form-input" cols="30" rows="4" placeholder="Nos fale da tua preocupação"></textarea>
+                                <textarea name="mensagem" class="form-input" cols="30" rows="4" placeholder="Nos fale da tua preocupação" required></textarea>
                             </div>
                             <div class="input-group">
-                                <button type="submit" class="btn btn-orange input-block">Enviar</button>
+                                <button type="submit" id="sendIntroMailForm" class="btn btn-orange input-block">Enviar</button>
                             </div>
                         </form>
                     </div>
@@ -105,3 +105,31 @@
 </body>
 
 </html>
+<?php use \Sienekib\Mehael\Support\Auth;  if(Auth::check()):  ?>
+<input type="hidden" id="activeUserId" value="<?= Auth::user()->id ?>">
+<?php endif; ?>
+<script>
+    $('#introMailForm').submit((e) => {
+        e.preventDefault();
+        var activeUser = $('#activeUserId').val();
+        if (activeUser) {
+            const formData = new FormData(e.target);
+                formData.append('account', activeUser);
+            $.ajax({
+                url: '/introMail',
+                method: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    console.log(res)
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+        alert('Entre com a sua conta!');
+    });
+</script>

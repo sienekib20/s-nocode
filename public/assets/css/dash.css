@@ -7,19 +7,13 @@
 }
 
 .contain-wrapper [class*="container"] {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-            align-items: flex-start;
+    align-items: flex-start;
 }
 
 .wr-sidebar {
     width: 20%;
-    top: -webkit-calc(3rem + 50px);
     top: calc(3rem + 50px);
-    position: -webkit-sticky;
     position: sticky;
 }
 
@@ -44,12 +38,8 @@
     color: #000;
     width: 100%;
     height: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+    align-items: center;
     gap: 10px;
     padding: 0 1rem;
     border-radius: 2px;
@@ -68,4 +58,64 @@
 .contain-pages {
     width: 80%;
     position: relative;
+    transition: width 0.15s ease-in-out;
+}
+
+.contain-pages .card-top .row {
+    width: 100%;
+}
+
+.wr-sidebar-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.15s ease;
+}
+
+@media (max-width: 992px) {
+    .wr-sidebar-overlay {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 1111;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .wr-sidebar-overlay.show {
+        opacity: 1 !important;
+        pointer-events: all;
+        cursor: pointer;
+    }
+    .wr-sidebar {
+        right: -100%;
+        width: 70px;
+        position: fixed;
+        z-index: 11111;
+        border-radius: 10px 0 0 10px;
+        background-color: #212529;
+        transition: right 0.15s linear;    
+    }
+    .wr-sidebar.show {
+        right: 0;
+    }
+    .wr-sidebar .wr-sidebar-item {
+        height: 45px;
+    }
+    .wr-sidebar .wr-sidebar-link {
+        color: #8a8a8a;
+        justify-content: center;
+    }
+    .wr-sidebar .wr-sidebar-item:hover .wr-sidebar-link {
+        color: #f71;
+    }
+    .wr-sidebar .wr-sidebar-link.active {
+        color: #fff !important;
+    }
+    .wr-sidebar .wr-sidebar-link .text {
+        display: none;
+    }
+    .contain-pages {
+        width: 100%;
+    }
+    .contain-wrapper .container-sm {
+        padding: 0;
+    }
 }

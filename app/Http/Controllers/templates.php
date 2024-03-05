@@ -33,7 +33,7 @@ class templates extends Controller
         if ($request->method() == "POST") {
             $zip_archive = $request->fileTempName('zip');
             $zip_folder_name = $request->fileOriginalName('zip');;
-            $zip_destination = abs_path() . '/public/templates/defaults';
+            $zip_destination = abs_path() . '/public/templates';
 
             if ($request->fileExtension('zip') == 'zip') {
                 // Descompacta o arquivo zip
@@ -43,7 +43,7 @@ class templates extends Controller
                     $zip->extractTo($zip_destination);
                     $zip->close();
 
-                    $cover_destination = "{$zip_destination}/{$zip_folder_name}/cover/";
+                    $cover_destination = abs_path() . "/public/html-templates/";
                     if (!is_dir($cover_destination)) {
                         mkdir($cover_destination, 0777, true);
                     }
@@ -121,14 +121,14 @@ class templates extends Controller
 
 
         if ($referencia) {
-            $filePath = __template_path("defaults/{$referencia->referencia}/index.html");
-            
+            $filePath = __template_path("{$referencia->referencia}/index.html");
+            $red = "{$referencia->referencia}/index.html";
             
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);
 
                 // Caminho base para os recursos
-                $resourceBasePath = __template("defaults/{$referencia->referencia}/");
+                $resourceBasePath = __template("{$referencia->referencia}/");
                 //$resourceBasePath = "/template/v1/{$referencia->referencia}/";
 
                 // Processa os caminhos relativos dos recursos
@@ -146,7 +146,7 @@ class templates extends Controller
 
                 //dd($indexContent);
                 //dd($indexContent);
-                return view('Preview:app.site.preview', compact('indexContent'));
+                return view('Preview:app.site.preview', compact('indexContent', 'red'));
             }
         }
 

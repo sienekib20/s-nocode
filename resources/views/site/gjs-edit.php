@@ -59,7 +59,7 @@
     </div>
 
     <div id="editor" style="height:0px; overflow:hidden">
-        <?php require  $indexContent; ?>
+        <iframe src="<?= __template($red) ?>" frameborder="0"></iframe>
     </div>
 
 

@@ -43,13 +43,13 @@ class data extends Controller
         $dominio = $request->dominio;
 
         if ($referencia) {
-            $filePath = __template_path("defaults/{$referencia->referencia}/index.html");
+            $filePath = __template_path("{$referencia->referencia}/index.html");
 
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);
 
                 // Caminho base para os recursos
-                $resourceBasePath = "/storage/templates/defaults/{$referencia->referencia}/";
+                $resourceBasePath = "/templates/{$referencia->referencia}/";
 
                 // Processa os caminhos relativos dos recursos
                 $indexContent = preg_replace_callback(
@@ -170,10 +170,12 @@ class data extends Controller
     private function salvar_no_storage($dominio, $template)
     {
 
-        
-        $template_path_default = $this->system->build_path('storage', 'templates.usuarios.' . $dominio);
+        $template_path_default = abs_path() . '/public/delivered/' . $dominio;
+        if (!is_dir($template_path_default)) {
+            mkdir($template_path_default, 0777, true);
+        }
 
-        return file_put_contents($template_path_default . 'index.php', $template);
+        return file_put_contents($template_path_default . '/index.php', $template);
     }
 
     private function usario_já_usa_este_template($usuario_id, $template_id)

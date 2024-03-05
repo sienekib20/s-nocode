@@ -19,7 +19,7 @@
 
 <body>
     <div class="wrapper">
-        <?= parts('nav.wr-navbar-alt') ?>
+        <?= parts('nav.wr-navbar') ?>
 
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
@@ -32,10 +32,14 @@
                         <div class="card-top">
                             <div class="container-sm">
                                 <div class="row">
-                                    <div class="card-title col-12">
+                                    <div class="card-title col-10">
                                         <h4 class="title d-block">Encomendar um website</h4>
                                         <small class="ff">Precisas ter um website personzalidade, deixe aqui a tua preocupação</small>
                                         <small class="text-muted d-block">Avaliamos o teu pedido e respondemos em breve.</small>
+                                    </div>
+
+                                    <div class="d-flex justify-content-flex-end px-0 col-2">
+                                        <?= parts('nav.wr-hamburguer') ?>
                                     </div>
                                 </div>
                             </div>
@@ -135,4 +139,5 @@
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
 <script>
+    applyDarkNavbar();
 </script>

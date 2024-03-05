@@ -50,13 +50,14 @@ class editor extends Controller
         $dominio = $request->dominio;
 
         if ($referencia) {
-            $filePath = __template_path("defaults/{$referencia->referencia}/index.html");
+            $filePath = __template_path("{$referencia->referencia}/index.html");
+            $red = "{$referencia->referencia}/index.html";
 
             if (file_exists($filePath)) {
                 $indexContent = file_get_contents($filePath);
 
                 // Caminho base para os recursos
-                $resourceBasePath = __template("defaults/{$referencia->referencia}/");        
+                $resourceBasePath = __template("{$referencia->referencia}/");        
 
                 // Processa os caminhos relativos dos recursos
                 $indexContent = preg_replace_callback(
@@ -71,7 +72,7 @@ class editor extends Controller
                     $indexContent
                 );
                 //dd($indexContent);
-                return view('web editor:site.gjs-editor', compact('indexContent', 'template', 'dominio'));
+                return view('web editor:site.gjs-editor', compact('indexContent', 'template', 'dominio', 'red'));
                 // return view('web editor:site.editor', compact('indexContent', 'template', 'dominio'));
             }
         }

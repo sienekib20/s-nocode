@@ -17,10 +17,16 @@ class silica extends Controller
             ->select('count(template_id) as total')
             ->where('parceiro_id', '=', $id)->get()[0];
 
-        $subscricoes = 0;
-        $encomendas = 0;
+        $leads = DB::table('mensagens')
+            ->select('count(mensagen_id) as total')
+            ->where('conta_id', '=', $id)->get()[0];
 
-        return view('Home:site.dashboard.index', compact('templateUsuario', 'subscricoes', 'encomendas'));
+        $subscricoes = 0;
+        $encomendas = DB::table('pedidos_clientes')
+            ->select('count(pedidos_cliente_id) as total')
+            ->where('expediente', '=', $id)->get()[0];
+
+        return view('Home:site.dashboard.index', compact('templateUsuario', 'leads', 'encomendas'));
     }
 
     public function get_user_uuid(Request $request)

@@ -24,7 +24,7 @@ use Sienekib\Mehael\Support\Auth; ?>
                 </a>
             </div>
             <div class="wr-navbar-item">
-                <a href="<?= route('/') ?>" class="wr-navbar-link">
+                <a href="<?= route('/') ?>" class="wr-navbar-link" id="closeIt">
                     <p>Planos</p>
                 </a>
             </div>
@@ -60,10 +60,15 @@ use Sienekib\Mehael\Support\Auth; ?>
                 </div>
             <?php endif; ?>
         </div>
+        <div class="wr-navbar-hamburguer ml-auto">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
     </div>
 
 </nav>
-
+<div class="wr-sidebar-overlay"></div>
 
 <?= parts('nav.wr-loader') ?>
 
@@ -103,4 +108,11 @@ use Sienekib\Mehael\Support\Auth; ?>
         $('.wr-navbar').addClass('dark');
     }
 
+    $('.wr-navbar-hamburguer').click((e) => {
+        $('.wr-navbar-items').toggleClass('expanded');
+    });
+    $('#closeIt').click(function(e) {
+        e.preventDefault();
+        alert('Indisponível de momento');
+    })
 </script>

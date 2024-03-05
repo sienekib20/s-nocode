@@ -20,7 +20,7 @@
 
 <body>
     <div class="wrapper">
-        <?= parts('nav.wr-navbar-alt') ?>
+        <?= parts('nav.wr-navbar') ?>
 
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
@@ -33,9 +33,13 @@
                         <div class="card-top">
                             <div class="container-sm">
                                 <div class="row">
-                                    <div class="card-title col-12">
+                                    <div class="card-title col-10">
                                         <h4 class="title d-block">Notificações</h4>
                                         <small class="ff">Fique ligado, accompanhe a evolução do teu negócio</small>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-flex-end px-0 col-2">
+                                        <?= parts('nav.wr-hamburguer') ?>
                                     </div>
                                 </div>
                             </div>
@@ -95,4 +99,5 @@
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
 <script>
+    applyDarkNavbar();
 </script>

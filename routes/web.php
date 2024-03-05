@@ -87,6 +87,8 @@ Route::prefix('dash')->group('auth:authorize', function () {
     Route::get('/(id:any)/notificao', [silica::class, 'notificao']);
 });
 Route::post('/userId', [silica::class, 'get_user_uuid']);
+Route::post('/introMail', [contacts::class, 'intro_mail']);
+Route::post('/ownMail', [contacts::class, 'own_mail']);
 
 /*Route::post('/usar', [data::class, 'validar_uso']);*/
 Route::get('/meus-templates', [templates::class, 'temp_usuario']);

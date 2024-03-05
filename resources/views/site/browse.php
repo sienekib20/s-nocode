@@ -76,7 +76,7 @@
                             <div class="col-12 mt-3 col-md-5 col-lg-3">
                                 <a href="<?= route('view', explode('-', $template->uuid)[0]) ?>" class="model">
                                     <div class="model-img">
-                                        <img src="<?= __template("defaults/{$template->referencia}/cover/{$template->capa}") ?>" alt="">
+                                        <img src="<?= "/html-templates/{$template->capa}" ?>" alt="">
                                     </div>
                                     <span class="title"><?= $template->titulo ?></span>
                                 </a>
@@ -141,7 +141,7 @@
                             templateModel += '<div class="col-12 mt-3 col-md-5 col-lg-3">';
                             templateModel += '<a href="/view/' + value.uuid.split('-')[0] + '" class="model">';
                             templateModel += '<div class="model-img">';
-                            templateModel += '<img src="/templates/defaults/' + value.referencia + '/cover/' + value.capa + '" alt=""/>';
+                            templateModel += '<img src="/html-templates/' + value.capa + '" alt=""/>';
                             templateModel += '</div>';
                             templateModel += '<span class="title">' + value.titulo + '</span>';
                             templateModel += '</a>';

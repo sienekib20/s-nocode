@@ -20,7 +20,7 @@
 
 <body>
     <div class="wrapper">
-        <?= parts('nav.wr-navbar-alt') ?>
+        <?= parts('nav.wr-navbar') ?>
 
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
@@ -33,26 +33,38 @@
                         <div class="card-top">
                             <div class="container-sm">
                                 <div class="row">
-                                    <div class="card-title col-12">
+                                    <div class="card-title col-10">
                                         <h4 class="title d-block">Meus websites</h4>
                                         <small class="ff">Todos os websites que já adquiriste.</small>
                                         <small class="d-block text-muted"> <span class="bi bi-arrow-right"></span> Só podes ter 2 websites no máximo por enquanto</small>
+                                    </div>
+                                    <div class="d-flex justify-content-flex-end px-0 col-2">
+                                        <?= parts('nav.wr-hamburguer') ?>
                                     </div>
                                 </div>
                             </div>
                         </div> <!--/.card-top-->
                         <div class="card-body mt-4">
                             <div class="row">
-                                <form action="" class="col-md-8">
+                                <form action="" class="col-12 col-lg-7">
                                     <div class="input-group">
                                         <input type="text" id="liveSearch" class="form-input" placeholder="Pesquisar template...">
                                         <span class="bi bi-search"></span>
                                     </div>
                                 </form>
-                                <div class="col-md-4 mt-2 mt-md-0">
-                                    <a href="" class="btn btn-white"> <span class="fas fa-play"></span> Pausar </a>
-                                    <a href="" class="btn btn-primary"> <span class="fas fa-edit"></span> editar </a>
-                                    <a href="" class="btn btn-orange"> <span class="fas fa-trash"></span> remover </a>
+                                <div class="col-12 col-lg-5 mt-2 mt-lg-0 contain-websites-links">
+                                    <a href="" class="btn btn-white" title="pausar" > 
+                                        <span class="fas fa-play"></span>
+                                    </a>
+                                    <a href="" class="btn btn-primary" title="editar">
+                                        <span class="fas fa-edit"></span>
+                                    </a>
+                                    <a href="" class="btn btn-orange" title="deletar">
+                                        <span class="fas fa-trash"></span>
+                                    </a>
+                                    <a href="" class="btn btn-white" title="abrir" id="aa"> 
+                                        <span class="fas fa-arrow-up"></span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="wr-table-responsive">
@@ -72,11 +84,11 @@
                                         <?php if (!empty($data)): ?>
                                         <?php foreach ($data as $d) : ?>
                                             <tr>
-                                                <td><input type="checkbox" id=""></td> 
+                                                <td><input type="checkbox" id="webcheck-<?= $d->temp_parceiro_id ?>" class="currentWebsiteCheck"></td> 
                                                 <td><?= $d->temp_parceiro_id ?></td>
                                                 <td><?= $d->titulo ?></td>
                                                 <td><?= $d->dominio ?></td>
-                                                <td><?= 'Em execuçaõ' ?></td>
+                                                <td> <span class="statusText"><?= 'Em execuçaõ' ?></span> <a href="" class="changeStatus"><span class="fas fa-play" style="pointer-events: none;"></span></a> </td>
                                                 <td><?= '' ?></td>
                                                 <td><?= $d->created_at ?></td>
                                             </tr>
@@ -110,4 +122,43 @@
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
 <script>
+    applyDarkNavbar();
+    $('#aa').click(function(e) {
+        e.preventDefault();
+        var tab = window.open("", "_self", "");
+        tab.close();
+    });
+
+    $(document).ready(function() {
+        const currentWebsiteChecks = document.querySelectorAll('.currentWebsiteCheck');
+            $('.contain-websites-links a').click(function(e) {
+                e.preventDefault();
+                var actionToExecute = $(this).attr('title');
+                var countChecked = -1;
+                currentWebsiteChecks.forEach(function(currentWebsiteCheck) {
+                    if (currentWebsiteCheck.checked) {
+                        countChecked++;
+                        var currentItemID = currentWebsiteCheck.id.split('-')[1];
+                        if (actionToExecute == 'deletar') {
+                            alert('Tens a certeza de que precisas deletar esse website ?');
+                        }
+                        return;
+                    }
+                });
+                if (countChecked == -1) {
+                    alert('Por favor seleciona um item');
+                }
+            });
+            $('.changeStatus').click(function(e) {
+                e.preventDefault();
+                var iconText = $(this).find('span');
+                if (iconText[0].classList[1] == 'fa-play') {
+                    iconText[0].className = 'fas fa-pause';    
+                } else {
+                    iconText[0].className = 'fas fa-play';    
+                }
+            });
+    });
+
+
 </script>

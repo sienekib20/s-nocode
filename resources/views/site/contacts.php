@@ -63,22 +63,22 @@
                             </div> <!--/.cus-item-->
                         </div> <!--/.col-->
                         <div class="col-12 col-md-1"></div>
-                        <form action="" class="col-12 col-md-7 mt-5 mt-md-0">
+                        <form action="" class="col-12 col-md-7 mt-5 mt-md-0" id="contactForm">
                             <div class="input-group">
-                                <input type="text" class="form-input" placeholder="Seu nome">
+                                <input type="text" name="username" class="form-input" required placeholder="Seu nome">
                             </div>
                             <div class="input-group my-3">
                                 <div class="row">
                                     <div class="col-12 col-md-6">
-                                        <input type="text" class="form-input" placeholder="Seu email">
+                                        <input type="text" name="email" class="form-input" required placeholder="Seu email">
                                     </div>
                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
-                                        <input type="text" class="form-input" placeholder="Seu Telefone">
+                                        <input type="text" name="telefone" class="form-input" required placeholder="Seu Telefone">
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <textarea name="" class="form-input" cols="30" rows="4" placeholder="Nos fale da tua preocupação"></textarea>
+                                <textarea name="mensagem" class="form-input" cols="30" rows="4" required placeholder="Nos fale da tua preocupação"></textarea>
                             </div>
                             <div class="input-group">
                                 <button type="submit" class="btn btn-orange input-block">Enviar</button>
@@ -93,36 +93,36 @@
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <label for="web" class="form-input mt-3">
-                                            <input type="checkbox" id="web"> Criação de website
+                                            <input type="checkbox" name="c_create" id="web"> Criação de website
                                         </label>
                                     </div>
 
                                     <div class="input-group">
                                         <label for="features" class="form-input mt-3">
-                                            <input type="checkbox" id="features"> Funcionalidades deste website
+                                            <input type="checkbox" name="c_features" id="features"> Funcionalidades deste website
                                         </label>
                                     </div>
 
                                     <div class="input-group">
                                         <label for="adesao" class="form-input mt-3">
-                                            <input type="checkbox" id="adesao"> Adesão de planos
+                                            <input type="checkbox" name="c_adesao" id="adesao"> Adesão de planos
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <label for="create" class="form-input mt-3">
-                                            <input type="checkbox" id="create"> Criação de contéudos e encomendas
+                                            <input type="checkbox" name="c_createc" id="create"> Criação de contéudos e encomendas
                                         </label>
                                     </div>
                                     <div class="input-group">
                                         <label for="feed" class="form-input mt-3">
-                                            <input type="checkbox" id="feed"> Feedback dos clientes
+                                            <input type="checkbox" name="c_feed" id="feed"> Feedback dos clientes
                                         </label>
                                     </div>
                                     <div class="input-group">
                                         <label for="outro" class="form-input mt-3">
-                                            <input type="checkbox" id="outro"> Outro
+                                            <input type="checkbox" name="c_outro" id="outro"> Outro
                                         </label>
                                     </div>
                                 </div>
@@ -145,7 +145,33 @@
 </body>
 
 </html>
+<?php use \Sienekib\Mehael\Support\Auth;  if(Auth::check()):  ?>
+<input type="hidden" id="activeUserId_" value="<?= Auth::user()->id ?>">
+<?php endif; ?>
 
 <script>
     applyDarkNavbar();
+    $('#contactForm').submit((e) => {
+        e.preventDefault();
+        var activeUser = $('#activeUserId_').val();
+        if (activeUser) {
+            const formData = new FormData(e.target);
+                formData.append('account', activeUser);
+            $.ajax({
+                url: '/introMail',
+                method: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    console.log(res)
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+        alert('Entre com a sua conta!');
+    });
 </script>
