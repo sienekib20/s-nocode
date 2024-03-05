@@ -17,4 +17,4 @@ jobs:
                   server: server.silicacdn.com
                   username: ${{ secrets.ftp_username }}
                   password: ${{ secrets.ftp_password }}
-                  server-dir: ../front.silicacdn.com/../
+                  server-dir: /www/wwwroot/front.silicacdn.com/
