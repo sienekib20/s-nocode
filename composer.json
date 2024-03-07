@@ -1,5 +1,6 @@
 {
     "name": "sienekib/mehael",
+    "description": "A webcreator project",
     "type": "project",
     "require": {
         "php":"^8.1",
