@@ -8,11 +8,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= asset('css/inter/inter.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/fonts/helvetica/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/alquimist.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/frequent.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/navbar.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
 
 </head>

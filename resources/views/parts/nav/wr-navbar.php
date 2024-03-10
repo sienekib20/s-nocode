@@ -10,7 +10,7 @@ use Sienekib\Mehael\Support\Auth; ?>
             <span class="">SÍLICAPAGES</span>
         </div>
         <div class="wr-navbar-items">
-            <div class="wr-navbar-item">
+            <div class="wr-navbar-item ml-auto">
                 <a href="<?= route('/') ?>" class="wr-navbar-link <?= request()->path() == '/' ? 'active' : '' ?>">
                     <p>Início</p>
                 </a>
@@ -30,24 +30,24 @@ use Sienekib\Mehael\Support\Auth; ?>
                     <p>Planos</p>
                 </a>
             </div>
-            <div class="wr-navbar-item">
+            <!--<div class="wr-navbar-item">
                 <a href="<?= route('faqs') ?>" class="wr-navbar-link <?= request()->path() == '/faqs' ? 'active' : '' ?>">
                     <p>Faqs</p>
                 </a>
-            </div>
-            <div class="wr-navbar-item">
+            </div>-->
+            <!--<div class="wr-navbar-item">
                 <a href="<?= route('contactos') ?>" class="wr-navbar-link <?= request()->path() == '/contactos' ? 'active' : '' ?>">
                     <p>Contactos</p>
                 </a>
-            </div>
+            </div> -->
             <?php if (!Auth::check()) :  ?>
-                <div class="wr-navbar-item ml-auto">
+                <div class="wr-navbar-item">
                     <a href="<?= route('entrar') ?>" class="wr-navbar-link">
                         <p>Fazer login</p>
                     </a>
                 </div>
                 <div class="wr-navbar-item wr-nav-btn">
-                    <a href="<?= route('entrar') ?>" class="wr-navbar-link">
+                    <a href="<?= route('browse') ?>" class="wr-navbar-link">
                         <p>Explorar agora</p>
                     </a>
                 </div>

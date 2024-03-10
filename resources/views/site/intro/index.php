@@ -32,15 +32,15 @@
                     <div class="row">
                         <div class="col-lg-6 col-12">
                             <div class="step">
-                                <h5 class="card-heading my-4 ai-center">Crie um site</h5>
+                                <h5 class="card-heading my-4 ai-center" style="color: #000">Crie um site</h5>
                                 <span>Escolha um dos nossos premiados templates, fontes de designer e paletas de cores.</span>
                             </div>
                             <div class="step">
-                                <h5 class="card-heading my-4 ai-center">Venda produtos e serviços</h5>
+                                <h5 class="card-heading my-4 ai-center" style="color: #000">Venda produtos e serviços</h5>
                                 <span>Abra uma loja de eCommerce, marque horários ou cobre pelos seus conhecimentos - tudo em uma plataforma criada só para você.</span>
                             </div>
                             <div class="step">
-                                <h5 class="card-heading my-4 ai-center">Divulgue a sua empresa</h5>
+                                <h5 class="card-heading my-4 ai-center" style="color: #000">Divulgue a sua empresa</h5>
                                 <span>As campanhas por e-mail e as ferramentas de redes sociais com a sua marca facilitam a retenção de clientes e o aumento da sua base.</span>
                             </div>
                         </div>
@@ -55,6 +55,45 @@
         </div>
 
         <?= parts('services.sotfwares') ?>
+
+        <div class="my-5"></div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <h3 class="card-heading text-black">Temos websites prontos <br> para todo tipo de negócio</h3>
+                </div>
+                <div class="my-5"></div>
+                <div class="thinked-dir">
+                    <div class="container">
+                        <div class="row" style="justify-content: flex-end">
+                            <span class="fas fa-arrow-left" id="left"></span>
+                            <span class="fas fa-arrow-right active" id="right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-4"></div>
+                <div class="thinked">
+                    <a href="<?= route('browse') ?>" class="thinked-item">
+                        <div class="thinked-overlay"></div>
+                        <img src="<?= asset('img/1675138925_107640.webp') ?>" alt="">
+                        <span class="text-white">Restaurante</span>
+                    </a>
+                    <a href="<?= route('browse') ?>" class="thinked-item">
+                        <div class="thinked-overlay"></div>
+                        <img src="<?= asset('img/826864-Fitness-Brown-haired-Dumbbells-Workout.jpg') ?>" alt="">
+                        <span class="text-white">Saúde</span>
+                    </a>
+                    <a href="<?= route('browse') ?>" class="thinked-item">
+                        <div class="thinked-overlay"></div>
+                        <img src="<?= asset('img/woman-shopping-store.webp') ?>" alt="">
+                        <span class="text-white">E-commerce</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-5"></div>
 
         <?php
         $how_to = [
@@ -168,4 +207,24 @@ if (Auth::check()) :  ?>
         }
         alert('Entre com a sua conta!');
     });
+
+    const thinked = document.querySelector('.thinked');
+    const spanRight = document.querySelector('#right');
+    const spanLeft = document.querySelector('#left');
+    spanRight.addEventListener('click', function(event) {
+        var height = $('.thinked .thinked-item').height();
+        $('.thinked').animate({ scrollLeft: `+=${height}`}, 500);
+        spanRight.classList.remove('active');
+        spanLeft.classList.add('active');
+        //event.preventDefault();
+    });
+    spanLeft.addEventListener('click', function(event) {
+        var height = $('.thinked .thinked-item').height();
+        $('.thinked').animate({ scrollLeft: `-=${height}`}, 500);
+        spanRight.classList.add('active');
+        spanLeft.classList.remove('active');
+        //event.preventDefault();
+    });
+    
+    
 </script>

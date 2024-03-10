@@ -20,7 +20,7 @@
         <div class="container-sm">
             <div class="row">
                 <div class="card-title col-12">
-                    <h4 class="title d-block mt-5">Nossos softwares</h4>
+                    <h3 class="card-heading text-black d-block mt-5">Nossos softwares</h3>
                     <small class="ff">Os nossos clientes já sabem quem somos, o que oferecemos de melhor pra eles. <br> <span class="bi bi-arrow-right"></span> Alguns dos nossos serviços. descubra mais sobre nós <a href="https://silicaweb.ao/sfront/" target="_blank">clique aqui</a></small>
                 </div>
             </div>

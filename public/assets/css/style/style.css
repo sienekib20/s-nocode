@@ -2362,3 +2362,90 @@ asks
 .btn-call-center:hover .bi {
     opacity: 1;
 }
+
+
+/*
+thinked
+*/
+
+.thinked {
+    width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    padding-left: 8rem;
+    transition: 0.2s ease-in-out;
+}
+
+.thinked-item {
+    width: 45%;
+    height: 100%;   
+    min-width: 45%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.thinked-item .thinked-overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 11;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.thinked-item:hover img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+}
+
+.thinked-item img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    transition: 0.35s ease-in-out;
+}
+
+.thinked-item span {
+    position: absolute;
+    bottom: 10px;
+    left: 3%;
+    z-index: 111;
+}
+
+.thinked-dir span {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #000;
+    color: #8a8a8a;
+}
+
+.thinked-dir span.active {
+    color: #000;
+}
+
+.thinked-dir span + span {
+    margin-left: 1rem;
+}
+
+@media (max-width: 992px) {
+    .thinked {
+        flex-direction: column;
+        padding: 0 1rem;
+        margin: 0 auto;
+        max-width: 960px;
+    }
+    .thinked-item {
+        min-width: 100%;
+    }
+    .thinked-dir {
+        display: none;
+    }
+}
