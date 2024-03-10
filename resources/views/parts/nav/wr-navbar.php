@@ -55,7 +55,7 @@ use Sienekib\Mehael\Support\Auth; ?>
                 <?php else : ?>
                     <?php $path = '/' . explode('/', ltrim(request()->path(), '/'))[0] ?>
                     <input type="hidden" id="user-id" value="<?= Auth::user()->id ?>">
-                    <div class="wr-navbar-item ml-auto" style="white-space: nowrap; background-color: transparent;">
+                    <div class="wr-navbar-item" style="white-space: nowrap; background-color: transparent;">
                         <a href="<?= route('dash') ?>" id="myDash" class="wr-navbar-link <?= $path == '/dash' ? 'active' : '' ?>">
                             <p>Meu dashboard</p>
                         </a>
