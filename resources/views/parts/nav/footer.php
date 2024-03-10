@@ -1,10 +1,10 @@
 <footer class="new_footer_area bg_color">
     <div class="new_footer_top">
-        <div class="container-sm">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                        <h3 class="f-title f_600 t_color f_size_18">Fique conectado</h3>
+                        <h3 class="f-title f_600 t_color f_size_18" style="color: #fff !important">Fique conectado</h3>
                         <p>Mantenha-se actualizado, receba sempre as novidades que temos pra você!</p>
                         <form action="#" class="d-flex align-items-center f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
                             <div class="col-10 px-0">
@@ -18,7 +18,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 my-xxs-4 my-lg-0">
+                <div class="col-lg-3 col-md-6 my-4 my-lg-0">
                     <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
                         <h3 class="f-title f_600 t_color f_size_18">Sobre</h3>
                         <ul class="list-unstyled f_list">
@@ -31,7 +31,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-xxs-4 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
                         <h3 class="f-title f_600 t_color f_size_18">Ajuda</h3>
                         <ul class="list-unstyled f_list">
@@ -64,7 +64,7 @@
     </div>
     <div class="footer_bottom">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center text-white">
                 <div class="col-lg-6 col-sm-7">
                     <p class="mb-0 f_400">&copy;
                         <script>
@@ -74,7 +74,7 @@
                     </p>
                 </div>
                 <div class="col-lg-6 col-sm-5 text-right">
-                    <p>Design feito com <i class="icon_heart"></i> por <a href="https://www.facebook.com/profile.php?id=100091417419139" target="_blank">sienekib</a></p>
+                    <p>Desenvolvido com <i class="fas fa-heart"></i> por: <a href="https://www.facebook.com/profile.php?id=100091417419139" target="_blank" class="text-orange">Sienekib</a></p>
                 </div>
             </div>
         </div>

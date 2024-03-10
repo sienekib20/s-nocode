@@ -3,9 +3,11 @@
 use Sienekib\Mehael\Support\Auth; ?>
 
 <nav class="wr-navbar">
-    <div class="container-sm">
+<?= parts('nav.wr-loader') ?>
+    <div class="container">
         <div class="wr-navbar-title">
-            <span>WebCreator.<span class="colored">SP</span> </span>
+            <span class="bi bi-cloud-haze2"></span>
+            <span class="">SÍLICAPAGES</span>
         </div>
         <div class="wr-navbar-items">
             <div class="wr-navbar-item">
@@ -41,7 +43,12 @@ use Sienekib\Mehael\Support\Auth; ?>
             <?php if (!Auth::check()) :  ?>
                 <div class="wr-navbar-item ml-auto">
                     <a href="<?= route('entrar') ?>" class="wr-navbar-link">
-                        <p>Entrar</p>
+                        <p>Fazer login</p>
+                    </a>
+                </div>
+                <div class="wr-navbar-item wr-nav-btn">
+                    <a href="<?= route('entrar') ?>" class="wr-navbar-link">
+                        <p>Explorar agora</p>
                     </a>
                 </div>
             <?php else : ?>
@@ -67,10 +74,10 @@ use Sienekib\Mehael\Support\Auth; ?>
         </div>
     </div>
 
+    
 </nav>
 <div class="wr-sidebar-overlay"></div>
 
-<?= parts('nav.wr-loader') ?>
 
 <script>
     $(document).ready(() => {

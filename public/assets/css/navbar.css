@@ -7,9 +7,11 @@
 .wr-header img {
     max-width: 100%;
 }
+
 .wr-header {
+    top: -50px;
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     position: relative;
 }
 
@@ -20,33 +22,35 @@
     height: 100%;
     position: absolute;
     z-index: 1050;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.45);
 }
+
 .wr-header img {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     -o-object-position: center;
-       object-position: center;
+    object-position: center;
     position: absolute;
 }
 
 .wr-navbar {
     top: 0;
     width: 100%;
-    height: 50px;
+    height: 70px;
     z-index: 1080;
     position: fixed;
     font-family: 'Segoe UI';
     color: rgba(255, 255, 255, 0.7);
     transition: background-color 0.2s ease-in-out;
+    background-color: transparent;
 }
 
 .wr-navbar.dark {
-    background-color: #252729;
+    background-color: #000;
 }
 
 .wr-navbar [class*="container"] {
@@ -66,10 +70,16 @@
     align-self: flex-end;
 }
 
+.wr-navbar-item {
+    padding: 0 0.375rem;
+    height: 60% !important;
+}
+
 .wr-navbar-item,
 .wr-navbar-link {
     height: 100%;
     display: flex;
+    font-size: 1rem;
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.7);
@@ -77,11 +87,6 @@
 
 .wr-navbar-link p {
     margin: 0;
-}
-
-.wr-navbar-item.ml-auto {
-    padding: 0 1rem;
-    background-color: #F71;
 }
 
 .wr-navbar .wr-navbar-link.active,
@@ -95,22 +100,22 @@
 }
 
 .wr-navbar-title {
-    height: 100%;
+    height: 60%;
     display: flex;
     align-items: center;
-    color: #F71;
-    font-size: 1.3rem;
-    font-family: 'Inter-Bold';
+    color: #fff;
+    font-size: 1.2rem;
+    gap: 10px;
+    font-family: 'Helvetica Rounded Bold';
+}
+
+.wr-navbar-title span:first-of-type {
+    font-size: 1.8rem;
 }
 
 .wr-navbar.dark .wr-navbar-title {
     color: #fff;
 }
-
-.wr-navbar-title .colored {
-    /*color: #fff;*/
-}
-
 
 .wr-header-text {
     z-index: 1070;
@@ -120,9 +125,13 @@
     align-items: center;
 }
 
-.wr-header-text .card-title h2 {
-    font-family: 'Inter-Bold';
-    text-transform: capitalize;
+.wr-header-text .card-title h1 {
+    font-family: 'Clarkson-5';
+}
+
+.wr-header-text .card-title h1 span {
+    font-family: 'SaoDisplay';
+    letter-spacing: 2px;
 }
 
 .wr-header-text .btn.btn-outline-orange {
@@ -136,6 +145,82 @@
     line-height: 1.2;
     font-family: 'Inter-Light';
 }
+
+.wr-header-text a.btn {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.15rem;
+    background-color: #fff;
+    color: #000 !important;
+    font-family: 'Clarkson';
+    border-color: transparent !important;
+    transition: padding 0.15s ease-in-out;
+}
+
+.card {
+    font-family: 'Clarkson' !important;
+}
+
+.card-heading {
+    font-family: 'Clarkson-5';
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.step + .step {
+    margin-top: 4rem;
+}
+
+.step-img {
+    height: 100%;
+    position: relative;
+}
+
+.step-img img {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    display: block;
+    background-color: #000;
+}
+
+.wr-header-text a.btn:hover {
+    color: #fff !important;
+    background-color: #F71;
+    padding: 0 1.5rem;
+}
+
+.wr-navbar.dark .wr-nav-btn {
+    height: 100% !important;
+    position: relative;
+}
+
+.wr-navbar.dark .wr-nav-btn::after {
+    content: '';
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 3px;
+    position: absolute;
+    background-color: #f71;
+}
+
+.wr-navbar.dark .wr-nav-btn a {
+    color: #fff;
+}
+
 
 .wr-btn {
     margin-top: 2rem;
@@ -167,27 +252,29 @@
 }
 
 @media (max-width: 992px) {
+
     .wr-hamburguer,
     .wr-navbar-hamburguer {
-        width: 45px;    
+        width: 45px;
         height: 45px;
-        position: relative; 
-        display: flex !important;  
-        align-items: flex-end;    
-        justify-content: center;    
+        position: relative;
+        display: flex !important;
+        align-items: flex-end;
+        justify-content: center;
         flex-direction: column;
-        gap: 5px; 
-        overflow: hidden;   
-        position: relative;   
+        gap: 5px;
+        overflow: hidden;
+        position: relative;
         cursor: pointer;
     }
+
     .wr-hamburguer .line,
     .wr-navbar-hamburguer .line {
-        display: block; 
-        width: 80%; 
-        height: 4px;
+        display: block;
+        width: 70%;
+        height: 2px;
         pointer-events: none;
-        background-color: #f71;
+        background-color: #fff;
         transition: 0.15s ease-in-out;
     }
 
@@ -195,34 +282,58 @@
         background-color: #000 !important;
     }
 
-    .wr-navbar-hamburguer .line:nth-child(2) {width: 70%}
-    .wr-navbar-hamburguer .line:nth-child(3) {width: 60%}
-
     .wr-navbar-items {
-        top: 50px;  
+        top: 50px;
         left: 0;
         width: 100%;
-        height: 0;    
+        height: 0;
         margin: 0;
-        overflow: hidden;   
-        align-items: center;    
+        overflow: hidden;
+        align-items: center;
         justify-content: flex-start;
         flex-direction: column;
         position: absolute;
         background-color: #212529;
         transition: height 0.15s ease-in-out, padding-top 0.15s ease-in-out, padding-bottom 0.15s ease-in-out;
     }
+
     .wr-navbar-items.expanded {
         height: 480px;
-        /*padding: 1rem 0; */ 
+        /*padding: 1rem 0; */
     }
-    .wr-navbar-item + .wr-navbar-item { margin: 0; }
-    .wr-navbar-item, .wr-navbar-link {
+
+    .wr-navbar-item+.wr-navbar-item {
+        margin: 0;
+    }
+
+    .wr-navbar-item,
+    .wr-navbar-link {
         width: 100%;
-        height: 45px;   
-        line-height: 40px !important;  
-        text-align: left;    
+        height: 45px;
+        line-height: 40px !important;
+        text-align: left;
         /*justify-content: flex-start !important;*/
         align-items: flex-start !important;
     }
+}
+
+.wr-slide-item {
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in;
+}
+
+h1.wr-slide-item {
+    height: 0;
+    overflow: hidden;
+    transition: opacity 1.5s ease-in, height 1.5s ease-in;
+}
+
+h1.wr-slide-item.active,
+.wr-slide-item.active {
+    opacity: 1 !important;
+}
+
+h1.wr-slide-item.active {
+    height: auto;
 }

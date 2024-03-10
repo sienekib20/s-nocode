@@ -13,7 +13,7 @@
         width: 100%;
         height: 100vh;
         gap: 6px;
-        z-index: 1099;
+        z-index: 129119 !important;
         background-color: #f9f9f9af;
         position: fixed;
     }
