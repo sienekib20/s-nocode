@@ -16,18 +16,18 @@
                 </div>
                 <div class="col-lg-6 col-12 mt-lg-0 mt-5">
                     <?php foreach ($asked as  $value) : ?>
-                    <div class="asks">
-                        <div class="ask-header">
-                            <span class="ask-header-title"><?= $value[0] ?></span>
-                            <span class="ml-auto fas <?= $value[3] ?> ask-icon"></span>
-                        </div>
-                        <div class="ask-contain <?= $value[2] ?>">
+                        <div class="asks">
+                            <div class="ask-header">
+                                <span class="ask-header-title"><?= $value[0] ?></span>
+                                <span class="ml-auto fas <?= $value[3] ?> ask-icon"></span>
+                            </div>
+                            <div class="ask-contain <?= $value[2] ?>">
                                 <div class="d-flex ai-center">
                                     <?= $value[1] ?>
                                 </div>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

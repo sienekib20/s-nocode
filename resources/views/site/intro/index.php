@@ -213,18 +213,20 @@ if (Auth::check()) :  ?>
     const spanLeft = document.querySelector('#left');
     spanRight.addEventListener('click', function(event) {
         var height = $('.thinked .thinked-item').height();
-        $('.thinked').animate({ scrollLeft: `+=${height}`}, 500);
+        $('.thinked').animate({
+            scrollLeft: `+=${height}`
+        }, 500);
         spanRight.classList.remove('active');
         spanLeft.classList.add('active');
         //event.preventDefault();
     });
     spanLeft.addEventListener('click', function(event) {
         var height = $('.thinked .thinked-item').height();
-        $('.thinked').animate({ scrollLeft: `-=${height}`}, 500);
+        $('.thinked').animate({
+            scrollLeft: `-=${height}`
+        }, 500);
         spanRight.classList.add('active');
         spanLeft.classList.remove('active');
         //event.preventDefault();
     });
-    
-    
 </script>

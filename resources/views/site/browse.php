@@ -39,9 +39,16 @@
                                 <span>Temos modelos para qualquer tipo de negócio. Seja para portfólio, um e-commerce, um blog pessoal, etc. Comece por se inspirar em nossos modelos.</span>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-12 mt-4 mt-lg-0">
-                            <h4 class="card-heading"></h4>
-                            <span class="d-none d-lg-block mb-4">Pesquisa pelo nome do modelo, categoria, tipo, até mesmo o nome do autor caso conheça um.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
                             <form action="" class="" id="searchTemplateInList">
                                 <div class="input-group">
                                     <input type="text" id="searchTemplateInput" class="form-input pl-4 input-orange" placeholder="Pesquise por template, autor...">
@@ -49,12 +56,17 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="col-lg-6 col-12 ai-flex-start d-flex flex-wrap" style="gap: 10px;">
+                            <a href="" class="btn btn-dark d-block d-lg-none w-35 w-sm-20" id="open-bottom-filter"> <span class="bi bi-sliders"></span> Filtrar </a>
+                            <a href="" class="btn btn-orange"> <span class="bi bi-heart"></span> Meus favoritos </a>
+                            <a href="" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Criar um teu template</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card d-none d-lg-block">
             <div class="card-body">
                 <div class="container">
                     <div class="row">
@@ -107,6 +119,16 @@
             </div>
         </div>
 
+        <div class="card my-5">
+            <div class="card-top">
+                <div class="container">
+                    <div class="row no-spacing">
+                        <h5 class="card-heading text-black">Templates mais encontrados (0)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="card-body">
                 <div class="container-sm">
@@ -132,18 +154,113 @@
         <small class="d-flex mt-5"></small>
         <small class="d-flex mt-5"></small>
 
+        <div class="card py-5" style="background-color: #000; color: #fff">
+            <div class="card-body my-4">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <h3 class="card-heading" style="color: #fff">Crie um website personalizado</h3>
+                            <span>Podes criar um website personalizado caso não consiga achar um que te agrade na lista apresentado</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <a href="" class="btn-call-center">
+                                <span class="t">Abrir o criador de website</span>
+                                <span>Conheça o Webcreator de sílicapages</span>
+                                <span class="bi bi-arrow-right"></span>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <a href="" class="btn-call-center">
+                                <span class="t">Encomendar website</span>
+                                <span>Podes deixar que fazemos pra você</span>
+                                <span class="bi bi-arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex my-1"></div>
+        </div>
+
+
 
         <?= parts('nav.footer') ?>
-    </div> <!-- /.wrapper -->
 
+
+        <div class="nav-on-bottom-overlay"></div>
+        <div class="nav-on-bottom pt-3 px-4">
+            <div class="asks">
+                <div class="ask-header">
+                    <span class="ask-header-title">Tipo template</span>
+                    <span class="ml-auto fas fa-plus ask-icon"></span>
+                </div>
+                <div class="ask-contain">
+                    <ul>
+                        <?php foreach ($tipo as $t) : ?>
+                            <li>
+                                <label for="ttype-<?= $t->tipo_template_id ?>">
+                                    <input type="checkbox" name="" id="ttype-<?= $t->tipo_template_id ?>">
+                                    <small><?= $t->tipo_template ?></small>
+                                </label>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="asks">
+                <div class="ask-header">
+                    <span class="ask-header-title">Categoria</span>
+                    <span class="ml-auto fas fa-plus ask-icon"></span>
+                </div>
+                <div class="ask-contain">
+                    <ul>
+                        <?php foreach ($categorias as $key => $categoria) : ?>
+                            <li>
+                                <a href="<?= route('browse', 'categoria/' . $categoria->categoria) ?>"><small><?= $categoria->categoria ?></small></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /.wrapper -->
 
 </body>
 
 </html>
 <input type="hidden" id="browse-route" value="<?= route('browse-get') ?>">
-
 <script>
     applyDarkNavbar();
+
+    $('.ask-header').click(function(e) {
+        e.preventDefault();
+        var icon = $(this).find('.ask-icon');
+        if (icon.hasClass('fa-plus')) {
+            icon.removeClass('fa-plus');
+            icon.addClass('fa-minus');
+        } else {
+            icon.addClass('fa-plus');
+            icon.removeClass('fa-minus');
+        }
+        $(this).next('.ask-contain').toggleClass('active');
+    });
+
+    $(document).ready(function() {
+        $('#open-bottom-filter').click(function(e) {
+            e.preventDefault();
+            $('body').css('overflow', 'hidden');
+            $('.nav-on-bottom-overlay').addClass('active');
+            $('.nav-on-bottom').addClass('active');
+        });
+        $('.nav-on-bottom-overlay').click(function(e) {
+            $('body').css('overflow', 'auto');
+            $('.nav-on-bottom').removeClass('active');
+            $('.nav-on-bottom-overlay').removeClass('active');
+        });
+    });
+
     $(document).ready(function(e) {
         $('#searchTemplateInput').keyup(function(e) {
             const inputValue = $(this).val();

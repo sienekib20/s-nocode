@@ -10,67 +10,70 @@ use Sienekib\Mehael\Support\Auth; ?>
             <span class="">SÍLICAPAGES</span>
         </div>
         <div class="wr-navbar-items">
-            <div class="wr-navbar-item ml-auto">
-                <a href="<?= route('/') ?>" class="wr-navbar-link <?= request()->path() == '/' ? 'active' : '' ?>">
-                    <p>Início</p>
-                </a>
-            </div>
-            <!--<div class="wr-navbar-item">
-                <a href="<?= route('/') ?>" class="wr-navbar-link">
-                    <p>Softwares</p>
-                </a>
-            </div>-->
-            <div class="wr-navbar-item">
-                <a href="<?= route('browse') ?>" class="wr-navbar-link <?= request()->path() == '/browse' ? 'active' : '' ?>">
-                    <p>Templates</p>
-                </a>
-            </div>
-            <div class="wr-navbar-item">
-                <a href="<?= route('/') ?>" class="wr-navbar-link" id="closeIt">
-                    <p>Planos</p>
-                </a>
-            </div>
-            <!--<div class="wr-navbar-item">
-                <a href="<?= route('faqs') ?>" class="wr-navbar-link <?= request()->path() == '/faqs' ? 'active' : '' ?>">
-                    <p>Faqs</p>
-                </a>
-            </div>-->
-            <!--<div class="wr-navbar-item">
-                <a href="<?= route('contactos') ?>" class="wr-navbar-link <?= request()->path() == '/contactos' ? 'active' : '' ?>">
-                    <p>Contactos</p>
-                </a>
-            </div> -->
-            <?php if (!Auth::check()) :  ?>
+            <div class="container">
+                <div class="wr-navbar-item ml-auto">
+                    <a href="<?= route('/') ?>" class="wr-navbar-link <?= request()->path() == '/' ? 'active' : '' ?>">
+                        <p>Início</p>
+                    </a>
+                </div>
+                <!--<div class="wr-navbar-item">
+                    <a href="<?= route('/') ?>" class="wr-navbar-link">
+                        <p>Softwares</p>
+                    </a>
+                </div>-->
                 <div class="wr-navbar-item">
-                    <a href="<?= route('entrar') ?>" class="wr-navbar-link">
-                        <p>Fazer login</p>
+                    <a href="<?= route('browse') ?>" class="wr-navbar-link <?= request()->path() == '/browse' ? 'active' : '' ?>">
+                        <p>Templates</p>
                     </a>
                 </div>
-                <div class="wr-navbar-item wr-nav-btn">
-                    <a href="<?= route('browse') ?>" class="wr-navbar-link">
-                        <p>Explorar agora</p>
-                    </a>
-                </div>
-            <?php else : ?>
-                <?php $path = '/' . explode('/', ltrim(request()->path(), '/'))[0] ?>
-                <input type="hidden" id="user-id" value="<?= Auth::user()->id ?>">
-                <div class="wr-navbar-item ml-auto" style="white-space: nowrap; background-color: transparent;">
-                    <a href="<?= route('dash') ?>" id="myDash" class="wr-navbar-link <?= $path == '/dash' ? 'active' : '' ?>">
-                        <p>Meu dashboard</p>
-                    </a>
-                </div>
-
                 <div class="wr-navbar-item">
-                    <a href="<?= route('logout') ?>" class="wr-navbar-link">
-                        <p>Sair</p>
+                    <a href="<?= route('/') ?>" class="wr-navbar-link" id="closeIt">
+                        <p>Planos</p>
                     </a>
                 </div>
-            <?php endif; ?>
+                <!--<div class="wr-navbar-item">
+                    <a href="<?= route('faqs') ?>" class="wr-navbar-link <?= request()->path() == '/faqs' ? 'active' : '' ?>">
+                        <p>Faqs</p>
+                    </a>
+                </div>-->
+                <!--<div class="wr-navbar-item">
+                    <a href="<?= route('contactos') ?>" class="wr-navbar-link <?= request()->path() == '/contactos' ? 'active' : '' ?>">
+                        <p>Contactos</p>
+                    </a>
+                </div> -->
+                <?php if (!Auth::check()) :  ?>
+                    <div class="wr-navbar-item">
+                        <a href="<?= route('entrar') ?>" class="wr-navbar-link">
+                            <p>Fazer login</p>
+                        </a>
+                    </div>
+                    <div class="wr-navbar-item wr-nav-btn">
+                        <a href="<?= route('browse') ?>" class="wr-navbar-link">
+                            <p>Explorar agora</p>
+                        </a>
+                    </div>
+                <?php else : ?>
+                    <?php $path = '/' . explode('/', ltrim(request()->path(), '/'))[0] ?>
+                    <input type="hidden" id="user-id" value="<?= Auth::user()->id ?>">
+                    <div class="wr-navbar-item ml-auto" style="white-space: nowrap; background-color: transparent;">
+                        <a href="<?= route('dash') ?>" id="myDash" class="wr-navbar-link <?= $path == '/dash' ? 'active' : '' ?>">
+                            <p>Meu dashboard</p>
+                        </a>
+                    </div>
+    
+                    <div class="wr-navbar-item">
+                        <a href="<?= route('logout') ?>" class="wr-navbar-link">
+                            <p>Sair</p>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
         <div class="wr-navbar-hamburguer ml-auto">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
+            <span class="bi bi-arrow-right"></span>
         </div>
     </div>
 
@@ -115,7 +118,9 @@ use Sienekib\Mehael\Support\Auth; ?>
         $('.wr-navbar').addClass('dark');
     }
 
-    $('.wr-navbar-hamburguer').click((e) => {
+    $('.wr-navbar-hamburguer').click(function(e) {
+        if ($(this).hasClass('active')) { $(this).removeClass('active'); }
+        else { $(this).addClass('active'); }
         $('.wr-navbar-items').toggleClass('expanded');
     });
     $('#closeIt').click(function(e) {
