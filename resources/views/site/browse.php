@@ -29,15 +29,25 @@
 
         <small class="d-flex my-5"></small>
 
-        <div class="card">
+        <div class="card mb-4">
             <div class="card-top">
-                <div class="container-sm">
+                <div class="container">
                     <div class="row">
-                        <div class="col-12 card-top">
+                        <div class="col-lg-6 col-12 card-top">
                             <div class="card-title">
-                                <h4 class="title d-block">+100 de Modelos disponívels</h4>
-                                <span>Explora e encontre o template de acordo com a tua lógica de negócio</span>
+                                <h3 class="card-heading text-black d-block">Crie um website a teu gosto. Explora +100 de Modelos disponívels</h3>
+                                <span>Temos modelos para qualquer tipo de negócio. Seja para portfólio, um e-commerce, um blog pessoal, etc. Comece por se inspirar em nossos modelos.</span>
                             </div>
+                        </div>
+                        <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                            <h4 class="card-heading"></h4>
+                            <span class="d-none d-lg-block mb-4">Pesquisa pelo nome do modelo, categoria, tipo, até mesmo o nome do autor caso conheça um.</span>
+                            <form action="" class="" id="searchTemplateInList">
+                                <div class="input-group">
+                                    <input type="text" id="searchTemplateInput" class="form-input pl-4 input-orange" placeholder="Pesquise por template, autor...">
+                                    <small class="bi bi-search d-flex mr-3"></small>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -46,29 +56,53 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="container-sm">
-                    <form action="" class="row" id="searchTemplateInList">
-                        <div class="input-group col-md-6">
-                            <input type="text" id="searchTemplateInput" class="form-input" placeholder="Pesquise por template, autor...">
-                            <small class="bi bi-search d-flex mr-3"></small>
-                        </div>
-                        <div class="input-group mt-3 mt-md-0 col-md-3">
-                            <select id="templateCategory" class="form-select">
-                                <option>Categorias</option>
-                                <?php foreach ($categorias as $categoria) : ?>
-                                    <option value="<?= $categoria->categoria_id ?>"><?= $categoria->categoria ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div class="input-group mt-3 mt-md-0 col-md-3">
-                            <select id="templateType" class="form-select">
-                                <option>Tipo template</option>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <small class="d-block card-heading mb-3">Tipo template</small>
+                            <ul>
                                 <?php foreach ($tipo as $t) : ?>
-                                    <option value="<?= $t->tipo_template_id ?>"><?= $t->tipo_template ?></option>
+                                    <li>
+                                        <label for="tipo-<?= $t->tipo_template_id ?>">
+                                            <input type="checkbox" name="" id="tipo-<?= $t->tipo_template_id ?>">
+                                            <small><?= $t->tipo_template ?></small>
+                                        </label>
+                                    </li>
                                 <?php endforeach; ?>
-                            </select>
+                            </ul>
                         </div>
-                    </form>
+                        <div class="col-lg-3">
+                            <small class="d-block card-heading mb-3">Categoria</small>
+                            <ul>
+                                <?php foreach ($categorias as $key => $categoria) : if ($key > 7) break; ?>
+                                    <li>
+                                        <a href="<?= route('browse', 'categoria/' . $categoria->categoria) ?>"><small><?= $categoria->categoria ?></small></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3">
+                            <small class="d-flex card-heading mb-3" style="color: transparent">somt</small>
+                            <ul>
+                                <?php foreach ($categorias as $key => $categoria) : if ($key < 7) continue;
+                                    if ($key > 14) break; ?>
+                                    <li>
+                                        <a href="<?= route('browse', 'categoria/' . $categoria->categoria) ?>"><small><?= $categoria->categoria ?></small></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3">
+                            <small class="d-flex card-heading mb-3" style="color: transparent">somt</small>
+                            <ul>
+                                <?php foreach ($categorias as $key => $categoria) : if ($key < 14) continue; ?>
+                                    <li>
+                                        <a href="<?= route('browse', 'categoria/' . $categoria->categoria) ?>"><small><?= $categoria->categoria ?></small></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

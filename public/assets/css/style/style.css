@@ -2175,7 +2175,7 @@ h6 {
 
 #searchTemplateInList .bi {
     top: 50%;
-    right: 1rem;
+    right: 1%;
     position: absolute;
     z-index: 111;
     -webkit-transform: translateY(-50%);
@@ -2380,7 +2380,7 @@ thinked
 
 .thinked-item {
     width: 45%;
-    height: 100%;   
+    height: 100%;
     min-width: 45%;
     position: relative;
     overflow: hidden;
@@ -2399,7 +2399,7 @@ thinked
 
 .thinked-item:hover img {
     -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .thinked-item img {
@@ -2407,9 +2407,9 @@ thinked
     height: 100%;
     max-width: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     -o-object-position: center;
-       object-position: center;
+    object-position: center;
     transition: 0.35s ease-in-out;
 }
 
@@ -2431,7 +2431,7 @@ thinked
     color: #000;
 }
 
-.thinked-dir span + span {
+.thinked-dir span+span {
     margin-left: 1rem;
 }
 
@@ -2442,10 +2442,82 @@ thinked
         margin: 0 auto;
         max-width: 960px;
     }
+
     .thinked-item {
         min-width: 100%;
     }
+
     .thinked-dir {
         display: none;
     }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+}
+
+li label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.7rem 0 !important;
+}
+
+li a {
+    color: #000;
+}
+li label:hover,
+li a:hover {
+    color: #f71;
+}
+
+label.active small {
+    font-family: 'Clarkson-5';
+}
+
+li+li {
+    margin-top: 0.5rem !important;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: 15px;
+    height: 15px;
+    -webkit-transform: translateY(-0.075em);
+    transform: translateY(-0.075em);
+    position: relative;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 0.1rem;
+    -webkit-transform: translate(74%, 74%);
+    transform: translate(74%, 74%);
+    transition: background-color 0.15s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+    border-color: #F71;
+}
+
+input[type="checkbox"]:checked:before {
+    background-color: #F71;
+
 }
