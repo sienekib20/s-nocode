@@ -30,66 +30,80 @@
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
-        <div class="contain-wrapper">
-            <div class="container">
-                <?php parts('nav.wr-sidebar') ?>
+        <?= parts('nav.wr-sidebar') ?>
 
-                <div class="contain-pages">
-                    <div class="card">
-                        <div class="card-top">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="card-title col-10">
-                                        <h4 class="title d-block">Notificações</h4>
-                                        <small class="ff">Fique ligado, accompanhe a evolução do teu negócio</small>
-                                    </div>
-
-                                    <div class="d-flex justify-content-flex-end px-0 col-2">
-                                        <?= parts('nav.wr-hamburguer') ?>
-                                    </div>
+        <div class="card mb-3">
+            <div class="card-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 card-top">
+                            <div class="card-title">
+                                <h3 class="card-heading text-black d-block">Notificações</h3>
+                                <span>Mantemos você informado sobre qualquer alteração na plataforma. Fique sempre ligado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/.card-top-->
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 ai-flex-start d-flex flex-wrap" style="gap: 10px;">
+                            <form action="">
+                                <div class="input-group">
+                                    <select name="" class="form-select">
+                                        <option value="">Filtrar dados</option>
+                                        <option value="">Todas</option>
+                                        <option value="">Apenas lidas</option>
+                                        <option value="">Não lidas</option>
+                                    </select>
                                 </div>
-                            </div>
-                        </div> <!--/.card-top-->
-                        <div class="card-body mt-5">
-                            <div class="row mb-4">
-                                <form action="" class="col-md-6">
-                                    <div class="input-group">
-                                        <select name="" class="form-select">
-                                            <option value="">Filtrar dados</option>
-                                            <option value="">Todas</option>
-                                            <option value="">Apenas lidas</option>
-                                            <option value="">Não lidas</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="smslead">
-                                        <div class="sms-basic">
-                                            <div class="remeter">
-                                                <span class="client">S</span>
-                                                <div class="name">
-                                                    <span>Aviso</span>
-                                                    <small class="d-block">Sujeito: gestão de website</small>
-                                                    <small class="text-muted">enviado aos 01 de Março | 17h</small>
-                                                </div>
-                                            </div>
-                                            <div class="contain">
-                                                <p>O teu website vai expirar em breve, Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint? Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam eos similique, dignissimos nostrum eveniet amet.</p>
-                                                <a href="" class="btn btn removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
-                                                <a href="" class="btn removeCurrent" title="marcar como lido"> <span class="bi bi-eye"></span></a>
-                                            </div>
+                            </form>
+                            <?= parts('nav.wr-open-dashboard-menu') ?>
+                            <a href="<?= route('browse') ?>" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Adquirir um novo template</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <small class="d-flex my-4"></small>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="smslead">
+                                <div class="sms-basic">
+                                    <div class="remeter">
+                                        <span class="client">S</span>
+                                        <div class="name">
+                                            <span>Aviso</span>
+                                            <small class="d-block">Sujeito: gestão de website</small>
+                                            <small class="text-muted">enviado aos 01 de Março | 17h</small>
                                         </div>
+                                    </div>
+                                    <div class="contain">
+                                        <p>O teu website vai expirar em breve, Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint? Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam eos similique, dignissimos nostrum eveniet amet.</p>
+                                        <a href="" class="btn btn removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
+                                        <a href="" class="btn removeCurrent" title="marcar como lido"> <span class="bi bi-eye"></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> <!--/.contain-pages-->
+                </div>
             </div>
-        </div> <!--/.contain-wrapper-->
+        </div>
 
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
         <small class="d-flex my-5"></small>
         <small class="d-flex my-5"></small>
 

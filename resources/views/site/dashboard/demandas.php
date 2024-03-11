@@ -30,106 +30,118 @@
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
-        <div class="contain-wrapper">
-            <div class="container">
-                <?php parts('nav.wr-sidebar') ?>
+        
+        <?php parts('nav.wr-sidebar') ?>
 
-                <div class="contain-pages">
-                    <div class="card">
-                        <div class="card-top">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="card-title col-10">
-                                        <h4 class="title d-block">Encomendar um website</h4>
-                                        <small class="ff">Precisas ter um website personzalidade, deixe aqui a tua preocupação</small>
-                                        <small class="text-muted d-block">Avaliamos o teu pedido e respondemos em breve.</small>
-                                    </div>
-
-                                    <div class="d-flex justify-content-flex-end px-0 col-2">
-                                        <?= parts('nav.wr-hamburguer') ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!--/.card-top-->
-
-                        <div class="card-body mt-4">
-                            <div class="container-sm">
-                                <form action="" class="row">
-                                    <div class="input-group col-md-6">
-                                        <input type="text" class="form-input" placeholder="Sujeito">
-                                    </div>
-                                    <div class="input-group col-md-6 mt-5 mt-md-0">
-                                        <select name="" class="form-select">
-                                            <option value="">Quem vai usar?</option>
-                                            <option value="">Apenas eu</option>
-                                            <option value="">A minha empresa</option>
-                                            <option value="">Um número reduzido de pessoas</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group col-md-3 mt-5">
-                                        <select name="tipo_template" class="form-select">
-                                            <option value="">Tipo de website</option>
-                                            <?php foreach ($tipo as $t) : ?>
-                                                <option value="<?= $t->tipo_template_id ?>"><?= $t->tipo_template ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="input-group col-md-3 mt-5">
-                                        <input type="text" class="form-input" placeholder="0.00KZ">
-                                    </div>
-
-                                    <div class="input-group col-md-3 mt-5">
-                                        <select name="tipo_template" class="form-select">
-                                            <option value="">Categoria website</option>
-                                            <?php foreach ($categorias as $c) : ?>
-                                                <option value="<?= $c->categoria_id ?>"><?= $c->categoria ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-
-                                    <div class="input-group col-md-3 mt-5">
-                                        <input type="text" class="form-input" placeholder="0.00KZ">
-                                    </div>
-
-                                    <div class="input-group col-md-3 mt-5">
-                                        <select name="tipo_template" class="form-select">
-                                            <option value="">Tempo estimado</option>
-                                            <option value="">Daqui há 1 mês</option>
-                                            <option value="">Daqui há 3 mês</option>
-                                            <option value="">Daqui há 6 mês</option>
-                                            <option value="">Tempo indeterminado</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group col-md-3 mt-5">
-                                        <input type="text" class="form-input" placeholder="Prefiro informar o tempo">
-                                    </div>
-                                    <div class="input-group col-md-6 mt-5">
-                                        <select name="tipo_template" class="form-select">
-                                            <option value="">Nível de urgência</option>
-                                            <?php foreach ($urgencias as $u) : ?>
-                                                <option value="<?= $u->urgencia_id ?>"><?= $u->urgencia ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="input-group col-md-3 mt-5">
-                                        <input type="text" class="form-input" placeholder="Preço total" disabled>
-                                    </div>
-                                    <div class="input-group col-md-3 mt-5">
-                                        <input type="text" class="form-input" placeholder="0.00KZ">
-                                    </div>
-                                    <div class="input-group col-md-6 mt-5">
-                                        <textarea name="" class="form-input" rows="" placeholder="Descrição"></textarea>
-                                    </div>
-                                    <div class="input-group col-md-3 mt-5">
-                                        <button type="submit" class="btn btn-orange input-block">Enviar Solicitação</button>
-                                    </div>
-                                </form>
+        <div class="card mb-3">
+            <div class="card-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 card-top">
+                            <div class="card-title">
+                                <h3 class="card-heading text-black d-block">Encomede um website personalizado</h3>
+                                <span>Tens essa possibilidade de encomendar um website para o teu negócio pessoal ou empresarial, e nós resolvemos pra você.</span>
                             </div>
                         </div>
                     </div>
-                </div> <!--/.contain-pages-->
+                </div>
             </div>
-        </div> <!--/.contain-wrapper-->
+        </div> <!--/.card-top-->
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 ai-flex-start d-flex flex-wrap" style="gap: 10px;">
+                            <?= parts('nav.wr-open-dashboard-menu') ?>
+                            <a href="<?= route('browse') ?>" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Adquirir template existente</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="card-heading text-black">Preencha as informações necessárias.</span>
+                            <small class="text-muted d-block mb-4">Precisamos dessas informações para atender ao teu pedido.</small>
+                            <form action="" class="row">
+                                <div class="input-group col-md-6">
+                                    <input type="text" class="form-input input-orange" placeholder="Sujeito">
+                                </div>
+                                <div class="input-group col-md-6 mt-5 mt-md-0">
+                                    <select name="" class="form-select">
+                                        <option value="">Quem vai usar?</option>
+                                        <option value="">Apenas eu</option>
+                                        <option value="">A minha empresa</option>
+                                        <option value="">Um número reduzido de pessoas</option>
+                                    </select>
+                                </div>
+                                <div class="input-group col-md-3 mt-5">
+                                    <select name="tipo_template" class="form-select input-orange">
+                                        <option value="">Tipo de website</option>
+                                        <?php foreach ($tipo as $t) : ?>
+                                            <option value="<?= $t->tipo_template_id ?>"><?= $t->tipo_template ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="input-group col-md-3 mt-5">
+                                    <input type="text" class="form-input input-orange" placeholder="0.00KZ">
+                                </div>
+
+                                <div class="input-group col-md-3 mt-5">
+                                    <select name="tipo_template" class="form-select input-orange">
+                                        <option value="">Categoria website</option>
+                                        <?php foreach ($categorias as $c) : ?>
+                                            <option value="<?= $c->categoria_id ?>"><?= $c->categoria ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="input-group col-md-3 mt-5">
+                                    <input type="text" class="form-input input-orange" placeholder="0.00KZ">
+                                </div>
+
+                                <div class="input-group col-md-3 mt-5">
+                                    <select name="tipo_template" class="form-select input-orange">
+                                        <option value="">Tempo estimado</option>
+                                        <option value="">Daqui há 1 mês</option>
+                                        <option value="">Daqui há 3 mês</option>
+                                        <option value="">Daqui há 6 mês</option>
+                                        <option value="">Tempo indeterminado</option>
+                                    </select>
+                                </div>
+                                <div class="input-group col-md-3 mt-5">
+                                    <input type="text" class="form-input input-orange" placeholder="Prefiro informar o tempo">
+                                </div>
+                                <div class="input-group col-md-6 mt-5">
+                                    <select name="tipo_template" class="form-select input-orange">
+                                        <option value="">Nível de urgência</option>
+                                        <?php foreach ($urgencias as $u) : ?>
+                                            <option value="<?= $u->urgencia_id ?>"><?= $u->urgencia ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="input-group col-md-3 mt-5">
+                                    <input type="text" class="form-input input-orange" placeholder="Preço total" disabled>
+                                </div>
+                                <div class="input-group col-md-3 mt-5">
+                                    <input type="text" class="form-input input-orange" placeholder="0.00KZ">
+                                </div>
+                                <div class="input-group col-md-6 mt-5">
+                                    <textarea name="" class="form-input input-orange" rows="" placeholder="Descrição"></textarea>
+                                </div>
+                                <div class="input-group col-md-3 mt-5">
+                                    <button type="submit" class="btn btn-orange btn-block">Enviar Solicitação</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <small class="d-flex my-5"></small>
         <small class="d-flex my-5"></small>

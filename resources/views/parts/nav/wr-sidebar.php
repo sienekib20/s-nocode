@@ -6,46 +6,51 @@ $path = explode('/', ltrim(request()->path(), '/'));
 $path = '/' . end($path);
 ?>
 
-<div class="wr-sidebar">
-    <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-1" class="wr-sidebar-link <?= $path == '/view' ? 'active' : '' ?>">
+<div class="__wr-sidebar-overlay"></div>
+
+<div class="__wr-sidebar">
+
+    <div class="__wr-sidebar-close">
+        <span class="bi bi-arrow-left"></span>
+    </div>
+
+    <div class="_wr-sidebar-item">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-1" class="_wr-sidebar-link <?= $path == '/view' ? 'active' : '' ?>">
             <span class="bi bi-grid-fill"></span>
             <span class="text">Visal geral</span>
         </a>
     </div>
 
-    <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-2" class="wr-sidebar-link <?= $path == '/websites' ? 'active' : '' ?>">
+    <div class="_wr-sidebar-item">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-2" class="_wr-sidebar-link <?= $path == '/websites' ? 'active' : '' ?>">
             <span class="bi bi-collection"></span>
             <span class="text">Meus websites</span>
         </a>
     </div>
 
-    <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-3" class="wr-sidebar-link <?= $path == '/encomendas' ? 'active' : '' ?>">
+    <div class="_wr-sidebar-item">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-3" class="_wr-sidebar-link <?= $path == '/encomendas' ? 'active' : '' ?>">
             <span class="bi bi-layers-fill"></span>
             <span class="text">Encomendar website</span>
         </a>
     </div>
 
-    <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-4" class="wr-sidebar-link <?= $path == '/campanhas' ? 'active' : '' ?>">
+    <div class="_wr-sidebar-item">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-4" class="_wr-sidebar-link <?= $path == '/campanhas' ? 'active' : '' ?>">
             <span class="bi bi-megaphone"></span>
             <span class="text">Minhas campanhas</span>
         </a>
     </div>
 
-    <div class="wr-sidebar-separator"></div>
-
-    <div class="wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-5" class="wr-sidebar-link <?= $path == '/notificao' ? 'active' : '' ?>">
+    <div class="_wr-sidebar-item">
+        <a href="<?= route('dash') ?>" id="wr-sidebar-5" class="_wr-sidebar-link <?= $path == '/notificao' ? 'active' : '' ?>">
             <span class="bi bi-bell"></span>
             <span class="text">Notificações</span>
         </a>
     </div>
 
-    <div class="wr-sidebar-item">
-        <a href="#" id="wr-sidebar-5" class="wr-sidebar-link">
+    <div class="_wr-sidebar-item">
+        <a href="#" id="wr-sidebar-5" class="_wr-sidebar-link">
             <span class="bi bi-gear"></span>
             <span class="text">Definições da conta</span>
         </a>
@@ -67,7 +72,7 @@ $path = '/' . end($path);
                 $.each(res, (key, val) => {
                     var uuid = res.uuid.split('-')[0];
                     var a = document.querySelector('#myDash')
-                    $('.wr-sidebar-link').each(function() {
+                    $('._wr-sidebar-link').each(function() {
                         var href = $(this).attr('href');
                         if (href != '#') {
                             $(this).attr('href', `${href}/${uuid}/${menu[iterator]}`);
@@ -81,5 +86,4 @@ $path = '/' . end($path);
             }
         });
     });
-
 </script>

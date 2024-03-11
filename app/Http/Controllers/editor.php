@@ -49,8 +49,6 @@ class editor extends Controller
         $template = $referencia;
         $dominio = $request->dominio;
 
-        dd('aqui');
-
         if ($referencia) {
             $filePath = __template_path("{$referencia->referencia}/index.html");
             $red = "{$referencia->referencia}/index.html";

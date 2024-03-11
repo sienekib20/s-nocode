@@ -8,18 +8,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= asset('css/inter/inter.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/fonts/helvetica/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/alquimist.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/frequent.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/navbar.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>
 </head>
 
 <body>
     <div class="wrapper">
-        <?= parts('nav.wr-navbar-alt') ?>
+        <?= parts('nav.wr-navbar') ?>
 
+        <small class="d-flex my-4"></small>
+        <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
 
@@ -67,9 +74,9 @@
                         </div> <!--/.col-md-7-->
 
                         <div class="template-in-use col-12 col-md-6 col-lg-4">
-                            <span class="bold">Defina um nome para o teu site</span>
+                            <span class="card-heading text-black">Defina um nome para o teu site</span>
                             <small class="my-3 d-block text-muted" style="font-size: 14.5px;"> <span class="bi bi-arrow-right"></span> Informa um dóminio para o seu site</small>
-                            <div class="row align-items-center">
+                            <div class="row ai-center">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <input type="text" id="dominio" placeholder="seudominio.ao" required class="form-input input-block">
@@ -95,27 +102,27 @@
                                 </div>
                             </div>
 
-                            <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
+                            <div class="d-flex ai-center jc-between py-2 in-use-item">
                                 <span class="title">Preço</span>
                                 <span class="value"><?= $template->preco . '.00 KZ' ?? '0.00' . 'KZ' ?></span>
                             </div>
-                            <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
+                            <div class="d-flex ai-center jc-between py-2 in-use-item">
                                 <span class="title">Status</span>
                                 <span class="value"><?= $template->status ?? 'Grátis' ?></span>
                             </div>
-                            <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
+                            <div class="d-flex ai-center jc-between py-2 in-use-item">
                                 <span class="title">Categoria</span>
                                 <span class="value"><?= 'Landing Page' ?></span>
                             </div>
-                            <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
+                            <div class="d-flex ai-center jc-between py-2 in-use-item">
                                 <span class="title">Criado por</span>
                                 <span class="value"><?= $template->autor ?? \Sienekib\Mehael\Support\Auth::user()->username ?></span>
                             </div>
-                            <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
+                            <div class="d-flex ai-center jc-between py-2 in-use-item">
                                 <span class="title">Pessoas usando</span>
                                 <span class="value"><?= $template->quantidade ?></span>
                             </div>
-                            <div class="d-flex align-items-center justify-content-space-between py-2 in-use-item">
+                            <div class="d-flex ai-center jc-between py-2 in-use-item">
                                 <span class="title">Classificação</span>
                                 <span class="value"><?= 'Alta' ?></span> <!-- alta|normal|mais usado|etc. -->
                             </div>
@@ -124,13 +131,13 @@
                             <div class="tools mt-4">
                                 <span class="bold">Ferramentas de desenvolvimento</span>
                                 <div class="d-flex mt-4">
-                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                    <div class="col-6 d-flex ai-baseline px-0">
                                         <div class="item-cover">
                                             <img src="<?= asset('img/icons/wp.png') ?>" alt="">
                                         </div>
                                         <span class="d-flex ml-2">jQuery</span>
                                     </div>
-                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                    <div class="col-6 d-flex ai-baseline px-0">
                                         <div class="item-cover">
                                             <img src="<?= asset('img/icons/html.png') ?>" alt="">
                                         </div>
@@ -138,13 +145,13 @@
                                     </div>
                                 </div>
                                 <div class="d-flex my-4">
-                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                    <div class="col-6 d-flex ai-baseline px-0">
                                         <div class="item-cover">
                                             <img src="<?= asset('img/icons/css.png') ?>" alt="">
                                         </div>
                                         <span class="d-flex ml-2">CSS3</span>
                                     </div>
-                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                    <div class="col-6 d-flex ai-baseline px-0">
                                         <div class="item-cover">
                                             <img src="<?= asset('img/icons/bs.png') ?>" alt="">
                                         </div>
@@ -152,7 +159,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex">
-                                    <div class="col-6 d-flex align-items-baseline px-0">
+                                    <div class="col-6 d-flex ai-baseline px-0">
                                         <div class="item-cover">
                                             <img src="<?= asset('img/icons/js.png') ?>" alt="">
                                         </div>
@@ -195,6 +202,7 @@
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
 <script>
+    applyDarkNavbar();
     /*document.getElementById('viewShot').addEventListener('click', function(event) {
         event.preventDefault(); // Evita que o comportamento padrão de redirecionamento da âncora seja acionado
 

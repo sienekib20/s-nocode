@@ -18,10 +18,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 </header>
 
 <script>
@@ -54,5 +50,4 @@
     }
 
     setInterval(slideItems, 3500);
-    
 </script>

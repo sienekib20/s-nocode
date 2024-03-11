@@ -31,72 +31,117 @@
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
-        <div class="contain-wrapper">
-            <div class="container">
-                <?php parts('nav.wr-sidebar') ?>
+        <?php parts('nav.wr-sidebar') ?>
 
-                <div class="contain-pages">
-                    <div class="card">
-                        <div class="card-top">
-                            <div class="container">
-                                <div class="row row-no-margin">
-                                    <div class="card-title col-10">
-                                        <h4 class="title d-block">Visão geral</h4>
-                                        <small class="ff">Controle geral dos teus dados.</small>
-                                    </div>
-                                    <div class="d-flex justify-content-flex-end px-0 col-2">
-                                        <?= parts('nav.wr-hamburguer') ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!--/.card-top-->
-
-                        <div class="card-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm-4 col-md-4 col-lg-3">
-                                        <a href="#" class="service">
-                                            <span class="bi bi-grid-fill"></span>
-                                            <span class="text-muted"><?= $templateUsuario->total ?></span>
-                                            <small class="text-muted">Websites</small>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-3">
-                                        <a href="#" class="service">
-                                            <span class="bi bi-megaphone"></span>
-                                            <span class="text-muted"><?= $leads->total ?></span>
-                                            <small class="text-muted">Leads</small>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-3">
-                                        <a href="#" class="service">
-                                            <span class="bi bi-layers-fill"></span>
-                                            <span class="text-muted"><?= $encomendas->total ?></span>
-                                            <small class="text-muted">Encomendas</small>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-3">
-                                        <a href="#" class="service">
-                                            <span class="bi bi-cloud-haze"></span>
-                                            <span class="text-muted">0</span>
-                                            <small class="text-muted">Websites ativos</small>
-                                        </a>
-                                    </div>
-                                </div>
+        <div class="card mb-3">
+            <div class="card-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 card-top">
+                            <div class="card-title">
+                                <h3 class="card-heading text-black d-block">Painel do usuário</h3>
+                                <span>Neste painel verás todos os teus dados e poderás fazer uma análise contínua da evolução dos teus negócios.</span>
                             </div>
                         </div>
                     </div>
-                </div> <!--/.contain-pages-->
+                </div>
             </div>
-        </div> <!--/.contain-wrapper-->
+        </div> <!--/.card-top-->
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 ai-flex-start d-flex flex-wrap" style="gap: 10px;">
+                            <?= parts('nav.wr-open-dashboard-menu') ?>
+                            <a href="<?= route('browse') ?>" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Adquirir um novo template</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <small class="d-flex mt-4"></small>
+
+        <div class="card pb-5">
+            <div class="card-body mt-4 mb-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="dashitem-info pb-4">
+                                <span class="card-heading">Tens no total 2</span>
+                                <span>Websites registados na sua conta.</span>
+                                <small class="text-muted d-block">De momento podes ter até 2 templates no máximo.</small>
+                                <a href="" class="d-flex w-100 mt-2 text-black text-underline"> <small>Ver agora</small></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 my-4 my-lg-0">
+                            <div class="dashitem-info pb-4">
+                                <span class="card-heading">Tens no total 0</span>
+                                <span>Encomendas feita por você.</span>
+                                <small class="text-muted d-block op-0">a</small>
+                                <a href="" class="d-flex w-100 mt-2 text-black text-underline"> <small>Ver agora</small></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="dashitem-info pb-4">
+                                <span class="card-heading">Tens no total 0</span>
+                                <span>Em execução</span>
+                                <small class="text-muted d-block op-0">a</small>
+                                <a href="" class="d-flex w-100 mt-2 text-black text-underline"> <small>Ver agora</small></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <span class="card-heading">Algumas interações dos clientes</span>
+                            <small class="text-muted d-block">Veja a reação dos teus clientes.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <?php for ($i = 0; $i < 3; $i++) : ?>
+                                <a href="" class="cliente-lead">
+                                    <div class="client-infoname">
+                                        <span class="client_id">S</span>
+                                        <div class="info-name">
+                                            <span>Cliente username</span>
+                                            <small class="text-muted d-block"> <span class="bi bi-envelope"></span> cliente@dominio.com</small>
+                                        </div>
+                                        <small class="abs">Enviado há 2d</small>
+                                    </div>
+                                </a>
+                            <?php endfor; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <small class="d-flex my-5"></small>
         <small class="d-flex my-5"></small>
-
-
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
         <?= parts('nav.footer') ?>
+    </div> <!--/.contain-wrapper-->
 
-    </div> <!-- sx-wrapper -->
+
+
+
 
 
 </body>

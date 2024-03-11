@@ -119,7 +119,7 @@
             </div>
         </div>
 
-        <div class="card my-5">
+        <div class="card mt-5">
             <div class="card-top">
                 <div class="container">
                     <div class="row no-spacing">
@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" style="margin-top: -2rem;">
             <div class="card-body">
                 <div class="container-sm">
                     <div class="row" id="templateModelContainer">

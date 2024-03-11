@@ -30,69 +30,83 @@
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
-        <div class="contain-wrapper">
-            <div class="container">
-                <?php parts('nav.wr-sidebar') ?>
 
-                <div class="contain-pages">
-                    <div class="card">
-                        <div class="card-top">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="card-title col-10">
-                                        <h4 class="title d-block">Minhas campanhas</h4>
-                                        <small class="ff">Veja como os teus clientes reagiram nos teus websites.</small>
+        <?php parts('nav.wr-sidebar') ?>
+
+        <div class="card mb-3">
+            <div class="card-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 card-top">
+                            <div class="card-title">
+                                <h3 class="card-heading text-black d-block">Feedback de clientes</h3>
+                                <span>Veja como os teus clientes interagem com os teus websites, e interaja com eles para manter o dinamismo dos teus negócios.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/.card-top-->
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 ai-flex-start d-flex flex-wrap" style="gap: 10px;">
+                            <?= parts('nav.wr-open-dashboard-menu') ?>
+                            <a href="<?= route('browse') ?>" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Adquirir um novo template</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <small class="d-flex mt-4"></small>
+        <small class="d-flex mt-4"></small>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="smslead">
+                                <div class="sms-basic">
+                                    <div class="remeter">
+                                        <span class="client">C</span>
+                                        <div class="name">
+                                            <span>Fulano de tal</span>
+                                            <small class="d-block">c@dominio.com | 9xx xxx xxx</small>
+                                            <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-flex-end px-0 col-2">
-                                        <?= parts('nav.wr-hamburguer') ?>
+                                    <div class="contain">
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, est fugit. Autem, praesentium quos pariatur numquam ipsum debitis distinctio officiis ratione dolorem nemo! Labore, iure.</p>
+                                        <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
+                                        <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
                                     </div>
                                 </div>
-                            </div>
-                        </div> <!--/.card-top-->
-                        <div class="card-body mt-5">
-                            <div class="row mb-4">
-                                <form action="" class="col-12">
-                                    <div class="input-group">
-                                        <input type="text" class="form-input" placeholder="Busque por nome, email...">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="smslead">
-                                        <div class="sms-basic">
-                                            <div class="remeter">
-                                                <span class="client">C</span>
-                                                <div class="name">
-                                                    <span>Fulano de tal</span>
-                                                    <small class="d-block">c@dominio.com | 9xx xxx xxx</small>
-                                                    <small class="text-muted">enviado aos 01 de Março | 17h</small>
-                                                </div>
-                                            </div>
-                                            <div class="contain">
-                                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, est fugit. Autem, praesentium quos pariatur numquam ipsum debitis distinctio officiis ratione dolorem nemo! Labore, iure.</p>
-                                                <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
-                                                <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
-                                            </div>
+                                <div class="sms-replications">
+                                    <form action="" class="pb-4" method="post">
+                                        <div class="input-group">
+                                            <input type="text" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
                                         </div>
-                                        <div class="sms-replications">
-                                            <form action="">
-                                                <div class="input-group">
-                                                    <textarea name="" class="form-input" placeholder="Escreva a tua resposta aqui..." cols="30"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-orange"><span class="bi bi-send"></span></button>
-                                            </form>
+                                        <div class="input-group">
+                                            <button type="submit" class="btn btn-orange">Enviar</button>
+                                        </div>
+                                    </form>
 
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> <!--/.contain-pages-->
+                </div>
             </div>
-        </div> <!--/.contain-wrapper-->
+        </div>
 
+
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
+        <small class="d-flex my-5"></small>
         <small class="d-flex my-5"></small>
         <small class="d-flex my-5"></small>
 
