@@ -79,9 +79,9 @@
                                             <small>Selecionar ítem</small>
                                         </label>
                                         <input type="hidden" id="website-dominio-<?= $d->temp_parceiro_id ?>" value="<?= $d->dominio ?>">
-                                        
+
                                         <!--<span class="card-heading"><?= $d->dominio ?>.silicapages.com</span>-->
-                                        <span class="card-heading">site.ao/my/<?= $d->dominio ?></span>
+                                        <span class="card-heading"><?= env('APP_HOST') ?>/my/<?= $d->dominio ?></span>
 
                                         <span>Website em execução</span>
                                         <small class="text-muted d-block">

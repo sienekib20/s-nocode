@@ -35,6 +35,20 @@ class editor extends Controller
         return view('create:site.editing.blank', compact('type'));
     }
 
+    public function save_delivered(Request $request)
+    {
+        $domain_path = __delivered_path($request->dominio);
+
+        if ($domain_path) {
+            $response = file_put_contents($domain_path . '/index.php', $request->template) ?
+                'Salvo com sucesso' : 'Erro ao criar o registo';
+
+            return response()->json($response);
+        }
+
+        return response()->json('Invalid domain name');
+    }
+
     public function open_template_edit(Request $request)
     {
         //dd($request);
@@ -50,7 +64,11 @@ class editor extends Controller
 
         if (!empty($d)) {
             $indexContent = storage_path() . "templates/usuarios/{$request->dominio}/index.php";
-            $red = "{$referencia->referencia}/index.html";
+            //$red = __delivered_path(). "{$referencia->referencia}/index.html";
+            $red = __delivered_path("{$request->dominio}/index.php");
+            $red = file_get_contents($red);
+
+            //dd($red);
             return view('web editor:site.gjs-edit', compact('red', 'indexContent', 'dominio', 'template'));
         }
 

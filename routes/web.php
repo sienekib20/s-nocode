@@ -84,6 +84,8 @@ Route::group('auth:authorize', function () {
     Route::post('/salvar', [data::class, 'save_template']);
     Route::post('/salvar_edit', [data::class, 'save_template_edit']);
     Route::post('/remove_template', [data::class, 'remove_saved_template']);
+
+    Route::post('/save/delivered', [editor::class, 'save_delivered']);
 });
 
 Route::prefix('site')->group('auth:authorize', function () {

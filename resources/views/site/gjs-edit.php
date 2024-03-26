@@ -63,7 +63,8 @@
     </div>
 
     <div id="editor">
-        <iframe id="uniqiframe" src="<?= __template($red) ?>" frameborder="0"></iframe>
+        <?= $red ?>
+        <!--<iframe id="uniqiframe" src="<?= __template($red) ?>" frameborder="0"></iframe>-->
     </div>
 
 
@@ -74,7 +75,7 @@
 <div class="rotas" style="display: none">
     <input type="hidden" id="rota-salvar-edicoes" value="<?= route('salvar_edit') ?>">
     <input type="hidden" id="id_template" value=<?= $template->template_id ?>>
-    <input type="hidden" id="__dominio" value=<?= $dominio ?>>
+    <input type="hidden" name="__dominio" value=<?= $dominio ?>>
 </div>
 
 <script type="text/javascript">
