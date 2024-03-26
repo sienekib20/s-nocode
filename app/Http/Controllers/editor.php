@@ -19,6 +19,22 @@ class editor extends Controller
         return view('Web Creator:app.webb.index', compact('data'));
     }
 
+    public function create()
+    {
+        // Antes de chamar essa tela, chamar um popup pra preencher
+        // o nome do site
+        $type = DB::table('tipo_templates')->get();
+        return view('create:site.editing.intro', compact('type'));
+    }
+
+    public function blank()
+    {
+        // Antes de chamar essa tela, chamar um popup pra preencher
+        // o nome do site
+        $type = DB::table('tipo_templates')->get();
+        return view('create:site.editing.blank', compact('type'));
+    }
+
     public function open_template_edit(Request $request)
     {
         //dd($request);

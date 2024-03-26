@@ -67,6 +67,8 @@ class Route
      */
     public static function add($method, $uri, $action)
     {
+        $uri = (!is_null(static::$prefix)) ? '/'.static::$prefix.$uri : $uri;
+
         static::$routes[] = (object) [
             'method' => $method,
             'uri' => $uri,
@@ -74,6 +76,7 @@ class Route
             'prefix' => static::$prefix,
             'middleware' => static::$middleware
         ];
+
 
         /*static::$routes[$method][$uri] = (object) [
             'action' => $action,
@@ -129,14 +132,12 @@ class Route
         $key = 0;
 
         foreach (static::$routes as $index => $route) {
-
             $uri = preg_replace('/\/{(\w+)}/', '/(?<$1>.*?)', $route->uri);
             $uri = "#^" . $uri . "$#";
 
             if (preg_match($uri, static::$request->uri(), $matches)) {
                 $matches = array_slice($matches, 1);
                 //$parameters = $this->routeParameters($parameters, $matches);
-
                 $parameters = [];
                 foreach ($matches as $key => $value) {
                     if (gettype($key) == 'integer') {
@@ -158,6 +159,7 @@ class Route
                 }
             }
         }
+
         if ($found > -1) {
             //dd($positionRoute, $found);
             return $this->dispatchRoute($positionRoute, static::$request, static::$response);

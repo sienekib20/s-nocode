@@ -58,15 +58,13 @@
                         </div>
                         <div class="col-lg-6 col-12 ai-flex-start d-flex flex-wrap" style="gap: 10px;">
                             <a href="" class="btn btn-dark d-block d-lg-none w-35 w-sm-20" id="open-bottom-filter"> <span class="bi bi-sliders"></span> Filtrar </a>
-                            <a href="" class="btn btn-orange"> <span class="bi bi-heart"></span> Meus favoritos </a>
-                            <a href="<?= route('browse.categorias.todas') ?>" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Criar um website agora</a>
+                            <a href="#" class="btn btn-orange"> <span class="bi bi-heart"></span> Meus favoritos </a>
+                            <a href="<?= route('site.intro') ?>" class="btn btn-outline-orange"> <span class="bi bi-plus"></span> Criar um website agora</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        H2NB-77L8-7R6J-ZDMI
 
         <div class="card d-none d-lg-block">
             <div class="card-body">
@@ -75,7 +73,11 @@
                         <div class="col-lg-3" id="colLg3">
                             <small class="d-block card-heading mb-3">Tipo template</small>
                             <ul>
-                                <?php foreach ($tipo as $t) : ?>
+                                <?php
+
+                                use Sienekib\Mehael\Support\Auth;
+
+                                foreach ($tipo as $t) : ?>
                                     <li>
                                         <label for="tipo-<?= $t->tipo_template_id ?>">
                                             <input type="checkbox" name="type-filter" id="tipo-<?= $t->tipo_template_id ?>" class="filter-type-id">
@@ -155,6 +157,11 @@
                                     </div>
                                     <span class="title"><?= $template->titulo ?></span>
                                 </a>
+                                <?php if (Auth::check()) : ?>
+                                    <a href="" class="text-black d-flex ml-3 mt-2" name="add-to-favorite" id="favorito|<?= $template->template_id ?>|<?= Auth::user()->id ?>" style="text-decoration: underline;">
+                                        <small>+ favorito</small>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>

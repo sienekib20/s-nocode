@@ -68,6 +68,7 @@ Route::group('auth:authorize', function () {
     Route::get('/aderir/{id}', [pacotes::class, 'aderir']);
     Route::post('/adesao', [pacotes::class, 'adesao_planos']);
     Route::get('/encomenda', [encomendas::class, 'index']);
+
     Route::get('/editor/{dominio}/{uuid}', [editor::class, 'open_template']);
     //Route::get('/editor/{uuid}', [editor::class, 'open_template']);
     Route::get('/edit/{dominio}/{uuid}', [editor::class, 'open_template_edit']);
@@ -85,7 +86,19 @@ Route::group('auth:authorize', function () {
     Route::post('/remove_template', [data::class, 'remove_saved_template']);
 });
 
-Route::prefix('dash')->group('auth:authorize', function () {
+Route::prefix('site')->group('auth:authorize', function () {
+    // Editor
+    Route::get('/intro', [editor::class, 'create']);
+    Route::get('/blank', [editor::class, 'blank']);
+});
+
+
+Route::prefix('favoritos')->group('auth:authorize', function () {
+    // Editor
+    Route::post('/add', [templates::class, 'set_favoritos']);
+});
+
+Route::prefix('user')->group('auth:authorize', function () {
     Route::get('/{id}/view', [silica::class, 'index']);
     Route::get('/{id}/websites', [silica::class, 'websites']);
     Route::get('/{id}/encomendas', [silica::class, 'demandas']);

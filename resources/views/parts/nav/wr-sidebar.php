@@ -15,35 +15,35 @@ $path = '/' . end($path);
     </div>
 
     <div class="_wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-1" class="_wr-sidebar-link <?= $path == '/view' ? 'active' : '' ?>">
+        <a href="<?= route('user') ?>" id="wr-sidebar-1" class="_wr-sidebar-link <?= $path == '/view' ? 'active' : '' ?>">
             <span class="bi bi-grid-fill"></span>
             <span class="text">Visal geral</span>
         </a>
     </div>
 
     <div class="_wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-2" class="_wr-sidebar-link <?= $path == '/websites' ? 'active' : '' ?>">
+        <a href="<?= route('user') ?>" id="wr-sidebar-2" class="_wr-sidebar-link <?= $path == '/websites' ? 'active' : '' ?>">
             <span class="bi bi-collection"></span>
             <span class="text">Meus websites</span>
         </a>
     </div>
 
     <div class="_wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-3" class="_wr-sidebar-link <?= $path == '/encomendas' ? 'active' : '' ?>">
+        <a href="<?= route('user') ?>" id="wr-sidebar-3" class="_wr-sidebar-link <?= $path == '/encomendas' ? 'active' : '' ?>">
             <span class="bi bi-layers-fill"></span>
             <span class="text">Encomendar website</span>
         </a>
     </div>
 
     <div class="_wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-4" class="_wr-sidebar-link <?= $path == '/campanhas' ? 'active' : '' ?>">
+        <a href="<?= route('user') ?>" id="wr-sidebar-4" class="_wr-sidebar-link <?= $path == '/campanhas' ? 'active' : '' ?>">
             <span class="bi bi-megaphone"></span>
             <span class="text">Minhas campanhas</span>
         </a>
     </div>
 
     <div class="_wr-sidebar-item">
-        <a href="<?= route('dash') ?>" id="wr-sidebar-5" class="_wr-sidebar-link <?= $path == '/notificao' ? 'active' : '' ?>">
+        <a href="<?= route('user') ?>" id="wr-sidebar-5" class="_wr-sidebar-link <?= $path == '/notificao' ? 'active' : '' ?>">
             <span class="bi bi-bell"></span>
             <span class="text">Notificações</span>
         </a>
@@ -70,7 +70,7 @@ $path = '/' . end($path);
             },
             success: function(res) {
                 $.each(res, (key, val) => {
-                    var uuid = res.uuid.split('-')[0];
+                    var uuid = res.uuid.split('-')[3];
                     var a = document.querySelector('#myDash')
                     $('._wr-sidebar-link').each(function() {
                         var href = $(this).attr('href');

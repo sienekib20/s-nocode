@@ -26,6 +26,31 @@ class templates extends Controller
     {
     }
 
+    public function set_favoritos(Request $request)
+    {
+        $favorites = DB::table('favoritos')->where('user', '=', $request->user_id)->where('template', '=', $request->template_id)->get();
+
+        if (empty($favorites)) {
+
+            $lastInserted = DB::table('favoritos')->insertId([
+                'user' => $request->user_id,
+                'template' => $request->template_id
+            ]);
+
+            if ($lastInserted) {
+                return response()->json(['response' => 'adicionado aos favoritos']);
+            }
+
+            return response()->json([
+                'type' => 'erro',
+                'message' => 'erro ao tentar adicionar aos favoritos',
+                'status' => 1002
+            ]);
+        }
+
+        return response()->json(['response' => 'este template já foi adicoinado']);
+    }
+
     // Cria um registo na DB
 
     public function store(Request $request)

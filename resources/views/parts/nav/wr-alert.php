@@ -12,7 +12,7 @@
                 </button>
             </div>
         </div>
-        <div class="alert-timing alert-timing-light">
+        <div class="alert-timing alert-timing-light mt-4">
             <small class="alert-timing-progress"></small>
         </div>
     </div>
