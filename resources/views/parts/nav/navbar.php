@@ -1,0 +1,167 @@
+<nav class="navbar d-xxs-none d-lg-block">
+    <div class="container-sm w-80">
+        <div class="row h-100">
+            <div class="navbar-brand col-lg-2 col-xs-12 d-flex align-items-center justify-content-space-between">
+                <a href="#" class="nav-app w-100 d-flex">
+                    SPAGE
+                </a>
+                <button type="button" class="navbar-toggler d-lg-none">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+            <div class="navbar-items h-100 col-lg-10 justify-content-flex-end justify-content-end d-xxs-none d-lg-flex">
+                <div class="__nav-item <?= request()->path() == '/' ? 'active' : '' ?>">
+                    <a href="<?= route('') ?>" class="__nav-link">
+                        <span>Inicio</span>
+                    </a>
+                </div>
+                <div class="__nav-item <?= request()->path() == '/browse' ? 'active' : '' ?>">
+                    <a href="<?= route('browse') ?>" class="__nav-link">
+                        <span>Modelos</span>
+                    </a>
+                </div>
+
+                <div class="__nav-item <?= request()->path() == '/faqs' ? 'active' : '' ?>">
+                    <a href="<?= route('faqs') ?>" class="__nav-link">
+                        <span>Faqs</span>
+                    </a>
+                </div>
+
+                <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0] ?>
+
+                <?php if (\Sienekib\Mehael\Support\Auth::check()) : $id = \Sienekib\Mehael\Support\Auth::user()->id ?>
+                    <div class="__nav-item <?= request()->path() == '/home' ? 'active' : '' ?>">
+                        <a href="<?= route('user', $id . '/home') ?>" class="__nav-link">
+                            <span>Meu dashboard</span>
+                        </a>
+                    </div>
+                    <!--<div class="__nav-item <?= $path == 'dados' ? 'active' : '' ?>">
+                        <a href="<?= route('dados', $id) ?>" class="__nav-link">
+                            <span>Meus dados</span>
+                        </a>
+                    </div>-->
+                <?php endif; ?>
+                <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
+                <!--<div class="__nav-item <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
+                    <a href="<?= route('planos') ?>" class="__nav-link">
+                        <span>Pacotes</span>
+                    </a>
+                </div> -->
+
+                <!--<div class="__nav-item <?= request()->path() == '/contactos' ? 'active' : '' ?>">
+                    <a href="<?= route('contactos') ?>" class="__nav-link">
+                        <span>Contactos</span>
+                    </a>
+                </div>-->
+
+                <?php if (!\Sienekib\Mehael\Support\Auth::check()) : ?>
+                    <div class="__nav-item login">
+                        <a href="<?= route('entrar') ?>" class="__nav-link">
+                            <span>Entrar</span>
+                        </a>
+                    </div>
+                <?php else : ?>
+                    <div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
+                        <a href="" class="__nav-link open-notifications">
+                            <span class="fas fa-bell"></span>
+                        </a>
+                    </div>
+                    <!--<div class="__nav-item <?= request()->path() == '/compras' ? 'active' : '' ?>">
+                        <a href="<?= route('/') ?>" class="__nav-link">
+                            <span class="fas fa-shopping-cart"></span>
+                        </a>
+                    </div> -->
+                    <div class="__nav-item <?= request()->path() == '/logout' ? 'active' : '' ?>">
+                        <a href="<?= route('logout') ?>" class="__nav-link">
+                            <span>Sair</span>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            </div> <!--/.navbar-items-->
+        </div>
+    </div>
+</nav>
+
+<div class="mobileMenu d-xxs-block d-lg-none">
+    <div class="mobileMenu-top">
+        <div class="container-sm">
+            <a href="#" class="nav-app w-100 d-flex"> SPAGE</a>
+            <div class="openMenu"><span class="lineMenu"></span><span class="lineMenu"></span><span class="lineMenu"></span></div>
+        </div>
+    </div>
+    <div class="mobileMenu-contain">
+        <div class="mmItem closeMenu"> <span class="bi bi-arrow-left">Voltar</span> </div>
+        <div class="mmItem <?= request()->path() == '/' ? 'active' : '' ?>">
+            <a href="<?= route('/') ?>" class="mmLink">Inicio</a>
+        </div>
+        <div class="mmItem <?= request()->path() == '/browse' ? 'active' : '' ?>">
+            <a href="<?= route('browse') ?>" class="mmLink">Modelos</a>
+        </div>
+        <div class="mmItem <?= request()->path() == '/faqs' ? 'active' : '' ?>">
+            <a href="<?= route('faqs') ?>" class="mmLink">Faqs</a>
+        </div>
+        <?php if (str_contains($path = request()->path(), 'aderir')) $path = explode('/', ltrim($path, '/'))[0] ?>
+        <!--<div class="mmItem <?= request()->path() == '/planos' ? 'active' : '' ?> <?= $path == 'aderir' ? 'active' : '' ?>">
+            <a href="<?= route('planos') ?>" class="mmLink">Pacotes</a>
+        </div>-->
+
+        <?php if (\Sienekib\Mehael\Support\Auth::check()) : ?>
+            <?php if (str_contains($path = request()->path(), 'dados')) $path = explode('/', ltrim($path, '/'))[0]; ?>
+            <div class="mmItem">
+                <a href="<?= route('user', $id . '/home') ?>" class="mmLink">Meu dashboard</a>
+            </div>
+            <!--<div class="mmItem <?= $path == 'dados' ? 'active' : '' ?>">
+                <a href="<?= route('dados', \Sienekib\Mehael\Support\Auth::user()->id) ?>" class="mmLink">Meus dados</a>
+            </div>-->
+            <!--<div class="mmItem <?= request()->path() == '/buy' ? 'active' : '' ?>">
+                <a href="<?= route('buy') ?>" class="mmLink"> <span class="bi bi-cart">Carrinho</span> </a>
+            </div>-->
+            <div class="mmItem">
+                <a href="<?= route('') ?>" class="mmLink">Termos de uso</a>
+            </div>
+            <div class="mmItem">
+                <a href="<?= route('logout') ?>" class="mmLink">Sair</a>
+            </div>
+        <?php else : ?>
+            <div class="mmItem">
+                <a href="<?= route('login') ?>" class="mmLink">Entrar</a>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<small class="d-xxs-block d-lg-none my-4"></small>
+<small class="d-xxs-block d-lg-none my-3"></small>
+
+
+<!-- @parts('nav.back-to-top')-->
+<?= parts('labs.loader') ?>
+<?= parts('overlay') ?>
+<?= parts('notificacao') ?>
+
+<script>
+    $('.open-notifications').click((e) => {
+        e.preventDefault();
+        $('body').css('overflow', 'hidden');
+        $('.overlay').addClass('active');
+        $('.notification').addClass('active');
+    });
+    $('.overlay').click(() => {
+        $('body').css('overflow', 'auto');
+        $('.overlay').removeClass('active');
+        $('.notification').removeClass('active');
+    })
+
+    $('.__harmbuger').click((e) => {
+        $('.__nav-items').toggleClass('active');
+    });
+    $('.openMenu').click((e) => {
+        $('.mobileMenu-contain').css('right', '0');
+        $('body').css('overflow', 'hidden');
+    });
+    $('.closeMenu').click((e) => {
+        $('.mobileMenu-contain').css('right', '-1000%');
+        $('body').css('overflow', 'auto');
+    });
+</script>

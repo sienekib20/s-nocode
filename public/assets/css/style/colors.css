@@ -1,0 +1,19 @@
+.bg-warning {
+    background-color: #F9C700 !important;
+}
+
+.bg-warning * {
+    color: #fff !important;
+}
+
+.bg-orange {
+    background-color: #f71 !important;
+}
+
+.bg-orange * {
+    color: #fff !important;
+}
+
+.text-orange {
+    color: #f71 !important;
+}

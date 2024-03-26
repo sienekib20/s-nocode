@@ -1,0 +1,860 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/v2.0 | 20110126 License: none (public domain)*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    outline: 0;
+    background: transparent;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+hr {
+    background: transparent;
+    border: 0;
+    clear: both;
+    color: transparent;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+mark {
+    background-color: #ffffb3;
+    font-style: italic
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+ins {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+$breakpoints: (
+    'xs': 240px,
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px,
+    'xxl': 1400px
+);
+
+@mixin mq($breakpoint) {
+    @each $key, $width in $breakpoints {
+        @if ($breakpoint ==$key) {
+            @media (min-width: $width) {
+                @content
+            }
+        }
+    }
+}
+
+;
+
+@function breakpoint-width($point) {
+    @each $key, $width in $breakpoints {
+        @if ($point ==$key) {
+            @return ($width - 32px);
+        }
+    }
+}
+
+;
+
+.container,
+.container-max,
+.container-max-xs,
+.container-max-sm,
+.container-max-md,
+.container-max-lg,
+.container-max-xl,
+.container-max-xxl,
+.container-fluid,
+.container-xs,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-max {
+    width: 80%;
+}
+
+$col-witdh: 8.333333333333334%;
+
+.col-predefinition {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@for $count from 1 to 13 {
+    .col-#{$count} {
+        flex: 0 0 ($count * $col-witdh);
+        max-width: ($count * $col-witdh);
+    }
+
+    .col-#{$count} {
+        @extend .col-predefinition;
+    }
+}
+
+.row,
+[class*='col-'] {
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+}
+
+.col,
+.col-auto {
+    @extend .col-predefinition;
+}
+
+.col {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+}
+
+.col-auto {
+    width: 100%;
+    max-width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.row-no-margin {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row-no-padding [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@for $i from 1 through 12 {
+    .offset-#{$i} {
+        margin-left: $i * $col-witdh;
+    }
+
+}
+
+@include mq('xs') {
+
+    .container,
+    .container-max,
+    .container-max-xs,
+    .container-fluid,
+    .container-xs,
+    .col-auto,
+    .col {
+        max-width: breakpoint-width('xs');
+    }
+
+    @for $count from 1 to 13 {
+        .col-xs-#{$count} {
+            flex: 0 0 ($count * $col-witdh);
+            max-width: ($count * $col-witdh);
+        }
+    }
+}
+
+@include mq('sm') {
+
+    .container,
+    .container-max,
+    .container-max-xs,
+    .container-max-sm .container-fluid,
+    .container-xs,
+    .container-sm,
+    .col-auto,
+    .col {
+        max-width: breakpoint-width('sm');
+    }
+
+    @for $count from 1 to 13 {
+        .col-sm-#{$count} {
+            flex: 0 0 ($count * $col-witdh);
+            max-width: ($count * $col-witdh);
+        }
+    }
+}
+
+@include mq('md') {
+
+    .container,
+    .container-max,
+    .container-max-xs,
+    .container-max-sm,
+    .container-max-md,
+    .container-fluid,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .col-auto,
+    .col {
+        max-width: breakpoint-width('md');
+    }
+
+    @for $count from 1 to 13 {
+        .col-md-#{$count} {
+            flex: 0 0 ($count * $col-witdh);
+            max-width: ($count * $col-witdh);
+        }
+    }
+}
+
+@include mq('lg') {
+
+    .container,
+    .container-max,
+    .container-max-xs,
+    .container-max-sm,
+    .container-max-md,
+    .container-max-lg,
+    .container-fluid,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .col-auto,
+    .col {
+        max-width: breakpoint-width('lg');
+    }
+
+    @for $count from 1 to 13 {
+        .col-lg-#{$count} {
+            flex: 0 0 ($count * $col-witdh);
+            max-width: ($count * $col-witdh);
+        }
+    }
+}
+
+@include mq('xl') {
+
+    .container,
+    .container-max,
+    .container-max-xs,
+    .container-max-sm,
+    .container-max-md,
+    .container-max-lg,
+    .container-max-xl,
+    .container-fluid,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .col-auto,
+    .col {
+        max-width: breakpoint-width('xl');
+    }
+
+    @for $count from 1 to 13 {
+        .col-xl-#{$count} {
+            flex: 0 0 ($count * $col-witdh);
+            max-width: ($count * $col-witdh);
+        }
+    }
+}
+
+@include mq('xxl') {
+
+    .container,
+    .container-max,
+    .container-max-xs,
+    .container-max-sm,
+    .container-max-md,
+    .container-max-lg,
+    .container-max-xl,
+    .container-max-xxl,
+    .container-fluid,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl,
+    .col-auto,
+    .col {
+        max-width: breakpoint-width('xxl');
+    }
+
+    @for $count from 1 to 13 {
+        .col-xxl-#{$count} {
+            flex: 0 0 ($count * $col-witdh);
+            max-width: ($count * $col-witdh);
+        }
+    }
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-inline-block {
+    display: inline-block !important;
+}
+
+.d-inline-flex {
+    display: inline-flex !important;
+}
+
+.fd-row {
+    flex-direction: row !important;
+}
+
+.fd-row-reverse {
+    flex-direction: row-reverse !important;
+}
+
+.fd-column {
+    flex-direction: column !important;
+}
+
+.fd-column-reverse {
+    flex-direction: column-reverse !important;
+}
+
+.fw-wrap {
+    flex-wrap: wrap;
+}
+
+.fw-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.fw-nowrap {
+    flex-wrap: nowrap;
+}
+
+.fgrow-0 {
+    flex-grow: 0;
+}
+
+.fgrow-1 {
+    flex-grow: 1;
+}
+
+.fshrink-0 {
+    flex-shrink: 0;
+}
+
+.fshrink-1 {
+    flex-shrink: 1;
+}
+
+.fbasis-0 {
+    flex-basis: 0;
+}
+
+.fbasis-1 {
+    flex-basis: 1;
+}
+
+.ai-start {
+    align-items: start !important;
+}
+
+.ai-baseline {
+    align-items: baseline !important;
+}
+
+.ai-first-baseline {
+    align-items: first baseline !important;
+}
+
+.ai-last-baseline {
+    align-items: last baseline !important;
+}
+
+.ai-stretch {
+    align-items: stretch !important;
+}
+
+.ai-center {
+    align-items: center !important;
+}
+
+.ai-end {
+    align-items: end !important;
+}
+
+.ai-normal {
+    align-items: normal !important;
+}
+
+.ai-safe {
+    align-items: safe !important;
+}
+
+.ai-self-end {
+    align-items: self-end !important;
+}
+
+.ai-self-start {
+    align-items: self-start !important;
+}
+
+.as-self-start {
+    align-self: self-start !important;
+}
+
+.as-baseline {
+    align-self: baseline !important;
+}
+
+.as-first-baseline {
+    align-self: first baseline !important;
+}
+
+.as-last-baseline {
+    align-self: last baseline !important;
+}
+
+.as-stretch {
+    align-self: stretch !important;
+}
+
+.as-center {
+    align-self: center !important;
+}
+
+.as-end {
+    align-self: end !important;
+}
+
+.as-normal {
+    align-self: normal !important;
+}
+
+.as-safe {
+    align-self: safe !important;
+}
+
+.as-self-end {
+    align-self: self-end !important;
+}
+
+.as-self-start {
+    align-self: self-start !important;
+}
+
+.jc-start {
+    justify-content: start !important;
+}
+
+.jc-baseline {
+    justify-content: baseline !important;
+}
+
+.jc-first-baseline {
+    justify-content: first baseline !important;
+}
+
+.jc-last-baseline {
+    justify-content: last baseline !important;
+}
+
+.jc-stretch {
+    justify-content: stretch !important;
+}
+
+.jc-center {
+    justify-content: center !important;
+}
+
+.jc-end {
+    justify-content: end !important;
+}
+
+.jc-safe {
+    justify-content: safe !important;
+}
+
+.jc-unsafe {
+    justify-content: unsafe !important;
+}
+
+.jc-right {
+    justify-content: right !important;
+}
+
+.jc-left {
+    justify-content: left !important;
+}
+
+.jc-initial {
+    justify-content: initial !important;
+}
+
+.jc-normal {
+    justify-content: normal !important;
+}
+
+.jc-space-evenly {
+    justify-content: space-evenly !important;
+}
+
+.jc-space-between {
+    justify-content: space-between !important;
+}
+
+.jc-space-around {
+    justify-content: space-around !important;
+}
+
+.js-start {
+    justify-self: start !important;
+}
+
+.js-baseline {
+    justify-self: baseline !important;
+}
+
+.js-first-baseline {
+    justify-self: first baseline !important;
+}
+
+.js-last-baseline {
+    justify-self: last baseline !important;
+}
+
+.js-stretch {
+    justify-self: stretch !important;
+}
+
+.js-center {
+    justify-self: center !important;
+}
+
+.js-end {
+    justify-self: end !important;
+}
+
+.js-safe {
+    justify-self: safe !important;
+}
+
+.js-unsafe {
+    justify-self: unsafe !important;
+}
+
+.js-right {
+    justify-self: right !important;
+}
+
+.js-left {
+    justify-self: left !important;
+}
+
+.js-initial {
+    justify-self: initial !important;
+}
+
+.js-normal {
+    justify-self: normal !important;
+}
+
+.js-space-evenly {
+    justify-self: space-evenly !important;
+}
+
+.js-space-between {
+    justify-self: space-between !important;
+}
+
+.js-space-around {
+    justify-self: space-around !important;
+}
+
+@for $i from 1 through 12 {
+    .gap-#{$i} {
+        gap: $i * 0.25rem;
+    }
+}
+
+.order-first {
+    order: -1;
+}
+
+@for $i from -1 through 12 {
+    @if ($i !=-1) {
+        .order-#{$i} {
+            order: $i * 1;
+        }
+    }
+}
+
+.order-last {
+    order: 13;
+}
+
+@include mq('xs') {
+    @for $i from 1 through 12 {
+        .gap-xs-#{$i} {
+            gap: $i * 0.25rem;
+        }
+    }
+}
+
+@include mq('sm') {
+    @for $i from 1 through 12 {
+        .gap-sm-#{$i} {
+            gap: $i * 0.25rem;
+        }
+    }
+}
+
+@include mq('md') {
+    @for $i from 1 through 12 {
+        .gap-md-#{$i} {
+            gap: $i * 0.25rem;
+        }
+    }
+}
+
+@include mq('lg') {
+    @for $i from 1 through 12 {
+        .gap-lg-#{$i} {
+            gap: $i * 0.25rem;
+        }
+    }
+}
+
+@include mq('xl') {
+    @for $i from 1 through 12 {
+        .gap-xl-#{$i} {
+            gap: $i * 0.25rem;
+        }
+    }
+}
+
+@include mq('xxl') {
+    @for $i from 1 through 12 {
+        .gap-xxl-#{$i} {
+            gap: $i * 0.25rem;
+        }
+    }
+}
+
+$spacing: (
+    '.mt': 'margin-top',
+    '.mb': 'margin-bottom',
+    '.ml': 'margin-left',
+    '.mr': 'margin-right',
+    '.pt': 'padding-top',
+    '.pb': 'padding-bottom',
+    '.pl': 'padding-left',
+    '.pr': 'padding-right',
+);
+
+@each $key, $property in $spacing {
+    @for $i from 1 through 5 {
+        #{$key}-#{$i} {
+            #{$property}: $i * 0.25rem;
+        }
+
+    }
+}
+
+;
+
+@for $i from 1 through 5 {
+    .mx-#{$i} {
+        margin-left: $i * 0.25rem;
+        margin-right: $i * 0.25rem;
+    }
+
+    .px-#{$i} {
+        padding-left: $i * 0.25rem;
+        padding-right: $i * 0.25rem;
+    }
+
+    .my-#{$i} {
+        margin-top: $i * 0.25rem;
+        margin-bottom: $i * 0.25rem;
+    }
+
+    .py-#{$i} {
+        padding-top: $i * 0.25rem;
+        padding-bottom: $i * 0.25rem;
+    }
+
+}
+
+$alignments: 'left', 'right', 'center', 'justify', 'end', 'start', 'inherit', 'initial', 'unset';
+
+@each $type in $alignments {
+    .text-#{$type} {
+        text-align: $type !important;
+    }
+}
+
+;

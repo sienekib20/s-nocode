@@ -1,0 +1,132 @@
+
+.popupXXXXXXXXXXXXXXX{
+    background-color: white;
+    /* width: 550px;
+     
+     margin-left: 100px;*/
+    margin: auto auto auto auto;
+    position: absolute;
+    display: none;
+    position: fixed;
+    left: auto;
+    right: auto;
+    top: 5%;
+    border-radius: 10px;
+    border: 2px solid var(--colorPrimaryDark);    
+    padding: 20px;
+    box-shadow: 2px 2px 4px #000000;
+    /* height: auto;*/
+    max-height: 520px;
+    min-width: 30%;
+
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 60%;
+    max-height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    overflow: auto;
+}
+
+
+.popup-header{
+    /*  padding: 10px 15px;*/
+    background-color: white;
+    margin-top: 0px;
+    position: fixed;
+    width: calc(60% - 10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--colorPrimaryDark);
+    box-shadow: 1px 0px 2px gray;
+    padding-left: 10px;
+    border-radius: 5px;
+    z-index: 10;
+    overflow: hidden;
+    /* margin-bottom: 5px;*
+     /* color: red;*/
+}
+
+
+.popup-content{
+    margin-top: 70px;
+}
+
+.popup-close-button{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+
+.popup-close-button:before{
+    content: "Fechar";
+}
+
+.popup-header button{
+    /*   cursor: pointer;
+       border: none;
+       outline: none;
+       background: none;*/
+
+
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    display: none;
+    z-index: 110;
+    /* visibility: hidden;*/
+    /* opacity: 0;*/
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 700px){
+    .popup{
+        width: 90%;
+    }
+    .popup-header{
+        width: calc(90% - 10px);
+    }
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* formatação do popup cliente histórico*/
+

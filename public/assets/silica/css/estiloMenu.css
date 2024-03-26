@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+
+
+
+
+/* Formatacao do Menu Lateral  */
+
+a{
+    text-decoration:none ;
+    color: #ffffff;
+    font-size: small;
+    margin-left: 9px;
+    margin-right: 9px;
+    cursor: context-menu;
+
+    letter-spacing: .1rem;
+    display: block;
+    padding: 3px 0px 3px 0px;
+}
+
+#navHeaderMenu a, #navHeaderMenu li, #navHeaderMenu ul{
+    display: inline !important;
+    margin-left: 0px !important;
+    letter-spacing: .05rem !important;
+}
+
+#navHeaderMenu li:before{
+    color: white;
+}
+
+#navHeaderMenu li:hover{
+    background-color: var(--colorPrimaryDark);/* #960000;*/
+}
+
+#navHeaderMenu menuItem{
+    display: none;
+}
+
+li{
+    list-style: none;
+    margin-left: -30px;
+    padding: 5px 0px 5px 0px;
+
+}
+.menuPrincipal{
+    width: 100%;
+     background-color: var(--colorPrimary);  
+  /*  background-image: linear-gradient(to right, rgba(46,93,163) , #2c69cc, rgba(46,93,163));*/
+    left: 0%;
+}
+
+
+.menuPrincipalSection a {
+    border-bottom: 1px solid var(--colorPrimaryDark);/* #960000;*/
+}
+
+
+.menuPrincipalSection ul{
+    display: none;
+}
+
+
+.menuPrincipalSection li ul{
+    /* background-color: rgba(46,93,163);*/
+    background-color: #0000B8;
+}
+
+
+
+
+.menuPrincipal .sub-arrow:after{
+    content: '\203A';
+    float: right;
+    margin-right: 5PX;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transition:  rotate(90deg);
+
+
+}
+
+
+
+.menuPrincipal li:hover .sub-arrow:after {
+   /* content: '\2039';*/
+}
+
+.menuPrincipal li:hover {
+    background-color: var(--colorPrimaryDark);/* #960000;*/
+
+}
+
+.menuItem{
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-size: 20px auto !important;
+}
+
+.menuItemSelect{
+    background-color: white;
+    border-radius: 9px;
+}
+
+.menuItemSelect:hover{
+    background-color: #dddddd !important;
+}
+
+.subMenuItem{
+    text-transform: lowercase;
+    text-transform: capitalize;
+}
+
+.divFullBody{
+    /*  display: inline-flex; */
+    height: auto;
+    width: 100%;
+    min-height: 100%;
+}
+
+.divForFormsInside{
+    padding: 5px; 
+}
+
+.divForFormsInsideUdaox{
+    padding: 5px; 
+}
+
+
+.noProcess{
+    color: greenyellow;
+}
+
+.noProcess:after{
+    content: " /* Sem acção";
+}
+
+
+
+
+@media print{
+    #divShowHideMainMenu{
+        display: none;
+    }
+
+    .divMainHeader{
+        display: none;
+    }
+
+    .noPrint{
+        display: none;
+        /* visibility: hidden; */
+    }
+
+    .onlyOnPrint{
+        display: block;
+    }
+
+    .divForFormsInsideUdaox, .divForFormsInside, input, select, fieldset{
+        border: none;
+    }
+
+
+    input[type=submit], input[type=reset], input[type=button] {
+        display: none;
+    }
+}

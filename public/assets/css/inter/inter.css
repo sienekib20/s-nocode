@@ -1,0 +1,20 @@
+@font-face{
+    font-family: 'Inter-Light';
+    src: url('Inter-Light.ttf') format('truetype');
+    display: swap;
+    font-size: normal;
+}
+
+@font-face{
+    font-family: 'Inter-Regular';
+    src: url('Inter-Regular.ttf') format('truetype');
+    display: swap;
+    font-size: normal;
+}
+
+@font-face{
+    font-family: 'Inter-Bold';
+    src: url('Inter-Bold.ttf') format('truetype');
+    display: swap;
+    font-size: normal;
+}

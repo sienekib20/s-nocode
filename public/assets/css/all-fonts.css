@@ -1,0 +1,133 @@
+/*
+COUSINE
+*/
+
+@font-face {
+    font-family: 'Cousine-Regular';
+    src: url('fonts/Cousine/Cousine-Regular.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cousine-Bold';
+    src: url('fonts/Cousine/Cousine-Bold.ttf');
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Cascadia';
+    src: url('fonts/Cascadia.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    display: swap;
+    src: url('fonts/Poppins-Regular.otf') format('otf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('fonts/Poppins-Bold.otf') format('otf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('fonts/Poppins-Medium.otf') format('otf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Black';
+    src: url('fonts/Poppins-Black.otf') format('otf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Light';
+    src: url('fonts/Poppins-Light.otf') format('otf');
+    font-style: normal;
+}
+
+/*
+ROBOTO
+*/
+
+@font-face {
+    font-family: 'RobotoCondensed-Light';
+    src: url('RobotoCondensed-Light.ttf');
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'RobotoCondensed-Bold';
+    src: url('RobotoCondensed-Bold.ttf');
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('fonts/Roboto-Regular.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('fonts/Roboto-Bold.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('fonts/Roboto-Medium.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Black';
+    src: url('fonts/Roboto-Black.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('fonts/Roboto-Light.ttf');
+    font-style: normal;
+}
+
+/*
+OPEN-SANS
+*/
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('fonts/OpenSans-Regular.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url('fonts/OpenSans-Bold.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans-Medium';
+    src: url('fonts/OpenSans-Medium.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans-Black';
+    src: url('fonts/OpenSans-Black.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url('fonts/OpenSans-Light.ttf');
+    font-style: normal;
+}

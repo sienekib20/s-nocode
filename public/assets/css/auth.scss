@@ -1,0 +1,225 @@
+@import url('all-fonts.css');
+
+
+/*grid*/
+
+
+.container,
+.container-xxs,
+.container-xs,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl,
+.container-fluid,
+.container-max,
+.container-tiny {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-max {
+    width: 80%;
+}
+
+.container-tiny {
+    width: 75%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.row > * {
+    transition: 0.2s ease;
+    -webkit-transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    -ms-transition: 0.2s ease;
+    -o-transition: 0.2s ease;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        flex: 0 0 $i * 8.333333333333334%;
+        max-width: $i * 8.333333333333334%;
+    }
+}
+
+
+
+@media (min-width: 0px) {
+
+    .text-center-xxs {
+        text-align: center !important;
+    }
+
+    .container,
+    .container-xxs,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(100% - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-xxs-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+@media (min-width: 376px) {
+
+    .container,
+    .container-xxs,
+    .container-xs,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(376px - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-xs-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+@media (min-width: 576px) {
+    .text-left-sm {
+        text-align: left !important;
+    }
+
+    .container,
+    .container-xxs,
+    .container-xs,
+    .container-sm,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(576px - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .text-left-md {
+        text-align: left !important;
+    }
+
+    .container,
+    .container-xxs,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(768px - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    .container,
+    .container-xxs,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(992px - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-lg-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .container,
+    .container-xxs,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(1200px - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-xl-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .container,
+    .container-xxs,
+    .container-xs,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl,
+    .container-fluid,
+    .container-max,
+    .container-tiny {
+        max-width: calc(1400px - 32px);
+    }
+
+    @for $i from 1 through 12 {
+        .col-xxl-#{$i} {
+            flex: 0 0 $i * 8.333333333333334%;
+            max-width: $i * 8.333333333333334%;
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #fff;
+    font-family: 'Roboto-Regular';
+}
+
+.d-block {
+    display: block !important;
+}

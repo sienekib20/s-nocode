@@ -1,0 +1,307 @@
+
+
+.labelFormatNetWorkIcon{
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 32px;
+}
+
+.imgFooterSocialNetWorkIcon{
+    height: auto;
+    width: 30px;
+}
+
+
+.imgRod1{
+    height: auto;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.labelCustomer{
+    background-image: url(../_svg/user-circle_white_00.svg);
+}
+.labelCustomer-RedDark{
+    background-image: url(../_svg/user-circle_red_dark.svg);
+}
+
+
+
+.labelEdit{
+    background-image: url(../_svg/dolly_Stock_white_1.svg);
+}
+.labelSave{
+    background-image: url(../_svg/save_white2.svg);
+}
+.labelSave-RedDark{
+    background-image: url(../_svg/save_red_dark.svg);
+}
+.labelDelete {
+    background-image: url(../_svg/trash_white_mod.svg);
+}
+.labelDelete-RedDark, .labelCancelDocument-RedDark{
+    background-image: url(../_svg/trash_red_dark.svg);
+}
+.labelDelete-RedDark:before{
+    content: "Eliminar ";
+}
+.labelRemove{
+    background-image: url(../_svg/window-close_white.svg);
+}
+.labelSearch{ 
+    background-image: url(../_svg/search_white_0.svg);
+}
+
+.labelSearck-RedDark{
+    background-image: url(../_svg/search_red_dark.svg)
+}
+.labelNew{
+    background-image: url(../_svg/new_white.svg);
+}
+.labelNew-RedDard{
+    background-image: url(../_svg/new_red_dark.svg);
+}
+.labelSale{
+    background-image: url(../_svg/cash-register_Sales_white.svg);
+}
+.labelSaleWorkingDocument{
+    background-image: url(../_svg/calculator-svgrepo-com.svg);
+}
+.labelPrint{
+    background-image: url(../_svg/print_white.svg);
+}
+.labelPrint-RedDark{
+    background-image: url(../_svg/print_red_dark.svg);
+}
+.labelPrint-RedDark:before{
+    content: "Imprimir";
+}
+.labelCalendar{
+    background-image: url(../_svg/calendar-svgrepo-com.svg);
+}
+.labelSaleOrder{
+    background-image: url(../_svg/sell-product-svgrepo-com.svg);
+}
+.labelPatrimony{
+    background-image: url(../_svg/building-of-big-houses-style-svgrepo-com.svg);
+}
+.labelTaxsBill{
+    background-image: url(../_svg/taxes-bill-svgrepo-com.svg);
+}
+.labelMagic{
+    background-image: url(../_svg/magic_red_dark.svg);
+}
+
+.labelKeyboard{
+    background-image: url(../_svg/keyboard.svg)
+}
+
+.labelComplaint{
+    background-image: url(../_svg/frown_white.svg)
+}
+
+
+.labelTools{
+    background-image: url(../_svg/tools_white_3.svg); 
+}
+.labelAddress{
+    background-image: url(../_svg/address-book_white.svg); 
+}
+.labelHome{
+    background-image: url(../_svg/home_white.svg);
+}
+
+.labelEdit{
+    background-image: url(../_svg/edit_white_0.svg);
+}
+.labelView, .labelViewAll{
+    background-image: url(../_svg/eye_white_mod.svg); 
+}
+.labelView-RedDark{
+    background-image: url(../_svg/eye_red_dark.svg); 
+}
+.labelTreasury{
+    background-image: url(../_svg/money-check-alt_white.svg); 
+}
+.labelUser{
+    background-image: url(../_svg/user-alt_white_0.svg);  
+}
+.labelUserHR{
+    background-image: url(../_svg/users_white_02.svg);
+}
+
+.labelContact{
+    background-image: url(../_svg/phone-square_white.svg);
+}
+.labelSupply{
+    background-image: url(../_svg/truck_white_2.svg);
+}
+.labelProduct{
+    background-image: url(../_svg/cube-3d-svgrepo-com.svg);
+}
+.labelStock{
+    background-image: url(../_svg/dolly_Stock_white_1.svg);
+}
+.labelStockIn{
+    background-image: url(../_svg/dolly_Stock_white_2.svg);
+}
+
+.labelSameAs{
+    background-image: url(../_svg/exchange-alt_white_mod.svg);
+}
+
+.labelFilter{
+    background-image: url(../_svg/filter_white_mod.svg);
+}
+.labelArrowUp{
+    background-image: url(../_svg/arrow-pointing-up-svgrepo-com.svg);
+}
+.labelArrowRight{
+    background-image: url(../_svg/arrow-pointing-right-svgrepo-com.svg);
+}
+
+
+.labelLoginUser{
+    background-image: url(../_svg/user-alt_gray_01.svg);
+}
+
+.labelLoginPass{
+    background-image: url(../_svg/lock_gray_01.svg);
+}
+
+.labelGetIn{
+    background-image: url(../_svg/arrow-alt-circle-right_white_01.svg);
+}
+
+.labelGetOut{
+    background-image: url(../_svg/arrow-alt-circle-left_white_02.svg);
+}
+
+.labelLink{
+    background-image: url(../_svg/link_white_mod.svg);
+}
+
+.labelBrokenLink{
+    background-image: url(../_svg/broken-web-link-svgrepo-com_white_mod.svg);
+}
+
+.labelPayment{
+    background-image: url(../_svg/money-bill-alt_white_mod.svg);
+}
+.labelPayment-RedDark{
+    background-image: url(../_svg/money-bill-alt_red_dark.svg);
+}
+
+.labelAddToCar{
+    background-image: url(../_svg/add-to-cart-svgrepo-com_white_mod.svg);
+}
+
+.labelDetail{
+    background-image: url(../_svg/horizontal-lines_white_mod.svg);
+}
+
+.labelValidate{
+    background-image: url(../_svg/check-circle_white.svg);
+}
+
+.labelError{
+    background-image: url(../_svg/window-close_white.svg);
+}
+
+.labelClose{
+    background-image: url(../_svg/close-cancel-svgrepo-com.svg);
+}
+
+.labelDownload, .labelAdd{
+    background-image: url(../_svg/download-button-svgrepo-com_white_mod.svg);
+}
+.labelAdd-RedDark{
+    background-image: url(../_svg/download-button-svgrepo-com_red_dark.svg);
+}
+
+
+.labelTaxs{
+    background-image: url(../_svg/money-svgrepo-com.svg);
+}
+
+.labelClean{
+    background-image: url(../_svg/clean-floors-svgrepo-com.svg);
+}
+
+.labelClean-RedDark{
+    background-image: url(../_svg/clean-floors-svgrepo-com_red_dark.svg);
+}
+
+.labelContract{
+    background-image: url(../_svg/file_contract_white.svg);
+}
+
+.labelHydrometer{
+    background-image: url(../_svg/stopwatch_white.svg);
+}
+
+.button-print-receipt{
+    background-image: url(../_svg/print_receipt_white.svg);
+}
+.button-print-a4{
+    background-image: url(../_svg/print_a4_white.svg);
+}
+.button-print-email{
+    background-image: url(../_svg/print_mail_white.svg);
+}
+.button-print-whatsapp{
+    background-image: url(../_svg/print_whatsapp_white.svg);
+}
+
+
+[class*="label"]{
+    padding-left: 22px;
+    min-width: 22px;
+    background-size: 20px auto;
+    background-repeat: no-repeat; 
+    background-position: left;
+}
+
+
+
+@media only screen and (min-width: 1150px){
+
+    /* [class*="label"]{
+         padding-left: 32px;
+         background-position: left;
+     }*/
+
+
+    .labelEdit:before{
+        content: "Editar";
+    }
+
+    .labelPrint:before{
+        content: "Imprimir"
+    }
+
+    .labelRemove:before{
+        content: "Remover";
+    }
+
+    .labelDelete:before{
+        content: "Eliminar";
+    }
+
+    .labelView:before{
+        content: "Ver";
+    }
+
+    .labelAdd:before{
+        content: "Adicionar";
+    }
+
+    .labelDetail:before{
+        content: "Detalhes";
+    }
+
+
+}

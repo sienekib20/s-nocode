@@ -1,0 +1,40 @@
+:root{
+    --stageColor: #2c69cc;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #CCC;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#myBar {
+    width: 1%;
+    height: 20px;
+    background-color: var(--stageColor);
+    border-radius: 10px;
+}
+
+.spanStage{
+    float: left;
+    font-size: small;
+    min-height: 25px;
+    border: 1px solid var(--stageColor);
+    border-radius: 10px;
+    text-align: center;
+    align-content: center;
+    /*margin-left: 10px;*/
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.labelStage{
+    margin: auto;
+}
+
+[id*="divPreCadCadStage"]{
+    overflow: auto;
+}

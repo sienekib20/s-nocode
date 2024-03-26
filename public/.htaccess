@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Permitir acesso a URLs específicas dentro de templates
+#RewriteCond %{REQUEST_URI} !^/templates/defaults [NC]
+RewriteCond %{REQUEST_URI} !^/templates/ [NC]
+#RewriteRule ^templates/([^/]+)/? - [L]
+RewriteRule ^templates/? - [L]
+
+# Permitir acesso a URLs específicas dentro de html-templates
+RewriteCond %{REQUEST_URI} !^/html-templates/ [NC]
+RewriteRule ^html-templates/? - [L]
+
+# Bloquear acesso direto à pasta templates
+RewriteRule ^templates/?$ - [F]
+
+# Bloquear acesso direto à pasta html-templates
+RewriteRule ^html-templates/?$ - [F]
+
+# Redireciona URLs de /templates/defaults/$referencia/cover/$capa para /live/shot/$capa
+# RewriteRule ^templates/defaults/([^/]+)/cover/(.*)$ /live/shot/$2 [L,R=301]
+
+# Redireciona as solicitações para /template/v1/ para /storage/templates/defaults/
+#$RewriteCond %{HTTP_HOST} (.+)/template/v1/
+#RewriteRule ^(.*)$ /storage/templates/defaults/$1 [L]
+
+# Assegura que arquivos ou diretórios existentes não sejam redirecionados
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Roteia todas as outras solicitações para index.php
+RewriteRule ^(.*)$ index.php [QSA,L]

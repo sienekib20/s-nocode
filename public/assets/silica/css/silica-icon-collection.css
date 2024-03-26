@@ -1,0 +1,82 @@
+:root{
+    --icon-silica-width: 35px;
+}
+.icon-silica-web{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/sw_icon_png.png);
+}
+
+.icon-silica-aqua{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/saqua_icon_png.png);
+}
+
+.icon-silica-ong{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/song_icon_png.png);
+}
+
+.icon-silica-rh{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/srh_icon_png.png);
+}
+
+.icon-silica-setting{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/ssetting_icon_png.png);
+}
+
+.icon-silica-gest{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/sgest_icon_png.png);
+}
+
+.icon-silica-stoken{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/stoken_icon_png.png);
+}
+
+.icon-silica-omnes{
+    height: var(--icon-silica-width);
+    background-image: url(../_svg/somnes_icon_png.png);
+}
+
+
+.content-icon-silica{
+    text-decoration: none;
+    text-align: center;
+    margin: 3px;
+    height: fit-content;
+}
+
+.content-icon-silica:hover{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+.text-icon-silica{
+    display: block;
+    color: black;
+    font-size: xx-small;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#divMenuSilicaUniverse{
+    background-color: gainsboro; 
+    text-align: center; 
+    border-radius: 20px;
+}
+
+[class*="icon-silica"]{
+    display: block;
+    width: var(--icon-silica-width);
+    border-radius: 50%;
+    background-size: var(--icon-silica-width) auto;
+    background-repeat: no-repeat; 
+}
+
