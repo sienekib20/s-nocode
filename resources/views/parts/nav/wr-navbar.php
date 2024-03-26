@@ -56,7 +56,7 @@ use Sienekib\Mehael\Support\Auth; ?>
                     <?php $path = '/' . explode('/', ltrim(request()->path(), '/'))[0] ?>
                     <input type="hidden" id="user-id" value="<?= Auth::user()->id ?>">
                     <div class="wr-navbar-item" style="white-space: nowrap; background-color: transparent;">
-                        <a href="<?= route('dash') ?>" id="myDash" class="wr-navbar-link <?= $path == '/dash' ? 'active' : '' ?>">
+                        <a href="<?= route('user') ?>" id="myDash" class="wr-navbar-link <?= $path == '/dash' ? 'active' : '' ?>">
                             <p>Meu dashboard</p>
                         </a>
                     </div>
@@ -93,7 +93,7 @@ use Sienekib\Mehael\Support\Auth; ?>
             },
             success: function(res) {
                 $.each(res, (key, val) => {
-                    var uuid = res.uuid.split('-')[0];
+                    var uuid = res.uuid.split('-')[3];
                     var a = document.querySelector('#myDash')
                     a.href = a.href + `/${uuid}/view`;
                 });

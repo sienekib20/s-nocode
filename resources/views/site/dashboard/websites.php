@@ -79,14 +79,17 @@
                                             <small>Selecionar ítem</small>
                                         </label>
                                         <input type="hidden" id="website-dominio-<?= $d->temp_parceiro_id ?>" value="<?= $d->dominio ?>">
-                                        <span class="card-heading"><?= $d->dominio ?>.silicapages.com</span>
+                                        
+                                        <!--<span class="card-heading"><?= $d->dominio ?>.silicapages.com</span>-->
+                                        <span class="card-heading">site.ao/my/<?= $d->dominio ?></span>
+
                                         <span>Website em execução</span>
                                         <small class="text-muted d-block">
                                             Data adesão: <?= $d->created_at ?> | Válido por 30 dias
                                         </small>
                                         <small class="text-muted d-block op-0">a</small>
                                         <div class="d-flex">
-                                            <a href="<?= route('live', $d->referencia) ?>" class="d-flex  text-black text-underline dash-website-action" target="_blank">
+                                            <a href="<?= route('my', $d->dominio) ?>" class="d-flex  text-black text-underline dash-website-action" target="_blank">
                                                 <small style="pointer-events: none">Ver</small>
                                             </a>
                                             <a href="#" class="d-flex ml-4 text-black text-underline dash-website-action">

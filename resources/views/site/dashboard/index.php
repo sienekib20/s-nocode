@@ -74,7 +74,7 @@
                                 <span>Websites registados na sua conta.</span>
                                 <small class="text-muted d-block">De momento podes ter até 2 templates no máximo.</small>
                                 <input type="hidden" id="___" value="<?= Auth::user()->id ?>">
-                                <a href="<?= route('dash') ?>" class="d-flex w-100 mt-2 text-black text-underline dash-llink"> <small>Ver agora</small></a>
+                                <a href="<?= route('user') ?>" class="d-flex w-100 mt-2 text-black text-underline dash-llink"> <small>Ver agora</small></a>
                             </div>
                         </div>
                         <div class="col-lg-4 my-4 my-lg-0">
@@ -82,7 +82,7 @@
                                 <span class="card-heading">Tens no total 0</span>
                                 <span>Encomendas feita por você.</span>
                                 <small class="text-muted d-block op-0">a</small>
-                                <a href="<?= route('dash') ?>" class="d-flex w-100 mt-2 text-black text-underline dash-llink"> <small>Ver agora</small></a>
+                                <a href="<?= route('user') ?>" class="d-flex w-100 mt-2 text-black text-underline dash-llink"> <small>Ver agora</small></a>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -166,7 +166,7 @@
             },
             success: function(res) {
                 $.each(res, (key, val) => {
-                    var uuid = res.uuid.split('-')[0];
+                    var uuid = res.uuid.split('-')[3];
                     var a = document.querySelector('#myDash')
                     $('.dash-llink').each(function() {
                         var href = $(this).attr('href');

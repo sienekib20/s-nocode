@@ -170,11 +170,29 @@ if (!function_exists('__template')) :
 
 endif;
 
+if (!function_exists('__delivered')) :
+
+    function __delivered(string $path = '')
+    {
+        return '/delivered/' . ltrim($path, '/');
+    }
+
+endif;
+
 if (!function_exists('__template_path')) :
 
     function __template_path(string $path = '')
     {
         return abs_path() .  '/public/templates/' . ltrim($path, '/');
+    }
+
+endif;
+
+if (!function_exists('__delivered_path')) :
+
+    function __delivered_path(string $path = '')
+    {
+        return abs_path() .  '/public/delivered/' . ltrim($path, '/');
     }
 
 endif;

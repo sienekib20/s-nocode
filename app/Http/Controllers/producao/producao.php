@@ -26,6 +26,18 @@ class producao extends Controller
         return view($request->dominio . ':site.producao', compact('data'));
     }
 
+    public function load(Request $request)
+    {
+        $site = '';
+
+        if (file_exists(__delivered_path($request->name))) {
+            $site = $request->name;
+            return view($request->name . ':site.producao.live', compact('site'));
+        }
+
+        return redirect()->route('/', true);
+    }
+
     // Cria um registo na DB
 
     public function store(Request $request)

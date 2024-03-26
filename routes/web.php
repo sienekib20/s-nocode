@@ -107,6 +107,16 @@ Route::prefix('user')->group('auth:authorize', function () {
     Route::get('/{id}/notificao', [silica::class, 'notificao']);
     Route::post('/send_demand', [silica::class, 'enviar_demanda']);
 });
+
+
+// Carregar template
+Route::get('/my/{name}', [producao::class, 'load']);
+
+
+
+
+
+
 Route::post('/userId', [silica::class, 'get_user_uuid']);
 Route::post('/introMail', [contacts::class, 'intro_mail']);
 Route::post('/ownMail', [contacts::class, 'own_mail']);

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?= asset('css/style/style.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/frequent.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/navbar.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/wr-popup.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap-icons.css') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,8 +25,10 @@
 
 <body>
 
+    
     <div class="wrapper">
         <?= parts('nav.wr-navbar') ?>
+        <?= parts('browse.favorite-popup') ?>
 
         <small class="d-flex my-5"></small>
 
