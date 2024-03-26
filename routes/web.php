@@ -113,7 +113,7 @@ Route::prefix('user')->group('auth:authorize', function () {
 
 // Carregar template
 Route::get('/my/{name}', [producao::class, 'load']);
-
+Route::post('/save/leads', [producao::class, 'save_leads']);
 
 
 

@@ -1,4 +1,6 @@
-<?php use Sienekib\Mehael\Support\Auth; ?>
+<?php
+
+use Sienekib\Mehael\Support\Auth; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,8 +81,9 @@
                         </div>
                         <div class="col-lg-4 my-4 my-lg-0">
                             <div class="dashitem-info pb-4">
-                                <span class="card-heading">Tens no total 0</span>
-                                <span>Encomendas feita por você.</span>
+                                <?php $lead = $leads->total; ?>
+                                <span class="card-heading">Tens no total <?= $lead < 9 ? "0{$lead}" : $lead ?></span>
+                                <span>Mensagens dos seus clientes.</span>
                                 <small class="text-muted d-block op-0">a</small>
                                 <a href="<?= route('user') ?>" class="d-flex w-100 mt-2 text-black text-underline dash-llink"> <small>Ver agora</small></a>
                             </div>
@@ -155,7 +158,7 @@
 <script>
     applyDarkNavbar();
     $(document).ready(() => {
-        var menu = ['websites', 'encomendas'];
+        var menu = ['websites', 'campanhas'];
         var iterator = 0;
         $.ajax({
             url: '/userId',

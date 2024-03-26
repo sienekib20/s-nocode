@@ -92,6 +92,28 @@ if (!function_exists('redirect')) :
     }
 endif;
 
+if (!function_exists('estimated_time')) :
+    function estimated_time($timestamp)
+    {
+        $agora = time();
+        $tempo_decorrido = $agora - $timestamp;
+
+        if ($tempo_decorrido < 60) {
+            return 'enviado agora';
+        } elseif ($tempo_decorrido < 3600) {
+            $minutos = round($tempo_decorrido / 60);
+            return "enviado há $minutos minuto(s)";
+        } elseif ($tempo_decorrido < 86400) {
+            $horas = round($tempo_decorrido / 3600);
+            return "enviado há $horas hora(s)";
+        } else {
+            $dias = round($tempo_decorrido / 86400);
+            return "enviado há $dias dia(s)";
+        }
+    }
+endif;
+
+
 if (!function_exists('response')) :
     function response()
     {

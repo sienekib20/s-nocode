@@ -68,34 +68,43 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="smslead">
-                                <div class="sms-basic">
-                                    <div class="remeter">
-                                        <span class="client">C</span>
-                                        <div class="name">
-                                            <span>Fulano de tal</span>
-                                            <small class="d-block">c@dominio.com | 9xx xxx xxx</small>
-                                            <small class="text-muted">enviado aos 01 de Março | 17h</small>
+                            <?php if (!empty($campanhas)) : ?>
+                                <?php foreach ($campanhas as $lead) : ?>
+                                    <div class="smslead">
+                                        <div class="sms-basic">
+                                            <div class="remeter">
+                                                <span class="client"><?= ucfirst($lead->username[0]) ?></span>
+                                                <div class="name">
+                                                    <span><?= $lead->username ?></span>
+                                                    <small class="d-block"><?= $lead->email ?> | <?= $lead->telefone ?></small>
+                                                    <?php
+                                                        $time = strtotime($lead->created_at);
+                                                    ?>
+                                                    <small class="text-muted"><?= estimated_time($time) ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="contain">
+                                                <p><?= $lead->mensagem ?></p>
+                                                <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
+                                                <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="contain">
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, est fugit. Autem, praesentium quos pariatur numquam ipsum debitis distinctio officiis ratione dolorem nemo! Labore, iure.</p>
-                                        <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
-                                        <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
-                                    </div>
-                                </div>
-                                <div class="sms-replications">
-                                    <form action="" class="pb-4" method="post">
-                                        <div class="input-group">
-                                            <input type="text" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
-                                        </div>
-                                        <div class="input-group">
-                                            <button type="submit" class="btn btn-orange">Enviar</button>
-                                        </div>
-                                    </form>
+                                        <div class="sms-replications">
+                                            <form action="" class="pb-4" method="post">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
+                                                </div>
+                                                <div class="input-group">
+                                                    <button type="submit" class="btn btn-orange">Enviar</button>
+                                                </div>
+                                            </form>
 
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <span class="card-heading">Sem mensagem de momento!</span>   
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

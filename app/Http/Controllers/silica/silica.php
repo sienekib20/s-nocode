@@ -17,8 +17,8 @@ class silica extends Controller
             ->select('count(template_id) as total')
             ->where('parceiro_id', '=', $id)->get()[0];
 
-        $leads = DB::table('mensagens')
-            ->select('count(mensagen_id) as total')
+        $leads = DB::table('leads')
+            ->select('count(lead_id) as total')
             ->where('conta_id', '=', $id)->get()[0];
 
         $subscricoes = 0;
@@ -57,8 +57,11 @@ class silica extends Controller
 
     public function campanhas()
     {
-        return view('Campanhas:site.dashboard.campanhas');
+        $campanhas = DB::table('leads')->where('conta_id', '=', Auth::user()->id)->get();
+
+        return view('Campanhas:site.dashboard.campanhas', compact('campanhas'));
     }
+
 
     public function campanhas_mail()
     {
@@ -81,7 +84,8 @@ class silica extends Controller
 
     public function enviar_demanda(Request $request)
     {
-        echo json_encode('a');exit;
+        echo json_encode('a');
+        exit;
 
         return response()->json($request->all());
     }
