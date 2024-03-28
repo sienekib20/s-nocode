@@ -24,8 +24,9 @@ class Response
         $this->statusCode = $statusCode;
     }
 
-    public function json(mixed $data)
+    public function json(mixed $data, $status = 200)
     {
+        http_response_code($status);
         $this->setHeader('Content-Type', 'application/json');
         $this->send(json_encode($data, JSON_UNESCAPED_UNICODE));
     }

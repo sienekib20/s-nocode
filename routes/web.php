@@ -114,6 +114,8 @@ Route::prefix('user')->group('auth:authorize', function () {
 // Carregar template
 Route::get('/my/{name}', [producao::class, 'load']);
 Route::post('/save/leads', [producao::class, 'save_leads']);
+Route::post('/answer/leads', [producao::class, 'resposta_lead']);
+Route::post('/remove/leads', [producao::class, 'remover_lead']);
 
 
 

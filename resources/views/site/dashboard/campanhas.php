@@ -78,7 +78,7 @@
                                                     <span><?= $lead->username ?></span>
                                                     <small class="d-block"><?= $lead->email ?> | <?= $lead->telefone ?></small>
                                                     <?php
-                                                        $time = strtotime($lead->created_at);
+                                                    $time = strtotime($lead->created_at);
                                                     ?>
                                                     <small class="text-muted"><?= estimated_time($time) ?></small>
                                                 </div>
@@ -86,13 +86,14 @@
                                             <div class="contain">
                                                 <p><?= $lead->mensagem ?></p>
                                                 <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
-                                                <a href="" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
+                                                <a href="<?= route('remove.leads') ?>" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
                                             </div>
                                         </div>
                                         <div class="sms-replications">
-                                            <form action="" class="pb-4" method="post">
+                                            <form action="<?= route('answer.leads') ?>" class="pb-4" method="post" id="send-response-to">
+                                                <input type="hidden" name="client_mail" value="<?= $lead->email ?>">
                                                 <div class="input-group">
-                                                    <input type="text" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
+                                                    <input type="text" name="mensagem" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
                                                 </div>
                                                 <div class="input-group">
                                                     <button type="submit" class="btn btn-orange">Enviar</button>
@@ -102,8 +103,8 @@
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
-                            <?php else: ?>
-                                <span class="card-heading">Sem mensagem de momento!</span>   
+                            <?php else : ?>
+                                <span class="card-heading">Sem mensagem de momento!</span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -130,6 +131,7 @@
 </html>
 
 <script src="<?= asset('js/choose/index.js') ?>"></script>
+<script src="<?= asset('js/leads/index.js') ?>"></script>
 <script>
     applyDarkNavbar();
     var replyContainer = $('.sms-replications');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\producao;
 use App\Http\Controllers\Controller;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Mailer;
 
 class producao extends Controller
 {
@@ -81,6 +82,20 @@ class producao extends Controller
 
         $this->send_alert_message('Algo deu errado ao enviar a mensagem, tente mais tarde');
         return redirect()->back();
+    }
+
+    public function resposta_lead(Request $request)
+    {
+        // Aqui você pode processar os dados recebidos do formulário
+
+        // Enviar e-mail de resposta
+        $assunto = 'Resposta da plataforma';
+
+        if (Mailer::send($assunto, $request->mensagem, $request->client_mail)) {
+            return response()->json(['message' => 'E-mail enviado com sucesso!']);
+        } else {
+            return response()->json(['message' => 'Erro ao enviar o e-mail'], 500);
+        }
     }
 
     private function send_alert_message($text)
