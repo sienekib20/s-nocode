@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\producao;
 
 use App\Http\Controllers\Controller;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 use Sienekib\Mehael\Http\Request;
 use Sienekib\Mehael\Database\Factory\DB;
+use Sienekib\Mehael\Support\Auth;
 use Sienekib\Mehael\Support\Mailer;
 
 class producao extends Controller
@@ -37,6 +40,17 @@ class producao extends Controller
         }
 
         return redirect()->route('/', true);
+    }
+
+    public function remover_lead(Request $request)
+    {
+        $result = DB::table('leads')->where('lead_id', '=', $request->lead_id)->where('conta_id', '=', $request->account)->delete();
+
+        if (empty($result)) {
+            return response()->json('Eliminado com sucesso', 200);
+        }
+
+        return response()->json('Erro ao tentar eliminar a mensagem tente mais tarde', 500);
     }
 
     public function save_leads(Request $request)
@@ -72,30 +86,46 @@ class producao extends Controller
             ]);
 
             if ($lastInserted) {
-                $this->send_alert_message('Mensagem enviada com sucesso. Em breve receberá a sua resposta!');
-                return redirect()->back();
+                session()->set('response_save_lead', 'Mensagem enviada com sucesso. Em breve receberá a sua resposta!');
+                return view('Bridge:app.site.brigde');
             }
 
-            $this->send_alert_message('Algo deu errado ao enviar a mensagem, tente mais tarde');
-            return redirect()->back();
+            session()->set('response_save_lead', 'Algo deu errado ao enviar a mensagem, tente mais tarde');
+            return view('Bridge:app.site.brigde');
         }
 
-        $this->send_alert_message('Algo deu errado ao enviar a mensagem, tente mais tarde');
-        return redirect()->back();
+        session()->set('response_save_lead', 'Algo deu errado ao enviar a mensagem, tente mais tarde');
+        return view('Bridge:app.site.brigde');
     }
 
     public function resposta_lead(Request $request)
     {
-        // Aqui você pode processar os dados recebidos do formulário
-
         // Enviar e-mail de resposta
-        $assunto = 'Resposta da plataforma';
+        $userMail = 'notificacao@silicaerp.com';
+        $passMail = 'TRP#tk(E,M(b28-';
+        $nameUser = 'GM - Universo Sílica';
 
-        if (Mailer::send($assunto, $request->mensagem, $request->client_mail)) {
-            return response()->json(['message' => 'E-mail enviado com sucesso!']);
-        } else {
-            return response()->json(['message' => 'Erro ao enviar o e-mail'], 500);
+        //$clientMail = 'gme.developers@gmail.com';
+        $clientMail = $request->client_mail;
+        //$clientName = 'GM Empreendimentos';
+        //$currentUserID = Auth::user()->id;
+        $clientName = 'GM Empreendimentos';
+
+        //$Subject = 'Diga nos o teste';
+        $Subject = 'Resposta da plataforma';
+        //$Content = 'Então estamos a verificar se estamos de volta ou nem por isso.';
+        $Content = $request->msg;
+
+        //return response()->json($request->msg);
+
+        if ($request->msg) {
+
+            if (Mailer::send($Subject, $clientMail, $clientName, $Content, $userMail, $passMail, $nameUser)) {
+                return response()->json('E-mail enviado com sucesso!');
+            }
+            return response()->json('Houve um erro ao tentar enviar o e-mail. Tente mais tarde!');
         }
+        return response()->json('O campo mensagem é obrigatório. Por favor escreva alguma coisa para o seu cliente!');
     }
 
     private function send_alert_message($text)

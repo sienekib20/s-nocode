@@ -31,7 +31,11 @@
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
 
-        <?php parts('nav.wr-sidebar') ?>
+        <?php
+
+        use Sienekib\Mehael\Support\Auth;
+
+        parts('nav.wr-sidebar') ?>
 
         <div class="card mb-3">
             <div class="card-top">
@@ -70,10 +74,13 @@
                         <div class="col-12">
                             <?php if (!empty($campanhas)) : ?>
                                 <?php foreach ($campanhas as $lead) : ?>
-                                    <div class="smslead">
+                                    <div class="smslead mt-4">
+                                        <input type="hidden" name="leaduser" value="<?= Auth::user()->id ?>">
                                         <div class="sms-basic">
                                             <div class="remeter">
-                                                <span class="client"><?= ucfirst($lead->username[0]) ?></span>
+                                                <span class="client">
+                                                    <?= ucfirst($lead->username[0]) ?>
+                                                </span>
                                                 <div class="name">
                                                     <span><?= $lead->username ?></span>
                                                     <small class="d-block"><?= $lead->email ?> | <?= $lead->telefone ?></small>
@@ -85,18 +92,19 @@
                                             </div>
                                             <div class="contain">
                                                 <p><?= $lead->mensagem ?></p>
-                                                <a href="" class="btn btn-primary expandReply" title="responder"> <span class="bi bi-reply"></span> </a>
-                                                <a href="<?= route('remove.leads') ?>" class="btn btn-orange removeCurrent" title="remover"> <span class="bi bi-trash"></span></a>
+                                                <a href="" class="btn btn-dark"> <span class="bi bi-arrow-up"></span> marcar como lido</a>
+                                                <a href="" class="btn btn-primary expandReply my-2 my-md-0" title="responder"> <span class="bi bi-reply"></span> responder </a>
+                                                <a href="<?= route('remove.leads') ?>" class="btn btn-orange removeCurrent" target="<?= $lead->lead_id ?>" name="delete-current-msg" title="remover"> <span class="bi bi-trash"></span> remover</a>
                                             </div>
                                         </div>
-                                        <div class="sms-replications">
+                                        <div class="sms-replications px-3">
                                             <form action="<?= route('answer.leads') ?>" class="pb-4" method="post" id="send-response-to">
                                                 <input type="hidden" name="client_mail" value="<?= $lead->email ?>">
                                                 <div class="input-group">
-                                                    <input type="text" name="mensagem" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
+                                                    <input type="text" name="msg" class="form-input input-block" placeholder="Escreve uma respota pra este cliente...">
                                                 </div>
                                                 <div class="input-group">
-                                                    <button type="submit" class="btn btn-orange">Enviar</button>
+                                                    <button type="submit" class="btn btn-orange" style="margin-right: -10px !important;">Enviar</button>
                                                 </div>
                                             </form>
 
@@ -104,7 +112,10 @@
                                     </div>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                <span class="card-heading">Sem mensagem de momento!</span>
+                                <span class="card-heading">
+                                    <span class="bi bi-emoji-frown"></span>
+                                    Estás sem mensagem de momento!
+                                </span>
                             <?php endif; ?>
                         </div>
                     </div>

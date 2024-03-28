@@ -2,6 +2,8 @@
 
 use Sienekib\Mehael\Support\Auth; ?>
 
+<link rel="stylesheet" href="<?= asset('css/modal_popup.css') ?>">
+
 <nav class="wr-navbar">
     <?= parts('nav.wr-loader') ?>
     <div class="container">
@@ -81,6 +83,8 @@ use Sienekib\Mehael\Support\Auth; ?>
 </nav>
 <div class="wr-sidebar-overlay"></div>
 <?= parts('nav.wr-alert') ?>
+<?= parts('labs.alq-popup') ?>
+
 
 <script>
     $(document).ready(() => {
@@ -103,6 +107,14 @@ use Sienekib\Mehael\Support\Auth; ?>
             }
         });
     });
+
+    function load_modal(title, content) {
+        $('.alq-modal').addClass('show');
+        $('.alq-modal #modal-title').text('');
+        $('.alq-modal #modal-title').text(title);
+        $('.alq-modal #explain-content').text('');
+        $('.alq-modal #explain-content').text(content);
+    }
 
     function changeWrNavbar() {
         $(window).on('scroll', (e) => {

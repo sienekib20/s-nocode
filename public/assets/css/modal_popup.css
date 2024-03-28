@@ -1,0 +1,36 @@
+.alq-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 105000001111111111111111111 !important;
+    display: none;
+    overflow: auto;
+    outline: 0; 
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.alq-modal.show {
+    display: block;
+}
+
+.alq-modal-top {
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid transparent;
+}
+
+.alq-modal-contain {
+    border-radius: 4px;
+    padding: 1rem 0;
+}
+
+
+.alq-modal-dark .alq-modal-contain {
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.alq-modal-body {
+    padding: 1.5rem 0 1rem;
+}
