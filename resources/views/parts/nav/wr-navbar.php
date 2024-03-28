@@ -3,6 +3,7 @@
 use Sienekib\Mehael\Support\Auth; ?>
 
 <link rel="stylesheet" href="<?= asset('css/modal_popup.css') ?>">
+<link rel="stylesheet" href="<?= asset('css/wr-auth.css') ?>">
 
 <nav class="wr-navbar">
     <?= parts('nav.wr-loader') ?>
@@ -81,12 +82,39 @@ use Sienekib\Mehael\Support\Auth; ?>
 
 
 </nav>
+<input type="hidden" id="__load__" value="<?= session()->getFlashMessage('__load') ?? null ?>">
 <div class="wr-sidebar-overlay"></div>
+
+<?= parts('auth.login') ?>
+
 <?= parts('nav.wr-alert') ?>
 <?= parts('labs.alq-popup') ?>
 
 
 <script>
+
+    /**
+     * Check if __load 
+     *
+     * And call login popup
+     * 
+     */
+    
+    $(document).ready(function(e) {
+
+        var callLogin = $('#__load__').val();
+        if (callLogin) {
+            $('body').css('overflow', 'hidden');
+            $('.wr-auth-overlay').addClass('active');
+            $('[name="__login__auth__"]').addClass('active');
+        }
+
+    });
+
+
+
+
+
     $(document).ready(() => {
         $.ajax({
             url: '/userId',

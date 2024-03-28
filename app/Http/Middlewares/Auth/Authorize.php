@@ -11,8 +11,11 @@ class Authorize extends BaseMiddleware
     public function handle()
     {
         $request = new Request;
+        
         if (!Session::has('user')) {
+            
             Session::set('__redirect_url', $request->uri());
+
             return redirect()->route('entrar');
         }
     }

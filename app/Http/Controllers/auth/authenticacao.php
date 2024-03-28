@@ -14,7 +14,8 @@ class authenticacao extends Controller
 
     public function login()
     {
-        return view('entrar:site.auth.login');
+        session()->setFlashMessage('__load', true);
+        return redirect()->route('/');
         //return view('entrar:site.silica.user-login');
     }
 
