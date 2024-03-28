@@ -86,5 +86,5 @@
 <script>
     setTimeout(function() {
         window.location.href = '/my/script';
-    }, 2500);
+    }, 2000);
 </script>
