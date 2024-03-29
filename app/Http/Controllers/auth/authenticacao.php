@@ -22,7 +22,6 @@ class authenticacao extends Controller
     public function autenticar(Request $request)
     {
         if (Auth::attempt($request->username, $request->password)) {
-            session()->setFlashMessage('Sucesso', 'Seja bem vindo');
             if (session()->has('__redirect_url')) {
                 $redirect_url = session()->get('__redirect_url');
                 session()->remove('__redirect_url');
@@ -31,10 +30,9 @@ class authenticacao extends Controller
             $user = DB::table('contas')->select('uuid')->where('conta_id', '=', Auth::user()->id)->get()[0];
             $uuid = explode('-', $user->uuid)[3];
             
-            return redirect()->route('user.'.$uuid . '.view');
+            return response()->json(['response' => 1, 'href' => "/user/{$uuid}/view"]);
         }
-        session()->setFlashMessage('erro', 'Dados inválidos');
-        return redirect()->route('entrar');
+        return response()->json(['response' => 'Credenciais inválidas']);
     }
 
     public function register()
@@ -46,14 +44,12 @@ class authenticacao extends Controller
     {
         // Verifica a correspondência de senhas
         if ($request->password !== $request->re_password) {
-            session()->setFlashMessage('erro', 'senha não corresponde');
-            return redirect()->route('register');
+            return response()->json(['response' => 'A senha não corresponde']);
         }
 
         // Verifica se dado campo está vazio
         if ($this->empty([$request->nome, $request->password, $request->telefone, $request->email, $request->re_password, $request->password])) {
-            session()->setFlashMessage('erro', 'Campos obrigatórios');
-            return redirect()->route('register');
+            return response()->json(['response' => 'Por favor, Preencha todos os campos!']);
         }
 
         $pwd = Hash::encrypt($request->password);
@@ -62,8 +58,7 @@ class authenticacao extends Controller
 
         // Verifica se dado usuário existe
         if (!empty($existing)) {
-            session()->setFlashMessage('erro', 'Este nome ou email já foi usado');
-            return redirect()->route('register');
+            return response()->json(['response' => 'Este usuário já existe']);
         }
         $nome_apelido = explode(' ', $request->nome);
         $id = DB::table('contas')->insertId(['uuid' => Uuid::uuid4(), 'nome' => $nome_apelido[0], 'apelido' => $nome_apelido[1] ?? '', 'telefone' => $request->telefone, 'email' => $request->email, 'senha' => $pwd, 'tipo_conta_id' => 1]);
@@ -72,12 +67,10 @@ class authenticacao extends Controller
             DB::table('parceiros')->insert([
                 'conta_id' => $id
             ]);
-            session()->setFlashMessage('success', 'Cadastro feito com sucesso');
-            return redirect()->route('entrar');
+            return response()->json(['response' => 1]);
         }
 
-        session()->setFlashMessage('erro', 'Algo deu errado, tente mais tarde');
-        return redirect()->route('register');
+        return response()->json(['response' => 'Algo deu errado, tente mais tarde']);
     }
 
     private function empty($arr)

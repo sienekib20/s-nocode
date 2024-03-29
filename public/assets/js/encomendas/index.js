@@ -11,14 +11,17 @@ $(document).ready(function () {
         e.preventDefault();
         const formData = new FormData(e.target);
         $.ajax({
-            url: '/dash/send_demand',
+            url: '/user/send_demand',
             method: 'POST',
             dataType: 'JSON',
             data: formData,
             contentType: false,
             processData: false,
             success: function (res) {
-                console.log(res)
+                make_alert(res.response);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
             },
             error: function (err) {
                 console.log(err)

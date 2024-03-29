@@ -32,7 +32,7 @@ Route::post('/authenticate', [slogin::class, 'index']);
 //Route::get('/entrar', [authenticacao::class, 'login']);
 
 Route::get('/register', [authenticacao::class, 'register']);
-Route::post('/registe', [authenticacao::class, 'user_create']);
+Route::post('/register', [authenticacao::class, 'user_create']);
 Route::get('/logout', [authenticacao::class, 'destroy']);
 
 

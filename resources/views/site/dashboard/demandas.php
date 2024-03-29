@@ -69,18 +69,18 @@
                             <small class="text-muted d-block mb-4">Precisamos dessas informações para atender ao teu pedido.</small>
                             <form action="<?= route('send_demand') ?>" class="row" method="post" id="form-encomenda">
                                 <div class="input-group col-md-6">
-                                    <input type="text" name="subject" class="form-input input-orange" placeholder="Sujeito" id="Subject">
+                                    <input type="text" name="sujeito" class="form-input input-orange" placeholder="Sujeito" id="Subject" required>
                                 </div>
                                 <div class="input-group col-md-6 mt-5 mt-md-0">
-                                    <select name="who" class="form-select">
+                                    <select name="alvo" class="form-select input-orange" required>
                                         <option value="">Quem vai usar?</option>
-                                        <option value="">Apenas eu</option>
-                                        <option value="">A minha empresa</option>
-                                        <option value="">Um número reduzido de pessoas</option>
+                                        <option value="Apenas eu">Apenas eu</option>
+                                        <option value="A minha empresa">A minha empresa</option>
+                                        <option value="Um número reduzido">Um número reduzido de pessoas</option>
                                     </select>
                                 </div>
                                 <div class="input-group col-md-3 mt-5">
-                                    <select name="tipo_template" class="form-select input-orange">
+                                    <select name="tipo_template" class="form-select input-orange" required>
                                         <option value="">Tipo de website</option>
                                         <?php foreach ($tipo as $t) : ?>
                                             <option value="<?= $t->tipo_template_id ?>"><?= $t->tipo_template ?></option>
@@ -93,7 +93,7 @@
                                 </div>
 
                                 <div class="input-group col-md-3 mt-5">
-                                    <select name="categoria_template" class="form-select input-orange">
+                                    <select name="categoria_template" class="form-select input-orange" required>
                                         <option value="">Categoria website</option>
                                         <?php foreach ($categorias as $c) :  ?>
                                             <option value="<?= $c->categoria_id ?>"><?= $c->categoria ?></option>
@@ -109,17 +109,17 @@
                                 <div class="input-group col-md-3 mt-5">
                                     <select name="tempo_estimado" class="form-select input-orange">
                                         <option value="">Tempo estimado</option>
-                                        <option value="">Daqui há 1 mês</option>
-                                        <option value="">Daqui há 3 mês</option>
-                                        <option value="">Daqui há 6 mês</option>
-                                        <option value="">Tempo indeterminado</option>
+                                        <option value="1 mês">Daqui há 1 mês</option>
+                                        <option value="3 mêses">Daqui há 3 mês</option>
+                                        <option value="6 mêses">Daqui há 6 mês</option>
+                                        <option value="Indeterminado">Tempo indeterminado</option>
                                     </select>
                                 </div>
                                 <div class="input-group col-md-3 mt-5">
                                     <input type="text" name="manual_estimated" class="form-input input-orange" placeholder="Prefiro informar o tempo">
                                 </div>
                                 <div class="input-group col-md-6 mt-5">
-                                    <select name="urgencia" class="form-select input-orange">
+                                    <select name="urgencia" class="form-select input-orange" required>
                                         <option value="">Nível de urgência</option>
                                         <?php foreach ($urgencias as $u) : ?>
                                             <option value="<?= $u->urgencia_id ?>"><?= $u->urgencia ?></option>
@@ -133,7 +133,7 @@
                                     <input type="text" name="total_price" class="form-input input-orange" id="total_price" placeholder="0.00KZ" readonly>
                                 </div>
                                 <div class="input-group col-md-6 mt-5">
-                                    <textarea name="descricao" class="form-input input-orange" rows="" placeholder="Descrição"></textarea>
+                                    <textarea name="descricao" class="form-input input-orange" rows="" placeholder="Descrição" required></textarea>
                                 </div>
                                 <div class="input-group col-md-6 col-lg-3 mt-5">
                                     <button type="submit" class="btn btn-orange btn-block" id="_send_demand_">Enviar Solicitação</button>

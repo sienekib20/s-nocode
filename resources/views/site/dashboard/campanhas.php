@@ -31,11 +31,7 @@
         <small class="d-flex my-4"></small>
         <small class="d-flex my-4"></small>
 
-        <?php
-
-        use Sienekib\Mehael\Support\Auth;
-
-        parts('nav.wr-sidebar') ?>
+        <?php use Sienekib\Mehael\Support\Auth; parts('nav.wr-sidebar') ?>
 
         <div class="card mb-3">
             <div class="card-top">

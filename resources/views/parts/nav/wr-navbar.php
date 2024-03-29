@@ -86,6 +86,7 @@ use Sienekib\Mehael\Support\Auth; ?>
 <div class="wr-sidebar-overlay"></div>
 
 <?= parts('auth.login') ?>
+<?= parts('auth.register') ?>
 
 <?= parts('nav.wr-alert') ?>
 <?= parts('labs.alq-popup') ?>
@@ -104,12 +105,26 @@ use Sienekib\Mehael\Support\Auth; ?>
 
         var callLogin = $('#__load__').val();
         if (callLogin) {
-            $('body').css('overflow', 'hidden');
-            $('.wr-auth-overlay').addClass('active');
-            $('[name="__login__auth__"]').addClass('active');
+            call_auth_aside('[name="__login__auth__"]');
         }
 
+        $('[name="call-account-reg"]').click(function(e) {
+            e.preventDefault();
+            call_auth_aside('[name="__register__auth__"]')
+        });
+
+        $('[name="call-account-log"]').click(function(e) {
+            e.preventDefault();
+            call_auth_aside('[name="__login__auth__"]')
+        });
+
     });
+
+    function call_auth_aside(selector) {
+        $('body').css('overflow', 'hidden');
+        $('.wr-auth-overlay').addClass('active');
+        $(selector).addClass('active');
+    }
 
 
 

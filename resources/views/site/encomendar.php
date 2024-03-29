@@ -75,7 +75,7 @@
             </div> <!--/.card-top-->
             <div class="card-body mt-3">
                 <div class="container-sm">
-                    <form action="" method="POST" class="w-100">
+                    <form action="" id="demand-form" method="POST" class="w-100">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

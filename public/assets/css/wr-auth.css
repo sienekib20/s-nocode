@@ -1,3 +1,17 @@
+.form-input::-moz-selection {
+    background-color: red !important;
+}
+
+.form-input::-webkit-selection {
+    background-color: red !important;
+}
+
+input[type="password"] {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+
 .form-input::select {
     background-color: #fb6e00 !important;
 }
@@ -47,13 +61,13 @@
 }
 
 .form-input {
-    color: #fff !important;
+    /*color: #fff !important;*/
     background-color: transparent !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
+    /*border-color: rgba(255, 255, 255, 0.5) !important;*/
     border-radius: 1px !important;
 }
 
 .input-orange:focus {
-    color: #fff !important;
-    border-color: #fb6e00 !important;
+    /*color: #fff !important;*/
+    /*border-color: #fb6e00 !important;*/
 }

@@ -84,9 +84,25 @@ class silica extends Controller
 
     public function enviar_demanda(Request $request)
     {
-        echo json_encode('a');
-        exit;
+        if ($request->sujeito == "" || $request->alvo == "") {
+            return response()->json(['response' => 'campos obrigatórios, preencha']);
+        }
 
-        return response()->json($request->all());
+        $estimated = $request->manual_estimated ?? "";
+        $prazo = $request->tempo_estimado ? $request->tempo_estimado : $estimated;
+
+        if ($prazo == "") {
+            return response()->json(['response' => 'campos obrigatórios, preencha']);
+        }
+
+        $id = Auth::user()->id;
+
+        $lastId = DB::table('pedidos_clientes')->insertId(['expediente' => $id, 'sujeito' => $request->sujeito, 'alvo' => $request->alvo, 'tipo_template_id' => $request->tipo_template, 'categoria_id' => $request->categoria_template, 'prazo' => $prazo, 'preco' => $request->total_price, 'urgencia_id' => $request->urgencia, 'descricao' => $request->descricao]);
+
+        if ($lastId) {
+            return response()->json(['response' => 'Enviado com sucesso!']);
+        }
+
+        return response()->json(['response' => 'Algo deu errado!']);        
     }
 }
